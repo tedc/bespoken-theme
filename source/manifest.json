@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+       "scripts/main.js"
+      ],
+      "bower" : [],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "bower" : ["normalize-scss"],
+      "main": true
+    }
+  },
+  "config": {
+    "devUrl": "http://beta.bspkn.it"
+  },
+  "paths": {
+    "dist": "assets/",
+    "source": "source/"
+  }
+}
