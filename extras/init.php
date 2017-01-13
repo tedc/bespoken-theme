@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: RiMaStInO
- * Date: 13/01/2017
- * Time: 10:20
- */
 	$extra_includes = [
         'extras/scripts.php',
-        'extras/styles.php',
         'extras/setup.php',
         'extras/utils.php',
     ];
