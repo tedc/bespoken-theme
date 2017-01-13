@@ -1,1 +1,156 @@
+@function rem($px, $base: $base_font_size) {
+    @return ($px / $base) * 1rem;
+}
 
+@function em($px, $base: $base_font_size) {
+    @return ($px / $base) * 1em;
+}
+
+@function vw($target, $vp) {
+    $vw-context: ($vp*.01) * 1px;
+    @return ($target/$vw-context) * 1vw;
+}
+
+@function vh($target, $vp : 768x) {
+    $vw-context: ($vp*.01) * 1px;
+    @return ($target/$vw-context) * 1vh;
+}
+
+@function vmax($target) {
+    $vw-context: (1440*.01) * 1px;
+    @return ($target/$vw-context) * 1vmax;
+}
+
+@mixin clearfix {
+    zoom: 1;
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin breakpoint($point, $min : true) {
+    $min_or_max : null;
+    @if $min {
+        $min_or_max : "min";
+    } @else {
+        $min_or_max : "max";
+    }
+    @media screen and (#{$min_or_max}-width: #{em($point, 16px)}) {
+        @content;
+    }
+}
+
+@mixin grid($max, $points : $bp, $flex : true, $wrap : true) {
+
+    [class^="grid"], [class*=" grid"] {
+        padding: {
+            left: em(10px);
+            right: em(10px);
+        }
+        @include breakpoint(640px){
+            padding: {
+                left: em(20px);
+                right: em(20px);
+            }
+        }
+        @include breakpoint($bp){
+            padding: {
+                left: em(40px);
+                right: em(40px);
+            }
+        }
+        @if $flex {
+            display: flex;
+            @if $wrap {
+                flex-wrap: wrap;
+            }
+        } @else {
+            @include clearfix();
+        }
+        [class^="col"], [class*=" col"] {
+            position: relative;
+            @if $flex {
+                flex: 0 0 auto;
+            } @else {
+                @include breakpoint($points) {
+                    float: left;
+                }
+            }
+            width: 100%;
+            @include breakpoint($bp){
+                padding: {
+                    left: em(40px);
+                    right: em(40px);
+                }
+            }
+        }
+    }
+    @if $flex {
+        .grid-#{$max} {
+            @for $i from 1 through $max - 1 {
+                @include breakpoint($points) {
+                    .col-#{$i} {
+                        width: percentage($i/$max);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin absfull() {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: $f;
+    height: $f;
+}
+
+@mixin fixfull() {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $f;
+    height: $f;
+}
+
+@mixin hidden($isHidden : true, $onlyTrans : false) {
+    transition: {
+        property: visibility, opacity;
+        duration: $speed;
+    }
+    @if not $onlyTrans{
+        @if $isHidden {
+            visibility: hidden;
+            opacity: 0;
+        } @else {
+            visibility: visible;
+            opacity: 1;
+            transition-duration: $speed/2;
+        }
+    }
+}
+
+@mixin normalize_padding {
+    padding: {
+        left: em(15px);
+        right: em(15px);
+    }
+    @include breakpoint(640px){
+        padding: {
+            left: em(20px);
+            right: em(20px);
+        }
+    }
+    @include breakpoint($bp){
+        padding: {
+            left: em(40px);
+            right: em(40px);
+        }
+    }
+}
