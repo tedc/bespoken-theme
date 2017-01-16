@@ -1,3 +1,1 @@
-<?php if(get_field('slideshow')) : ?>
-
-<?php endif ?>
+<div class="slideshow"></div>
