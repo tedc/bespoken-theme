@@ -1,4 +1,3 @@
-<header class="banner">
   <a class="logo icon-logo" href="<?= esc_url(home_url('/')); ?>">
   </a>
   <div class="menu-container">
@@ -13,4 +12,3 @@
     </a>
     <?php /*icl_selector(); */?>
   </div>
-</header>
