@@ -9,7 +9,6 @@
         height: em(70px);
         display: flex;
         align-items: center;
-        @include normalize_padding;
         &-text {
             font-size: em(13px);
         }
