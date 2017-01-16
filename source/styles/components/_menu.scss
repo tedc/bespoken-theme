@@ -1,53 +1,35 @@
-.banner {
-    height: em(70px);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: $f;
-    z-index: 9999;
-    background-color: $w;
-    display: flex;
-    justify-content: space-between;
-    text-transform: uppercase;
-    a {
-        color: $w;
-        &:hover {
 
-        }
+.btn-header {
+    height: em(70px);
+    display: flex;
+    align-items: center;
+    @include normalize_padding;
+    &-text {
+        font-size: em(13px);
     }
-    .btn-header {
-        height: em(70px);
-        display: flex;
-        align-items: center;
-        @include normalize_padding;
-        &-text {
-            font-size: em(13px);
+    &.btn-menu {
+        position: relative;
+        z-index: 9999;
+        .btn-header-text {
+            transition: color $speed, transform $speed;
         }
-        &.btn-menu {
-            position: relative;
-            z-index: 9999;
-            .btn-header-text {
-                transition: color $speed, transform $speed;
-            }
-            &:hover {
-                .toggle {
-                    .toggle-line {
-                        &:nth-child(1), &:nth-child(3) {
-                            transform: scaleX(0.7) translateZ(0);
-                        }
+        &:hover {
+            .toggle {
+                .toggle-line {
+                    &:nth-child(1), &:nth-child(3) {
+                        transform: scaleX(0.7) translateZ(0);
                     }
                 }
             }
-            &.active {
-                .btn-header-text {
-                    color: transparent;
-                    transform: translate3d(-20px, 0, 0);
-                }
+        }
+        &.active {
+            .btn-header-text {
+                color: transparent;
+                transform: translate3d(-20px, 0, 0);
             }
         }
     }
 }
-
 
 .toggle {
     width: em(20px);
@@ -89,7 +71,7 @@
         &:before {
             opacity: 1;
             visibility: visible;
-            color: $gray!important;
+            color: $gray !important;
             transform: translate3d(0px, -50%, 0);
         }
         .toggle-line {
