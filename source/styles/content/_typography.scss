@@ -67,12 +67,14 @@ h5 {
 .title {
     .siamo & {
         font-weight: 100;
+        line-height: $interline-title;
     }
 }
 .subtitle {
     .siamo & {
         font-size: em(72px);
         font-weight: bold;
+        line-height: $interline-title;
     }
 }
 
