@@ -5,13 +5,14 @@
 }
 
 
-    .btn-header {
-        height: em(70px);
+    .btn-menu {
+        height: em(40px);
         display: flex;
         align-items: center;
         color: $w;
+        top: em(40px);
         &-text {
-            font-size: em(14px);
+            font-size: em(18px);
             padding-right: em(20px, 14px);
             text-transform: uppercase;
         }
@@ -20,14 +21,14 @@
             top: 0;
             right: 0;
             z-index: 9999;
-            .btn-header-text {
+            .btn-menu-text {
                 transition: color $speed, transform $speed;
             }
             &:hover {
 
             }
             &.active {
-                .btn-header-text {
+                .btn-menu-text {
                     color: transparent;
                     transform: translate3d(-20px, 0, 0);
                 }
