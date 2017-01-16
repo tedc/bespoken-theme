@@ -1,7 +1,7 @@
 .logo {
     position: absolute;
     left: 0;
-    top: 0;
+    top: em(20px);
 }
 
 .btn-menu {
@@ -17,6 +17,7 @@
         font-size: em(18px);
         padding-right: em(20px, 18px);
         text-transform: uppercase;
+        font-weight: bold;
     }
 
     .btn-menu-text {
