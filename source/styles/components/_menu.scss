@@ -1,0 +1,124 @@
+.banner {
+    height: em(70px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: $f;
+    z-index: 9999;
+    background-color: $w;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    a {
+        color: $w;
+        &:hover {
+
+        }
+    }
+    .btn-header {
+        height: em(70px);
+        display: flex;
+        align-items: center;
+        @include normalize_padding;
+        &-text {
+            font-size: em(13px);
+        }
+        &.btn-menu {
+            position: relative;
+            z-index: 9999;
+            .btn-header-text {
+                transition: color $speed, transform $speed;
+            }
+            &:hover {
+                .toggle {
+                    .toggle-line {
+                        &:nth-child(1), &:nth-child(3) {
+                            transform: scaleX(0.7) translateZ(0);
+                        }
+                    }
+                }
+            }
+            &.active {
+                .btn-header-text {
+                    color: transparent;
+                    transform: translate3d(-20px, 0, 0);
+                }
+            }
+        }
+    }
+}
+
+
+.toggle {
+    width: em(20px);
+    height: em(16px);
+    margin-left: 10px;
+    &:before {
+        position: absolute;
+        left: em(10px, 12px);
+        font-size: em(12px);
+        @include breakpoint(640px) {
+            left: em(20px, 12px);
+        }
+        @include breakpoint(640px) {
+            left: em(40px, 12px);
+        }
+        top: 50%;
+        transform: translate3d(-20px, -50%, 0);
+        visibility: hidden;
+        opacity: 0;
+        content: attr(data-close);
+        transition: opacity $speed, visibility $speed, transform $speed;
+    }
+    .toggle-line {
+        display: block;
+        height: em(4px);
+        margin-bottom: em(2px);
+        background-color: $w;
+        &:nth-child(1), &:nth-child(3) {
+            transition: transform $speed;
+        }
+        &:nth-child(2) {
+            transition: opacity $speed;
+        }
+        &:nth-child(3) {
+            margin-bottom: 0;
+        }
+    }
+    .active & {
+        &:before {
+            opacity: 1;
+            visibility: visible;
+            color: $gray!important;
+            transform: translate3d(0px, -50%, 0);
+        }
+        .toggle-line {
+            &:nth-child(1), &:nth-child(3) {
+                animation-duration: $speed;
+                animation-fill-mode: forwards;
+                animation-direction: initial;
+                transition: none;
+            }
+            &:nth-child(1) {
+                animation-name: lineTop;
+            }
+            &:nth-child(3) {
+                animation-name: lineBottom;
+            }
+            &:nth-child(2) {
+                opacity: 0;
+                transition-delay: $speed/2;
+            }
+        }
+    }
+    .active:hover & {
+        .toggle-line {
+            &:nth-child(1) {
+                animation-name: lineActiveTop;
+            }
+            &:nth-child(3) {
+                animation-name: lineActiveBottom;
+            }
+        }
+    }
+}
