@@ -58,4 +58,10 @@ h5 {
     font-size: em(20px);
 }
 
+.title, .subtitle {
+    position: relative;
+    background-color: $w;
+    text-align: center;
+}
+
 
