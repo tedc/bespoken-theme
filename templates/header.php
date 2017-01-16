@@ -1,4 +1,3 @@
-<header class="total-header">
 <header class="banner">
   <a class="logo icon-logo" href="<?= esc_url(home_url('/')); ?>">
   </a>
@@ -12,6 +11,6 @@
 				<span class="toggle-line"></span>
 			</span>
     </a>
-    <?php icl_selector(); ?>
+    <?php /*icl_selector(); */?>
   </div>
 </header>
