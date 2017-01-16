@@ -1,16 +1,139 @@
-// Grid system
-.main {
-  @include make-col-ready();
-  @include media-breakpoint-up(sm) {
-    @include make-col($main-sm-columns);
-    .sidebar-primary & {
-      @include make-col($main-sm-columns - $sidebar-sm-columns);
+@include grid(12);
+.grid-cols {
+    align-items: center;
+    padding: {
+        left: 0;
+        right: 0;
     }
-  }
+    [class^="col"], [class*=" col"] {
+        padding: {
+            left: 0;
+            right: 0;
+        }
+    }
+    &-full-h {
+        padding: {
+            padding: 0;
+            bottom: em(40px);
+        }
+        @include breakpoint($bp) {
+            padding: {
+                bottom: em(40px)*2;
+            }
+        }
+        [class^="col"], [class*=" col"] {
+            padding: {
+                left: 0;
+                right: 0;
+            }
+            overflow: hidden;
+            position: relative;
+            max-height: calc(100vh - #{em(70px)});
+            &:before {
+                content: '';
+                display: block;
+                padding-top: percentage(800px/1400px);
+            }
+            .video-cover, .figure.full {
+                transform: translate3d(-50%, -50%, 0);
+                @include absfull();
+                top: 50%;
+                left: 50%;
+            }
+            .figure {
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                    width: auto !important;
+                    height: auto !important;
+                    min-height: 100%;
+                    min-width: 100%;
+                }
+            }
+        }
+    }
 }
-.sidebar {
-  @include make-col-ready();
-  @include media-breakpoint-up(sm) {
-    @include make-col($sidebar-sm-columns);
-  }
+
+.row {
+    padding: {
+        top: em(25px);
+        bottom: em(25px);
+    }
+    @include breakpoint(640px) {
+        padding: {
+            top: em(50px);
+            bottom: em(50px);
+        }
+    }
+    &-btm {
+        padding: {
+            bottom: em(25px);
+        }
+        @include breakpoint(640px) {
+            padding: {
+                bottom: em(50px);
+            }
+        }
+    }
+    &-top {
+        padding: {
+            top: em(25px);
+        }
+        @include breakpoint(640px) {
+            padding: {
+                top: em(50px);
+            }
+        }
+    }
+    &-lg {
+        padding: {
+            top: em(25px);
+            bottom: em(25px);
+        }
+        @include breakpoint(640px) {
+            padding: {
+                top: em(50px);
+                bottom: em(50px);
+            }
+        }
+        @include breakpoint($bp) {
+            padding: {
+                top: em(150px);
+                bottom: em(150px);
+            }
+        }
+        &-btm {
+            padding: {
+                bottom: em(25px);
+            }
+            @include breakpoint(640px) {
+                padding: {
+                    bottom: em(50px);
+                }
+            }
+            @include breakpoint($bp) {
+                padding: {
+                    bottom: em(150px);
+                }
+            }
+        }
+        &-top {
+            padding: {
+                top: em(25px);
+            }
+            @include breakpoint(640px) {
+                padding: {
+                    top: em(50px);
+                }
+            }
+            @include breakpoint($bp) {
+                padding: {
+                    top: em(150px);
+                }
+            }
+        }
+    }
 }
+

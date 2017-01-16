@@ -1,0 +1,76 @@
+.btn {
+    cursor: pointer;
+    width: 50px;
+    position: relative;
+    height: 50px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    &-line {
+        position: absolute;
+        top: 50%;
+        left:20%;
+        width: 60%;
+        height: 2px;
+        margin-top: -1px;
+        background-color: white;
+    }
+    &-arrow-up {
+        position: absolute;
+        right: 0;
+        display:block;
+        width: 7px;
+        height: 2px;
+        background-color: white;
+        transform: rotate(45deg);
+        transform-origin: right top;
+    }
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 1px solid white;
+        border-radius: 50%;
+
+    }
+    &-arrow-down {
+        position: absolute;
+        right: 0;
+        display:block;
+        width: 7px;
+        height: 2px;
+        background-color: white;
+        transform: rotate(-45deg);
+        transform-origin: right bottom;
+    }
+
+    &:hover {
+        &:before,  &:after {
+            animation: mymove 2s infinite linear;
+        }
+        &:after {
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+@keyframes mymove {
+    0%   {width: 100%; height: 100%; opacity: 1}
+    50% {width: 200%; height: 200%; opacity: 0}
+    100% {width: 200%; height: 200%; opacity: 0}
+}
+
+
+
+/*
+<div class="btn">
+<span class="btn-line">
+<span class="btn-arrow-up"></span>
+<span class="btn-arrow-down"></span>
+</span>
+</div>*/

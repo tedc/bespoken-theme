@@ -1,0 +1,55 @@
+*, *:after, *:before {
+    box-sizing: border-box !important;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    font-size: $font-size;
+    color: $gray-dark;
+    margin: 0;
+    font-family: $main-font;
+
+    @include breakpoint(640px) {
+        font-size: $font-size - 2px;
+    }
+    @include breakpoint(1024px) {
+        font-size: $font-size;
+    }
+}
+
+a {
+    text-decoration: none;
+    transition: color $speed;
+}
+
+p {
+    margin: 0;
+    font-size: 1em;
+    line-height: $interline-base;
+}
+
+h1 {
+    font-size: em(72px);
+}
+
+h2 {
+    font-size: em(48px);
+}
+
+h3 {
+    font-size: em(36px);
+}
+
+h4 {
+    font-size: em(24px);
+}
+
+h5 {
+    font-size: em(20px);
+}
+
+
