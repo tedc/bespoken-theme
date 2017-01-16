@@ -36,12 +36,13 @@
 
 
 .toggle {
+    background-color: red;
     width: em(50px);
-    height: em(16px);
+    height: 24px;
     .toggle-line {
         display: block;
-        height: em(4px);
-        margin-bottom: em(6px);
+        height: 4px;
+        margin-bottom: 6px;
         background-color: $w;
     }
 }
