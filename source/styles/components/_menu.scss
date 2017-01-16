@@ -5,8 +5,6 @@
 }
 
 .menu-container {
-    @include absfull();
-    right: 0;
     .btn-header {
         height: em(70px);
         display: flex;
@@ -16,7 +14,9 @@
             font-size: em(13px);
         }
         &.btn-menu {
-            position: relative;
+            position: absolute;
+            top: 0;
+            right: 0;
             z-index: 9999;
             .btn-header-text {
                 transition: color $speed, transform $speed;
