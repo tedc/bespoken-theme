@@ -9,6 +9,7 @@
         height: em(70px);
         display: flex;
         align-items: center;
+        color: $w;
         &-text {
             font-size: em(13px);
             font-family: $main-font;
