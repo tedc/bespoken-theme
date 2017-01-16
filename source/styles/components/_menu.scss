@@ -11,7 +11,8 @@
         align-items: center;
         color: $w;
         &-text {
-            font-size: em(13px);
+            font-size: em(14px);
+            padding-right: em(20px, 14px);
         }
         &.btn-menu {
             position: absolute;
@@ -36,7 +37,6 @@
 
 
 .toggle {
-    background-color: red;
     width: em(50px);
     height: 24px;
     .toggle-line {
