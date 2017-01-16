@@ -4,39 +4,29 @@
     top: 0;
 }
 
-
-    .btn-menu {
-        height: em(40px);
-        display: flex;
-        align-items: center;
-        color: $w;
-        top: em(40px);
-        &-text {
-            font-size: em(18px);
-            padding-right: em(20px, 14px);
-            text-transform: uppercase;
-        }
-        &.btn-menu {
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 9999;
-            .btn-menu-text {
-                transition: color $speed, transform $speed;
-            }
-            &:hover {
-
-            }
-            &.active {
-                .btn-menu-text {
-                    color: transparent;
-                    transform: translate3d(-20px, 0, 0);
-                }
-            }
-        }
+.btn-menu {
+    height: em(40px);
+    display: flex;
+    align-items: center;
+    color: $w;
+    top: em(40px);
+    position: absolute;
+    right: 0;
+    z-index: 9999;
+    &-text {
+        font-size: em(18px);
+        padding-right: em(20px, 18px);
+        text-transform: uppercase;
     }
 
+    .btn-menu-text {
+        transition: color $speed, transform $speed;
+    }
+    &:hover {
 
+    }
+
+}
 
 .toggle {
     width: em(50px);
