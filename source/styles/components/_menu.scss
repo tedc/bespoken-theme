@@ -12,7 +12,6 @@
         color: $w;
         &-text {
             font-size: em(13px);
-            font-family: $main-font;
         }
         &.btn-menu {
             position: absolute;
@@ -37,12 +36,12 @@
 
 
 .toggle {
-    width: em(20px);
+    width: em(50px);
     height: em(16px);
     .toggle-line {
         display: block;
         height: em(4px);
-        margin-bottom: em(2px);
+        margin-bottom: em(6px);
         background-color: $w;
     }
 }
