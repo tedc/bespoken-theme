@@ -11,6 +11,7 @@
         align-items: center;
         &-text {
             font-size: em(13px);
+            font-family: $main-font;
         }
         &.btn-menu {
             position: absolute;
