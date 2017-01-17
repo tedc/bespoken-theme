@@ -14,7 +14,7 @@
         break;
 } ?>
 
-<div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?>">
+<div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?> <?php echo get_sub_field('colore_sfondo')?>">
     <?php while(have_rows('contenuto')) : the_row(); ?>
         <?php include(locate_template('builder/contenuto/' . get_row_layout() . '.php', false, false)); ?>
     <?php endwhile; ?>

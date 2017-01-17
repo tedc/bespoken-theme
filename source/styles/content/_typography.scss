@@ -98,3 +98,19 @@ h5 {
 .align-right {
     text-align: right;
 }
+
+.top-v {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.center-v {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bottom-v {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
