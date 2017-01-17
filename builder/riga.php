@@ -2,8 +2,9 @@
 <div class="grid-12">
     <?php while(have_rows('riga')) : the_row(); ?>
         <div class="grid-2">
-            <?php echo get_row_layout() ?>
-            <?php var_dump(get_row_layout()) ?>
+        <?php while(have_rows('colonna')) : the_row(); ?>
+            <?php include(locate_template( get_row_layout().'.php', false, false)); ?>
+        <?php endwhile; ?>
         </div>
     <?php endwhile; ?>
 </div>
