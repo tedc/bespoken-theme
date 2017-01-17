@@ -13,7 +13,7 @@
         $col = '8';
         break;
 } ?>
-<?php $field = get_sub_field_object('color');
+<?php $field = get_sub_field_object('colore_sfondo');
 $value = $field['value'];
 $label = $field['choices'][ $value ]; ?>
 
