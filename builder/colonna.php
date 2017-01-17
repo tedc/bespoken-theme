@@ -2,16 +2,19 @@
 
 <?php switch ($dim) {
     case '1':
-        $perc = (100);
+        $col = '12';
         break;
     case '1/2':
-        $perc = (100 / 2);
+        $col = '6';
         break;
     case '1/3':
-        $perc = ((100 / 3) * 1);
+        $col = '4';
         break;
     case '2/3':
-        $perc = ((100 / 3) * 2);
+        $col = '8';
         break;
 } ?>
-<?php echo $perc ?>
+
+<div class="col-<?php echo $col?>">
+
+</div>
