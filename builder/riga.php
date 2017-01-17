@@ -2,7 +2,7 @@
 <div class="grid-12">
     <?php while(have_rows('riga')) : the_row(); ?>
         <div class="grid-2">
-        <?php get_template_part('builder/colonna') ?>
+            <?php include(locate_template( get_row_layout() . '.php', false, false)); ?>
         </div>
     <?php endwhile; ?>
 </div>
