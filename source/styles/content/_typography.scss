@@ -78,4 +78,15 @@ h5 {
     }
 }
 
-
+.bg-white {
+    background-color: $w;
+}
+.bg-light {
+    background-color: $light;
+}
+.bg-dark {
+    background-color: $gray-dark;
+}
+.bd_gradient {
+    @include gradient();
+}

@@ -1,5 +1,4 @@
 <?php $dim = get_sub_field('dim') ?>
-
 <?php switch ($dim) {
     case '1':
         $col = '12';
@@ -14,6 +13,7 @@
         $col = '8';
         break;
 } ?>
+
 
 <div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?>">
 prova
