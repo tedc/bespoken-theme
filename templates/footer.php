@@ -1,6 +1,6 @@
 <footer class="content-info">
   <section class="intestazione">
-    <span class="intestazione-text">"<?php the_field('intestazione', 'option'); ?></span>
+    <span class="intestazione-text"><?php the_field('intestazione', 'option'); ?></span>
     <a class="link-cookie" href="<?php the_field('link_page_cookie', 'option'); ?>"><?php _e('Cookie e Privacy Policy', 'bspkn')?></a>
   </section>
     <section class="sub-footer">
