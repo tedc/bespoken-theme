@@ -15,6 +15,6 @@
         break;
 } ?>
 
-<div class="col-<?php echo $col?>">
+<div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?>">
 prova
 </div>
