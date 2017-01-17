@@ -6,13 +6,13 @@
     </section>
     <section class="sub-footer bg-gradient">
         <span class="sub-footer-text"><?php the_field('frase_sub_footer', 'option'); ?></span>
-        <div class="btn">
-            <a href="<?php the_field('contact_page', 'option'); ?>">
-                <span class="btn-line">
-                    <span class="btn-arrow-up"></span>
-                    <span class="btn-arrow-down"></span>
-                </span>
-            </a>
-        </div>
+        <a href="<?php the_field('contact_page', 'option'); ?>">
+            <span class="btn">
+                    <span class="btn-line">
+                        <span class="btn-arrow-up"></span>
+                        <span class="btn-arrow-down"></span>
+                    </span>
+            </span>
+        </a>
     </section>
 </footer>
