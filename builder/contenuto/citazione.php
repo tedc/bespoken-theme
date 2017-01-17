@@ -1,3 +1,3 @@
 <blockquote class="quote">
-    <?php get_sub_field('testo') ?>
+    <?php echo get_sub_field('testo') ?>
 </blockquote>
