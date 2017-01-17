@@ -90,3 +90,12 @@ h5 {
 .bg-gradient {
     @include gradient();
 }
+.align-center {
+    text-align: center;
+}
+.align-left {
+    text-align: left;
+}
+.align-right {
+    text-align: right;
+}
