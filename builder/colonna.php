@@ -1,4 +1,5 @@
-<?php $dim == get_sub_field('dim') ?>
+<?php $dim = get_sub_field('dim') ?>
+
 <?php switch ($dim) {
     case '1':
         $perc = (100);
