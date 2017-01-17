@@ -87,6 +87,6 @@ h5 {
 .bg-dark {
     background-color: $gray-dark;
 }
-.bd_gradient {
+.bd-gradient {
     @include gradient();
 }
