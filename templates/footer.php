@@ -5,6 +5,6 @@
   </section>
     <section class="sub-footer">
       <span class="sub-footer-text"><?php the_field('frase_sub_footer', 'option'); ?></span>
-      <a class="btn" href="<?php the_field('contact_page', 'option'); ?>></a>
+      <a class="btn" href="<?php the_field('contact_page', 'option'); ?>"></a>
     </section>
 </footer>
