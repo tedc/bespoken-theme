@@ -13,8 +13,10 @@
         $col = '8';
         break;
 } ?>
-<?php $color = get_sub_field_object('colore_sfondo') ?>
+<?php $field = get_sub_field_object('color');
+$value = $field['value'];
+$label = $field['choices'][ $value ]; ?>
 
-<div class="col-<?php echo $col?> <?php echo $color['label']?>">
+<div class="col-<?php echo $col?> <?php echo $value?> <?php echo $label?>">
 prova
 </div>
