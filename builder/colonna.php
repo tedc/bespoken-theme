@@ -15,5 +15,5 @@
 } ?>
 
 <div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?>">
-prova
+    <?php echo get_row_layout()?>
 </div>
