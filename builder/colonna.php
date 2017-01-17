@@ -15,6 +15,6 @@
 } ?>
 <?php $color = get_sub_field_object('colore_sfondo') ?>
 
-<div class="col-<?php echo $col?> <?php echo $color['value']?>">
+<div class="col-<?php echo $col?> <?php echo $color['label']?>">
 prova
 </div>
