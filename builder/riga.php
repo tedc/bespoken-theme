@@ -3,6 +3,7 @@
     <?php while(have_rows('riga')) : the_row(); ?>
         <div class="grid-2">
         <?php while(have_rows('colonna')) : the_row(); ?>
+            <div class="prova"></div>
             <?php include(locate_template( get_row_layout().'.php', false, false)); ?>
         <?php endwhile; ?>
         </div>
