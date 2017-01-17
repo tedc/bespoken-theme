@@ -1,0 +1,16 @@
+.quote {
+    text-align: center;
+    font-size: em(36px);
+    font-style: italic;
+    .marks {
+        color: $purple;
+    }
+
+}
+
+.bg-gradient .quote {
+    color: $w;
+    .marks {
+        color: $w;
+    }
+}
