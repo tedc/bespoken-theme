@@ -13,10 +13,22 @@
         $col = '8';
         break;
 } ?>
-<?php $field = get_sub_field_object('colore_sfondo');
-$value = $field['value'];
-$label = $field['choices'][ $value ]; ?>
+<?php switch (get_sub_field('colore_sfondo')) {
+    case 'Bianco':
+        $color_bg = 'bg-white';
+        break;
+    case 'Light':
+        $color_bg = 'bg-light';
+        break;
+    case 'Dark':
+        $color_bg = 'bg-dark';
+        break;
+    case 'Gradiente':
+        $color_bg = 'bg-gradient';
+        break;
+} ?>
+<?php $color = get_sub_field('colore_sfondo') ?>
 
-<div class="col-<?php echo $col?> <?php echo $value?> <?php echo $label?>">
+<div class="col-<?php echo $col?> <?php echo $color_bg?>">
 prova
 </div>
