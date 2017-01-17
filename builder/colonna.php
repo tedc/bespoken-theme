@@ -13,22 +13,8 @@
         $col = '8';
         break;
 } ?>
-<?php echo get_sub_field('colore_sfondo') ?>
-<?php switch (get_sub_field('colore_sfondo')) {
-    case 'Bianco':
-        $color_bg = 'bg-white';
-        break;
-    case 'Light':
-        $color_bg = 'bg-light';
-        break;
-    case 'Dark':
-        $color_bg = 'bg-dark';
-        break;
-    case 'Gradiente':
-        $color_bg = 'bg-gradient';
-        break;
-} ?>
 
-<div class="col-<?php echo $col?> <?php echo $color_bg?>">
+
+<div class="col-<?php echo $col?> <?php echo get_sub_field('colore_sfondo')?>">
 prova
 </div>
