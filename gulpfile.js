@@ -16,7 +16,6 @@ var cssNano      = require('gulp-cssnano');
 var plumber      = require('gulp-plumber');
 var rev          = require('gulp-rev');
 var runSequence  = require('run-sequence');
-var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
 var uglify       = require('gulp-uglify');
 var compass      = require('gulp-compass');
@@ -26,6 +25,15 @@ var async        = require('async');
 var consolidate  = require('gulp-consolidate');
 var iconfont     = require('gulp-iconfont');
 var rename       = require('gulp-rename');
+var watchify     = require('watchify');
+var babelify     = require('babelify');
+var async        = require('async');
+var consolidate  = require('gulp-consolidate');
+var buffer       = require('vinyl-buffer');
+var source       = require('vinyl-source-stream');
+var browserify   = require('browserify');
+var coffeeify    = require('coffeeify');
+
 
 // See https://github.com/austinpray/asset-builder
 var manifest = require('asset-builder')('./source/manifest.json');
@@ -193,6 +201,27 @@ gulp.task('styles', ['wiredep'], function() {
         .pipe(writeToManifest('styles'));
 });
 
+
+var b = watchify(browserify(path.source + 'coffee/main.coffee'));
+b.transform(coffeeify)
+  .transform(babelify, { presets : [ 'es2015' ] });
+//.on('update', bundle);
+  
+function bundle(bundler) {
+    return b
+      .bundle()
+      .on('error', function(message) {
+        console.log(message);
+        this.emit('end');
+      })
+      .pipe(source(path.source + 'coffee/main.coffee'))
+      .pipe(buffer())
+      .pipe(rename('scripts/main.js'))
+      .pipe(gulp.dest(path.source));
+}
+gulp.task('browserify', function() {
+  return bundle(b)
+});
 // ### Scripts
 // `gulp scripts` - Runs JSHint then compiles, combines, and optimizes Bower JS
 // and project JS.
