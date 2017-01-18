@@ -26,7 +26,7 @@ $bg_kind = '';
 endif;
 ?>
 
-<div class="col-<?php echo $col ?> <?php echo get_sub_field('colore_sfondo') ?> <?php echo get_sub_field('posizione_verticale') ?> <?php echo get_sub_field('no_padding') ? 'no-padding' : '' ?>"<?php echo (get_sub_field('bg_img') != '') ? ' style="background-image:url(' . $bg_src . ');"' . $bg_kind : '"' ; ?>>
+<div class="col-<?php echo $col ?> <?php echo get_sub_field('colore_sfondo') ?> <?php echo get_sub_field('posizione_verticale') ?> <?php echo get_sub_field('no_padding') ? 'no-padding' : '' ?>"<?php echo (get_sub_field('bg_img') != '') ? ' style="background-image:url(' . $bg_src . ');' . $bg_kind . '"' : '' ; ?>>
     <?php while (have_rows('contenuto')) : the_row(); ?>
         <?php include(locate_template('builder/contenuto/' . get_row_layout() . '.php', false, false)); ?>
     <?php endwhile; ?>
