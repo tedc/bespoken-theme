@@ -13,6 +13,7 @@
         $col = '8';
         break;
 } ?>
+
 <?php $bg_src = get_sub_field('bg_img')['url'] ?>
 
 <?php if (get_sub_field('bg_kind') == 'cover') :

@@ -77,7 +77,7 @@
         }
         [class^="col"], [class*=" col"] {
             position: relative;
-            @include normalize_padding;
+       /*     @include normalize_padding;*/
             @if $flex {
                 flex: 0 0 auto;
             } @else {
