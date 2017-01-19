@@ -17,8 +17,9 @@ endif;
             <?php $images = get_sub_field('galleria_immagini'); ?>
             <?php if ($images): ?>
                 <?php foreach ($images as $image): ?>
-                    <li class="slider-item slider-item-img">
-                        <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>"/>
+                    <li class="slider-item">
+                        <?php var_dump($image);?>
+                        <!--<img src="<?php /*echo $image['sizes']['large']; */?>" alt="<?php /*echo $image['alt']; */?>"/>-->
                     </li>
                 <?php endforeach; ?>
             <?php endif ?>
@@ -26,8 +27,8 @@ endif;
             <?php if (have_rows('galleria_testo')): ?>
                 <?php $n_page = 0;
                 while (have_rows('galleria_testo')) : the_row(); ?>
-                    <li class="slider-item slider-item-txt">
-                        <span class="page"><?php the_sub_field('pagine'); ?></span>
+                    <li class="slider-item">
+                        <?php the_sub_field('pagine'); ?>
                     </li>
                     <?php $n_page++; endwhile ?>
             <?php endif ?>
