@@ -11,8 +11,7 @@ endif;
 <?php if((get_sub_field('titolo') != '')) : ?>
 <h3 class="title"><?php echo get_sub_field('titolo') ?></h3>
 <?php endif ?>
-<div class="container-slider<?php echo $frame ?><?php echo get_sub_field('full') ? ' full' : '' ?>">
-<ul class="slider">
+<ul class="slider<?php echo $frame ?><?php echo get_sub_field('full') ? ' full' : '' ?>">
     <?php if (get_sub_field('tipologia') == 'immagini') : ?>
         <?php $images = get_sub_field('galleria_immagini'); ?>
         <?php if ($images): ?>
@@ -33,4 +32,3 @@ endif;
     <?php endif ?>
     <div class="block-transition"></div>
 </ul>
-</div>
