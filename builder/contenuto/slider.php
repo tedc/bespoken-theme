@@ -1,5 +1,5 @@
 <?php if((get_sub_field('titolo') != '')) : ?>
-<h3 class="title"><?php get_sub_field('titolo') ?></h3>
+<h3 class="title"><?php echo get_sub_field('titolo') ?></h3>
 <?php endif ?>
 <ul class="slider">
     <?php if (get_sub_field('tipologia') == 'immagini') : ?>
