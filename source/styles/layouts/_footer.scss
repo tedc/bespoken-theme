@@ -11,11 +11,13 @@
 
 .cat {
     position: fixed;
+    width: 100%;
     bottom: 0;
     color: $w;
     display: flex;
     align-items: center;
     justify-content: center;
+        @include gradient;
     &-text {
         padding-right: em(15px);
     }
