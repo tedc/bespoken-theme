@@ -1,5 +1,5 @@
 .footer {
-    font-size: em(12px);
+    font-size: 12px;
     padding-top: em(30px, 12px);
     padding-bottom: em(30px, 12px);
     text-align: center;
@@ -10,6 +10,8 @@
 }
 
 .cat {
+    position: fixed;
+    bottom: 0;
     color: $w;
     display: flex;
     align-items: center;
