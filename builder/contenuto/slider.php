@@ -1,7 +1,7 @@
 <?php if (get_sub_field('cornice') == 'cornice') :
-    $frame = 'frame';
+    $frame = ' frame';
 elseif (get_sub_field('cornice') == 'cornice browser'):
-    $frame = 'browser';
+    $frame = ' browser';
 else :
     $frame = '';
 endif;
@@ -11,7 +11,7 @@ endif;
 <?php if((get_sub_field('titolo') != '')) : ?>
 <h3 class="title"><?php echo get_sub_field('titolo') ?></h3>
 <?php endif ?>
-<div class="container-slider <?php echo $frame ?> <?php echo get_sub_field('full') ? 'full' : '' ?>">
+<div class="container-slider<?php echo $frame ?><?php echo get_sub_field(' full') ? 'full' : '' ?>">
 <ul class="slider">
     <?php if (get_sub_field('tipologia') == 'immagini') : ?>
         <?php $images = get_sub_field('galleria_immagini'); ?>
