@@ -1,12 +1,4 @@
-.btn {
-    cursor: pointer;
-    width: 50px;
-    position: relative;
-    height: 50px;
-    color: white;
-    border: 1px solid white;
-    border-radius: 50%;
-    display: block;
+@mixin arrow-left() {
     &-line {
         position: absolute;
         top: 50%;
@@ -49,6 +41,20 @@
         transform: rotate(-45deg);
         transform-origin: right bottom;
     }
+}
+
+
+.btn {
+    cursor: pointer;
+    width: 50px;
+    position: relative;
+    height: 50px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: block;
+
+    @include arrow-left();
 
     &:hover {
         &:before,  &:after {
