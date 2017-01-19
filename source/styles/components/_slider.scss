@@ -1,8 +1,9 @@
-.slider {
+
+.slider-wrapper {
     display: flex;
     list-style-type: none;
     padding: 0;
-    overflow:hidden;
+    overflow: hidden;
 
     .slider-item {
         width: 100%;
