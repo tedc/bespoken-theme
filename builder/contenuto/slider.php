@@ -18,8 +18,7 @@ endif;
             <?php if ($images): ?>
                 <?php foreach ($images as $image): ?>
                     <li class="slider-item">
-                        <?php var_dump($image);?>
-                        <!--<img src="<?php /*echo $image['sizes']['large']; */?>" alt="<?php /*echo $image['alt']; */?>"/>-->
+                        <?php echo wp_get_attachment_image($image["id"], "large") ;?>
                     </li>
                 <?php endforeach; ?>
             <?php endif ?>
