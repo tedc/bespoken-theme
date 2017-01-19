@@ -24,7 +24,7 @@ endif;
             <?php endif ?>
         <?php elseif (get_sub_field('tipologia') == 'testo') : ?>
             <?php if (have_rows('galleria_testo')): ?>
-                <?php $n_page = 0;
+                <?php $n_page = 1;
                 while (have_rows('galleria_testo')) : the_row(); ?>
                     <li class="slider-item slider-item-txt">
                         <span class="page"><?php the_sub_field('pagine'); ?></span>
@@ -43,7 +43,7 @@ endif;
                 </span>
             </span>
             <span class="gallery_count"><span class="current-slide ng-binding"
-                                              ng-bind-html="pos + 1">1</span><?php echo $n_page ?></span>
+                                              ng-bind-html="pos + 1">1</span>/<?php echo $n_page ?></span>
             <span class="arrow-right">
                  <span class="btn-line">
                     <span class="btn-arrow-up"></span>
