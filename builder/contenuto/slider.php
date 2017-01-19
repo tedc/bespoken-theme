@@ -24,7 +24,7 @@ endif;
             <?php endif ?>
         <?php elseif (get_sub_field('tipologia') == 'testo') : ?>
             <?php if (have_rows('galleria_testo')): ?>
-                <?php $n_page = 1;
+                <?php $n_page = 0;
                 while (have_rows('galleria_testo')) : the_row(); ?>
                     <li class="slider-item slider-item-txt">
                         <span class="page"><?php the_sub_field('pagine'); ?></span>
