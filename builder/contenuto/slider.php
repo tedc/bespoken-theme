@@ -3,9 +3,7 @@
 <?php endif ?>
 <ul class="slider">
     <?php if (get_sub_field('tipologia') == 'immagini') : ?>
-        <?php var_dump((get_sub_field('tipologia') == 'immagini')) ?>
-        <?php $images = get_field('galleria_immagini'); ?>
-        <?php var_dump(get_field('galleria_immagini'))?>
+        <?php $images = get_sub_field('galleria_immagini'); ?>
         <?php if ($images): ?>
             <?php foreach ($images as $image): ?>
                 <li class="slider-item slider-item-img">
