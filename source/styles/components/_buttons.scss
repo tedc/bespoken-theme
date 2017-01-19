@@ -1,5 +1,5 @@
-@mixin arrow-left() {
-    &-line {
+@mixin arrow-right() {
+    .btn-line {
         position: absolute;
         top: 50%;
         left:20%;
@@ -8,7 +8,7 @@
         margin-top: -1px;
         background-color: white;
     }
-    &-arrow-up {
+    .btn-arrow-up {
         position: absolute;
         right: 0;
         display:block;
@@ -18,7 +18,7 @@
         transform: rotate(45deg);
         transform-origin: right top;
     }
-    &:before, &:after {
+    .btn:before, .btn:after {
         content: "";
         position: absolute;
         top: 50%;
@@ -31,7 +31,7 @@
         border-radius: 50%;
 
     }
-    &-arrow-down {
+    .btn-arrow-down {
         position: absolute;
         right: 0;
         display:block;
@@ -54,7 +54,7 @@
     border-radius: 50%;
     display: block;
 
-    @include arrow-left();
+    @include arrow-right();
 
     &:hover {
         &:before,  &:after {
@@ -64,6 +64,19 @@
         &:after {
             animation-delay: 0.4s;
         }
+    }
+}
+
+.arrow-right {
+    cursor: pointer;
+    width: 50px;
+    position: relative;
+    height: 50px;
+    color: $gray-dark;
+    display: block;
+    @include arrow-right();
+    &:hover {
+
     }
 }
 
