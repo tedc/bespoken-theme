@@ -1,0 +1,13 @@
+.slider {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    padding: 0;
+
+    .slider-item {
+        width: 100%;
+        flex: 0 0 auto;
+        background-size: cover;
+        background-position: center;
+    }
+}
