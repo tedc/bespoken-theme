@@ -60,20 +60,28 @@ h5 {
 
 .title, .subtitle {
     position: relative;
-    text-align: center;
+
 }
 
 .title {
-    .siamo & {
-        font-weight: 100;
+    .header & {
+        font-weight: normal;
         line-height: $interline-title;
+        text-align: center;
+        color: $w;
+    }
+    &-registry {
+        font-size: em(18px);
+        font-weight: normal;
     }
 }
+
 .subtitle {
-    .siamo & {
-        font-size: em(72px);
-        font-weight: bold;
+    .header & {
+        font-size: em(24px);
+        font-weight: normal;
         line-height: $interline-title;
+        color: $w;
     }
 }
 
@@ -115,6 +123,6 @@ h5 {
     justify-content: flex-end;
 }
 
-.enphasis {
+.emphasis {
     color: $purple;
 }
