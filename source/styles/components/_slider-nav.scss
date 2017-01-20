@@ -36,10 +36,10 @@
 .nav-arrow {
     position: absolute;
     width: 100%;
-    top: 0;
+    top: 50%;
     left: 0;
     display: flex;
-    transform: translateY(50%);
+    transform: translateY(-50%);
     justify-content: space-between;
     &:hover {
         .btn {
