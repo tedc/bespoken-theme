@@ -41,6 +41,7 @@ elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row'):
 $padding = 'row-lg row-btn';
 elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-lg'):
 $padding = 'row-lg';
+endif;
 ?>
 
 <div
