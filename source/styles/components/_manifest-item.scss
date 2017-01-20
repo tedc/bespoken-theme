@@ -1,0 +1,12 @@
+.manifest-item {
+    &-number {
+        font-size: em(40px);
+        color: $purple;
+        &:after {
+            content: "";
+            width: 5px;
+            height: 5px;
+            background-color: $gray-dark;
+        }
+    }
+}
