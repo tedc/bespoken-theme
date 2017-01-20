@@ -63,27 +63,27 @@
     }
     @include breakpoint(640px) {
         padding: {
-            top: em(50px);
-            bottom: em(50px);
+            top: em(50px)!important;
+            bottom: em(50px)!important;
         }
     }
     &-btm {
         padding: {
-            bottom: em(25px);
+            bottom: em(25px)!important;
         }
         @include breakpoint(640px) {
             padding: {
-                bottom: em(50px);
+                bottom: em(50px)!important;
             }
         }
     }
     &-top {
         padding: {
-            top: em(25px);
+            top: em(25px)!important;
         }
         @include breakpoint(640px) {
             padding: {
-                top: em(50px);
+                top: em(50px)!important;
             }
         }
     }
