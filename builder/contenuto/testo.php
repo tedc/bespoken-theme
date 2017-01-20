@@ -1,5 +1,5 @@
 <?php while ( have_rows('testo') ) : the_row(); ?>
-    <?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ' align-left'); ?>
+    <?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ''); ?>
     <?php if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') :?>
     <h3 class="title<?php echo $align ?><?php echo (get_sub_field('enfasi_titolo')? ' emphasis' : '' )  ?>"><?php the_sub_field('titolo') ?> </h3>
         <?php else : ?>
