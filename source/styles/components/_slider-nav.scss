@@ -1,0 +1,26 @@
+.nav-number {
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .arrow-left {
+
+    }
+
+    .gallery_count {
+
+    }
+
+    .arrow-right {
+        position: relative;
+        width: em(40px);
+        height: em(40px);
+
+        .btn-line, .btn-arrow-up, .btn-arrow-down {
+            background-color: $gray-dark;
+        }
+
+    }
+}
