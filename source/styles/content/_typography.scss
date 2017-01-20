@@ -29,11 +29,12 @@ a {
 p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    line-height: 1;
+}
+h1, h2, h3, h4, h5, h6 {
+    line-height: $interline-title
 }
 
 p {
-    margin: 0;
     font-size: em(18px);
     line-height: $interline-base;
 }
