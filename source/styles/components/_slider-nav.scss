@@ -36,6 +36,14 @@
     }
 }
 
+.gallery-count {
+    font-weight: 500;
+    .current-slide {
+        font-size: em(18px);
+        color: $purple;
+    }
+}
+
 .arrow-left {
     transform: scale(-1, 1);
 }
