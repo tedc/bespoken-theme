@@ -27,24 +27,16 @@ else :
 endif;
 ?>
 
-<?php var_dump(get_sub_field('grandezza_spaziatura_sopra')) ?>
+<?php if (!get_sub_field('spaziatura')) :
+    $padding = 'row-lg';
+elseif (!get_sub_field('spaziatura') == 0):
+    $padding = get_sub_field('grandezza_spaziatura');
+elseif (!get_sub_field('spaziatura') == 1):
+    $padding = get_sub_field('grandezza_spaziatura_sopra');
+elseif (!get_sub_field('spaziatura') == 2):
+    $padding = get_sub_field('grandezza_spaziatura_sotto');
+endif;?>
 
-<?php if (get_sub_field('spaziatura') == '') :
-    $padding = 'row-lg';
-elseif (get_sub_field('grandezza_spaziatura') == 'row'):
-    $padding = 'row';
-elseif (get_sub_field('grandezza_spaziatura') == 'row-lg'):
-    $padding = 'row-lg';
-elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-up'):
-    $padding = 'row-lg row-top';
-elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-lg-up'):
-$padding = 'row-lg';
-elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-down'):
-$padding = 'row-lg row-btm';
-elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-lg-down'):
-$padding = 'row-lg';
-endif;
-?>
 
 <div
     class="col-<?php echo $col ?> <?php echo $padding ?> <?php echo get_sub_field('colore_sfondo') ?> <?php echo get_sub_field('posizione_verticale') ?> <?php echo get_sub_field('no_padding') ? 'no-padding' : '' ?>"<?php echo (get_sub_field('bg_img') != '') ? ' style="background-image:url(' . $bg_src . ');' . $bg_kind . '"' : ''; ?>>
