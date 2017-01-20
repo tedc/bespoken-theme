@@ -26,7 +26,8 @@ else :
     $bg_kind = '';
 endif;
 ?>
-<?php var_dump(get_sub_field('spaziatura'))?>
+
+
 <?php if (get_sub_field('spaziatura') == '') :
     $padding = 'row-lg';
 elseif (get_sub_field('grandezza_spaziatura') == 'row'):
