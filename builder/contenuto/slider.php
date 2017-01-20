@@ -1,5 +1,5 @@
 <?php if ((get_sub_field('titolo') != '')) : ?>
-    <h3 class="title"><?php echo get_sub_field('titolo') ?></h3>
+    <h3 class="title<?php echo (get_sub_field('enfasi_titolo')? ' emphasis' : '' )  ?>"><?php echo get_sub_field('titolo') ?></h3>
 <?php endif ?>
 <div class="slider" ng-slider>
     <ul class="slider-wrapper<?php get_sub_field('cornice') ? ' frame' : '' ?><?php echo get_sub_field('full') ? ' full' : '' ?>">
