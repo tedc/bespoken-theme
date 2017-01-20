@@ -65,6 +65,8 @@ h5 {
 }
 
 .title {
+    padding-bottom: em(45px);
+
     .page-header & {
         font-weight: normal;
         line-height: $interline-title;
@@ -76,6 +78,7 @@ h5 {
         font-weight: normal;
     }
 }
+
 
 .subtitle {
     .header & {
