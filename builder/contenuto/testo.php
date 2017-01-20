@@ -9,7 +9,7 @@ elseif (!get_sub_field('spaziatura') == 1):
 elseif (!get_sub_field('spaziatura') == 2):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
-
+<?php var_dump($padding)?>
 
 <div class="content <?php echo $padding ?>">
     <?php $align = ((get_sub_field('allineamento_testo'))); ?>
