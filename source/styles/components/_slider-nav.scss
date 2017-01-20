@@ -6,6 +6,10 @@
     justify-content: center;
 
     .arrow-left {
+        position: relative;
+        width: em(40px);
+        height: em(40px);
+
 
     }
 
@@ -14,13 +18,20 @@
     }
 
     .arrow-right {
+        cursor: pointer;
         position: relative;
         width: em(40px);
         height: em(40px);
-
+        &:hover {
+            .btn-line, .btn-arrow-up, .btn-arrow-down {
+                background-color: $purple;
+            }
+        }
         .btn-line, .btn-arrow-up, .btn-arrow-down {
             background-color: $gray-dark;
+            transition: background-color $speed;
         }
+
 
     }
 }
