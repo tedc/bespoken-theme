@@ -39,7 +39,7 @@ elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row'):
 elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-lg'):
 $padding = 'row-lg';
 elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row'):
-$padding = 'row-lg row-btn';
+$padding = 'row-lg row-btm';
 elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-lg'):
 $padding = 'row-lg';
 endif;
