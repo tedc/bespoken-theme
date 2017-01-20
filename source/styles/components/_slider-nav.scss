@@ -32,6 +32,35 @@
     }
 }
 
+.nav-arrow {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    transform: translateY(50%);
+    justify-content: space-between;
+    &:hover {
+        .btn {
+            border-color: $gray-dark;
+
+            .btn-line, .btn-arrow-up, .btn-arrow-down {
+                background-color: $gray-dark;
+            }
+        }
+    }
+
+    .btn {
+        cursor: pointer;
+        border-color: $purple;
+        transition: border $speed;
+        .btn-line, .btn-arrow-up, .btn-arrow-down {
+            background-color: $purple;
+            transition: background-color $speed;
+        }
+    }
+}
+
 .gallery-count {
     font-weight: 500;
     .current-slide {
@@ -41,5 +70,9 @@
 }
 
 .arrow-left {
+    transform: scale(-1, 1);
+}
+
+.btn-left {
     transform: scale(-1, 1);
 }
