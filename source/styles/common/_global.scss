@@ -78,19 +78,15 @@
         [class^="col"], [class*=" col"] {
             position: relative;
             @include normalize_padding;
-            padding-bottom: em(130px);
+            padding-bottom: em(30px);
             padding-top: em(30px);
             @include breakpoint(640px) {
-                padding: {
-                    top: em(75px);
-                    bottom: em(75px);
-                }
+                padding-bottom: em(75px);
+                padding-top: em(75px);
             }
             @include breakpoint($bp) {
-                padding: {
-                    top: em(150px);
-                    bottom: em(150px);
-                }
+                padding-bottom: em(150px);
+                padding-top: em(150px);
             }
 
             @if $flex {
