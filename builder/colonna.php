@@ -27,19 +27,9 @@ else :
 endif;
 ?>
 
-<?php if (!get_sub_field('spaziatura')) :
-    $padding = 'row-lg';
-elseif (!get_sub_field('spaziatura') == 0):
-    $padding = get_sub_field('grandezza_spaziatura');
-elseif (!get_sub_field('spaziatura') == 1):
-    $padding = get_sub_field('grandezza_spaziatura_sopra');
-elseif (!get_sub_field('spaziatura') == 2):
-    $padding = get_sub_field('grandezza_spaziatura_sotto');
-endif;?>
-
 
 <div
-    class="col-<?php echo $col ?> <?php echo $padding ?> <?php echo get_sub_field('colore_sfondo') ?> <?php echo get_sub_field('posizione_verticale') ?> <?php echo get_sub_field('no_padding') ? 'no-padding' : '' ?>"<?php echo (get_sub_field('bg_img') != '') ? ' style="background-image:url(' . $bg_src . ');' . $bg_kind . '"' : ''; ?>>
+    class="col-<?php echo $col ?> <?php echo get_sub_field('colore_sfondo') ?> <?php echo get_sub_field('posizione_verticale') ?> <?php echo get_sub_field('no_padding') ? 'no-padding' : '' ?>"<?php echo (get_sub_field('bg_img') != '') ? ' style="background-image:url(' . $bg_src . ');' . $bg_kind . '"' : ''; ?>>
     <?php while (have_rows('contenuto')) : the_row(); ?>
         <?php include(locate_template('builder/contenuto/' . get_row_layout() . '.php', false, false)); ?>
     <?php endwhile; ?>
