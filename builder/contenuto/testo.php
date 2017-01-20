@@ -1,3 +1,5 @@
+<?php while ( have_rows('testo') ) : the_row(); ?>
+
 <?php if (!get_sub_field('spaziatura')) :
     $padding = 'row-lg';
 elseif (!get_sub_field('spaziatura') == 0):
@@ -8,7 +10,7 @@ elseif (!get_sub_field('spaziatura') == 2):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<?php while ( have_rows('testo') ) : the_row(); ?>
+
 <div class="content <?php echo $padding ?>">
     <?php $align = ((get_sub_field('allineamento_testo'))); ?>
     <?php if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') :?>
