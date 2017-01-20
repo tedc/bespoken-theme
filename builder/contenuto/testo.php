@@ -1,6 +1,6 @@
 <?php while ( have_rows('testo') ) : the_row(); ?>
 <div class="content <?php echo $padding ?>">
-    <?php $align = ((the_sub_field('allineamento_testo')); ?>
+    <?php $align = ((get_sub_field('allineamento_testo'))); ?>
     <?php if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') :?>
 
         <h3 class="title<?php echo $align ?><?php echo (get_sub_field('enfasi_titolo')? ' emphasis' : '' )  ?>"><?php the_sub_field('titolo') ?> </h3>
