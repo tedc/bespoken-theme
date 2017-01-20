@@ -8,16 +8,16 @@ html {
 }
 
 body {
-    font-size: $base-font-size - 4px;
+    font-size: $font-size - 4px;
     color: $gray-dark;
     margin: 0;
     font-family: $main-font;
 
     @include breakpoint(640px) {
-        font-size: $base-font-size - 2px;
+        font-size: $font-size - 2px;
     }
     @include breakpoint(1024px) {
-        font-size: $base-font-size;
+        font-size: $font-size;
     }
 }
 
