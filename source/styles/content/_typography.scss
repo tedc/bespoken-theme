@@ -65,7 +65,9 @@ h5 {
 }
 
 .title {
-
+    .bg-dark & {
+        color: $w;
+    }
     .page-header & {
         font-weight: normal;
         line-height: $interline-title;
