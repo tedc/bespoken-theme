@@ -27,7 +27,7 @@ else :
 endif;
 ?>
 
-<?php var_dump(get_sub_field('grandezza_spaziatura_sopra')?>
+<?php var_dump(get_sub_field('grandezza_spaziatura_sopra')) ?>
 
 <?php if (get_sub_field('spaziatura') == '') :
     $padding = 'row-lg';
