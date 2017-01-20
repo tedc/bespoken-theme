@@ -35,13 +35,13 @@ elseif (get_sub_field('grandezza_spaziatura') == 'row'):
     $padding = 'row';
 elseif (get_sub_field('grandezza_spaziatura') == 'row-lg'):
     $padding = 'row-lg';
-elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row'):
+elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-up'):
     $padding = 'row-lg row-top';
-elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-lg'):
+elseif(get_sub_field('grandezza_spaziatura_sopra') == 'row-lg-up'):
 $padding = 'row-lg';
-elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row'):
+elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-down'):
 $padding = 'row-lg row-btm';
-elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-lg'):
+elseif(get_sub_field('grandezza_spaziatura_sotto') == 'row-lg-down'):
 $padding = 'row-lg';
 endif;
 ?>
