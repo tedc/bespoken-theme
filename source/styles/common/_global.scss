@@ -78,7 +78,7 @@
         [class^="col"], [class*=" col"] {
             position: relative;
             @include normalize_padding;
-            padding-bottom: em(30px);
+           /* padding-bottom: em(30px);
             padding-top: em(30px);
             @include breakpoint(640px) {
                 padding-bottom: em(75px);
@@ -87,7 +87,7 @@
             @include breakpoint($bp) {
                 padding-bottom: em(150px);
                 padding-top: em(150px);
-            }
+            }*/
 
             @if $flex {
                 flex: 0 0 auto;
