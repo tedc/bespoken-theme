@@ -1,4 +1,5 @@
 <?php if ((get_sub_field('titolo') != '')) : ?>
+    <?php var_dump(get_sub_field('enfasi_titolo'))?>
     <h3 class="title<?php echo (get_sub_field('enfasi_titolo')? ' emphasis' : '' )  ?>"><?php echo get_sub_field('titolo') ?></h3>
 <?php endif ?>
 <div class="slider" ng-slider>
