@@ -16,3 +16,19 @@
 .slider-only-text {
     font-size: em(62px);
 }
+
+// CAROUSEL
+
+[ng-carousel] {
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+.carousel {
+    &-item {
+        height: 100vh;
+        background-color: $b;
+        &.alt {
+            background-color: $purple;
+        }
+    }
+}
