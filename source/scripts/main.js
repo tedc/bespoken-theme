@@ -39839,27 +39839,8 @@ module.exports = function() {
     scope: true,
     controller: [
       "$scope", "$element", "$attrs", function($scope, $element, $attrs) {
-        $scope.carousel = new IScroll($element[0].querySelector('.carousel-wrapper'), {
-          scrollX: true,
-          scrollY: false,
-          snap: '.carousel-item'
-        });
-        $scope.isScrolling = false;
-        $scope.move = function(cond) {
-          if ($scope.isScrolling) {
-            return false;
-          }
-          if (cond) {
-            $scope.carousel.next();
-          } else {
-            $scope.carousel.prev();
-          }
-        };
-        $scope.carousel.on('scrollStart', function() {
-          $scope.isScrolling = true;
-        });
-        return $scope.carousel.on('scrollEnd', function() {
-          $scope.isScrolling = false;
+        return $scope.carousel = Draggable.create($element, {
+          type: 'x'
         });
       }
     ]

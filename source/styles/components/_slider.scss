@@ -19,13 +19,15 @@
 
 // CAROUSEL
 
-[ng-carousel] {
-    overflow: hidden;
+[ng-carousel] {   
     [class^="grid"], [class*=" grid"] {
         flex-wrap: nowrap;
     }
 }
 .carousel {
+    &-wrapper {
+        overflow: hidden;
+    }
     &-item {
         height: 100vh;
         background-color: $b;
