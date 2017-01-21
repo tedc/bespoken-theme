@@ -19,21 +19,30 @@
 
 // CAROUSEL
 
-[ng-carousel] {   
-    [class^="grid"], [class*=" grid"] {
-        flex-wrap: nowrap;
-    }
-}
 .carousel {
     &-wrapper {
         overflow: hidden;
         flex-wrap: nowrap;
+        display: flex;
     }
     &-item {
         height: 100vh;
         background-color: $b;
+        flex: 0 0 auto;
+        width: $f;
         &.alt {
             background-color: $purple;
+        }
+        @include breakpoint(640px) {
+            width: $f/2;
+        }
+        @include breakpoint($bp) {
+            [items="3"] & {
+                width: $f/3;
+            }
+            [items="4"] & {
+                width: $f/4;
+            }
         }
     }
 }
