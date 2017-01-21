@@ -1,6 +1,6 @@
 <?php while ( have_rows('testo') ) : the_row(); ?>
 
-<?php if (!get_sub_field('spaziatura')) :
+<?php if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
 elseif (get_sub_field('spaziatura') == '0'):
     $padding = get_sub_field('grandezza_spaziatura');
