@@ -9,7 +9,7 @@ module.exports = ->
 			$scope.isScrolling = off
 			$scope.move = (cond)->
 				return off if $scope.isScrolling
-				if cond then $scope.carousel.next() else carousel.prev()
+				if cond then $scope.carousel.next() else $scope.carousel.prev()
 				return
 			$scope.carousel.on 'scrollStart', ->
 				$scope.isScrolling = on

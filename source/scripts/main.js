@@ -39852,7 +39852,7 @@ module.exports = function() {
           if (cond) {
             $scope.carousel.next();
           } else {
-            carousel.prev();
+            $scope.carousel.prev();
           }
         };
         $scope.carousel.on('scrollStart', function() {
