@@ -39839,7 +39839,7 @@ module.exports = function() {
     scope: true,
     controller: [
       "$scope", "$element", "$attrs", function($scope, $element, $attrs) {
-        carousel = new IScroll($element[0], {
+        $scope.carousel = new IScroll($element[0], {
           scrollX: true,
           scrollY: false,
           snap: '.carousel-item'
