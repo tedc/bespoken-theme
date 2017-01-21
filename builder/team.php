@@ -3,7 +3,7 @@
 <?php foreach( $users as $user ): ?>
 <div class="col-<?php the_sub_field("n_cols") ?>">
     <?php
-    echo get_avatar( $user->user_email, $size = '500' );
+    echo get_avatar( 'guzzi.mattia@gmail.com', $size = '500' );
     ?>
 </div>
 <?php endforeach; ?>
