@@ -14,4 +14,4 @@ function ng_app($html) {
 	return $html . ' ng-app="bspkn"';
 }
 
-add_filter( 'language_attributes' );
+add_filter( 'language_attributes', 'ng_app' );
