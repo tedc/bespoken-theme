@@ -27,7 +27,7 @@ module.exports = ->
                     $scope.mv += $scope.num
                 $scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max then max else $scope.isCurrent + $scope.num)
                 TweenMax.to $element[0].querySelectorAll('.carousel-item'), .5,
-                	x : "+=#{100*$scope.num*$scope.per}"
+                	x : "+=#{100*$scope.num*$scope.per}%"
             w.bind 'resize', ->
                 $scope.num = 1
                 return if kind is 'full'

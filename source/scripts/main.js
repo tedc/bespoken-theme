@@ -39878,7 +39878,7 @@ module.exports = function() {
           }
           $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max ? max : $scope.isCurrent + $scope.num);
           return TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
-            x: "+=" + (100 * $scope.num * $scope.per)
+            x: "+=" + (100 * $scope.num * $scope.per) + "%"
           });
         };
         w.bind('resize', function() {
