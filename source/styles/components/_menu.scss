@@ -24,13 +24,15 @@
         position: relative;
         display: inline-block;
         overflow: hidden;
-        .btn-menu-text-content:nth-child(2) {
-            position: absolute;
-            top: $f;
-            left: 0;
-            width: $f;
-            opacity: 0;
+        .btn-menu-text-content {
             transition: opacity $speed;
+            &:nth-child(2) {
+                position: absolute;
+                top: $f;
+                left: 0;
+                width: $f;
+                opacity: 0;
+            }
         }
         &-content {
             .letter {
