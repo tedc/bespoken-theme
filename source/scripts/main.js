@@ -39850,6 +39850,7 @@ module.exports = function() {
       html = '<span class="btn-menu-text-content">';
       for (j = 0, len = text.length; j < len; j++) {
         i = text[j];
+        console.log(i);
         html += "<span class='letter'>" + i + "</span>";
       }
       html += '</span>';

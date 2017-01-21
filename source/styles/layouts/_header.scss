@@ -4,6 +4,7 @@
     .gradient {
         @include absfull;
         @include gradient;
+        @include gradientAnim;
     }
 }
 
