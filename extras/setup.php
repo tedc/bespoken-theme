@@ -8,5 +8,10 @@ if (function_exists('acf_add_options_page')) {
         'menu_title' => 'Impostazioni footer tema',
         'parent_slug' => 'themes.php'
     ));
-
 }
+
+function ng_app($html) {
+	return $html . ' ng-app="bspkn"';
+}
+
+add_filter( 'language_attributes' );
