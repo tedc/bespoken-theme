@@ -20,8 +20,10 @@
 // CAROUSEL
 
 [ng-carousel] {
-    flex-wrap: nowrap;
     overflow: hidden;
+    [class^="grid"], [class*=" grid"] {
+        flex-wrap: nowrap;
+    }
 }
 .carousel {
     &-item {

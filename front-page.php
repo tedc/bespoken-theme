@@ -2,15 +2,15 @@
 	<div class="grid-12">
 		<div class="col-4 carousel-item">
 		</div>
-		<div class="col-4 carousel-item">
+		<div class="col-4 carousel-item alt">
 		</div>
 		<div class="col-4 carousel-item">
 		</div>
-		<div class="col-4 carousel-item">
+		<div class="col-4 carousel-item alt">
 		</div>
 		<div class="col-4 carousel-item">
 		</div>
-		<div class="col-4 carousel-item">
+		<div class="col-4 carousel-item alt">
 		</div>
 	</div>
 </div>
