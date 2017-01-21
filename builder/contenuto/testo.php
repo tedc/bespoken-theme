@@ -2,11 +2,11 @@
 
 <?php if (!get_sub_field('spaziatura')) :
     $padding = 'row-lg';
-elseif (!get_sub_field('spaziatura') == 0):
+elseif (!get_sub_field('spaziatura') == '0'):
     $padding = get_sub_field('grandezza_spaziatura');
-elseif (!get_sub_field('spaziatura') == 1):
+elseif (!get_sub_field('spaziatura') == '1'):
     $padding = get_sub_field('grandezza_spaziatura_sopra');
-elseif (!get_sub_field('spaziatura') == 2):
+elseif (!get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
  <?php echo $padding ?>
