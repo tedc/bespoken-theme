@@ -1,11 +1,31 @@
-.user-image {
-    width: auto;
-    max-width: 100%;
-    display: inline-block;
-    margin: 0;
-    img {
+.user-col {
+    padding: 0!important;
+    overflow: hidden;
+    .user-image {
+        cursor: pointer;
+        width: auto;
+        max-width: 100%;
+        display: inline-block;
+        margin: 0;
+        transition: transform $speed;
+        &:hover {
+            transform: translateY(-100%);
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    }
+    .user-details {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height:	auto;
-        display: block;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: -1;
     }
 }
