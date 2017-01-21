@@ -12,6 +12,9 @@ endif;*/?><!--
     <?php /*var_dump(get_sub_field('spaziatura'))*/?>
 --><?php /*var_dump($padding)*/?>
     <?php the_sub_field('spaziatura') ?>
+    <?php the_sub_field('grandezza_spaziatura');?>
+    <?php the_sub_field('grandezza_spaziatura_sopra');?>
+    <?php the_sub_field('grandezza_spaziatura_sotto');?>
 
 <div class="content <?php echo $padding ?>">
     <?php $align = ((get_sub_field('allineamento_testo'))); ?>
