@@ -3,9 +3,7 @@
     overflow: hidden;
     cursor: pointer;
     &:hover {
-        .user-image {
-            transform: translateY(-100%);
-        }
+
     }
     .user-image {
         width: auto;
@@ -38,3 +36,8 @@
         }
     }
 }
+/*
+
+[data-position="1"]{
+    translate3d($f*1,0,0);
+}*/
