@@ -237,6 +237,10 @@ gulp.task('scripts', function() {
         .pipe(writeToManifest('scripts'));
 });
 
+gulp.task('js', function() {
+    runSequence('browserify', 'scripts');
+})
+
 // ### Fonts
 // `gulp fonts` - Grabs all the fonts and outputs them in a flattened directory
 // structure. See: https://github.com/armed/gulp-flatten

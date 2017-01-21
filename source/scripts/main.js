@@ -39833,6 +39833,33 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":11}],13:[function(require,module,exports){
+var bspkn;
+
+bspkn = angular.module('bspkn');
+
+bspkn.directive('ngMenuText', require('./menu.coffee'));
+
+
+},{"./menu.coffee":14}],14:[function(require,module,exports){
+module.exports = function() {
+  var menu;
+  return menu = {
+    link: function(scope, element, attrs) {
+      var html, i, j, len, text;
+      text = element.text();
+      html = '<span class="btn-menu-text-content">';
+      for (j = 0, len = text.length; j < len; j++) {
+        i = text[j];
+        html += "<span class='letter'>" + i + "</span>";
+      }
+      html += '</span>';
+      element.empty().prepend(html).append(html);
+    }
+  };
+};
+
+
+},{}],15:[function(require,module,exports){
 var angular, bspkn;
 
 angular = require('angular');
@@ -39849,5 +39876,7 @@ require('angular-animate');
 
 bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitizie', 'ngResource', 'ngCookies']);
 
+require('./directives/index.coffee');
 
-},{"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}]},{},[13]);
+
+},{"./directives/index.coffee":13,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}]},{},[15]);
