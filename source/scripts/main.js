@@ -39840,7 +39840,8 @@ module.exports = function() {
     controller: [
       "$scope", "$element", "$attrs", function($scope, $element, $attrs) {
         return $scope.carousel = Draggable.create($element, {
-          type: 'x'
+          type: 'x',
+          bounds: 'body'
         });
       }
     ]

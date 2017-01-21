@@ -27,6 +27,7 @@
 .carousel {
     &-wrapper {
         overflow: hidden;
+        flex-wrap: nowrap;
     }
     &-item {
         height: 100vh;
