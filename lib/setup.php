@@ -101,6 +101,6 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
   wp_enqueue_script( 'lib', '', Assets\asset_path('scripts/lib.js'), null, null, true );
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['lib'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), null, null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
