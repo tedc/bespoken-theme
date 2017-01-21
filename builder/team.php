@@ -8,7 +8,7 @@
                 echo get_avatar($user["user_email"], $size = '500');
                 ?>
             </figure>
-
+            <div class="mask">
                 <div class="user-details" data-position="<?php echo $i ?>">
                     <div
                         class="user-details-name"><?php echo $user["user_firstname"] . ' ' . $user["user_lastname"] ?></div>
@@ -31,9 +31,8 @@
                                target="_blank"></a>
                         <?php endif ?>
                     </nav>
-                    <div class="mask"></div>
                 </div>
-
+            </div>
         </div>
         <?php if ($i = 4): $i = 0; endif ?>
         <?php $i++; endforeach; ?>
