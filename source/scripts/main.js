@@ -39833,15 +39833,73 @@ require('./angular');
 module.exports = angular;
 
 },{"./angular":11}],13:[function(require,module,exports){
+var em;
+
+em = function(val) {
+  return val / 16;
+};
+
 module.exports = function() {
   var carousel;
   return carousel = {
-    scope: true,
     controller: [
-      "$scope", "$element", "$attrs", function($scope, $element, $attrs) {
-        return $scope.carousel = Draggable.create($element, {
-          type: 'x',
-          bounds: 'body'
+      "$scope", "$window", "$attrs", "$element", function($scope, $window, $attrs, $element) {
+        var kind, w;
+        w = angular.element($window);
+        $scope.isCurrent = 0;
+        $scope.mv = 0;
+        $scope.max = 0;
+        kind = $attrs.kind ? $attrs.kind : false;
+        $scope.move = function(cond, max) {
+          $scope.max = max + 1;
+          $scope.num = 1;
+          $scope.per = cond ? -1 : 1;
+          if (!kind) {
+            if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+              $scope.num = 2;
+            }
+            if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
+              $scope.num = $attrs.items;
+            }
+          }
+          if (cond) {
+            if ($scope.isCurrent === 0) {
+              return;
+            }
+            $scope.mv -= $scope.num;
+          } else {
+            if (max + 1 - $scope.isCurrent === $scope.num) {
+              return;
+            }
+            if ($scope.num > max) {
+              return;
+            }
+            $scope.mv += $scope.num;
+          }
+          $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max ? max : $scope.isCurrent + $scope.num);
+          return TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
+            x: "+=" + (100 * $scope.num * $scope.per)
+          });
+        };
+        w.bind('resize', function() {
+          var x;
+          $scope.num = 1;
+          if (kind === 'full') {
+            return;
+          }
+          if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+            $scope.num = 2;
+          }
+          if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
+            $scope.num = $attrs.items;
+          }
+          if ($scope.mv === 0) {
+            return;
+          }
+          x = $scope.mv > $scope.max - $scope.num ? ($scope.max - $scope.num) * 100 : $scope.mv * 100;
+          return TweenMax.set($element[0].querySelectorAll('.carousel-item'), {
+            x: "-" + x + "%"
+          });
         });
       }
     ]
