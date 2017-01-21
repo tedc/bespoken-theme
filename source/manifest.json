@@ -7,7 +7,10 @@
       "main": true
     },
     "lib.js": {
-      "bower" : ["gsap", "scrollmagic", "iscroll"]
+      "files": [
+        "../bower_components/gsap/src/uncompressed/utils/Draggable.js"
+      ],
+      "bower" : ["gsap", "scrollmagic"]
     },
     "main.css": {
       "files": [
