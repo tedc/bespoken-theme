@@ -14,14 +14,14 @@
                     <?php if ($user["user_url"] != '') : ?>
                         <a class="icon-linkedin" href="<?php echo $user["user_url"]; ?>" target="_blank"></a>
                     <?php endif ?>
-                    <?php if (get_the_author_meta('facebook') != '') : ?>
+                    <?php if (the_author_meta('facebook') != '') : ?>
                         <a class="icon-facebook" href="<?php the_author_meta('facebook', $user["ID"]); ?>" target="_blank"></a>
                     <?php endif ?>
-                    <?php if (get_the_author_meta('twitter') != '') : ?>
+                    <?php if (the_author_meta('twitter') != '') : ?>
                         <a class="icon-twitter"
                            href="https://twitter.com/<?php the_author_meta('twitter', $user["ID"]); ?>" target="_blank"></a>
                     <?php endif ?>
-                    <?php if (get_the_author_meta('google_plus') != '') : ?>
+                    <?php if (the_author_meta('google_plus') != '') : ?>
                         <a class="icon-instagram" href="<?php the_author_meta('google_plus', $user["ID"]); ?>" target="_blank"></a>
                     <?php endif ?>
                 </nav>
