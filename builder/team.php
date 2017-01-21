@@ -11,7 +11,7 @@
                 <div
                     class="user-details-name"><?php echo $user["user_firstname"] . ' ' . $user["user_lastname"] ?></div>
                 <nav class="user-details-social">
-                    <?php $user_info = get_user_meta($current_user->ID);
+                    <?php $user_info = get_user_meta($user->ID);
                     var_dump($user_info); ?>
                     <?php if ($user["user_url"] != '') : ?>
                         <a class="icon-linkedin" href="<?php echo $user["user_url"]; ?>" target="_blank"></a>
