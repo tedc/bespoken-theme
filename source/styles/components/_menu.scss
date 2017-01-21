@@ -19,8 +19,27 @@
         text-transform: uppercase;
         font-weight: bold;
     }
-    .btn-menu-text {
+    &-text {
         transition: color $speed, transform $speed;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        .btn-menu-text-content:nth-child(2) {
+            position: absolute;
+            top: $f;
+            left: 0;
+            width: $f;
+        }
+        &-content {
+            .letter {
+                @for $c from 1 through 4 {
+                    $d: ($speed * $c) / 4;
+                    &:nth-child(#{$c}) {
+                        transition-delay: $d;
+                    }
+                }
+            }
+        }
     }
     &:hover {
         .toggle {
@@ -33,6 +52,9 @@
                     }
                 }
             }
+        }
+        .letter {
+            transform: translate3d(0, -100%, 0);
         }
     }
 }

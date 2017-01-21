@@ -5,4 +5,5 @@ require 'angular-sanitize'
 require 'angular-touch'
 require 'angular-animate'
 
-bspkn = angular.module 'bspkn', ['ngTouch', 'ngAnimate', 'ngSanitizie', 'ngResource', 'ngCookies']
+bspkn = angular.module 'bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies']
+require './directives/index.coffee'
