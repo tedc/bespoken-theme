@@ -15,16 +15,16 @@
                     <?php if ($user["user_url"] != '') : ?>
                         <a class="icon-linkedin" href="<?php echo $user["user_url"]; ?>" target="_blank"></a>
                     <?php endif ?>
-
+                    <?php if ($user_info['facebook'][0] != '') : ?>
                         <a class="icon-facebook" href="<?php echo $user_info['facebook'][0]; ?>" target="_blank"></a>
-
-
+                    <?php endif ?>
+                    <?php if ($user["ID"] != '') : ?>
                         <a class="icon-twitter"
                            href="https://twitter.com/<?php echo get_user_meta('twitter', $user["ID"]); ?>" target="_blank"></a>
-
-
+                    <?php endif ?>
+                    <?php if ($user_info['googleplus'][0] != '') : ?>
                         <a class="icon-instagram" href="<?php echo $user_info['googleplus'][0]; ?>" target="_blank"></a>
-
+                    <?php endif ?>
                 </nav>
             </div>
         </div>
