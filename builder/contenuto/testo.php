@@ -11,6 +11,7 @@ elseif (!get_sub_field('spaziatura') == 2):
 endif;*/?><!--
     <?php /*var_dump(get_sub_field('spaziatura'))*/?>
 --><?php /*var_dump($padding)*/?>
+    <?php the_sub_field('spaziatura') ?>
 
 <div class="content <?php echo $padding ?>">
     <?php $align = ((get_sub_field('allineamento_testo'))); ?>
