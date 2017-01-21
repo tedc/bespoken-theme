@@ -4,9 +4,9 @@
     cursor: pointer;
     &:hover {
         .user-details {
-            transform: translateY(100%);
+            transform: translateY(-100%);
             .mask {
-                transform: translateY(-100%);
+                transform: translateY(100%);
             }
         }
     }
