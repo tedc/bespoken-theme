@@ -19,23 +19,32 @@
         text-transform: uppercase;
         font-weight: bold;
     }
-
     .btn-menu-text {
         transition: color $speed, transform $speed;
     }
     &:hover {
-
+        .toggle {
+            .toggle-line {
+                animation: toggle 1s;
+                @for $i from 2 through 3 {
+                    &:nth-child(#{$i}) {
+                        $delay: 0.5s * ( $i - 1 );
+                        animation-delay: $delay;
+                    }
+                }
+            }
+        }
     }
-
 }
 
 .toggle {
     width: em(50px);
     height: 24px;
-    .toggle-line {
+    &-line {
         display: block;
         height: 4px;
         margin-bottom: 6px;
         background-color: $w;
+        transform-origin: right center;
     }
 }
