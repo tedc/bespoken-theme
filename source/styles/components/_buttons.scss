@@ -63,6 +63,11 @@
 
 .btn-complete {
     display: inline-flex;
+    align-items: center;
+    .label {
+        padding-right: em(20px);
+        font-weight: 500;
+    }
     .btn {
         cursor: pointer;
         border-color: $purple;
