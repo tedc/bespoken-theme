@@ -8,7 +8,6 @@
         }
     }
     .user-image {
-
         width: auto;
         max-width: 100%;
         display: inline-block;
@@ -31,5 +30,11 @@
         align-items: center;
         justify-content: center;
         z-index: -1;
+        background-color: $anthracite;
+        color: $w;
+        &-name {
+            font-size: em(18px);
+            font-style: italic;
+        }
     }
 }
