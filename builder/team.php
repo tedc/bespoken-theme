@@ -2,7 +2,7 @@
 <?php if( $users ): ?>
 <?php foreach( $users as $user ): ?>
 <div class="col-<?php the_sub_field("n_cols") ?>">
-    <?php var_dump($user) ?>
+    <?php $user["user_avatar"]?>
 </div>
 <?php endforeach; ?>
 <?php endif; ?>
