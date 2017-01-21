@@ -10,8 +10,6 @@ module.exports = ->
 		$scope.isAnim = off
 		kind = if $attrs.kind then $attrs.kind else off
 		$scope.move = (cond, max)->
-			return if $scope.isAnim
-			$scope.isAnim = on
 			$scope.max = max + 1
 			$scope.num = 1
 			$scope.per = if cond then -1 else 1
@@ -28,11 +26,13 @@ module.exports = ->
 				return if $scope.num > max
 				$scope.mv += $scope.num
 			$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max then max else $scope.isCurrent + $scope.num)
+			return if $scope.isAnim
+			$scope.isAnim = on
 			TweenMax.to $element[0].querySelectorAll('.carousel-item'), .5,
-			x : "+=#{100*$scope.num*$scope.per}%"
-			onComplete : ->
-				$scope.isAnim = off
-				return
+				x : "+=#{100*$scope.num*$scope.per}%"
+				onComplete : ->
+					$scope.isAnim = off
+					return
 		w.bind 'resize', ->
 			$scope.num = 1
 			return if kind is 'full'
