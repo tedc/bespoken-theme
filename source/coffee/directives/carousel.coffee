@@ -34,12 +34,12 @@ module.exports = ->
 					$scope.isAnim = off
 					return
 		prevTime = new Date().getTime()
-		$scope.scroll  = ->
+		$scope.scroll  = (cond, max)->
 			curTime = new Date().getTime()
 			if typeof prevTime isnt 'undefined'
 				timeDiff = curTime - prevTime
 				if timeDiff > 200
-					console.log 'yeah'
+					$scope.move(cond, max)
 			prevTime = curTime
 			return
 

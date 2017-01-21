@@ -39890,13 +39890,13 @@ module.exports = function() {
           });
         };
         prevTime = new Date().getTime();
-        $scope.scroll = function() {
+        $scope.scroll = function(cond, max) {
           var curTime, timeDiff;
           curTime = new Date().getTime();
           if (typeof prevTime !== 'undefined') {
             timeDiff = curTime - prevTime;
             if (timeDiff > 200) {
-              console.log('yeah');
+              $scope.move(cond, max);
             }
           }
           prevTime = curTime;
