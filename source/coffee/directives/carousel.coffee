@@ -2,7 +2,7 @@ module.exports = ->
 	carousel =
 		scope : on
 		controller : ["$scope", "$element", "$attrs", ($scope, $element, $attrs)->
-			$scope.carousel = new IScroll $element[0],
+			$scope.carousel = new IScroll $element[0].querySelector( '.carousel-wrapper' ),
 				scrollX : on
 				scrollY : off
 				snap : '.carousel-item'
