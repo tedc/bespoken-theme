@@ -33,6 +33,16 @@ module.exports = ->
 				onComplete : ->
 					$scope.isAnim = off
 					return
+		prevTime = new Date().getTime()
+		$scope.scroll  = ->
+			curTime = new Date().getTime()
+			if typeof prevTime isnt 'undefined'
+				timeDiff = curTime - prevTime
+				if timeDiff > 200
+					console.log 'yeah'
+			prevTime = curTime
+			return
+
 		w.bind 'resize', ->
 			$scope.num = 1
 			return if kind is 'full'

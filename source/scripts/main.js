@@ -39844,7 +39844,7 @@ module.exports = function() {
   return carousel = {
     controller: [
       "$scope", "$window", "$attrs", "$element", function($scope, $window, $attrs, $element) {
-        var kind, w;
+        var kind, prevTime, w;
         w = angular.element($window);
         $scope.isCurrent = 0;
         $scope.mv = 0;
@@ -39888,6 +39888,18 @@ module.exports = function() {
               $scope.isAnim = false;
             }
           });
+        };
+        prevTime = new Date().getTime();
+        $scope.scroll = function() {
+          var curTime, timeDiff;
+          curTime = new Date().getTime();
+          if (typeof prevTime !== 'undefined') {
+            timeDiff = curTime - prevTime;
+            if (timeDiff > 200) {
+              console.log('yeah');
+            }
+          }
+          prevTime = curTime;
         };
         w.bind('resize', function() {
           var x;
