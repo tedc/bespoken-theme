@@ -6,11 +6,13 @@
       ],
       "main": true
     },
+    "lib.js": {
+      "bower" : ["gsap", "scrollmagic", "iscroll"]
+    },
     "main.css": {
       "files": [
         "styles/main.scss"
       ],
-      "bower" : ["normalize-scss"],
       "main": true
     }
   },
