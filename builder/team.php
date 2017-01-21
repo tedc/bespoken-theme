@@ -21,8 +21,8 @@
                         <a class="icon-twitter"
                            href="https://twitter.com/<?php echo get_user_meta('twitter', $user["ID"]); ?>" target="_blank"></a>
 
-                
-                        <a class="icon-instagram" href="<?php echo get_user_meta('google_plus', $user["ID"]); ?>" target="_blank"></a>
+
+                        <a class="icon-instagram" href="<?php echo get_user_meta('googleplus', $user["ID"]); ?>" target="_blank"></a>
 
                 </nav>
             </div>
