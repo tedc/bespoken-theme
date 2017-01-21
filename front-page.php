@@ -1,4 +1,4 @@
-<div ng-carousel ng-mouse-wheel-up="move(false)" ng-mouse-wheel-down="move(true)">
+<div ng-carousel ng-mouse-wheel-up="move(false)" ng-mouse-wheel-down="move(true)" items="3">
 	<div class="carousel-wrapper">
 	<div class="carousel-item">
 	</div>
