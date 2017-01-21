@@ -39848,6 +39848,7 @@ module.exports = function() {
       var html, i, j, len, text;
       text = element.text();
       html = '<span class="btn-menu-text-content">';
+      console.log(text);
       for (j = 0, len = text.length; j < len; j++) {
         i = text[j];
         console.log(i);
