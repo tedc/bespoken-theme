@@ -54,6 +54,7 @@
     "gulp-imagemin": "^3.0.3",
     "gulp-jshint": "^2.0.1",
     "gulp-less": "^3.0.3",
+    "gulp-modernizr": "^1.0.0-alpha",
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",

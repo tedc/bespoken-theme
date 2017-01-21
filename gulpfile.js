@@ -33,6 +33,7 @@ var buffer       = require('vinyl-buffer');
 var source       = require('vinyl-source-stream');
 var browserify   = require('browserify');
 var coffeeify    = require('coffeeify');
+var modernizr    = require('gulp-modernizr');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -239,7 +240,34 @@ gulp.task('scripts', function() {
 
 gulp.task('js', function() {
     runSequence('browserify', 'scripts');
-})
+});
+
+gulp.task('modernizr', function() {
+  return gulp.src(path.source + 'scripts/modernizr/modernizr.js')
+    .pipe(modernizr({
+      dest: path.source + 'scripts/modernizr/modernizr.build.js',
+      files: {
+        src : [
+          [ path.source + 'scripts/main.js'],
+          [ path.source + 'styles/main.css']
+        ]
+      },
+      options : [
+          "setClasses",
+          "addTest",
+          "html5printshiv",
+          "testProp",
+          "fnBind",
+          "prefixed",
+          "testAllProps",
+          "hasEvent",
+          "mq"
+      ],
+      useBuffers: false,
+      uglify: false,
+      crawl: true
+    }));
+});
 
 // ### Fonts
 // `gulp fonts` - Grabs all the fonts and outputs them in a flattened directory
