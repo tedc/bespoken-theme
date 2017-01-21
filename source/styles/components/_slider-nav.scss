@@ -41,21 +41,16 @@
     display: flex;
     transform: translateY(-50%);
     justify-content: space-between;
-    &:hover {
-        .btn {
-            border-color: $gray-dark;
-
-            .btn-line, .btn-arrow-up, .btn-arrow-down {
-                background-color: $gray-dark;
-            }
-        }
-    }
 
     .btn {
         cursor: pointer;
         border-color: $purple;
         transition: border $speed;
         &:hover {
+            border-color: $gray-dark;
+            .btn-line, .btn-arrow-up, .btn-arrow-down {
+                background-color: $gray-dark;
+            }
             &:before, &:after {
                 border-color: $purple;
             }
