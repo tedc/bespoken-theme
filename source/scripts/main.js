@@ -39835,9 +39835,9 @@ module.exports = angular;
 },{"./angular":11}],13:[function(require,module,exports){
 var em;
 
-em = function(val) {};
-
-val / 16;
+em = function(val) {
+  return val / 16;
+};
 
 module.exports = function() {
   var carousel;

@@ -1,6 +1,5 @@
 em = (val)->
-val/16
-
+	val/16
 module.exports = ->
 	carousel =
 	controller : ["$scope", "$window", "$attrs", "$element", ($scope, $window, $attrs, $element)->
