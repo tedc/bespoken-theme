@@ -8,8 +8,14 @@
                 ?>
             </figure>
             <div class="user-details">
+                <?php var_dump($user); ?>
                 <div class="user-details-name"><?php echo $user["user_firstname"].' '.$user["user_lastname"] ?></div>
-                <div class="user-details-social"></div>
+                <nav class="user-details-social">
+                    <a class="icon-linkedin" href="<?php $user["user_email"]; ?>"></a>
+                    <a class="icon-facebook" href="<?php $user["user_email"]; ?>"></a>
+                    <a class="icon-twitter" href="<?php $user["user_email"]; ?>"></a>
+                    <a class="icon-instagram" href="<?php $user["user_email"]; ?>"></a>
+                </nav>
             </div>
         </div>
     <?php endforeach; ?>
