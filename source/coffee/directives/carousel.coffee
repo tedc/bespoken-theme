@@ -6,10 +6,15 @@ module.exports = ->
 				scrollX : on
 				scrollY : off
 				snap : '.carousel-item'
+			$scope.isScrolling = off
 			$scope.move = (cond)->
+				return off if $scope.isScrolling
 				if cond then $scope.carousel.next() else carousel.prev()
 				return
-			$scope.moveOnWheel = ($deltaY)->
-				console.log $deltaY
+			$scope.carousel.on 'scrollStart', ->
+				$scope.isScrolling = on
+				return
+			$scope.carousel.on 'scrollEnd', ->
+				$scope.isScrolling = off
 				return
 		]
