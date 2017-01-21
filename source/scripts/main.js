@@ -39835,9 +39835,9 @@ module.exports = angular;
 },{"./angular":11}],13:[function(require,module,exports){
 var em;
 
-em = function(val) {
-  return val / 16;
-};
+em = function(val) {};
+
+val / 16;
 
 module.exports = function() {
   var carousel;
@@ -39849,8 +39849,13 @@ module.exports = function() {
         $scope.isCurrent = 0;
         $scope.mv = 0;
         $scope.max = 0;
+        $scope.isAnim = false;
         kind = $attrs.kind ? $attrs.kind : false;
         $scope.move = function(cond, max) {
+          if ($scope.isAnim) {
+            return;
+          }
+          $scope.isAnim = true;
           $scope.max = max + 1;
           $scope.num = 1;
           $scope.per = cond ? -1 : 1;
@@ -39878,7 +39883,10 @@ module.exports = function() {
           }
           $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max ? max : $scope.isCurrent + $scope.num);
           return TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
-            x: "+=" + (100 * $scope.num * $scope.per) + "%"
+            x: "+=" + (100 * $scope.num * $scope.per) + "%",
+            onComplete: function() {
+              $scope.isAnim = false;
+            }
           });
         };
         w.bind('resize', function() {
@@ -39897,7 +39905,7 @@ module.exports = function() {
             return;
           }
           x = $scope.mv > $scope.max - $scope.num ? ($scope.max - $scope.num) * 100 : $scope.mv * 100;
-          return TweenMax.set($element[0].querySelectorAll('.carousel-item'), {
+          TweenMax.set($element[0].querySelectorAll('.carousel-item'), {
             x: "-" + x + "%"
           });
         });
