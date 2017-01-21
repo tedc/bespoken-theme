@@ -32,6 +32,8 @@
         }
         &-content {
             .letter {
+                display: inline-block;
+                transition: transform $speed;
                 @for $c from 1 through 4 {
                     $d: ($speed * $c) / 4;
                     &:nth-child(#{$c}) {
