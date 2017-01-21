@@ -1,14 +1,17 @@
 <?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ''); ?>
 
-<?php if (!get_sub_field('spaziatura')) :
+<?php if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
-elseif (!get_sub_field('spaziatura') == 0):
+elseif (get_sub_field('spaziatura') == '0'):
     $padding = get_sub_field('grandezza_spaziatura');
-elseif (!get_sub_field('spaziatura') == 1):
+elseif (get_sub_field('spaziatura') == '1'):
     $padding = get_sub_field('grandezza_spaziatura_sopra');
-elseif (!get_sub_field('spaziatura') == 2):
+elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
-endif; ?>
+endif;?>
+
+<?php the_sub_field('spaziatura')?>
+<?php echo $padding ?>
 
 <div class="content <?php echo $padding ?>">
     <?php if ((get_sub_field('titolo') != '')) : ?>
