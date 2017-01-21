@@ -8,9 +8,10 @@
     },
     "lib.js": {
       "files": [
+        "../bower_components/gsap/src/uncompressed/TweenMax.js",
         "../bower_components/gsap/src/uncompressed/utils/Draggable.js"
       ],
-      "bower" : ["gsap", "scrollmagic"]
+      "bower" : ["scrollmagic"]
     },
     "main.css": {
       "files": [
