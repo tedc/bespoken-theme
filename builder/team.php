@@ -16,14 +16,14 @@
                         <a class="icon-linkedin" href="<?php echo $user["user_url"]; ?>" target="_blank"></a>
                     <?php endif ?>
 
-                        <a class="icon-facebook" href="<?php echo $user_info['facebook']; ?>" target="_blank"></a>
+                        <a class="icon-facebook" href="<?php $user_info['facebook']; ?>" target="_blank"></a>
 
 
                         <a class="icon-twitter"
                            href="https://twitter.com/<?php echo get_user_meta('twitter', $user["ID"]); ?>" target="_blank"></a>
 
-                   
-                        <a class="icon-instagram" href="<?php echo $user_info['googleplus']; ?>" target="_blank"></a>
+
+                        <a class="icon-instagram" href="<?php $user_info['googleplus']; ?>" target="_blank"></a>
 
                 </nav>
             </div>
