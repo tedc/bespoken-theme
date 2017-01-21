@@ -1,16 +1,20 @@
 .user-col {
     padding: 0!important;
     overflow: hidden;
+    cursor: pointer;
+    &:hover {
+        .user-image {
+            transform: translateY(-100%);
+        }
+    }
     .user-image {
-        cursor: pointer;
+
         width: auto;
         max-width: 100%;
         display: inline-block;
         margin: 0;
         transition: transform $speed;
-        &:hover {
-            transform: translateY(-100%);
-        }
+
         img {
             width: 100%;
             height: auto;
