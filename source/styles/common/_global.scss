@@ -146,5 +146,7 @@
 }
 
 @mixin gradient($top: $violet, $bottom: $purple) {
-    background-image: linear-gradient(to bottom, $top 0%, $bottom 100%);
+    background-image: linear-gradient(to bottom, $top, $bottom, $top, $bottom);
+    animation: gradient 30s ease infinite;
+    background-size: 300%;
 }
