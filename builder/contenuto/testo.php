@@ -1,6 +1,6 @@
 <?php while ( have_rows('testo') ) : the_row(); ?>
 
-<?php /*if (!get_sub_field('spaziatura')) :
+<?php if (!get_sub_field('spaziatura')) :
     $padding = 'row-lg';
 elseif (!get_sub_field('spaziatura') == 0):
     $padding = get_sub_field('grandezza_spaziatura');
@@ -8,13 +8,8 @@ elseif (!get_sub_field('spaziatura') == 1):
     $padding = get_sub_field('grandezza_spaziatura_sopra');
 elseif (!get_sub_field('spaziatura') == 2):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
-endif;*/?><!--
-    <?php /*var_dump(get_sub_field('spaziatura'))*/?>
---><?php /*var_dump($padding)*/?>
-    <?php the_sub_field('spaziatura') ?>
-    <?php the_sub_field('grandezza_spaziatura');?>
-    <?php the_sub_field('grandezza_spaziatura_sopra');?>
-    <?php the_sub_field('grandezza_spaziatura_sotto');?>
+endif;?>
+ <?php echo $padding ?>
 
 <div class="content <?php echo $padding ?>">
     <?php $align = ((get_sub_field('allineamento_testo'))); ?>
