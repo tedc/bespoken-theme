@@ -14,14 +14,14 @@
                     <?php if ($user["user_url"] != '') : ?>
                         <a class="icon-linkedin" href="<?php echo $user["user_url"]; ?>" target="_blank"></a>
                     <?php endif ?>
-
+                    <?php var_dump( get_user_meta('facebook', $user["ID"]))?>
                         <a class="icon-facebook" href="<?php echo get_user_meta('facebook', $user["ID"]); ?>" target="_blank"></a>
 
 
                         <a class="icon-twitter"
                            href="https://twitter.com/<?php echo get_user_meta('twitter', $user["ID"]); ?>" target="_blank"></a>
 
-
+                    <?php var_dump( get_user_meta('googleplus', $user["ID"]))?>
                         <a class="icon-instagram" href="<?php echo get_user_meta('googleplus', $user["ID"]); ?>" target="_blank"></a>
 
                 </nav>
