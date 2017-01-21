@@ -65,6 +65,9 @@ h5 {
 }
 
 .title {
+    span {
+        font-weight: 500;
+    }
     .bg-dark & {
         color: $w;
     }
