@@ -37,7 +37,7 @@ input {
 			align-items: center;
 			cursor: pointer;
 			.check {
-				border-radius: em(25px);
+				border-radius: em(25px, 12px);
 				width: em(50px, 12px);
 				height: em(25px, 12px);
 				font-size: 12px;
@@ -55,10 +55,10 @@ input {
 			}
 			.cursor {
 				border-radius: em(17px, 12px);
-				width: em(17px, 12px);
 				height: em(17px, 12px);
 				top: em(4px, 12px);
 				left: em(4px, 12px);
+				right: em( 50px - 21px, 12px );
 				box-shadow: 0 2px 5px transparentize($b, .65);
 				position: absolute;
 				display: block;
@@ -186,15 +186,15 @@ textarea {
 
 @keyframes cursor {
 	0% {
-		width: em(17px, 12px);
+		left: em(4px, 12px);
+		right: em( 50px - 21px, 12px );
 	}
 	50% {
-		width: em(42px, 12px);
-		right: em(4px, 12px);
+		left: em(4px, 12px);
+		right: em( 4px, 12px );
 	}
 	100% {
-		left: auto;
 		right: em(4px, 12px);
-		width: em(17px, 12px);
+		left: em( 50px - 21px, 12px );
 	}
 }
