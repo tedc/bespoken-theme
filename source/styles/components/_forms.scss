@@ -64,7 +64,7 @@ input {
 				display: block;
 				overflow: hidden;
 				z-index: 1;
-				animation: cursor 1s reverse; 
+				transition: left $speed, right $speed $speed;
 				&:before, &:after {
 					content: '';
 					transition: opacity $speed;
@@ -85,7 +85,9 @@ input {
 					color: $violet;
 				}
 				.cursor {
-					animation: cursor 1s forwards;
+					transition: right $speed, left $speed $speed;
+					right: em(4px, 12px);
+					left: em( 50px - 21px, 12px );
 					&:after {
 						opacity: 1;
 					}
@@ -178,21 +180,5 @@ textarea {
 	&:hover {
 		box-shadow: 0 2px 5px transparentize($b, .5);
 		@include gradientAnim;
-	}
-}
-
-
-@keyframes cursor {
-	0% {
-		left: em(4px, 12px);
-		right: em( 50px - 21px, 12px );
-	}
-	50% {
-		left: em(4px, 12px);
-		right: em( 4px, 12px );
-	}
-	100% {
-		right: em(4px, 12px);
-		left: em( 50px - 21px, 12px );
 	}
 }
