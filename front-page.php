@@ -17,7 +17,7 @@
 	</div>
 	</div>
 	<nav class="carousel-nav">
-		<span ng-click="move(true, 5)">prima</span>
-		<span ng-click="move(false, 5)">dopo</span>
+		<span ng-click="move(true, 6)">prima</span>
+		<span ng-click="move(false, 6)">dopo</span>
 	</nav>
 </div>
