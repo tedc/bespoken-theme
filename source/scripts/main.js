@@ -39863,7 +39863,6 @@ module.exports = function() {
               $scope.num = $attrs.items;
             }
           }
-          console.log($scope.isCurrent, cond);
           if (cond) {
             if ($scope.isCurrent === 0) {
               return;
@@ -39883,7 +39882,7 @@ module.exports = function() {
             return;
           }
           $scope.isAnim = true;
-          return TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
+          TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
             x: "+=" + (100 * $scope.num * $scope.per) + "%",
             onComplete: function() {
               $scope.isAnim = false;

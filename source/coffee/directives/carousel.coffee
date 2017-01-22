@@ -18,7 +18,6 @@ module.exports = ->
 					$scope.num = 2
 				if Modernizr.mq "screen and (min-width: #{em(850)}em)"
 					$scope.num = $attrs.items
-			console.log $scope.isCurrent, cond
 			if cond
 				return if $scope.isCurrent is 0
 				$scope.mv -= $scope.num
@@ -34,6 +33,7 @@ module.exports = ->
 				onComplete : ->
 					$scope.isAnim = off
 					return
+			return
 		prevTime = new Date().getTime()
 		$scope.scroll  = (cond, max)->
 			curTime = new Date().getTime()
