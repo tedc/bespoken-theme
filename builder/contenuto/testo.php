@@ -16,7 +16,7 @@ endif;?>
 
         <h3 class="title <?php echo $align ?> <?php echo (get_sub_field('enfasi_titolo')? ' emphasis' : '' )  ?>"><?php the_sub_field('titolo') ?> </h3>
         <?php else : ?>
-        <h2 class="title emphasis"><em><?php the_sub_field('titolo_precompilato');?></em></h2>
+        <h2 class="title title-schedule emphasis"><em><?php the_sub_field('titolo_precompilato');?></em></h2>
         <?php endif ?>
 <div class="description <?php echo $align ?>"><?php the_sub_field('contenuto') ?></div>
     </div>
