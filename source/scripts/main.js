@@ -39854,7 +39854,7 @@ module.exports = function() {
         $scope.move = function(cond, max) {
           $scope.max = max + 1;
           $scope.num = 1;
-          $scope.per = cond ? -1 : 1;
+          $scope.per = cond ? 1 : -1;
           if (!kind) {
             if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
               $scope.num = 2;

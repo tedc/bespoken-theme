@@ -12,7 +12,7 @@ module.exports = ->
 		$scope.move = (cond, max)->
 			$scope.max = max + 1
 			$scope.num = 1
-			$scope.per = if cond then -1 else 1
+			$scope.per = if cond then 1 else -1
 			if not kind
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 					$scope.num = 2
