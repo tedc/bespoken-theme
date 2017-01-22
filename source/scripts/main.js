@@ -39900,7 +39900,7 @@ module.exports = function() {
           TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
             width: itemW + "%"
           });
-          $scope.carousel.refres();
+          $scope.carousel.refresh();
         });
       }
     ]
