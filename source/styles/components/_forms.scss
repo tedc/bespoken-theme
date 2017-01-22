@@ -29,7 +29,10 @@ input {
 		line-height: em(50px, $font-size);
 	}
 	&[type="checkbox"] {
+		display: none;
 		& + .form-label {
+			width: $f;
+			flex: 0 0 auto;
 			.check {
 				border-radius: em(25px);
 				width: em(50px, 12px);
@@ -47,7 +50,7 @@ input {
 				}
 			}
 			.cursor {
-				border-radius: $f;
+				border-radius: em(17px, 12px);
 				width: em(17px, 12px);
 				height: em(17px, 12px);
 				top: em(4px, 12px);
