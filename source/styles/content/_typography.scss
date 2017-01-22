@@ -97,6 +97,24 @@ h5 {
         text-transform: uppercase;
         font-style: normal;
     }
+    &-minus {
+        font-size: em(20px);
+        font-weight: normal;
+        text-transform: uppercase;
+        font-style: normal;
+    }
+    &-normal {
+        font-size: em(36px);
+        font-weight: normal;
+        text-transform: uppercase;
+        font-style: normal;
+    }
+    &-normal {
+        font-size: em(72px);
+        font-weight: normal;
+        text-transform: uppercase;
+        font-style: normal;
+    }
 }
 
 
