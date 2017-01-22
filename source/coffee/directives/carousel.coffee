@@ -28,7 +28,7 @@ module.exports = ->
 					scrollX: on
 					scrollY: off
 					snap: '.carousel-item'
-					mousewheel : $scope.$eval $attrs.mousewheel
+					mouseWheel: $scope.$eval $attrs.mousewheel
 				return
 			, 20
 			$scope.move = (cond)->

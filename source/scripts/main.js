@@ -39874,7 +39874,7 @@ module.exports = function() {
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',
-            mousewheel: $scope.$eval($attrs.mousewheel)
+            mouseWheel: $scope.$eval($attrs.mousewheel)
           });
         }, 20);
         $scope.move = function(cond) {
