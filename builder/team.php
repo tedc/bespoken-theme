@@ -8,8 +8,8 @@
                 echo get_avatar($user["user_email"], $size = '500');
                 ?>
             </figure>
-            <div class="mask">
-                <div class="user-details" data-position="<?php echo $i ?>">
+            <div class="mask" data-position="<?php echo $i ?>">
+                <div class="user-details">
                     <div
                         class="user-details-name"><?php echo $user["user_firstname"] . ' ' . $user["user_lastname"] ?></div>
                     <nav class="user-details-social">

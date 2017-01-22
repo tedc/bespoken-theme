@@ -16,7 +16,6 @@
         display: block;
         margin: 0;
 
-
         img {
             width: 100%;
             height: auto;
@@ -50,8 +49,19 @@
         }
     }
 }
-/*
 
-[data-position="1"]{
-    translate3d($f*1,0,0);
-}*/
+[data-position="0"] {
+    translate3d($f * -1, 0, 0);
+}
+
+[data-position="1"] {
+    translate3d($f * 1, 0, 0);
+}
+
+[data-position="2"] {
+    translate3d($f * 1, 0, 0);
+}
+
+[data-position="3"] {
+    translate3d($f * 1, 0, 0);
+}
