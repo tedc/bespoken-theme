@@ -58,47 +58,47 @@
 
 .row {
     padding: {
-        top: em(25px);
-        bottom: em(25px);
+        top: em(75px/2);
+        bottom: em(75px/2);
     }
     @include breakpoint(640px) {
         padding: {
-            top: em(50px);
-            bottom: em(50px);
+            top: em(75px);
+            bottom: em(75px);
         }
     }
     &-btm {
         padding: {
-            top: em(25px);
-            bottom: em(25px);
+            top: em(75px/2);
+            bottom: em(75px/2);
         }
         @include breakpoint(640px) {
             padding: {
-                top: em(50px);
-                bottom: em(50px);
+                top: em(75px);
+                bottom: em(75px);
             }
         }
         @include breakpoint($bp) {
             padding: {
                 top: em(150px);
-                bottom: em(50px);
+                bottom: em(75px);
             }
         }
     }
     &-top {
         padding: {
-            top: em(25px);
-            bottom: em(25px);
+            top: em(75px/2);
+            bottom: em(75px/2);
         }
         @include breakpoint(640px) {
             padding: {
-                top: em(50px);
-                bottom: em(50px);
+                top: em(75px);
+                bottom: em(75px);
             }
         }
         @include breakpoint($bp) {
             padding: {
-                top: em(50px);
+                top: em(75px);
                 bottom: em(150px);
             }
         }
@@ -141,13 +141,13 @@
     }
     &-lg {
         padding: {
-            top: em(25px);
-            bottom: em(25px);
+            top: em(75px/2);
+            bottom: em(75px/2);
         }
         @include breakpoint(640px) {
             padding: {
-                top: em(50px);
-                bottom: em(50px);
+                top: em(75px);
+                bottom: em(75px);
             }
         }
         @include breakpoint($bp) {
@@ -158,11 +158,11 @@
         }
         &-btm {
             padding: {
-                bottom: em(25px);
+                bottom: em(75px/2);
             }
             @include breakpoint(640px) {
                 padding: {
-                    bottom: em(50px);
+                    bottom: em(75px);
                 }
             }
             @include breakpoint($bp) {
@@ -173,11 +173,11 @@
         }
         &-top {
             padding: {
-                top: em(25px);
+                top: em(75px/2);
             }
             @include breakpoint(640px) {
                 padding: {
-                    top: em(50px);
+                    top: em(75px);
                 }
             }
             @include breakpoint($bp) {

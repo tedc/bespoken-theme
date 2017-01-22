@@ -6,7 +6,7 @@
     align-items: center;
     justify-content: center;
 
-    .arrow-left {
+    .arrow-prev {
         position: relative;
         width: em(40px);
         height: em(40px);
@@ -14,7 +14,7 @@
 
     }
 
-    .arrow-right, .arrow-left {
+    .arrow-next, .arrow-prev {
         cursor: pointer;
         position: relative;
         width: em(40px);
@@ -70,7 +70,7 @@
     }
 }
 
-.arrow-left {
+.arrow-prev {
     transform: scale(-1, 1);
 }
 

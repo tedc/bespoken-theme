@@ -40,7 +40,7 @@ endif;?>
         </ul>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number">
-            <span class="arrow-left">
+            <span class="arrow-prev">
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
@@ -48,7 +48,7 @@ endif;?>
             </span>
             <span class="gallery-count"><span class="current-slide ng-binding"
                                               ng-bind-html="pos + 1">1</span>/<?php echo $n_page ?></span>
-            <span class="arrow-right">
+            <span class="arrow-next">
                  <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>

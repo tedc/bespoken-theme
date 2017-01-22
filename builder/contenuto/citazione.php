@@ -8,6 +8,6 @@ elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<blockquote class="quote <?php echo $padding ?>">
+<blockquote class="quote">
     <?php echo get_sub_field('testo') ?>
 </blockquote>
