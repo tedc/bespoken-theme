@@ -39879,12 +39879,12 @@ module.exports = function() {
             }
             $scope.mv += $scope.max - $scope.num < $scope.num ? $scope.max - $scope.num : $scope.num;
           }
-          $scope.isCurrent = $scope.mv;
+          console.log($scope.mv);
+          $scope.isCurrent = $scope.num;
           if ($scope.isAnim) {
             return;
           }
-          console.log($scope.isCurrent);
-          num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : ($scope.isCurrent < $scope.num ? $scope.isCurrent : $scope.num);
+          num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : $scope.num;
           $scope.isAnim = true;
           TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
             x: "+=" + (100 * num * $scope.per) + "%",
