@@ -37,12 +37,23 @@ textarea {
 			width: $f/2;
 		}
 	}
+	&-content, &-inputs {
+		width: $f;
+		flex: 0 0 auto;
+		@include normalize_padding;
+	}
 	&-content {
 		background-color: $light;
+		@include breakpoint($bp) {
+			width: $f/3;
+		}
 	}
 	&-inputs {
 		background-color: $anthracite;
 		color: $light;
+		@include breakpoint($bp) {
+			width: ($f/3) * 2;
+		}
 	}
 	&-row {
 		padding-bottom: em(25px);
