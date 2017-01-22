@@ -64,6 +64,7 @@ input {
 				display: block;
 				overflow: hidden;
 				z-index: 1;
+				animation: cursor 1s reverse; 
 				&:before, &:after {
 					content: '';
 					transition: opacity $speed;
@@ -85,9 +86,6 @@ input {
 				}
 				.cursor {
 					animation: cursor 1s forwards;
-					&:before {
-						opacity: 0;
-					}
 					&:after {
 						opacity: 1;
 					}
