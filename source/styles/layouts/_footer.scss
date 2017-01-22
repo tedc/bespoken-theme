@@ -11,6 +11,7 @@
 
 .cat {
     @include normalize_padding;
+    overflow: hidden;
     position: fixed;
     flex-wrap: wrap;
     width: 100%;
@@ -19,6 +20,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    a {
+        color: $w;
+    }
     @include gradient;
     &-text {
         padding-right: em(15px);

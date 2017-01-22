@@ -83,6 +83,7 @@
         position: absolute;
         right: em(50px);
         top: em(50px);
+        opacity: 1;
         .btn-line {
             transition: transform $speed, opacity $speed;
             .visible & {
@@ -92,7 +93,18 @@
                 &:nth-child(2) {
                     transform: rotate(-45deg);
                 }
+                &:hover {
+                    &:nth-child(1) {
+                        transform: rotate(0deg);
+                    }
+                    &:nth-child(2) {
+                        transform: rotate(0deg);
+                    }
+                }
             }
+        }
+        .visible {
+            opacity: 1;
         }
     }
 }
