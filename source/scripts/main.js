@@ -39877,7 +39877,7 @@ module.exports = function() {
             if ($scope.num > max) {
               return;
             }
-            $scope.mv += $scope.num;
+            $scope.mv += $scope.max - $scope.num < $scope.num ? $scope.max - $scope.num : $scope.num;
           }
           $scope.isCurrent = $scope.mv;
           if ($scope.isAnim) {
