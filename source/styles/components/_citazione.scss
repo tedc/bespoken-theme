@@ -4,19 +4,19 @@
     font-style: italic;
     margin: 0;
     padding: {
-        top: em(25px);
-        bottom: em(25px);
+        top: em(25px, 27px);
+        bottom: em(25px, 27px);
     }
     @include breakpoint(640px) {
         padding: {
-            top: em(50px);
-            bottom: em(50px);
+            top: em(50px, 31px);
+            bottom: em(50px, 31px);
         }
     }
     @include breakpoint($bp) {
         padding: {
-            top: em(150px);
-            bottom: em(150px);
+            top: em(150px, 36px);
+            bottom: em(150px, 36px);
         }
     }
     .marks {
