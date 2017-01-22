@@ -2,11 +2,12 @@ $error: #d0043c;
 %inputs {
 	background-color: $w;
 	border: 0;
-	@include appearance(none);
 	width: $f;
 	font-size: $font-size;
 	color: $gray;
-	padding: em(20px, $font-size) 0;
+	padding: 0 em(20px, $font-size);
+	display: block;
+	@include appearance(none);
 	@include input-placeholder {
 		font-size: 1em;
 		font-family: $main-font;
@@ -21,13 +22,69 @@ $error: #d0043c;
 	}
 }
 
-input[type="email"], input[type="text"], input[type="tel"], textarea {
-	@extend %inputs;
-	height: em(50px, $font-size);
-	line-height: em(50px, $font-size);
+input {
+	&[type="email"], &[type="text"], &[type="tel"] {
+		@extend %inputs;
+		height: em(50px, $font-size);
+		line-height: em(50px, $font-size);
+	}
+	&[type="checkbox"] {
+		& + .form-label {
+			.check {
+				border-radius: em(25px);
+				width: em(50px, 12px);
+				height: em(25px, 12px);
+				font-size: 12px;
+				color: $gray;
+				background-color: $light;
+				letter-spacing: 1em;
+				text-align: center;
+				display: inline-block;
+				position: relative;
+				transition: color $speed;
+			}
+			.cursor {
+				border-radius: $f;
+				width: em(17px, 12px);
+				height: em(17px, 12px);
+				top: em(4px, 12px);
+				left: em(4px, 12px);
+				box-shadow: 0 2px 5px transparentize($b, .65);
+				&:before, &:after {
+					content: '';
+					transition: opacity $speed;
+					@include absfull;
+				}
+				&:before {
+					background-color: linear-gradient(to bottom, $gray, $gray-dark);
+				}
+				&:after {
+					opacity: 0;
+					background-color: linear-gradient(to bottom, $violet, $purple);
+				}
+			}
+		}
+		&:checked {
+			& + .form-label {
+				.check {
+					color: $violet;
+				}
+				.cursor {
+					animation: cursor 1s forwards;
+					&:before {
+						opacity: 0;
+					}
+					&:after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
 }
 
 textarea {
+	@extend %inputs;
 	padding-top: em(20px);
 	line-height: 1.2;
 	.modal-container & {
@@ -40,13 +97,26 @@ textarea {
 	&-col {
 		@include breakpoint($bp) {
 			width: $f/2;
+			padding: {
+	            left: em(25px);
+	            right: em(25px);
+	        }
 		}
 	}
 	&-content, &-inputs {
 		width: $f;
 		display: flex;
 		flex: 0 0 auto;
-		@include normalize_padding;
+		padding: {
+	        left: 10px;
+	        right: 10px;
+	    }
+	    @include breakpoint(640px){
+	        padding: {
+	            left: em(25px);
+	            right: em(25px);
+	        }
+	    }
 	}
 	&-content {
 		background-color: $light;
@@ -95,5 +165,20 @@ textarea {
 	&:hover {
 		box-shadow: 0 2px 5px transparentize($b, .5);
 		@include gradientAnim;
+	}
+}
+
+
+@keyframes cursor {
+	0% {
+		width: em(17px, 12px);
+	}
+	50% {
+		width: em(42px, 12px);
+		right: 0;
+		left: auto;
+	}
+	100% {
+		width: em(17px, 12px);
 	}
 }

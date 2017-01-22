@@ -1,17 +1,16 @@
 <div class="modal-container" ng-class="{visible : isContact}">
 	<?php close('isModal=false;isContact=false'); ?>
 	<form class="form">
-		<div class="form-content">
+		<div class="form-content row-lg">
 		</div>
-		<div class="form-inputs">
+		<div class="form-inputs row-lg">
 			<div class="form-col">
 				<div class="form-row">
 					<input type="text" name="sender" placeholder="<?php _e('Nome e cognome', 'bspkn'); ?>">
 				</div>
 				<div class="form-row">
 					<input type="email" name="email" required placeholder="<?php _e('Indirizzo email (richiesto)', 'bspkn'); ?>">
-				</div>
-				
+				</div>			
 				<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>">
 			</div>
 			<div class="form-col">
@@ -27,6 +26,17 @@
 						</span>
 					</span>
 				</button>
+			</div>
+			<div class="acceptance">
+				<input type="checkbox" name="privacy">
+				<label for="privacy" class="form-label">
+					<span class="check">
+						<?php _e('Sì', 'bspkn'); ?>
+						<?php _e('No', 'bspkn'); ?>
+						<i class="cursor"></i>
+					</span>
+				</label>
+			</div>
 		</div>
 	</form>
 </div>
