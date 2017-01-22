@@ -190,10 +190,11 @@ textarea {
 	}
 	50% {
 		width: em(42px, 12px);
-		right: 0;
-		left: auto;
+		right: em(4px, 12px);
 	}
 	100% {
+		left: auto;
+		right: em(4px, 12px);
 		width: em(17px, 12px);
 	}
 }
