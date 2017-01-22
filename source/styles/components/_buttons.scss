@@ -66,6 +66,15 @@
         &:after {
             animation-delay: 0.4s;
         }
+        .btn-send & {
+            &:before,  &:after {
+                border-color: $w;
+                animation: mymove 2s infinite linear;
+            }
+            &:after {
+                animation-delay: 0.4s;
+            }
+        }
     }
     &-text {
         font-size: $font-size;

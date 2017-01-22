@@ -151,12 +151,20 @@ textarea {
 	}
 }
 
+.acceptance {
+	padding-top: em(25px);
+	@include breakpoint($bp) {
+		padding-top: em(50px);
+	}
+	@include normalize_padding;
+}
+
 .btn-send {
 	border-radius: em(25px);
 	color: $w;
 	font-size: $font-size;
 	height: em(50px, $font-size);
-	line-height: em(50px);
+	line-height: em(50px, $font-size);
 	overflow: hidden;
 	position: relative;
 	border: 0;
