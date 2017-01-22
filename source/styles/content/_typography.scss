@@ -12,7 +12,6 @@ body {
     color: $gray-dark;
     margin: 0;
     font-family: $main-font;
-
     @include breakpoint(640px) {
         font-size: $base-font-size - 2px;
     }
@@ -34,9 +33,11 @@ h1, h2, h3, h4, h5, h6 {
     line-height: $interline-title
 }
 
-p, span {
-    font-size: em(18px);
-    line-height: $interline-base;
+p {
+    .content & {
+        font-size: em(18px);
+        line-height: $interline-base;
+    }
 }
 
 h1 {

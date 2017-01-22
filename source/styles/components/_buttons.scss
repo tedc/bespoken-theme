@@ -4,31 +4,46 @@
 
 .btn {
     cursor: pointer;
-    min-width: 50px;
+    min-width: em(50px);
     position: relative;
-    min-height: 50px;
+    min-height: em(50px);
     color: white;
-    border: 1px solid white;
-    border-radius: 50%;
+    border: 2px solid white;
+    border-radius: 100%;
     display: block;
-    &-line {
+    text-align: center;
+    &-line, &-arrow-up, &-arrow-down {
         position: absolute;
         top: 50%;
-        left:20%;
+        background-color: $w;
+    }
+    &-line {  
+        left: 20%;
         width: 60%;
         height: 2px;
         margin-top: -1px;
-        background-color: white;
+        &.up {
+            transform: rotate(-90deg);
+        }
+        &.down {
+            transform: rotate(90deg);
+        }
     }
-    &-arrow-up {
+    &-arrow-up, &-arrow-down {
         position: absolute;
         right: 0;
-        display:block;
-        width: 7px;
+        display: block;
+        width: em(7px);
         height: 2px;
         background-color: $w;
+    }
+    &-arrow-up {  
         transform: rotate(45deg);
         transform-origin: right top;
+    }
+    &-arrow-down {  
+        transform: rotate(-45deg);
+        transform-origin: right bottom;
     }
     &:before, &:after {
         content: "";
@@ -39,19 +54,8 @@
         display: block;
         width: 100%;
         height: 100%;
-        border: 1px solid transparent;
+        border: 2px solid transparent;
         border-radius: 50%;
-
-    }
-    &-arrow-down {
-        position: absolute;
-        right: 0;
-        display:block;
-        width: 7px;
-        height: 2px;
-        background-color: white;
-        transform: rotate(-45deg);
-        transform-origin: right bottom;
     }
     &:hover {
         &:before,  &:after {
@@ -63,11 +67,31 @@
         }
     }
     &-text {
+        font-size: $font-size;
+        padding: 0 em(20px, $font-size);
+        font-weight: bold;
+        text-transform: uppercase;
         &:before {
             content: '';
             display: inline-block;
             vertical-align: middle;
             padding-top: $f;
+        }
+    }
+    &.close {
+        position: absolute;
+        right: em(50px);
+        top: em(50px);
+        .btn-line {
+            transition: transform $speed, opacity $speed;
+            .visible & {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                }
+                &:nth-child(2) {
+                    transform: rotate(-45deg);
+                }
+            }
         }
     }
 }
@@ -94,18 +118,9 @@
         }
     }
 }
+
 @keyframes mymove {
     0%   {width: 100%; height: 100%; opacity: 1}
     50% {width: 200%; height: 200%; opacity: 0}
     100% {width: 200%; height: 200%; opacity: 0}
 }
-
-
-
-/*
-<span class="btn">
-<span class="btn-line">
-<span class="btn-arrow-up"></span>
-<span class="btn-arrow-down"></span>
-</span>
-</span>*/
