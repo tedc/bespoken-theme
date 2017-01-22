@@ -23,6 +23,10 @@ body {
 a {
     text-decoration: none;
     transition: color $speed;
+    a {
+        color: $purple;
+        font-weight: bold;
+    }
 }
 
 p, h1, h2, h3, h4, h5, h6 {
@@ -38,6 +42,10 @@ p {
     .content & {
         font-size: em(18px);
         color: $gray;
+        padding-bottom: em(50px, 18px);
+        &:nth-last-child(1), &:nth-last-of-type(1) {
+            padding-bottom: 0;
+        }
     }
 }
 

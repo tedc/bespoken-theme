@@ -39863,6 +39863,7 @@ module.exports = function() {
               $scope.num = $attrs.items;
             }
           }
+          console.log($scope.isCurrent, cond);
           if (cond) {
             if ($scope.isCurrent === 0) {
               return;
