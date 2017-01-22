@@ -1,4 +1,4 @@
-<div ng-carousel ng-mouse-wheel-up="scroll(true, 5)" ng-mouse-wheel-down="scroll(false, 5)" items="3">
+<div ng-carousel items="3" max="7">
 	<div class="carousel-container">
 		<div class="carousel-wrapper">
 			<div class="carousel-item">
@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<nav class="carousel-nav">
-		<span ng-click="move(true, 6)">prima</span>
-		<span ng-click="move(false, 6)">dopo</span>
+		<span ng-click="move(true)">prima</span>
+		<span ng-click="move(false)">dopo</span>
 	</nav>
 </div>
