@@ -39866,6 +39866,7 @@ module.exports = function() {
         TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
           width: itemW + "%"
         });
+        console.log($scope.$eval($attrs.mousewheel));
         $timeout(function() {
           $scope.carousel = new IScroll(container, {
             preventDefault: false,
