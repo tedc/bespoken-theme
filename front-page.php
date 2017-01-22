@@ -1,4 +1,4 @@
-<div ng-carousel items="3" max="7">
+<div ng-carousel items="3" max="7" mousewheel="true">
 	<div class="carousel-container">
 		<div class="carousel-wrapper">
 			<div class="carousel-item">

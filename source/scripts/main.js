@@ -39894,11 +39894,11 @@ module.exports = function() {
           width = (100 / $scope.num) * max;
           itemW = 100 / max;
           TweenMax.set(wrapper, {
-            width: width
+            width: width + "%"
           });
-          TweenMax.set(wrapper.querySelectorAll('.carousel-item', {
-            width: itemW
-          }));
+          TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
+            width: itemW + "%"
+          });
           $scope.carousel.refres();
         });
       }

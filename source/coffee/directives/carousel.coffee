@@ -42,9 +42,9 @@ module.exports = ->
 				width = ( 100 / $scope.num ) * max
 				itemW = 100 / max
 				TweenMax.set wrapper,
-					width : width
-				TweenMax.set wrapper.querySelectorAll '.carousel-item',
-					width : itemW
+					width : "#{width}%"
+				TweenMax.set wrapper.querySelectorAll('.carousel-item'),
+					width : "#{itemW}%"
 				$scope.carousel.refres()
 				return
 			return
