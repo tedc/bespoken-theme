@@ -39844,9 +39844,10 @@ module.exports = function() {
   return carousel = {
     controller: [
       "$scope", "$window", "$attrs", "$element", "$timeout", function($scope, $window, $attrs, $element, $timeout) {
-        var itemW, items, max, w, width, wrapper;
+        var container, itemW, items, max, w, width, wrapper;
         w = angular.element($window);
-        wrapper = $element[0].querySelector('.carousel-container');
+        container = $element[0].querySelector('.carousel-container');
+        wrapper = container.querySelector('.carousel-wrapper');
         items = $scope.$eval($attrs.items);
         max = $scope.$eval($attrs.max);
         $scope.num = 1;
