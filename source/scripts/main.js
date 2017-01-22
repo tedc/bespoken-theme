@@ -39879,7 +39879,7 @@ module.exports = function() {
             }
             $scope.mv += $scope.num;
           }
-          $scope.isCurrent = $scope.num;
+          $scope.isCurrent = $scope.mv;
           if ($scope.isAnim) {
             return;
           }

@@ -27,7 +27,7 @@ module.exports = ->
 				return if $scope.num > max
 				$scope.mv += $scope.num
 			#$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max - $scope.isCurrent then max else $scope.isCurrent + $scope.num)
-			$scope.isCurrent = $scope.num
+			$scope.isCurrent = $scope.mv
 			return if $scope.isAnim
 			console.log $scope.isCurrent
 			num = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else ( if $scope.isCurrent < $scope.num then $scope.isCurrent else $scope.num )
