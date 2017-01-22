@@ -23,11 +23,12 @@ $error: #d0043c;
 
 input[type="email"], input[type="text"], input[type="tel"], textarea {
 	@extend %inputs;
+	height: em(50px, $font-size)
 }
 
 textarea {
 	.modal-container & {
-		height: em(200px);
+		height: em(125px, $font-size);
 	}
 }
 
@@ -72,6 +73,12 @@ textarea {
 	position: relative;
 	border: 0;
 	width: $f;
+	text-transform: uppercase;
+	display: block;
+	z-index: 1;
+	font-weight: bold;
+	box-shadow: 0 5px 10px transparentize($b, .75);
+	transition: box-shadow $speed;
 	@include appearance(none);
 	@include gradient;
 	.btn {
@@ -80,5 +87,9 @@ textarea {
 		top: em(3px);
 		min-width: em(44px);	
 		min-height: em(44px);
+	}
+	&:hover {
+		box-shadow: 0 2px 5px transparentize($b, .5);
+		@include gradientAnim;
 	}
 }
