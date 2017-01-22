@@ -156,7 +156,16 @@ textarea {
 	@include breakpoint($bp) {
 		padding-top: em(50px);
 	}
-	@include normalize_padding;
+	padding: {
+        left: 10px;
+        right: 10px;
+    }
+    @include breakpoint(640px){
+        padding: {
+            left: em(25px);
+            right: em(25px);
+        }
+    }
 }
 
 .btn-send {
