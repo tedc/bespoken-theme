@@ -188,7 +188,7 @@ textarea {
 	z-index: 1;
 	font-weight: bold;
 	box-shadow: 0 5px 10px transparentize($b, .75);
-	transition: box-shadow $speed;
+	transition: box-shadow $speed, background-position $speed;
 	padding: 0;
 	@include appearance(none);
 	@include gradient;
@@ -201,6 +201,6 @@ textarea {
 	}
 	&:hover {
 		box-shadow: 0 2px 5px transparentize($b, .5);
-		@include gradientAnim;
+		background-position: 50% 100%;
 	}
 }

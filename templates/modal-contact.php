@@ -28,8 +28,8 @@
 				</button>
 			</div>
 			<div class="acceptance">
-				<input type="checkbox" name="privacy" id="privacy">
-				<label for="privacy" class="form-label">
+				<input type="checkbox" name="privacy" id="privacy" checked="checked">
+				<label for="privacy" class="form-label" ng-click="isPrivacyCheckd = !isPrivacyCheckd">
 					<span class="check">
 						<span class="check-text">
 							<?php _e('Sì', 'bspkn'); ?>
