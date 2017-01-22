@@ -39844,13 +39844,14 @@ module.exports = function() {
   return carousel = {
     controller: [
       "$scope", "$window", "$attrs", "$element", function($scope, $window, $attrs, $element) {
-        var kind, prevTime, w;
+        var items, kind, prevTime, w;
         w = angular.element($window);
         $scope.isCurrent = 0;
         $scope.mv = 0;
         $scope.max = 0;
         $scope.isAnim = false;
         kind = $attrs.kind ? $attrs.kind : false;
+        items = $scope.$eval($attrs.items);
         $scope.move = function(cond, max) {
           $scope.max = max + 1;
           $scope.num = 1;
@@ -39861,7 +39862,7 @@ module.exports = function() {
               $scope.num = 2;
             }
             if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
-              $scope.num = $attrs.items;
+              $scope.num = $scope.ev;
             }
           }
           if (cond) {
@@ -39912,7 +39913,7 @@ module.exports = function() {
             $scope.num = 2;
           }
           if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
-            $scope.num = $attrs.items;
+            $scope.num = items;
           }
           if ($scope.mv === 0) {
             return;

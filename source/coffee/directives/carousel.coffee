@@ -9,6 +9,7 @@ module.exports = ->
 		$scope.max = 0
 		$scope.isAnim = off
 		kind = if $attrs.kind then $attrs.kind else off
+		items = $scope.$eval $attrs.items
 		$scope.move = (cond, max)->
 			$scope.max = max + 1
 			$scope.num = 1
@@ -18,7 +19,7 @@ module.exports = ->
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 					$scope.num = 2
 				if Modernizr.mq "screen and (min-width: #{em(850)}em)"
-					$scope.num = $attrs.items
+					$scope.num = $scope.ev
 			if cond
 				return if $scope.isCurrent is 0
 				$scope.mv -= $scope.num
@@ -51,7 +52,7 @@ module.exports = ->
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 				$scope.num = 2
 			if Modernizr.mq "screen and (min-width: #{em(850)}em)"
-				$scope.num = $attrs.items
+				$scope.num = items
 			return if $scope.mv is 0
 			x = if $scope.mv > $scope.max - $scope.num then ($scope.max - $scope.num)*100 else $scope.mv*100
 			TweenMax.set $element[0].querySelectorAll('.carousel-item'),
