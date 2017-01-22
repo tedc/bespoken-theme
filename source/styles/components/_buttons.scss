@@ -1,8 +1,12 @@
+[ng-click], [ng-mouseenter] {
+    cursor: pointer;
+}
+
 .btn {
     cursor: pointer;
-    width: 50px;
+    min-width: 50px;
     position: relative;
-    height: 50px;
+    min-height: 50px;
     color: white;
     border: 1px solid white;
     border-radius: 50%;
@@ -49,7 +53,6 @@
         transform: rotate(-45deg);
         transform-origin: right bottom;
     }
-
     &:hover {
         &:before,  &:after {
             border-color: $w;
@@ -57,6 +60,14 @@
         }
         &:after {
             animation-delay: 0.4s;
+        }
+    }
+    &-text {
+        &:before {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            padding-top: $f;
         }
     }
 }

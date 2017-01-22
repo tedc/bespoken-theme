@@ -1,6 +1,7 @@
 <div ng-carousel ng-mouse-wheel-up="scroll(false, 5)" ng-mouse-wheel-down="scroll(true, 5)" items="3">
 	<div class="carousel-wrapper">
 	<div class="carousel-item">
+		<a href="#" class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
 	</div>
 	<div class="carousel-item alt">
 	</div>
