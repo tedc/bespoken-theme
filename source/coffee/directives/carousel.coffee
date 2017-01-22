@@ -19,7 +19,7 @@ module.exports = ->
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 					$scope.num = 2
 				if Modernizr.mq "screen and (min-width: #{em(850)}em)"
-					$scope.num = $scope.ev
+					$scope.num = items
 			if cond
 				return if $scope.isCurrent is 0
 				$scope.mv -= $scope.num
