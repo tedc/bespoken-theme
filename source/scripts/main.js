@@ -39843,12 +39843,12 @@ module.exports = function() {
   var carousel;
   return carousel = {
     controller: [
-      "$scope", "$window", "$attrs", "$element", "$timeout", function($scope, $window, $attrs, $element, $timeout) {
+      "$scope", "$window", "$$attrs", "$element", "$timeout", function($scope, $window, $$attrs, $element, $timeout) {
         var itemW, items, max, w, width, wrapper;
         w = angular.element($window);
         wrapper = $element[0].querySelector('.carousel-wrapper');
-        items = $scope.$eval($attr.items);
-        max = $scope.$eval($attr.max);
+        items = $scope.$eval($attrs.items);
+        max = $scope.$eval($attrs.max);
         $scope.num = 1;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
           $scope.num = 2;
@@ -39871,7 +39871,7 @@ module.exports = function() {
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',
-            mousewheel: $scope.$eval($attrs.mousewheel)
+            mousewheel: $scope.$eval($$attrs.mousewheel)
           });
         }, 20);
         $scope.move = function(cond) {
