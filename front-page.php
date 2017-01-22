@@ -19,7 +19,7 @@
 		</div>
 	</div>
 	<nav class="carousel-nav">
-		<span ng-click="move(true)">prima</span>
-		<span ng-click="move(false)">dopo</span>
+		<span ng-click="move(false)">prima</span>
+		<span ng-click="move(true)">dopo</span>
 	</nav>
 </div>
