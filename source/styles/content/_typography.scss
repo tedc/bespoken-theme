@@ -87,11 +87,12 @@ h5 {
 
 
 .subtitle {
-    .header & {
+    .page-header & {
         font-size: em(24px);
         font-weight: normal;
         line-height: $interline-title;
         color: $w;
+        text-align: center;
     }
 }
 
