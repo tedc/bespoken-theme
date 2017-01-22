@@ -39883,6 +39883,7 @@ module.exports = function() {
           if ($scope.isAnim) {
             return;
           }
+          console.log($scope.isCurrent);
           num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : ($scope.isCurrent < $scope.num ? $scope.isCurrent : $scope.num);
           $scope.isAnim = true;
           TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
