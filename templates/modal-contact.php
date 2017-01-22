@@ -28,7 +28,7 @@
 				</button>
 			</div>
 			<div class="acceptance">
-				<input type="checkbox" name="privacy">
+				<input type="checkbox" name="privacy" id="privacy">
 				<label for="privacy" class="form-label">
 					<span class="check">
 						<span class="check-text">
