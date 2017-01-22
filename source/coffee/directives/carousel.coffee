@@ -4,7 +4,7 @@ module.exports = ->
 	carousel =
 		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", ($scope, $window, $attrs, $element, $timeout)->
 			w = angular.element $window
-			wrapper = $element[0].querySelector '.carousel-wrapper'
+			wrapper = $element[0].querySelector '.carousel-container'
 			items = $scope.$eval $attrs.items
 			max = $scope.$eval $attrs.max
 			$scope.num = 1
