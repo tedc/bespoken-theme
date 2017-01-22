@@ -39,9 +39,12 @@ input {
 				background-color: $light;
 				letter-spacing: 1em;
 				text-align: center;
-				display: inline-block;
+				display: flex;
 				position: relative;
 				transition: color $speed;
+				&-text {
+					flex: 1;
+				}
 			}
 			.cursor {
 				border-radius: $f;
@@ -50,6 +53,9 @@ input {
 				top: em(4px, 12px);
 				left: em(4px, 12px);
 				box-shadow: 0 2px 5px transparentize($b, .65);
+				position: absolute;
+				display: block;
+				z-index: 1;
 				&:before, &:after {
 					content: '';
 					transition: opacity $speed;
