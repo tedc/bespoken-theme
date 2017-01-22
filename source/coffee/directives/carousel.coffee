@@ -29,6 +29,7 @@ module.exports = ->
 					scrollY: off
 					snap: '.carousel-item'
 					mouseWheel: $scope.$eval $attrs.mousewheel
+					mouseWheelSpeed: 200
 				return
 			, 20
 			$scope.move = (cond)->
