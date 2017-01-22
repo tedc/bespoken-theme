@@ -39843,7 +39843,7 @@ module.exports = function() {
   var carousel;
   return carousel = {
     controller: [
-      "$scope", "$window", "$attrs", "$element", "$timeoue", function($scope, $window, $attrs, $element, $timeout) {
+      "$scope", "$window", "$attrs", "$element", "$timeout", function($scope, $window, $attrs, $element, $timeout) {
         var itemW, items, max, w, width;
         w = angular.element($window);
         wrapper($element[0].querySelector('.carousel-wrapper'));
