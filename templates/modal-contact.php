@@ -39,7 +39,9 @@
 						</span>
 						<i class="cursor"></i>
 					</span>
-					<?php _e('Autorizzo il trattamento dei dati personali ai sensi del D. lgs. 196/03s', 'bspkn'); ?>
+					<span class="form-label-text">
+						<?php _e('Autorizzo il trattamento dei dati personali ai sensi del D. lgs. 196/03s', 'bspkn'); ?>
+					</span>
 				</label>
 			</div>
 		</div>

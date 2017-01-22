@@ -149,6 +149,11 @@ textarea {
 	&-row {
 		padding-bottom: em(25px);
 	}
+	&-label {
+		&-text {
+			font-size: 12px;
+		}
+	}
 }
 
 .acceptance {
