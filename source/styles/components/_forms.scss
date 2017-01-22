@@ -1,0 +1,69 @@
+$error: #d0043c;
+%inputs {
+	background-color: $w;
+	@include appearance(none);
+	width: $f;
+	font-size: $font-size;
+	color: $gray;
+	padding: em(20px, $font-size) em(20px, $font-size) 0;
+	@include input-placeholder {
+		font-size: 1em;
+		font-family: $main-font;
+		color: $gray;
+	}
+	&.ng-invalid.ng-touched {
+		color: $error;
+		background-color: lighten($error, 60%);
+		@include input-placeholder {
+			color: $error;
+		}
+	}
+}
+
+input[type="email"], input[type="text"], input[type="tel"], textarea {
+	@extend %inputs;
+}
+
+textarea {
+	.modal-container & {
+		height: em(200px);
+	}
+}
+
+.form {
+	display: flex;
+	&-col {
+		@include breakpoint($bp) {
+			width: $f/2;
+		}
+	}
+	&-content {
+		background-color: $light;
+	}
+	&-inputs {
+		background-color: $anthracite;
+		color: $light;
+	}
+	&-row {
+		padding-bottom: em(25px);
+	}
+}
+
+.btn-send {
+	boder-radius: 25px;
+	color: $w;
+	font-size: $font-size;
+	height: em(50px, $font-size);
+	line-height: em(50px);
+	@include appearance(none);
+	@include gradient;
+	overflow: hidden;
+	position: relative;
+	.btn {
+		position: absolute;
+		right: em(3px);
+		top: em(3px);
+		min-width: em(44px);	
+		min-height: em(44px);
+	}
+}
