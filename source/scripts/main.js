@@ -39858,11 +39858,12 @@ module.exports = function() {
         }
         width = (100 / $scope.num) * max;
         itemW = 100 / max;
+        console.log(wrapper, width, itemW);
         TweenMax.set(wrapper, {
-          width: width
+          width: width + "%"
         });
         TweenMax.set(wrapper.querySelectorAll('.carousel-item', {
-          width: itemW
+          width: itemW + "%"
         }));
         $timeout(function() {
           $scope.carousel = new IScroll(wrapper, {
