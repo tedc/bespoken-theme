@@ -39843,85 +39843,61 @@ module.exports = function() {
   var carousel;
   return carousel = {
     controller: [
-      "$scope", "$window", "$attrs", "$element", function($scope, $window, $attrs, $element) {
-        var items, kind, prevTime, w;
+      "$scope", "$window", "$attrs", "$element", "$timeoue", function($scope, $window, $attrs, $element, $timeout) {
+        var itemW, items, max, w, width;
         w = angular.element($window);
-        $scope.isCurrent = 0;
-        $scope.mv = 0;
-        $scope.max = 0;
-        $scope.isAnim = false;
-        kind = $attrs.kind ? $attrs.kind : false;
-        items = $scope.$eval($attrs.items);
-        $scope.mover = 0;
-        $scope.move = function(cond, max) {
-          $scope.max = max + 1;
-          $scope.num = 1;
-          $scope.per = cond ? 1 : -1;
-          if (!kind) {
-            if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-              $scope.num = 2;
-            }
-            if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
-              $scope.num = items;
-            }
-          }
-          if (cond) {
-            if ($scope.isCurrent === 0) {
-              return;
-            }
-            $scope.mv -= $scope.num;
-          } else {
-            if (max + 1 - $scope.isCurrent <= $scope.num) {
-              return;
-            }
-            if ($scope.num > max) {
-              return;
-            }
-            $scope.mv += $scope.num;
-          }
-          $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max - $scope.isCurrent ? max : $scope.isCurrent + $scope.num);
-          if ($scope.isAnim) {
-            return;
-          }
-          $scope.mover = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : $scope.num;
-          TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
-            x: "+=" + (100 * $scope.mover * $scope.per) + "%",
-            onComplete: function() {
-              $scope.isAnim = false;
-            }
+        wrapper($element[0].querySelector('.carousel-wrapper'));
+        items = $scope.$eval($attr.items);
+        max = $scope.$eval($attr.max);
+        $scope.num = 1;
+        if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+          $scope.num = 2;
+        }
+        if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+          $scope.num = items;
+        }
+        width = (100 / $scope.num) * max;
+        itemW = 100 / max;
+        TweenMax.set(wrapper, {
+          width: width
+        });
+        TweenMax.set(wrapper.querySelectorAll('.carousel-item', {
+          width: itemW
+        }));
+        $timeout(function() {
+          $scope.carousel = new IScroll(wrapper, {
+            preventDefault: false,
+            eventPassthrough: true,
+            scrollX: true,
+            scrollY: false,
+            snap: '.carousel-item',
+            mousewheel: $scope.$eval($attrs.mousewheel)
           });
-        };
-        prevTime = new Date().getTime();
-        $scope.scroll = function(cond, max) {
-          var curTime, timeDiff;
-          curTime = new Date().getTime();
-          if (typeof prevTime !== 'undefined') {
-            timeDiff = curTime - prevTime;
-            if (timeDiff > 200) {
-              $scope.move(cond, max);
-            }
+        }, 20);
+        $scope.move = function(cond) {
+          if (cond) {
+            $scope.carousel.next();
+          } else {
+            $scope.carousel.prev();
           }
-          prevTime = curTime;
         };
-        w.bind('resize', function() {
-          var x;
+        w.on('resize', function() {
           $scope.num = 1;
-          if (kind === 'full') {
-            return;
-          }
           if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
             $scope.num = 2;
           }
-          if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
+          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
             $scope.num = items;
           }
-          if ($scope.mv === 0) {
-            return;
-          }
-          x = $scope.mv > $scope.max - $scope.num ? ($scope.max - $scope.num) * 100 : $scope.mv * 100;
-          TweenMax.set($element[0].querySelectorAll('.carousel-item'), {
-            x: "-" + x + "%"
+          width = (100 / $scope.num) * max;
+          itemW = 100 / max;
+          TweenMax.set(wrapper, {
+            width: width
           });
+          TweenMax.set(wrapper.querySelectorAll('.carousel-item', {
+            width: itemW
+          }));
+          $scope.carousel.refres();
         });
       }
     ]

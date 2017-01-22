@@ -30,8 +30,10 @@
 // CAROUSEL
 
 .carousel {
-    &-wrapper {
+    &-container {
         overflow: hidden;
+    }
+    &-wrapper {
         flex-wrap: nowrap;
         display: flex;
     }

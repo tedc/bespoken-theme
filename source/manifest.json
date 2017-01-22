@@ -12,7 +12,7 @@
         "../bower_components/gsap/src/uncompressed/TweenMax.js",
         "../bower_components/gsap/src/uncompressed/utils/Draggable.js"
       ],
-      "bower" : ["scrollmagic"]
+      "bower" : ["scrollmagic", "iscroll"]
     },
     "main.css": {
       "files": [

@@ -2,61 +2,48 @@ em = (val)->
 	val/16
 module.exports = ->
 	carousel =
-	controller : ["$scope", "$window", "$attrs", "$element", ($scope, $window, $attrs, $element)->
-		w = angular.element $window
-		$scope.isCurrent = 0
-		$scope.mv = 0
-		$scope.max = 0
-		$scope.isAnim = off
-		kind = if $attrs.kind then $attrs.kind else off
-		items = $scope.$eval $attrs.items
-		$scope.mover = 0
-		$scope.move = (cond, max)->
-			$scope.max = max + 1
+		controller : ["$scope", "$window", "$attrs", "$element", "$timeoue", ($scope, $window, $attrs, $element, $timeout)->
+			w = angular.element $window
+			wrapper $element[0].querySelector '.carousel-wrapper'
+			items = $scope.$eval $attr.items
+			max = $scope.$eval $attr.max
 			$scope.num = 1
-			$scope.per = if cond then 1 else -1
-			if not kind
-				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-					$scope.num = 2
-				if Modernizr.mq "screen and (min-width: #{em(850)}em)"
-					$scope.num = items
-			if cond
-				return if $scope.isCurrent is 0
-				$scope.mv -= $scope.num
-			else
-				return if max + 1 - $scope.isCurrent <= $scope.num
-				return if $scope.num > max
-				$scope.mv += $scope.num
-			$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max - $scope.isCurrent then max else $scope.isCurrent + $scope.num)
-			return if $scope.isAnim
-			$scope.mover = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
-			TweenMax.to $element[0].querySelectorAll('.carousel-item'), .5,
-				x : "+=#{100*$scope.mover*$scope.per}%"
-				onComplete : ->
-					$scope.isAnim = off
-					return
-			return
-		prevTime = new Date().getTime()
-		$scope.scroll  = (cond, max)->
-			curTime = new Date().getTime()
-			if typeof prevTime isnt 'undefined'
-				timeDiff = curTime - prevTime
-				if timeDiff > 200
-					$scope.move(cond, max)
-			prevTime = curTime
-			return
-
-		w.bind 'resize', ->
-			$scope.num = 1
-			return if kind is 'full'
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 				$scope.num = 2
-			if Modernizr.mq "screen and (min-width: #{em(850)}em)"
+			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
-			return if $scope.mv is 0
-			x = if $scope.mv > $scope.max - $scope.num then ($scope.max - $scope.num)*100 else $scope.mv*100
-			TweenMax.set $element[0].querySelectorAll('.carousel-item'),
-				x : "-#{x}%"
+			width = ( 100 / $scope.num ) * max
+			itemW = 100 / max
+			TweenMax.set wrapper,
+				width : width
+			TweenMax.set wrapper.querySelectorAll '.carousel-item',
+				width : itemW
+			$timeout ->
+				$scope.carousel = new IScroll wrapper,
+					preventDefault: off
+					eventPassthrough: on
+					scrollX: on
+					scrollY: off
+					snap: '.carousel-item'
+					mousewheel : $scope.$eval $attrs.mousewheel
+				return
+			, 20
+			$scope.move = (cond)->
+				if cond then $scope.carousel.next() else $scope.carousel.prev()
+				return
+			w.on 'resize', ->
+				$scope.num = 1
+				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
+					$scope.num = 2
+				if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+					$scope.num = items
+				width = ( 100 / $scope.num ) * max
+				itemW = 100 / max
+				TweenMax.set wrapper,
+					width : width
+				TweenMax.set wrapper.querySelectorAll '.carousel-item',
+					width : itemW
+				$scope.carousel.refres()
+				return
 			return
-		return
-	]
+		]
