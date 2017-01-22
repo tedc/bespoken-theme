@@ -39883,7 +39883,7 @@ module.exports = function() {
           if ($scope.isAnim) {
             return;
           }
-          num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : $scope.num;
+          num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : ($scope.isCurrent < $scope.num ? $scope.isCurrent : $scope.num);
           $scope.isAnim = true;
           TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
             x: "+=" + (100 * num * $scope.per) + "%",
@@ -39946,10 +39946,8 @@ module.exports = function() {
       var html, i, j, len, text;
       text = element.text();
       html = '<span class="btn-menu-text-content">';
-      console.log(text);
       for (j = 0, len = text.length; j < len; j++) {
         i = text[j];
-        console.log(i);
         html += "<span class='letter'>" + i + "</span>";
       }
       html += '</span>';
