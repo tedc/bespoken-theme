@@ -25,15 +25,15 @@ module.exports = ->
 			else
 				return if max + 1 - $scope.isCurrent <= $scope.num
 				return if $scope.num > max
-				$scope.mv += if $scope.max - $scope.num < $scope.num then $scope.max - $scope.num else $scope.num
+				$scope.mv += $scope.num
 			#$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max - $scope.isCurrent then max else $scope.isCurrent + $scope.num)
-			console.log $scope.mv
-			$scope.isCurrent = $scope.num
+			#console.log $scope.mv
+			$scope.isCurrent = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
 			return if $scope.isAnim
-			num = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
+			#num = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
 			$scope.isAnim = on
 			TweenMax.to $element[0].querySelectorAll('.carousel-item'), .5,
-				x : "+=#{100*num*$scope.per}%"
+				x : "+=#{100*$scope.isCurrent*$scope.per}%"
 				onComplete : ->
 					$scope.isAnim = off
 					return
