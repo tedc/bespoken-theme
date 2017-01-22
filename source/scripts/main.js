@@ -39853,10 +39853,10 @@ module.exports = function() {
         kind = $attrs.kind ? $attrs.kind : false;
         items = $scope.$eval($attrs.items);
         $scope.move = function(cond, max) {
+          var num;
           $scope.max = max + 1;
           $scope.num = 1;
           $scope.per = cond ? 1 : -1;
-          console.log($scope.isCurrent);
           if (!kind) {
             if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
               $scope.num = 2;
@@ -39883,9 +39883,10 @@ module.exports = function() {
           if ($scope.isAnim) {
             return;
           }
+          num = $scope.max - $scope.isCurrent < $scope.num ? $scope.max - $scope.isCurrent : $scope.num;
           $scope.isAnim = true;
           TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
-            x: "+=" + (100 * $scope.num * $scope.per) + "%",
+            x: "+=" + (100 * num * $scope.per) + "%",
             onComplete: function() {
               $scope.isAnim = false;
             }

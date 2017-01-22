@@ -13,6 +13,8 @@
 	</div>
 	<div class="carousel-item alt">
 	</div>
+	<div class="carousel-item">
+	</div>
 	</div>
 	<nav class="carousel-nav">
 		<span ng-click="move(true, 5)">prima</span>
