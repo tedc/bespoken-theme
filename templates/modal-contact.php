@@ -15,7 +15,7 @@
 				<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>">
 			</div>
 			<div class="form-col">
-				<div class="orm-row">
+				<div class="form-row">
 					<textarea name="message" placeholder="<?php _e('Messaggio', 'bspkn'); ?>"></textarea>
 				</div>
 				<button class="btn-send">
@@ -23,7 +23,7 @@
 					<span class="btn">
 						<span class="btn-line">
 							<span class="btn-arrow-up"></span>
-							<span class="btn-arrow-up"></span>
+							<span class="btn-arrow-down"></span>
 						</span>
 					</span>
 				</button>

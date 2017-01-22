@@ -6,7 +6,7 @@ $error: #d0043c;
 	width: $f;
 	font-size: $font-size;
 	color: $gray;
-	padding: em(20px, $font-size) em(20px, $font-size) 0;
+	padding: em(20px, $font-size) 0;
 	@include input-placeholder {
 		font-size: 1em;
 		font-family: $main-font;
@@ -23,10 +23,13 @@ $error: #d0043c;
 
 input[type="email"], input[type="text"], input[type="tel"], textarea {
 	@extend %inputs;
-	height: em(50px, $font-size)
+	height: em(50px, $font-size);
+	line-height: em(50px, $font-size);
 }
 
 textarea {
+	padding-top: em(20px);
+	line-height: 1.2;
 	.modal-container & {
 		height: em(125px, $font-size);
 	}
@@ -79,14 +82,15 @@ textarea {
 	font-weight: bold;
 	box-shadow: 0 5px 10px transparentize($b, .75);
 	transition: box-shadow $speed;
+	padding: 0;
 	@include appearance(none);
 	@include gradient;
 	.btn {
 		position: absolute;
-		right: em(3px);
-		top: em(3px);
-		min-width: em(44px);	
-		min-height: em(44px);
+		right: em(3px, $font-size);
+		top: em(3px, $font-size);
+		min-width: em(44px, $font-size);	
+		min-height: em(44px, $font-size);
 	}
 	&:hover {
 		box-shadow: 0 2px 5px transparentize($b, .5);

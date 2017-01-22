@@ -58,7 +58,7 @@
         border: 2px solid transparent;
         border-radius: 50%;
     }
-    &:hover, .btn-send & &:hover {
+    &:hover {
         &:before,  &:after {
             border-color: $w;
             animation: mymove 2s infinite linear;
