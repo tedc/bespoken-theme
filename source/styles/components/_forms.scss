@@ -64,7 +64,7 @@ input {
 				display: block;
 				overflow: hidden;
 				z-index: 1;
-				transition: left $speed, right $speed $speed;
+				transition: left $speed/2, right $speed/2 $speed/2;
 				&:before, &:after {
 					content: '';
 					transition: opacity $speed;
@@ -85,7 +85,7 @@ input {
 					color: $violet;
 				}
 				.cursor {
-					transition: right $speed, left $speed $speed;
+					transition: right $speed/2, left $speed/2 $speed/2;
 					right: em(4px, 12px);
 					left: em( 50px - 21px, 12px );
 					&:after {
