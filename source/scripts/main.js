@@ -39855,6 +39855,7 @@ module.exports = function() {
           $scope.max = max + 1;
           $scope.num = 1;
           $scope.per = cond ? 1 : -1;
+          console.log($scope.isCurrent);
           if (!kind) {
             if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
               $scope.num = 2;
@@ -39869,7 +39870,7 @@ module.exports = function() {
             }
             $scope.mv -= $scope.num;
           } else {
-            if (max + 1 - $scope.isCurrent === $scope.num) {
+            if (max + 1 - $scope.isCurrent <= $scope.num) {
               return;
             }
             if ($scope.num > max) {

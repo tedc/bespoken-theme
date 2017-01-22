@@ -13,6 +13,7 @@ module.exports = ->
 			$scope.max = max + 1
 			$scope.num = 1
 			$scope.per = if cond then 1 else -1
+			console.log $scope.isCurrent
 			if not kind
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 					$scope.num = 2
@@ -22,7 +23,7 @@ module.exports = ->
 				return if $scope.isCurrent is 0
 				$scope.mv -= $scope.num
 			else
-				return if max + 1 - $scope.isCurrent is $scope.num
+				return if max + 1 - $scope.isCurrent <= $scope.num
 				return if $scope.num > max
 				$scope.mv += $scope.num
 			$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max then max else $scope.isCurrent + $scope.num)
