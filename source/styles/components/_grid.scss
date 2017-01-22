@@ -75,13 +75,13 @@
         @include breakpoint(640px) {
             padding: {
                 top: em(75px);
-                bottom: em(75px);
+                bottom: em(75px/2);
             }
         }
         @include breakpoint($bp) {
             padding: {
                 top: em(150px);
-                bottom: em(75px);
+                bottom: em(75px/2);
             }
         }
     }
@@ -92,13 +92,13 @@
         }
         @include breakpoint(640px) {
             padding: {
-                top: em(75px);
+                top: em(75px/2);
                 bottom: em(75px);
             }
         }
         @include breakpoint($bp) {
             padding: {
-                top: em(75px);
+                top: em(75px/2);
                 bottom: em(150px);
             }
         }
