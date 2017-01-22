@@ -18,10 +18,10 @@ module.exports = ->
 			console.log wrapper, width, itemW
 			TweenMax.set wrapper,
 				width : "#{width}%"
-			TweenMax.set wrapper.querySelectorAll '.carousel-item',
+			TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 				width : "#{itemW}%"
 			$timeout ->
-				$scope.carousel = new IScroll wrapper,
+				$scope.carousel = new IScroll container,
 					preventDefault: off
 					eventPassthrough: on
 					scrollX: on
