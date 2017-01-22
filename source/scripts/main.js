@@ -39879,7 +39879,7 @@ module.exports = function() {
             }
             $scope.mv += $scope.num;
           }
-          $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max ? max : $scope.isCurrent + $scope.num);
+          $scope.isCurrent = $scope.num;
           if ($scope.isAnim) {
             return;
           }
