@@ -10,6 +10,7 @@ module.exports = ->
 		$scope.isAnim = off
 		kind = if $attrs.kind then $attrs.kind else off
 		items = $scope.$eval $attrs.items
+		$scope.mover = 0
 		$scope.move = (cond, max)->
 			$scope.max = max + 1
 			$scope.num = 1
@@ -26,14 +27,11 @@ module.exports = ->
 				return if max + 1 - $scope.isCurrent <= $scope.num
 				return if $scope.num > max
 				$scope.mv += $scope.num
-			#$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max - $scope.isCurrent then max else $scope.isCurrent + $scope.num)
-			#console.log $scope.mv
-			$scope.isCurrent = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
+			$scope.isCurrent = if cond then (if $scope.isCurrent - $scope.num <= 0 then 0 else $scope.isCurrent - $scope.num) else (if $scope.isCurrent + $scope.num >= max - $scope.isCurrent then max else $scope.isCurrent + $scope.num)
 			return if $scope.isAnim
-			#num = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
-			$scope.isAnim = on
+			$scope.mover = if $scope.max - $scope.isCurrent < $scope.num then $scope.max - $scope.isCurrent else $scope.num
 			TweenMax.to $element[0].querySelectorAll('.carousel-item'), .5,
-				x : "+=#{100*$scope.isCurrent*$scope.per}%"
+				x : "+=#{100*$scope.mover*$scope.per}%"
 				onComplete : ->
 					$scope.isAnim = off
 					return
