@@ -91,17 +91,13 @@ h5 {
         font-size: em(18px);
         font-weight: normal;
     }
-    &-schedule {
-        font-size: em(20px);
-        font-weight: normal;
-        text-transform: uppercase;
-        font-style: normal;
-    }
+
     &-minus {
         font-size: em(20px);
         font-weight: normal;
         text-transform: uppercase;
         font-style: normal;
+        padding-bottom: em(40px, 20px);
     }
     &-normal {
         font-size: em(36px);
@@ -109,7 +105,7 @@ h5 {
         text-transform: uppercase;
         font-style: normal;
     }
-    &-normal {
+    &-important {
         font-size: em(72px);
         font-weight: normal;
         text-transform: uppercase;
