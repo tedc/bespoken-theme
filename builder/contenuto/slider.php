@@ -10,7 +10,7 @@ elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<div class="<?php echo $padding ?> <?php echo get_sub_field('full') ? ' full' : 'content' ?> ">
+<div class="<?php echo get_sub_field('full') ? ' full' : 'content '.$padding ?> ">
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php endif ?>
