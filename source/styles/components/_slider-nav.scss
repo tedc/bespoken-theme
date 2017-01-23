@@ -32,18 +32,8 @@
 
     }
 }
-
-.nav-arrow.purple{
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 0;
-    display: flex;
-    transform: translateY(-50%);
-    justify-content: space-between;
-
+.nav-arrow.purple {
     .btn {
-        cursor: pointer;
         border-color: $purple;
         transition: border $speed;
         &:hover {
@@ -59,6 +49,21 @@
             background-color: $purple;
             transition: background-color $speed;
         }
+
+    }
+}
+
+.nav-arrow.purple{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    display: flex;
+    transform: translateY(-50%);
+    justify-content: space-between;
+
+    .btn {
+        cursor: pointer;
     }
 }
 
