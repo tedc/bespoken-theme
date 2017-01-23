@@ -18,6 +18,7 @@
 		}
 		&-sentence {
 			transition: transform $speed $speed;
+			color: $w !important;
 			.wf-loading & {
 				transform: translate3d(-50%, -100%, 0) skewY(-5deg);
 			}
