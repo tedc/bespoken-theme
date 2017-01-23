@@ -23,12 +23,13 @@ endif;?>
         </div>
 
     </div>
+    <h3 class="title-video"><?php the_sub_field('titolo') ?></h3>
     <?php if (get_sub_field('video_embed') != ""){?>
         <div class="container_play">
-            <div id="play-button" class="play"><img src=""><?php _e("Guarda il video completo", "mara")?></div>
+            <div id="play-button" class="icon-play play"></div>
         </div>
         <div class="container_close">
-            <div class="close-button"><?php _e("chiudi", "mara")?></div>
+            <div class="close-button"><?php _e("chiudi", "bspkn")?></div>
         </div>
     <?php } ?>
 </div>
