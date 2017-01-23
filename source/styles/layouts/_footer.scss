@@ -1,11 +1,14 @@
 .footer {
     font-size: 12px;
-    padding-top: em(30px, 12px);
-    padding-bottom: em(110px, 12px);
+    padding-top: em(20px, 12px);
+    padding-bottom: em(100px, 12px);
     text-align: center;
     .link-cookie {
         color: $purple;
         font-weight: bold;
+    }
+    .home & {
+        padding-bottom: em(20px, 12px);
     }
 }
 
