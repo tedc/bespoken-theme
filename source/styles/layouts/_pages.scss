@@ -59,7 +59,6 @@
 	}
 	.page-header {
 		position: fixed;
-		padding-top: em(100px);
 		top: 0;
 		width: $f;
 		left: 0;
@@ -69,5 +68,8 @@
 		align-items: center;
 		flex-direction: row;
 		justify-content: center;
+		padding-top: em(100px);
+		padding-bottom: em(100px);
+		@include normalize_padding;
 	}
 }
