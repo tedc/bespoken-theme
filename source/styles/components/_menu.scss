@@ -1,7 +1,19 @@
 .logo {
     position: absolute;
+    font-size: $base_font_size;
     left: 0;
     top: em(20px);
+    height: em(40px);
+    width: em(150px);
+    background: url(../images/logo-white.svg) no-repeat left center;
+    background-size: contain;
+    white-space: nowrap;
+    overflow: hidden;
+    text-indent: 120%;
+    z-index: 9999;
+    a {
+        @include absfull;
+    }
 }
 
 .btn-menu {

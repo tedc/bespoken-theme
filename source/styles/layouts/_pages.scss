@@ -1,9 +1,11 @@
 .home {
+	padding-top: 100vh;
 	&-title {
 		font-size: vw(72px, 1366);
 		color: $w;
 		line-height: $interline-title;
 		text-align: center;
+		font-weight: normal;
 		&-row {
 			display: inline-block;
 			overflow: hidden;
@@ -19,9 +21,17 @@
 				width: $f;
 				height: 2px;
 				left: 0;
-				top: auto;
+				bottom: 0;
 				background-color: $w;
 				content: '';
+				transform: scaleX(0) {
+					origin: left center;
+				}
+			}
+			&:hover {
+				&:after {
+					animation: row 1s;
+				}
 			}
 		}
 	}
@@ -29,6 +39,8 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		position: relative;
+		z-index: 1;
 		.carousel {
 			flex: 20;
 			display: flex;
@@ -40,5 +52,48 @@
 				display: flex;
 			}
 		}
+	}
+	.page-header {
+		position: fixed;
+		top: 0;
+		width: $f;
+		left: 0;
+		z-index: 0;
+		min-height: 0;
+		height: 100vh;
+		align-items: center;
+		flex-direction: row;
+		justify-content: center;
+	}
+}
+
+@keyframes row {
+	0% {
+		transform: scaleX(0);
+		transform-origin: left center;
+	}
+	25% {
+		transform: scaleX(1);
+		transform-origin: left center;
+	}
+	26% {
+		transform: scaleX(1);
+		transform-origin: right center;
+	}
+	50% {
+		transform: scaleX(0);
+		transform-origin: right center;
+	}
+	75% {
+		transform: scaleX(1);
+		transform-origin: right center;
+	}
+	76% {
+		transform: scaleX(1);
+		transform-origin: left center;
+	}
+	100% {
+		transform: scaleX(0);
+		transform-origin: left center;
 	}
 }
