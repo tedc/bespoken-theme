@@ -1,3 +1,11 @@
+<header class="page-header">
+	<div class="gradient"></div>
+	<h2 class="home-title">
+		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
+		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
+		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
+	</h2>
+</header>
 <div id="home" class="home-container">
 	<div ng-carousel items="3" max="7" mousewheel="true" class="carousel">
 		<div class="carousel-container">
@@ -26,7 +34,7 @@
 		            <span class="btn-arrow-down"></span>
 		        </span>
 			</span>
-			<span class="btn" ng-click="move(true)">
+			<span class="btn btn-next" ng-click="move(true)">
 				<span class="btn-line">
 		            <span class="btn-arrow-up"></span>
 		            <span class="btn-arrow-down"></span>
