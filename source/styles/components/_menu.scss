@@ -1,7 +1,13 @@
 .logo {
     position: absolute;
-    font-size: $base_font_size;
-    left: em(50px);
+    font-size: em($base_font_size);
+    left: 10px;
+    @include breakpoint(640px){
+        left: em(25px);
+    }
+    @include breakpoint($bp){
+        left: em(50px);
+    }
     top: em(40px);
     height: em(40px);
     width: em(150px);

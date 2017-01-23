@@ -5,6 +5,9 @@
 html {
     overflow-x: hidden;
     overflow-y: auto;
+    &.wf-loading * {
+        color: transparent !important;
+    }
 }
 
 body {
