@@ -60,7 +60,7 @@ endif;?>
             </span>
             </nav>
         <?php elseif (get_sub_field('navigatore') == 'arrow') : ?>
-            <nav class="nav-arrow">
+            <nav class="nav-arrow <?php echo get_sub_field('colore_navigatore')== 'purple'? 'emphasis' : ''?>">
             <span class="btn reverse btn-left">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
