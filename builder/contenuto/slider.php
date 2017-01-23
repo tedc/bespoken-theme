@@ -10,12 +10,12 @@ elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<div class="content <?php echo $padding ?>">
+<div class="<?php echo $padding ?> <?php echo get_sub_field('full') ? ' full' : 'content' ?>">
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php endif ?>
     <div class="slider" ng-slider>
-        <ul class="slider-wrapper<?php get_sub_field('cornice') ? ' frame' : '' ?><?php echo get_sub_field('full') ? ' full' : '' ?>">
+        <ul class="slider-wrapper<?php get_sub_field('cornice') ? ' frame' : '' ?>">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
                 <?php if ($images): ?>
