@@ -1,5 +1,8 @@
 .home {
 	padding-top: 100vh;
+	.logo, .btn-menu {
+		position: fixed;
+	}
 	&-title {
 		font-size: vw(72px, 1366);
 		color: $w;
