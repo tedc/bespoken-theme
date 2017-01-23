@@ -1,17 +1,20 @@
 .logo {
     position: absolute;
     font-size: em($base_font_size);
-    left: 10px;
+    width: calc(10px + #{em(150px)});
+    background-position: 10px center;
     @include breakpoint(640px){
-        left: em(25px);
+        width: em(175px);
+        background-position: em(25px) center;
     }
     @include breakpoint($bp){
-        left: em(50px);
+        width: em(200px);
+        background-position: em(50px) center;
     }
     top: em(40px);
     height: em(40px);
-    width: em(150px);
-    background: url(../images/logo-white.svg) no-repeat left center;
+    background-image: url(../images/logo-white.svg);
+    background-repeat: no-repeat;
     background-size: contain;
     white-space: nowrap;
     overflow: hidden;
@@ -20,6 +23,14 @@
     a {
         @include absfull;
     }
+    transition: transform $speed;
+    transform: translate3d(0, -100%, 0);
+    .wf-active &, .wf-inactive & {
+        transform: translate3d(0%, 0%, 0);
+    }
+    .wf-loading & {
+        transform: translate3d(0%, -100%, 0);
+    }   
 }
 
 .btn-menu {
@@ -31,6 +42,14 @@
     position: absolute;
     right: 0;
     z-index: 9999;
+    transition: transform $speed;
+    transform: translate3d(0, 100%, 0);
+    .wf-active &, .wf-inactive & {
+        transform: translate3d(0%, 0%, 0);
+    }
+    .wf-loading & {
+        transform: translate3d(0%, 100%, 0);
+    }  
     &-text {
         font-size: em(18px);
         padding-right: em(20px, 18px);
