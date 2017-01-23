@@ -23,6 +23,9 @@
 				bottom: 0;
 				background-color: $w;
 				content: '';
+				transform: scaleX(0) {
+					origin: left center;
+				}
 			}
 			&:hover {
 				&:after {
@@ -52,6 +55,7 @@
 		height: 100vh;
 		align-items: center;
 		flex-direction: row;
+		justify-content: center;
 	}
 }
 
@@ -64,6 +68,10 @@
 		transform: scaleX(1);
 		transform-origin: left center;
 	}
+	26% {
+		transform: scaleX(1);
+		transform-origin: right center;
+	}
 	50% {
 		transform: scaleX(0);
 		transform-origin: right center;
@@ -71,6 +79,10 @@
 	75% {
 		transform: scaleX(1);
 		transform-origin: right center;
+	}
+	76% {
+		transform: scaleX(1);
+		transform-origin: left center;
 	}
 	100% {
 		transform: scaleX(0);

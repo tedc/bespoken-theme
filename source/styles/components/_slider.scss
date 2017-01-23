@@ -47,6 +47,7 @@
 // CAROUSEL
 
 .carousel {
+    position: relative;
     &-container {
         overflow: hidden;
         position: relative;
@@ -79,7 +80,7 @@
         .btn {
             position: absolute;
             top: $f/2;
-            transform: translate3d(0, -50%, 0);
+            margin-top: em(25px)*-1;
         }
         .btn-prev {
             left: 10px;
