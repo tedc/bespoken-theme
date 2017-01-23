@@ -84,5 +84,14 @@
 		padding-top: em(100px);
 		padding-bottom: em(100px);
 		@include normalize_padding;
+		.btn {
+			position: absolute;
+			bottom: 10px;
+			left: 50%;
+			transform: translate3d(-50%, 0, 0);
+			.wf-active &, .wf-inactive & {
+				animation: pulse 2s infinite linear;
+			}
+		}
 	}
 }

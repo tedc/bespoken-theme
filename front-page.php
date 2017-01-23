@@ -17,6 +17,9 @@
 			</span>
 		</span>
 	</h2>
+	<span class="btn">
+		<span class="btn-text"><?php _e('Scorri', 'bspkn'); ?></span>
+	</span>
 </header>
 <div id="home" class="home-container">
 	<div ng-carousel items="3" max="7" mousewheel="true" class="carousel">
