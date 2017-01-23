@@ -9,6 +9,6 @@ elseif (get_sub_field('spaziatura') == '2'):
 endif;?>
 
 
-<figure class="figure content <?php echo get_sub_field('full')? 'full' : ''?> <?php echo $padding ?>">
+<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>">
     <img src="<?php the_sub_field('immagine'); ?>">
 </figure>
