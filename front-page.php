@@ -2,18 +2,27 @@
 	<div class="gradient"></div>
 	<h2 class="home-title">
 		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
+			<span class="home-title-word">
+				<?php 
+				foreach (explode(' ', strip_tags(get_field('first_row'), '<a>')) as $word) {
+					echo $word .'</span> <span class="home-title-word">';
+				} ?>
 			</span>
 		</span><br />
 		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('second_row'), '<a>'); ?>
+			<span class="home-title-word">
+				<?php 
+				foreach (explode(' ', strip_tags(get_field('second_row'), '<a>')) as $word) {
+					echo $word .'</span> <span class="home-title-word">';
+				} ?>
 			</span>
 		</span><br />
 		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('third_row'), '<a>'); ?>
+			<span class="home-title-word">
+				<?php 
+				foreach (explode(' ', strip_tags(get_field('third_row'), '<a>')) as $word) {
+					echo $word .'</span> <span class="home-title-word">';
+				} ?>
 			</span>
 		</span>
 	</h2>
