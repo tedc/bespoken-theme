@@ -33,7 +33,7 @@
 			}
 			&:hover {
 				&:after {
-					animation: row 1s;
+					animation: row 2s ease-in-out;
 				}
 			}
 		}
@@ -75,28 +75,16 @@
 		transform: scaleX(0);
 		transform-origin: left center;
 	}
-	25% {
-		transform: scaleX(1);
-		transform-origin: left center;
-	}
-	26% {
-		transform: scaleX(1);
-		transform-origin: right center;
-	}
 	50% {
-		transform: scaleX(0);
-		transform-origin: right center;
-	}
-	75% {
-		transform: scaleX(1);
-		transform-origin: right center;
-	}
-	76% {
 		transform: scaleX(1);
 		transform-origin: left center;
+	}
+	51% {
+		transform: scaleX(1);
+		transform-origin: right center;
 	}
 	100% {
 		transform: scaleX(0);
-		transform-origin: left center;
+		transform-origin: right center;
 	}
 }
