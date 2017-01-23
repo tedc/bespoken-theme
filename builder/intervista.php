@@ -6,17 +6,15 @@
             <source src="<?php echo $file ?>.webm" type="video/webm">
             <source src="<?php echo $file ?>.ogv" type="video/ogv">
         </video>
-
         <div class="video-foreground">
             <?php $oembed = get_sub_field('video_embed');
             echo $oembed;?>
         </div>
-
     </div>
     <h3 class="title-video"><?php the_sub_field('titolo') ?></h3>
     <?php if (get_sub_field('video_embed') != ""){?>
         <div class="container_play">
-            <div id="play-button" class="icon-play play"></div>
+            <div id="play-button" class="icon-play play">PLAY</div>
         </div>
         <div class="container_close">
             <div class="close-button"><?php _e("chiudi", "bspkn")?></div>
