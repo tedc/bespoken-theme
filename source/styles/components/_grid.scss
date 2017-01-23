@@ -188,3 +188,7 @@
         }
     }
 }
+
+.content {
+    @include normalize_padding;
+}

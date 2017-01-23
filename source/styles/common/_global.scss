@@ -77,7 +77,7 @@
         }
         [class^="col"], [class*=" col"] {
             position: relative;
-            @include normalize_padding;
+         /*   @include normalize_padding;*/
            /* padding-bottom: em(30px);
             padding-top: em(30px);
             @include breakpoint(640px) {
