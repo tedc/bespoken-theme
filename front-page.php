@@ -24,5 +24,4 @@
 			<span ng-click="move(true)">dopo</span>
 		</nav>
 	</div>
-	<?php get_template_part( 'footer', 'content' ); ?>
 </div>
