@@ -25,19 +25,18 @@
         display: inline-block;
         overflow: hidden;
         .btn-menu-text-content {
-            transition: opacity $speed;
             &:nth-child(2) {
                 position: absolute;
                 top: $f;
                 left: 0;
                 width: $f;
-                opacity: 0;
             }
         }
         &-content {
             .letter {
                 display: inline-block;
-                transition: transform $speed;
+                transition: transform $speed, opacity $speed;;
+                opacity: 0;
                 @for $c from 1 through 4 {
                     $d: ($speed * $c) / 4;
                     &:nth-child(#{$c}) {
@@ -65,10 +64,14 @@
         .btn-menu-text {
             .btn-menu-text-content {
                 &:nth-child(1) {
-                    opacity: 0;
+                    .letter {
+                        opacity: 0;
+                    }
                 }
                 &:nth-child(2) {
-                    opacity: 1;
+                    .letter {
+                       opacity: 1;
+                    }
                 }
             }
         }

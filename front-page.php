@@ -20,8 +20,18 @@
 			</div>
 		</div>
 		<nav class="carousel-nav">
-			<span ng-click="move(false)">prima</span>
-			<span ng-click="move(true)">dopo</span>
+			<span class="btn btn-prev" ng-click="move(false)">
+				<span class="btn-line">
+		            <span class="btn-arrow-up"></span>
+		            <span class="btn-arrow-down"></span>
+		        </span>
+			</span>
+			<span class="btn" ng-click="move(true)">
+				<span class="btn-line">
+		            <span class="btn-arrow-up"></span>
+		            <span class="btn-arrow-down"></span>
+		        </span>
+			</span>
 		</nav>
 	</div>
 	<?php get_template_part( 'templates/footer', 'content' ); ?>

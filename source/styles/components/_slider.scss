@@ -49,10 +49,12 @@
 .carousel {
     &-container {
         overflow: hidden;
+        position: relative;
     }
     &-wrapper {
         flex-wrap: nowrap;
         display: flex;
+        width: $f;
     }
     &-item {
         background-color: $b;
@@ -70,6 +72,31 @@
             }
             [items="4"] & {
                 width: $f/4;
+            }
+        }
+    }
+    &-nav {
+        .btn {
+            position: absolute;
+            top: $f/2;
+            transform: translate3d(0, -50%, 0);
+        }
+        .btn-prev {
+            left: 10px;
+            @include breakpoint(640px){
+                left: em(25px);
+            }
+            @include breakpoint($bp){
+                left: em(50px);
+            }
+        }
+        .btn-next {
+            right: 10px;
+            @include breakpoint(640px){
+                right: em(25px);
+            }
+            @include breakpoint($bp){
+                right: em(50px);
             }
         }
     }
