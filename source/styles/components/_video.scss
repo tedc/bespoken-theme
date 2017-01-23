@@ -4,6 +4,9 @@
     position: relative;
     background-size: cover;
     background-position: 50%;
+    svg {
+        display: block;
+    }
     .container-player {
 /*        position: absolute;
         left: 0;

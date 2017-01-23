@@ -26,11 +26,12 @@
         flex: 0 0 auto;
         text-align: center;
         figure {
+            display: block;
             margin: 0;
             width: auto;
             width:100%;
            /* max-width: 100%;*/
-            display: inline-block;
+            /*display: inline-block;*/
             img{
                 width: 100%;
                 height:	auto;
