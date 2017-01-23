@@ -40,7 +40,7 @@ endif;?>
                         <?php $n_page++; endwhile ?>
                 <?php endif ?>
             <?php endif ?>
-            <div class="block-transition"></div>
+            <div class="mask"></div>
         </ul>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number">
