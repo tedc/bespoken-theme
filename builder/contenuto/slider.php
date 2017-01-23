@@ -61,13 +61,13 @@ endif;?>
             </nav>
         <?php elseif (get_sub_field('navigatore') == 'arrow') : ?>
             <nav class="nav-arrow <?php echo get_sub_field('colore_navigatore')== 'purple'? 'emphasis' : ''?>">
-            <span class="btn reverse btn-left">
+            <span class="btn reverse btn-prev">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
                 </span>
             </span>
-            <span class="btn btn-right">
+            <span class="btn btn-next">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>

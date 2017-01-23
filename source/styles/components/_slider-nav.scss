@@ -66,11 +66,23 @@
     .btn {
         cursor: pointer;
     }
-    .btn-left {
-        left : em(50px);
+    .btn-prev {
+        left : em(10px);
+        @include breakpoint(640px){
+                left: em(25px);
+        }
+        @include breakpoint($bp){
+                left: em(50px);
+            }
     }
-    .btn-right {
-        right : em(50px);
+    .btn-next {
+        right : em(10px);
+        @include breakpoint(640px){
+            right: em(25px);
+        }
+        @include breakpoint($bp){
+            right: em(50px);
+        }
     }
 }
 
@@ -86,6 +98,6 @@
     transform: scale(-1, 1);
 }
 
-.btn-left {
+.btn-prev {
     transform: scale(-1, 1);
 }
