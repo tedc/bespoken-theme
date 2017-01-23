@@ -39843,83 +39843,65 @@ module.exports = function() {
   var carousel;
   return carousel = {
     controller: [
-      "$scope", "$window", "$attrs", "$element", function($scope, $window, $attrs, $element) {
-        var kind, prevTime, w;
+      "$scope", "$window", "$attrs", "$element", "$timeout", function($scope, $window, $attrs, $element, $timeout) {
+        var container, itemW, items, max, w, width, wrapper;
         w = angular.element($window);
-        $scope.isCurrent = 0;
-        $scope.mv = 0;
-        $scope.max = 0;
-        $scope.isAnim = false;
-        kind = $attrs.kind ? $attrs.kind : false;
-        $scope.move = function(cond, max) {
-          $scope.max = max + 1;
-          $scope.num = 1;
-          $scope.per = cond ? 1 : -1;
-          if (!kind) {
-            if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-              $scope.num = 2;
-            }
-            if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
-              $scope.num = $attrs.items;
-            }
-          }
-          if (cond) {
-            if ($scope.isCurrent === 0) {
-              return;
-            }
-            $scope.mv -= $scope.num;
-          } else {
-            if (max + 1 - $scope.isCurrent === $scope.num) {
-              return;
-            }
-            if ($scope.num > max) {
-              return;
-            }
-            $scope.mv += $scope.num;
-          }
-          $scope.isCurrent = cond ? ($scope.isCurrent - $scope.num <= 0 ? 0 : $scope.isCurrent - $scope.num) : ($scope.isCurrent + $scope.num >= max ? max : $scope.isCurrent + $scope.num);
-          if ($scope.isAnim) {
-            return;
-          }
-          $scope.isAnim = true;
-          TweenMax.to($element[0].querySelectorAll('.carousel-item'), .5, {
-            x: "+=" + (100 * $scope.num * $scope.per) + "%",
-            onComplete: function() {
-              $scope.isAnim = false;
-            }
+        container = $element[0].querySelector('.carousel-container');
+        wrapper = container.querySelector('.carousel-wrapper');
+        items = $scope.$eval($attrs.items);
+        max = $scope.$eval($attrs.max);
+        $scope.num = 1;
+        if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+          $scope.num = 2;
+        }
+        if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+          $scope.num = items;
+        }
+        width = (100 / $scope.num) * max;
+        itemW = 100 / max;
+        console.log(wrapper, width, itemW);
+        TweenMax.set(wrapper, {
+          width: width + "%"
+        });
+        TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
+          width: itemW + "%"
+        });
+        console.log($scope.$eval($attrs.mousewheel));
+        $timeout(function() {
+          $scope.carousel = new IScroll(container, {
+            preventDefault: false,
+            eventPassthrough: true,
+            scrollX: true,
+            scrollY: false,
+            snap: '.carousel-item',
+            mouseWheel: $scope.$eval($attrs.mousewheel),
+            mouseWheelSpeed: 200
           });
-        };
-        prevTime = new Date().getTime();
-        $scope.scroll = function(cond, max) {
-          var curTime, timeDiff;
-          curTime = new Date().getTime();
-          if (typeof prevTime !== 'undefined') {
-            timeDiff = curTime - prevTime;
-            if (timeDiff > 200) {
-              $scope.move(cond, max);
-            }
+        }, 20);
+        $scope.move = function(cond) {
+          if (cond) {
+            $scope.carousel.next();
+          } else {
+            $scope.carousel.prev();
           }
-          prevTime = curTime;
         };
-        w.bind('resize', function() {
-          var x;
+        w.on('resize', function() {
           $scope.num = 1;
-          if (kind === 'full') {
-            return;
-          }
           if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
             $scope.num = 2;
           }
-          if (Modernizr.mq("screen and (min-width: " + (em(850)) + "em)")) {
-            $scope.num = $attrs.items;
+          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+            $scope.num = items;
           }
-          if ($scope.mv === 0) {
-            return;
-          }
-          x = $scope.mv > $scope.max - $scope.num ? ($scope.max - $scope.num) * 100 : $scope.mv * 100;
-          TweenMax.set($element[0].querySelectorAll('.carousel-item'), {
-            x: "-" + x + "%"
+          width = (100 / $scope.num) * max;
+          itemW = 100 / max;
+          TweenMax.set(wrapper, {
+            width: width + "%"
           });
+          TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
+            width: itemW + "%"
+          });
+          $scope.carousel.refresh();
         });
       }
     ]
@@ -39943,10 +39925,8 @@ module.exports = function() {
       var html, i, j, len, text;
       text = element.text();
       html = '<span class="btn-menu-text-content">';
-      console.log(text);
       for (j = 0, len = text.length; j < len; j++) {
         i = text[j];
-        console.log(i);
         html += "<span class='letter'>" + i + "</span>";
       }
       html += '</span>';
