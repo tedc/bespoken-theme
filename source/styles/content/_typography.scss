@@ -169,3 +169,11 @@ h5 {
 .slider-only-text {
     line-height: $interline-base;
 }
+
+.number {
+    font-size: em(48px);
+    strong {
+        font-size: em(70px, 48px);
+        color: $purple;
+    }
+}
