@@ -33,7 +33,7 @@
 			}
 			&:hover {
 				&:after {
-					animation: row 1s;
+					animation: row 2s cubic-bezier(0.005, 0.380, 1.000, 0.690);
 				}
 			}
 		}
@@ -79,7 +79,7 @@
 		transform: scaleX(1);
 		transform-origin: left center;
 	}
-	26% {
+	30% {
 		transform: scaleX(1);
 		transform-origin: right center;
 	}
@@ -91,7 +91,7 @@
 		transform: scaleX(1);
 		transform-origin: right center;
 	}
-	76% {
+	80% {
 		transform: scaleX(1);
 		transform-origin: left center;
 	}
