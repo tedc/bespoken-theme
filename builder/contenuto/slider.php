@@ -14,7 +14,6 @@ endif;?>
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php endif ?>
-    <?php echo get_sub_field('cornice') ?>
     <?php if (get_sub_field('cornice')== true) :
         get_template_part('templates/cornice');
     endif;
