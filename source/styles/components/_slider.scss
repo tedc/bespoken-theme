@@ -2,14 +2,16 @@
     position: relative;
     overflow: hidden;
     .mask {
-        width: 100%;
-        height: 0;
+        width: 400%;
         position: absolute;
-        top: 0px;
-        left: -50%;
-        background-color: $anthracite;
+        top: 0%;
+        left: 0%;
+        background-color: $w;
         z-index: 1;
-        transform: rotate(-45deg);
+        transform: translate3d(100%, -100%, 0);
+        padding-top: 400%;
+        border-radius: 100%;
+
     }
 }
 .slider-wrapper {
