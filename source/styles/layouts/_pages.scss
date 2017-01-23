@@ -9,6 +9,7 @@
 		line-height: $interline-title;
 		text-align: center;
 		font-weight: normal;
+		margin: auto;
 		&-row {
 			display: inline-block;
 			overflow: hidden;
@@ -28,9 +29,6 @@
 				background-color: $w;
 				content: '';
 				transition: left $speed, right $speed $speed;
-				transform: scaleX(0) {
-					origin: left center;
-				}
 			}
 			&:hover {
 				&:after {
@@ -71,24 +69,5 @@
 		align-items: center;
 		flex-direction: row;
 		justify-content: center;
-	}
-}
-
-@keyframes row {
-	0% {
-		transform: scaleX(0);
-		transform-origin: left center;
-	}
-	50% {
-		transform: scaleX(1);
-		transform-origin: left center;
-	}
-	51% {
-		transform: scaleX(1);
-		transform-origin: right center;
-	}
-	100% {
-		transform: scaleX(0);
-		transform-origin: right center;
 	}
 }
