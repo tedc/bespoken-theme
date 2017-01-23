@@ -30,13 +30,15 @@
                 top: $f;
                 left: 0;
                 width: $f;
+                .letter {
+                    opacity: 0;
+                }
             }
         }
         &-content {
             .letter {
                 display: inline-block;
                 transition: transform $speed, opacity $speed;;
-                opacity: 0;
                 @for $c from 1 through 4 {
                     $d: ($speed * $c) / 4;
                     &:nth-child(#{$c}) {
