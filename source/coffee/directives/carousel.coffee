@@ -20,7 +20,6 @@ module.exports = ->
 				width : "#{width}%"
 			TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 				width : "#{itemW}%"
-			console.log $scope.$eval $attrs.mousewheel
 			$timeout ->
 				$scope.carousel = new IScroll container,
 					preventDefault: off
