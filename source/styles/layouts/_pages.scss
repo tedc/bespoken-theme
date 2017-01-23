@@ -1,4 +1,5 @@
 .home {
+	padding-top: 100vh;
 	&-title {
 		font-size: vw(72px, 1366);
 		color: $w;
@@ -38,6 +39,8 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+		position: relative;
+		z-index: 1;
 		.carousel {
 			flex: 20;
 			display: flex;
@@ -51,6 +54,11 @@
 		}
 	}
 	.page-header {
+		position: fixed;
+		top: 0;
+		width: $f;
+		left: 0;
+		z-index: 0;
 		min-height: 0;
 		height: 100vh;
 		align-items: center;

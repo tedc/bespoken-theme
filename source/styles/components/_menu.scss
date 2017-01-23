@@ -1,5 +1,6 @@
 .logo {
     position: absolute;
+    font-size: $base_font_size;
     left: 0;
     top: em(20px);
     height: em(40px);
@@ -9,6 +10,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-indent: 120%;
+    z-index: 9999;
     a {
         @include absfull;
     }
