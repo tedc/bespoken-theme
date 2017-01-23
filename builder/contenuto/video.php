@@ -24,7 +24,7 @@ endif;?>
             echo $oembed;?>
         </div>
     </div>
-    <h3 class="title-video"><?php_e('La parola del cliente','bspkn')?></h3>
+    <h3 class="title-video"><?php _e('La parola del cliente','bspkn')?></h3>
     <h3 class="clients"><?php the_sub_field('titolo') ?></h3>
     <?php if (get_sub_field('video_embed') != ""){?>
         <div class="container-play">
