@@ -1,9 +1,9 @@
 <header class="page-header">
 	<div class="gradient"></div>
 	<h2 class="home-title">
-		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
-		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
-		<span class="home-title-row"><?php echo strip_tags(get_field('firt_row'), '<a>'); ?>></span>
+		<span class="home-title-row"><?php echo strip_tags(get_field('first_row'), '<a>'); ?></span><br />
+		<span class="home-title-row"><?php echo strip_tags(get_field('second_row'), '<a>'); ?></span><br />
+		<span class="home-title-row"><?php echo strip_tags(get_field('third_row'), '<a>'); ?></span>
 	</h2>
 </header>
 <div id="home" class="home-container">

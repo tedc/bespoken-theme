@@ -1,4 +1,30 @@
 .home {
+	&-title {
+		font-size: vw(72px, 1366);
+		color: $w;
+		line-height: $interline-title;
+		text-align: center;
+		&-row {
+			display: inline-block;
+			overflow: hidden;
+			position: relative;
+		}
+		a {
+			color: $w;
+			font-weight: bold;
+			position: relative;
+			display: inline-block;
+			&:after {
+				position: absolute;
+				width: $f;
+				height: 2px;
+				left: 0;
+				top: auto;
+				background-color: $w;
+				content: '';
+			}
+		}
+	}
 	&-container {
 		height: 100vh;
 		display: flex;
