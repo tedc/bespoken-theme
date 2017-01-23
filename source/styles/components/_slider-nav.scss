@@ -65,6 +65,12 @@
     .btn {
         cursor: pointer;
     }
+    .btn-left {
+        left : em(50px);
+    }
+    .btn-right {
+        right : em(50px);
+    }
 }
 
 .gallery-count {
