@@ -14,7 +14,11 @@ endif;?>
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php endif ?>
-    <div class="slider<?php echo get_sub_field('cornice') ? ' frame' : '' ?>" ng-slider>
+    <?php if (get_sub_field('cornice')) :
+        get_template_part('templates/cornice');
+    endif;
+    ?>
+    <div class="slider" ng-slider>
         <ul class="slider-wrapper">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
