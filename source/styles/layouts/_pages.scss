@@ -4,7 +4,14 @@
 		display: flex;
 		flex-direction: column;
 		.carousel {
-			flex: 10;
+			flex: 20;
+			display: flex;
+			&-container, &-wrapper {
+				flex: 0 0 auto;
+			}
+			&-container {
+				width: $f;
+			}
 		}
 	}
 }
