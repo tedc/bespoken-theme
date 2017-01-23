@@ -73,3 +73,11 @@
         }
     }
 }
+
+.title-video {
+    top: 25%;
+    left: 50%;
+    font-size: em(32px);
+    position: absolute;
+    transform: translateX(-50%);
+}
