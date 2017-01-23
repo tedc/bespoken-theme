@@ -1,6 +1,8 @@
 .page-header {
     position: relative;
     min-height: 110vh;
+    display: flex;
+    flex-direction: column;
     .gradient {
         @include absfull;
         @include gradient;
