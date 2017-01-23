@@ -1,5 +1,6 @@
 .home {
 	padding-top: 100vh;
+	overflow: hidden;
 	.logo, .btn-menu {
 		position: fixed;
 	}
@@ -14,6 +15,12 @@
 			display: inline-block;
 			overflow: hidden;
 			position: relative;
+		}
+		&-sentence {
+			transition: transform $speed $speed;
+			.wf-loading & {
+				transform: translate3d(-50%, -100%, 0) skewY(-5deg);
+			}
 		}
 		a {
 			color: $w;
