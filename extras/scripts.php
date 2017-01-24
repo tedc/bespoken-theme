@@ -3,9 +3,16 @@
 	{
 	    ?>
 	    <script>
+	    	var isLoaded = false;
 	    	var WebFontConfig = {
 			  custom: {
 			    families: ['din']
+			  },
+			  active : function() {
+			  	isLoaded = true
+			  },
+			  inactive : function() {
+			  	isLoaded = true
 			  }
 			};
 			(function(d) {
