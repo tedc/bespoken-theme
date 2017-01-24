@@ -5,7 +5,7 @@ if( $jobs ): ?>
         <?php setup_postdata($post); ?>
     <div class="col-<?php the_sub_field("n_cols") ?>">
             <figure>
-                <img src="<?php get_field('icon')['url'] ?>">
+                <img src="<?php get_sub_field('icon', $post->ID)['url']?>">
             </figure>
             <?php the_title(); ?>
     </div>
