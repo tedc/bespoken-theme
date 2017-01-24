@@ -43720,6 +43720,8 @@ module.exports = function($timeout) {
 },{}],22:[function(require,module,exports){
 var angular, bspkn;
 
+window.controller = new ScrollMagic.Controller();
+
 angular = require('angular');
 
 require('angular-resource');
