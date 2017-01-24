@@ -3,12 +3,13 @@
     padding-bottom: em(40px);
     &-number {
         font-size: em(40px);
-        width:em(60px);
+        width:em(60px, 40px);
         color: $purple;
         position: relative;
         line-height: 1;
         font-style: italic;
         font-weight: bold;
+        text-align: left;
        /* padding-right: 10px;
         margin-right: 40px;*/
         &:after {
