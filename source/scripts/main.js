@@ -43521,9 +43521,9 @@ module.exports = function($timeout, $rootScope) {
   return home = {
     addClass: function(element, className, done) {
       $rootScope.spliTl.reverse();
-      TweenMax.to(element, {
+      TweenMax.to(element, .5, {
         paddingTop: "0vh",
-        delay: .5,
+        delay: .25,
         onComplete: done
       });
     },
