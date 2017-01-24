@@ -84,13 +84,10 @@
             font-size: em(24px);
             padding: em(50px, 24px) 0;
             font-weight: bold;
+            text-transform: uppercase;
             @include breakpoint(640px) {
                 font-size: em(30px);
                 padding: em(50px, 30px) 0;
-            }
-            @include breakpoint($bp) {
-                font-size: em(48px);
-                padding: em(50px, 48px) 0;
             }
         }
         .btn {
@@ -118,6 +115,7 @@
                 content: '';
                 opacity: .25;
                 background-color: $b;
+                transition: opacity $speed;
             }
         }
         &-content {
@@ -153,6 +151,9 @@
             .btn {
                 opacity: 1;
                 transform: translate3d(-50%, 0%, 0); 
+            }
+            .cover:after {
+                opacity: .4;
             }
         }
     }

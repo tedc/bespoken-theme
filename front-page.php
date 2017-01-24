@@ -25,7 +25,7 @@
 					'order_by' => 'menu_order'
 				)
 			); ?>
-		<?php carousel($query); ?>
+		<?php carousel($query, 'true'); ?>
 		<?php get_template_part( 'templates/footer', 'content' ); ?>
 	</div>
 </section>
