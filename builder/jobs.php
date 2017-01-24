@@ -8,7 +8,7 @@ if( $jobs ): ?>
                 <img src="<?php the_field('icon', $post->ID)["url"]?>">
             </figure>
             <h3 class="job-title"><?php the_title(); ?></h3>
-        <span class="job-excerpt"><?php the_excerpt(); ?></span>
+      <?php the_excerpt(); ?>
     </div>
     <?php endforeach; ?>
     <?php wp_reset_postdata();?>

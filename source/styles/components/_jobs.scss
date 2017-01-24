@@ -6,6 +6,11 @@
     .job-title {
         font-size: em(22px);
         text-transform: uppercase;
-
+        line-height: $interline-title;
+    }
+    p {
+        text-align: center;
+        padding-left: 70px;
+        padding-right: 70px;
     }
 }
