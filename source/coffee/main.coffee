@@ -5,6 +5,6 @@ require 'angular-sanitize'
 require 'angular-touch'
 require 'angular-animate'
 
-bspkn = angular.module 'bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies']
+bspkn = angular.module 'bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', require('angular-iscroll').name]
 require './directives/index.coffee'
 require './resources/index.coffee'
