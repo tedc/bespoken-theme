@@ -1,5 +1,5 @@
-<section class="home-page" ng-class="{scrolled: isScrolled}">
-	<header class="page-header" id="header" ng-mouse-wheel-down="isScrolled=true">
+<section class="home-page" ng-home>
+	<header class="page-header" id="header" ng-mouse-wheel-down="scrollWheel()">
 		<div class="gradient"></div>
 		<h2 class="home-title" ng-split-title kind="home">
 			<span class="home-title-row">
@@ -12,7 +12,7 @@
 				<?php echo strip_tags(get_field('third_row'), '<a>'); ?>
 			</span>
 		</h2>
-		<span class="btn" ng-click="isScrolled=true">
+		<span class="btn" ng-click="scroll()">
 			<span class="btn-text"><?php _e('Scorri', 'bspkn'); ?></span>
 		</span>
 	</header>

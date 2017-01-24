@@ -6,3 +6,4 @@ bspkn
 	.directive 'ngMouseWheelDown', require( './mousewheel.coffee' ).down
 	.directive 'ngSplitTitle', ["$timeout", require './split.coffee' ]
 	.directive 'ngAnchors', [ require './anchors.coffee' ]
+	.directive 'ngHome', [ require './home.coffee' ]
