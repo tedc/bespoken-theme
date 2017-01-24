@@ -43523,19 +43523,19 @@ module.exports = function($timeout, $rootScope) {
       $rootScope.spliTl.reverse();
       TweenMax.to(element.find('header'), .5, {
         autoAlpha: false,
-        delay: .25,
+        delay: .5,
         onComplete: done
       });
       TweenMax.staggerFrom('.carousel-item', .5, {
-        x: -50,
-        delay: .35
+        scaleX: 0.7,
+        delay: .75
       }, .15);
     },
     removeClass: function(element, className, done) {
       TweenMax.to(element, {
         paddingTop: "100vh",
         onComplete: function() {
-          $rootScope.spliTl.reverse();
+          $rootScope.spliTl.play();
           done();
         }
       });
