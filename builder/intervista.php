@@ -1,5 +1,5 @@
 <div class="col-12 <?php echo get_sub_field('colore_sfondo') ?>">
-<div class="video<?php echo get_sub_field('full') ? ' full' : 'row-lg'?>">
+<div class="video<?php echo get_sub_field('full') ? ' full' : ' content row-lg'?>">
     <?php if (get_sub_field('cornice') == true) :
         get_template_part('templates/cornice');
     endif; ?>
@@ -17,7 +17,7 @@
     </div>
     <?php if (get_sub_field('video_embed') != "") { ?>
         <div class="container-play">
-            <div class="icon-play play"></div>
+            <div class="icon-play play">PLAY</div>
         </div>
         <div class="container-close">
             <div class="close"><?php _e("CHIUDI", "bspkn") ?></div>
