@@ -190,5 +190,6 @@
 }
 
 .content {
+    max-width: $max-width;
     @include normalize_padding;
 }
