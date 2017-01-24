@@ -1,20 +1,14 @@
 <header class="page-header">
 	<div class="gradient"></div>
-	<h2 class="home-title">
-		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
-			</span>
+	<h2 class="home-title" ng-split-title>
+		<span class="home-title-row" kind="home">
+			<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
 		</span><br />
 		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('second_row'), '<a>'); ?>
-			</span>
+			<?php echo strip_tags(get_field('second_row'), '<a>'); ?>
 		</span><br />
 		<span class="home-title-row">
-			<span class="home-title-sentence">
-				<?php echo strip_tags(get_field('third_row'), '<a>'); ?>
-			</span>
+			<?php echo strip_tags(get_field('third_row'), '<a>'); ?>
 		</span>
 	</h2>
 	<span class="btn">
