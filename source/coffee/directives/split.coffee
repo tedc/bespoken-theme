@@ -2,10 +2,10 @@ module.exports = ->
 	splitTitle =
 		link : (scope, element, attrs)->
 			split = new SplitText element,
-				type : 'chars'
+				type : 'chars,words'
 			if attrs.kind is 'home'
-				TweenMax.staggerFrom split.chars, .5,
+				TweenMax.staggerFrom split.chars, .25,
 					y : "-100%"
-					rotationY : 180
-				, .15
+					rotationX : 180
+				, .05
 			return

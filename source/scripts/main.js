@@ -39982,14 +39982,13 @@ module.exports = function() {
     link: function(scope, element, attrs) {
       var split;
       split = new SplitText(element, {
-        type: 'chars'
+        type: 'chars,words'
       });
-      console.log(attrs);
       if (attrs.kind === 'home') {
-        TweenMax.staggerFrom(SplitText.chars, .5, {
+        TweenMax.staggerFrom(split.chars, .25, {
           y: "-100%",
-          rotationY: 180
-        }, .15);
+          rotationX: 180
+        }, .05);
       }
     }
   };
