@@ -3,16 +3,12 @@
 	height: 100vh;
 	&-page {
 		padding-top: 100vh;
-		transition: $speed padding-top;
-		&.scrolled {
-			padding-top: 0vh;
-		}
 	}
 	.logo, .btn-menu {
 		position: fixed;
 	}
 	&-title {
-		font-size: vw(72px, 1366);
+		font-size: vmin(72px);
 		color: $w;
 		line-height: $interline-title;
 		text-align: center;
