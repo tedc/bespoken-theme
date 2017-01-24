@@ -1,4 +1,4 @@
-<?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ''); ?>
+<?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ''); $max = 0; ?>
 
 <?php if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
@@ -13,24 +13,39 @@ endif;?>
 <div class="<?php echo get_sub_field('full') ? ' full' : 'content '.$padding ?> ">
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
-    <?php endif ?>
-    <?php if (get_sub_field('cornice')== true) :
+    <?php 
+
+    endif;
+    
+    if (get_sub_field('cornice')== true) :
         get_template_part('templates/cornice');
     endif;
-    ?>
-    <div class="slider" ng-slider>
+
+    if (get_sub_field('tipologia') == 'immagini') {
+        $max = count(get_sub_field('galleria_immagini')); 
+    }
+    if (get_sub_field('tipologia') == 'testo') {
+        $max = count(get_sub_field('galleria_testo')); 
+    } 
+?>
+
+    <div class="slider" ng-slider ng-swipe-left="move(true, pos, <?php echo $max; ?>)" ng-swipe-right="move(false, pos, <?php echo $max; ?>)">
         <ul class="slider-wrapper">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
                 <?php if ($images): ?>
-                    <?php $n_page = 0;
+                    <?php 
+                    $max = count($images);
+                    $n_page = 0;
                     foreach ($images as $image): ?>
                         <li class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <figure><?php echo wp_get_attachment_image($image["id"], "large"); ?></figure>
                         </li>
                         <?php $n_page++; endforeach; ?>
                 <?php endif ?>
-            <?php elseif (get_sub_field('tipologia') == 'testo') : ?>
+            <?php elseif (get_sub_field('tipologia') == 'testo') :
+
+             ?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
@@ -43,16 +58,15 @@ endif;?>
             <div class="mask"></div>
         </ul>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
-            <nav class="nav-number">
-            <span class="arrow-prev">
+            <nav class="nav-number row">
+            <span class="arrow-prev" ng-click="move(false, pos, <?php echo $max; ?>)">
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
                 </span>
             </span>
-            <span class="gallery-count"><span class="current-slide ng-binding"
-                                              ng-bind-html="pos + 1">1</span>/<?php echo $n_page ?></span>
-            <span class="arrow-next">
+            <span class="gallery-count"><span class="current-slide" ng-bind-html="pos + 1">1</span> / <?php echo $n_page ?></span>
+            <span class="arrow-next" ng-click="move(true, pos, <?php echo $max; ?>)">
                  <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
@@ -61,13 +75,13 @@ endif;?>
             </nav>
         <?php elseif (get_sub_field('navigatore') == 'arrow') : ?>
             <nav class="nav-arrow <?php echo get_sub_field('colore_navigatore')== 'purple'? 'emphasis' : ''?>">
-            <span class="btn reverse btn-prev">
+            <span class="btn reverse btn-prev" ng-click="move(false, pos, <?php echo $max; ?>)">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
                 </span>
             </span>
-            <span class="btn btn-next">
+            <span class="btn btn-next" ng-click="move(false, pos, <?php echo $max; ?>)">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>

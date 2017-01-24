@@ -1,9 +1,9 @@
 module.exports = ->
-    carousel = 
+    slider = 
         scope: on
         controller : ['$scope', "$element", "$attrs", "$timeout", "$window", ($scope, $element, $attrs, $timeout, $window)->
             $scope.pos = 0
-            speed = 1
+            speed = .5
             w = angular.element $window
             isContent = if $attrs.isContentAnim then on else off
             delay = if $attrs.delay then $scope.$eval $attrs.delay else 0
@@ -19,11 +19,19 @@ module.exports = ->
                     delay = delay
                 pos = if pos < 0 then max else (if pos > max then 0 else pos)
                 $scope.pos = pos
+                TweenMax.to $element[0].querySelector('.mask'), speed,
+                    right : "0%"
                 TweenMax
-                    .staggerTo $element[0].querySelectorAll('.carousel-item'), speed,
+                    .set $element[0].querySelectorAll('.slider-item'), speed,
                         x : "-#{100*$scope.pos}%"
-                        delay : delay
-                        #ease: Power3.easeOut
+                        delay : speed
+                TweenMax.to
+                    $element[0].querySelector('.mask'), speed,
+                        left : "100%"
+                TweenMax.set
+                    $element[0].querySelector('.mask'),
+                        left : "0%"
+                        right : "0%"
                 classTimeout = $timeout ->
                     $timeout.cancel classTimeout
                     $scope.isSliding = off

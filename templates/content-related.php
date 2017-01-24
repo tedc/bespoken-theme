@@ -9,6 +9,6 @@
 		<h2 class="title"><?php the_title(); ?></h2>
 		<div class="excerpt"><?php the_excerpt(); ?></div>
 	</div>
-	<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
-	<a href="href="<?php the_permalink(); ?>" class="permalin"></a>
+	<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></span>
+	<a href="href="<?php the_permalink(); ?>" class="permalink"></a>
 </div>
