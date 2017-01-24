@@ -5,11 +5,12 @@ module.exports = ($timeout, $rootScope)->
 			TweenMax.to element.find('header'), .5,
 				opacity : 0
 				delay: 1
-				onComplete : ->
-					TweenMax.set element,
-						visibility : 'hidden'
-						done()
-					return
+			$timeout ->
+				TweenMax.set element.find('header'),
+					visibility : 'hidden'
+				done()
+				return
+			, 1500
 			return
 		removeClass : (element, className, done)->
 			TweenMax.to element,
