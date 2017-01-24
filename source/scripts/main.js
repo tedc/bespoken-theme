@@ -43698,10 +43698,10 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngHome', [require('./home.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]);
 
 
-},{"./anchors.coffee":18,"./carousel.coffee":19,"./home.coffee":20,"./menu.coffee":22,"./mousewheel.coffee":23,"./split.coffee":24}],22:[function(require,module,exports){
+},{"./anchors.coffee":18,"./carousel.coffee":19,"./home.coffee":20,"./menu.coffee":22,"./mousewheel.coffee":23,"./slider.coffee":24,"./split.coffee":25}],22:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -43761,6 +43761,59 @@ exports.down = function() {
 
 
 },{}],24:[function(require,module,exports){
+module.exports = function() {
+  var slider;
+  return slider = {
+    scope: true,
+    controller: [
+      '$scope', "$element", "$attrs", "$timeout", "$window", function($scope, $element, $attrs, $timeout, $window) {
+        var delay, isContent, speed, w;
+        $scope.pos = 0;
+        speed = .5;
+        w = angular.element($window);
+        isContent = $attrs.isContentAnim ? true : false;
+        delay = $attrs.delay ? $scope.$eval($attrs.delay) : 0;
+        $scope.dir = function(cond, pos, max) {
+          var classTimeout;
+          if ($scope.isSliding) {
+            return;
+          }
+          $scope.isSliding = true;
+          if (cond) {
+            pos += 1;
+            delay = isContent ? delay : 0 + delay;
+          } else {
+            pos -= 1;
+            delay = delay;
+          }
+          pos = pos < 0 ? max : (pos > max ? 0 : pos);
+          $scope.pos = pos;
+          TweenMax.to($element[0].querySelector('.mask'), speed, {
+            right: "0%"
+          });
+          TweenMax.set($element[0].querySelectorAll('.slider-item'), speed, {
+            x: "-" + (100 * $scope.pos) + "%",
+            delay: speed
+          });
+          TweenMax.to($element[0].querySelector('.mask'), speed, {
+            left: "100%"
+          });
+          TweenMax.set($element[0].querySelector('.mask'), {
+            left: "0%",
+            right: "0%"
+          });
+          classTimeout = $timeout(function() {
+            $timeout.cancel(classTimeout);
+            $scope.isSliding = false;
+          }, speed * 1000);
+        };
+      }
+    ]
+  };
+};
+
+
+},{}],25:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -43785,7 +43838,7 @@ module.exports = function($timeout) {
 };
 
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -43813,7 +43866,7 @@ require('./resources/index.coffee');
 require('./animations/index.coffee');
 
 
-},{"./animations/index.coffee":17,"./directives/index.coffee":21,"./resources/index.coffee":27,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],26:[function(require,module,exports){
+},{"./animations/index.coffee":17,"./directives/index.coffee":21,"./resources/index.coffee":28,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],27:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -43850,7 +43903,7 @@ module.exports = function() {
 };
 
 
-},{"angular":13}],27:[function(require,module,exports){
+},{"angular":13}],28:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -44003,4 +44056,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":26}]},{},[25]);
+},{"./form.coffee":27}]},{},[26]);
