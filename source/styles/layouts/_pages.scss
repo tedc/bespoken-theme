@@ -1,6 +1,13 @@
 .home {
-	padding-top: 100vh;
 	overflow: hidden;
+	height: 100vh;
+	&-page {
+		padding-top: 100vh;
+		transition: $speed padding-top;
+		&.scrolled {
+			padding-top: 0vh;
+		}
+	}
 	.logo, .btn-menu {
 		position: fixed;
 	}
