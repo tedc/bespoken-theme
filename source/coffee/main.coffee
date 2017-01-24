@@ -1,3 +1,4 @@
+window.controller = new ScrollMagic.Controller()
 angular = require 'angular'
 require 'angular-resource'
 require 'angular-cookies'
