@@ -7,9 +7,11 @@ module.exports = ->
             w = angular.element $window
             isContent = if $attrs.isContentAnim then on else off
             delay = if $attrs.delay then $scope.$eval $attrs.delay else 0
+            $scope.isSliding = off
             $scope.dir = (cond, pos, max)->
                 #return if (pos - 1 < 0 and not cond) or (pos + 1 > max and cond)
                 return if $scope.isSliding
+                Tl = new TimelineMax()
                 $scope.isSliding = on
                 if cond
                     pos += 1
@@ -19,17 +21,13 @@ module.exports = ->
                     delay = delay
                 pos = if pos < 0 then max else (if pos > max then 0 else pos)
                 $scope.pos = pos
-                TweenMax
+                Tl
                     .to $element[0].querySelector('.mask'), speed,
                         right : "0%"
-                TweenMax
-                    .set $element[0].querySelectorAll('.slider-item'), speed,
+                    .set $element[0].querySelectorAll('.slider-item'),
                         x : "-#{100*$scope.pos}%"
-                        delay : speed
-                TweenMax
                     .to $element[0].querySelector('.mask'), speed,
                         left : "100%"
-                TweenMax
                     .set $element[0].querySelector('.mask'),
                         left : "0%"
                         right : "0%"

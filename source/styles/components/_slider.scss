@@ -11,7 +11,12 @@
         background-color: $w;
         z-index: 1;
         height: 100%;
-        border-radius: 100%;
+        .alternate & {
+            background-color: $light;
+        }
+        .dark-bg & {
+            background-color: $anthracite;
+        }
     }
 }
 .slider-wrapper {

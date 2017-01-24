@@ -43773,11 +43773,13 @@ module.exports = function() {
         w = angular.element($window);
         isContent = $attrs.isContentAnim ? true : false;
         delay = $attrs.delay ? $scope.$eval($attrs.delay) : 0;
+        $scope.isSliding = false;
         $scope.dir = function(cond, pos, max) {
-          var classTimeout;
+          var Tl, classTimeout;
           if ($scope.isSliding) {
             return;
           }
+          Tl = new TimelineMax();
           $scope.isSliding = true;
           if (cond) {
             pos += 1;
@@ -43788,17 +43790,13 @@ module.exports = function() {
           }
           pos = pos < 0 ? max : (pos > max ? 0 : pos);
           $scope.pos = pos;
-          TweenMax.to($element[0].querySelector('.mask'), speed, {
+          Tl.to($element[0].querySelector('.mask'), speed, {
             right: "0%"
-          });
-          TweenMax.set($element[0].querySelectorAll('.slider-item'), speed, {
-            x: "-" + (100 * $scope.pos) + "%",
-            delay: speed
-          });
-          TweenMax.to($element[0].querySelector('.mask'), speed, {
+          }).set($element[0].querySelectorAll('.slider-item'), {
+            x: "-" + (100 * $scope.pos) + "%"
+          }).to($element[0].querySelector('.mask'), speed, {
             left: "100%"
-          });
-          TweenMax.set($element[0].querySelector('.mask'), {
+          }).set($element[0].querySelector('.mask'), {
             left: "0%",
             right: "0%"
           });
