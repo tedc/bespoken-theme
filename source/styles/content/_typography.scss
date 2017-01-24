@@ -198,3 +198,7 @@ h5 {
         }
     }
 }
+
+.permalink {
+    @include absfull;
+}

@@ -1,4 +1,4 @@
-<a href="<?php the_permalink(); ?>" class="carousel-item">
+<div class="carousel-item">
 	<div class="cover" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)">
 	<div class="carousel-item-content">
 		<?php if(get_field('icon_white')) : ?>
@@ -10,4 +10,5 @@
 		<div class="excerpt"><?php the_excerpt(); ?></div>
 	</div>
 	<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
-</a>
+	<a href="href="<?php the_permalink(); ?>" class="permalin"></a>
+</div>
