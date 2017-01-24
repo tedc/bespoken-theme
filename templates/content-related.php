@@ -1,5 +1,5 @@
 <div class="carousel-item">
-	<div class="cover" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)">
+	<div class="cover" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)"></div>
 	<div class="carousel-item-content">
 		<?php if(get_field('icon_white')) : ?>
 		<figure class="logo">
