@@ -1,8 +1,9 @@
+<div class="col-12">
 <div class="video <?php echo get_sub_field('full') ? ' full' : 'content row-lg'?>">
     <?php if (get_sub_field('cornice') == true) :
         get_template_part('templates/cornice');
     endif; ?>
-    <div class="container-player" style="background-image: url(<?php echo  get_sub_field('video') ?>)">
+    <div class="container-player">
         <img src="<?php echo  get_sub_field('video') ?>">
         <div class="video-foreground">
             <?php $oembed = get_sub_field('video_embed');
@@ -22,4 +23,5 @@
             <div class="close"><?php _e("CHIUDI", "bspkn") ?></div>
         </div>
     <?php } ?>
+</div>
 </div>
