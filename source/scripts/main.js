@@ -43769,7 +43769,7 @@ module.exports = function($timeout) {
           delay: .5
         });
         if ($attrs.kind === 'home') {
-          $rootScope.Tl.staggerFrom(split.words, .5, {
+          $rootScope.Tl.staggerFrom($rootScope.split.words, .5, {
             y: "-100%"
           }, .05);
         }
