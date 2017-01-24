@@ -5,7 +5,7 @@
 	width: $f;
 	height: $f;
 	z-index: 9999;
-	display: none;
+	visibility: hidden;
 	&-container {
 		@include absfull;
 		overflow: hidden;
@@ -15,6 +15,13 @@
 	.menu, .form {
 		width: $f;
 		margin: auto;
+		visibility: hidden;
+		&.visible {
+			visibility: visible;
+		}
+	}
+	&.visible {
+		visibility: visible;
 	}
 }
 
@@ -27,5 +34,8 @@
 		@extend %subline;
 		font-size: em(48px);
 		line-height: percentage(57px/48px);
+	}
+	&-item {
+		list-style-type: none;
 	}
 }
