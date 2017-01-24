@@ -11,6 +11,7 @@ if (function_exists('acf_add_options_page')) {
 }
 
 function ng_app($html) {
+	var_dump($html);
 	return $html . ' class="no-js" ng-app="bspkn"';
 }
 
