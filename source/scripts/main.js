@@ -43656,38 +43656,54 @@ module.exports = function() {
 },{}],20:[function(require,module,exports){
 exports.up = function() {
   return function(scope, element, attrs) {
+    var curTime;
+    curTime = new Date().getTime();
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
-      var delta;
-      event = window.event || event;
-      delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
-      if (delta > 0) {
-        scope.$apply(function() {
-          scope.$eval(attrs.ngMouseWheelUp);
-        });
-        event.returnValue = false;
-        if (event.preventDefault) {
-          event.preventDefault();
+      var delta, prevTime, timeDiff;
+      if (typeof prevTime !== 'undefined') {
+        timeDiff = curTime - prevTime;
+        if (timeDiff > 200) {
+          event = window.event || event;
+          delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
+          if (delta > 0) {
+            scope.$apply(function() {
+              scope.$eval(attrs.ngMouseWheelUp);
+            });
+            event.returnValue = false;
+            if (event.preventDefault) {
+              event.preventDefault();
+            }
+          }
         }
       }
+      prevTime = curTime;
     });
   };
 };
 
 exports.down = function() {
   return function(scope, element, attrs) {
+    var curTime;
+    curTime = new Date().getTime();
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
-      var delta;
-      event = window.event || event;
-      delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
-      if (delta < 0) {
-        scope.$apply(function() {
-          scope.$eval(attrs.ngMouseWheelDown);
-        });
-        event.returnValue = false;
-        if (event.preventDefault) {
-          event.preventDefault();
+      var delta, prevTime, timeDiff;
+      if (typeof prevTime !== 'undefined') {
+        timeDiff = curTime - prevTime;
+        if (timeDiff > 200) {
+          event = window.event || event;
+          delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
+          if (delta < 0) {
+            scope.$apply(function() {
+              scope.$eval(attrs.ngMouseWheelDown);
+            });
+            event.returnValue = false;
+            if (event.preventDefault) {
+              event.preventDefault();
+            }
+          }
         }
       }
+      prevTime = curTime;
     });
   };
 };
