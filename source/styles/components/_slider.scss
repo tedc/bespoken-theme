@@ -1,6 +1,8 @@
 .slider {
     position: relative;
     overflow: hidden;
+    max-width: $max-width;
+    margin: 0 auto;
     .mask {
         width: 400%;
         position: absolute;
@@ -186,5 +188,7 @@
 }
 
 svg {
+    max-width: $max-width;
+    margin: 0 auto;
     display: block;
 }

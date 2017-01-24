@@ -4,8 +4,12 @@
     position: relative;
     background-size: cover;
     background-position: 50%;
+    max-width: $max-width;
+    margin: 0 auto;
     svg {
         display: block;
+        max-width: $max-width;
+        margin: 0 auto;
     }
     .container-player {
         position: relative;
