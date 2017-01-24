@@ -3,9 +3,13 @@ module.exports = ($timeout, $rootScope)->
 		addClass : (element, className, done)->
 			$rootScope.spliTl.reverse()
 			TweenMax.to element, .5,
-				paddingTop : "0vh"
+				autoAlpha : off
 				delay: .25
 				onComplete : done
+			TweenMax.staggerFrom '.carousel-item', .5,
+				x : -50
+				delay: .45
+			, .15
 			return
 		removeClass : (element, className, done)->
 			TweenMax.to element,
