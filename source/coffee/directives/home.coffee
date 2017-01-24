@@ -4,8 +4,9 @@ module.exports = ->
 			$scope.scroll = ()->
 				$rootScope.isScrolled = !$rootScope.isScrolled
 				return
-			curTime = new Date().getTime()
+			prevTime = new Date().getTime()
 			$scope.scrollWheel = ->
+				curTime = new Date().getTime()
 				if typeof prevTime isnt 'undefined'
 					timeDiff = curTime - prevTime
 					if timeDiff > 200      

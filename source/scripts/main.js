@@ -43632,13 +43632,14 @@ module.exports = function() {
   return home = {
     controller: [
       "$scope", "$rootScope", function($scope, $rootScope) {
-        var curTime;
+        var prevTime;
         $scope.scroll = function() {
           $rootScope.isScrolled = !$rootScope.isScrolled;
         };
-        curTime = new Date().getTime();
+        prevTime = new Date().getTime();
         $scope.scrollWheel = function() {
-          var prevTime, timeDiff;
+          var curTime, timeDiff;
+          curTime = new Date().getTime();
           if (typeof prevTime !== 'undefined') {
             timeDiff = curTime - prevTime;
             if (timeDiff > 200) {
