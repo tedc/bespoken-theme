@@ -19,4 +19,4 @@
 	    </script>
 	    <?php
 	}
-	//add_action('wp_footer', 'vars');
+	add_action('wp_footer', 'vars');
