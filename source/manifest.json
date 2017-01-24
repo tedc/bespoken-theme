@@ -9,9 +9,10 @@
     "lib.js": {
       "files": [
         "scripts/modernizr/modernizr.build.js",
-        "scripts/st.js",
         "../bower_components/gsap/src/uncompressed/TweenMax.js",
-        "../bower_components/gsap/src/uncompressed/utils/Draggable.js"
+        "../bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
+        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
+        "scripts/st.js"
       ],
       "bower" : ["scrollmagic", "iscroll"]
     },

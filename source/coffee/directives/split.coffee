@@ -8,13 +8,10 @@ module.exports = ($timeout)->
 			if attrs.kind is 'home'
 				Tl.staggerFrom split.words, .5,
 					y : "-100%"
-					rotationX : 180
-					force3D : true
 				, .05
 			lunch = ->
 				Tl.play() if isLoaded	
 				lunch() if not isLoaded
-				console.log on
 				return
-			$timeout lunch, 0
+			$timeout lunch, 100
 			return

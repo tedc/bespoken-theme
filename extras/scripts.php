@@ -13,7 +13,8 @@
 			  },
 			  inactive : function() {
 			  	isLoaded = true
-			  }
+			  },
+			  timeout : 2000
 			};
 			(function(d) {
 				var wf = d.createElement('script'), s = d.scripts[0];
