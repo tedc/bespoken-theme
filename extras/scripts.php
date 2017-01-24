@@ -6,8 +6,7 @@
 	    <script>
 	    	var WebFontConfig = {
 			  custom: {
-			    families: ['din'],
-			    urls: ['<?php echo Assets\asset_path('styles/main.css'); ?>']
+			    families: ['din']
 			  }
 			};
 			(function(d) {
