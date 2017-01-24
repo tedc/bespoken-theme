@@ -17,7 +17,7 @@
     </div>
     <?php if (get_sub_field('video_embed') != "") { ?>
         <div class="container-play">
-            <div class="icon-play play">PLAY</div>
+            <div class="icon-play play"></div>
         </div>
         <div class="container-close">
             <div class="close"><?php _e("CHIUDI", "bspkn") ?></div>
