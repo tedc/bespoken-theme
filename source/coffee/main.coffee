@@ -8,3 +8,4 @@ require 'angular-animate'
 bspkn = angular.module 'bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies']
 require './directives/index.coffee'
 require './resources/index.coffee'
+console.log on

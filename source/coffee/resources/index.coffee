@@ -101,7 +101,3 @@ frt
                 return
         ]
     .factory 'transformRequestAsFormPost', [ require './form.coffee']
-    .factory 'InstagramPosts', [ "$resource", "cacheService", require './instagram.coffee']
-    .factory 'FacebookReviews', [ "$resource", "cacheService", require './facebook.coffee']
-    .factory 'getPosts', [ "$resource", "cacheService", require './more.coffee']
-    .factory 'getSearch', [ "$resource", require './search.coffee']
