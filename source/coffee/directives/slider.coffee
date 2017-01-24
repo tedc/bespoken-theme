@@ -30,7 +30,7 @@ module.exports = ->
                         left : "100%"
                     .set $element[0].querySelector('.mask'),
                         left : "0%"
-                        right : "0%"
+                        right : "100%"
                 classTimeout = $timeout ->
                     $timeout.cancel classTimeout
                     $scope.isSliding = off
