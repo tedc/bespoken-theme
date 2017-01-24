@@ -3,11 +3,11 @@
 		echo '<span class="btn close" ng-clic="'.$ngClick.'"><span class="btn-line"></span><span class="btn-line"></span></span>';
 	}
 
-	function carousel($q, $mw) { ?>
+	function carousel($q, $el, $mw) { ?>
 		<?php
 			if($q->have_posts()) : 
 		?>
-		<div<?php if($q->found_posts > 1) : ?> ng-carousel items="3" max="<?php echo $q->found_posts; ?>" mousewheel="<?php echo $mw; ?>"<?php endif; ?> class="carousel">
+		<div<?php if($q->found_posts > 1) : ?> ng-carousel items="<?php echo $el; ?>" max="<?php echo $q->found_posts; ?>" mousewheel="<?php echo $mw; ?>"<?php endif; ?> class="carousel">
 			<div class="carousel-container">
 				<div class="carousel-wrapper">
 					<?php while($q->have_posts()) : $q->the_post(); ?>
