@@ -75,6 +75,7 @@ h5 {
 }
 
 .title {
+    font-weight: normal;
     span {
         font-weight: 500;
     }
@@ -82,32 +83,27 @@ h5 {
         color: $w;
     }
     .page-header & {
-        font-weight: normal;
         line-height: $interline-title;
         text-align: center;
         color: $w;
     }
     &-registry {
         font-size: em(18px);
-        font-weight: normal;
     }
 
     &-minus {
         font-size: em(20px);
-        font-weight: normal;
         text-transform: uppercase;
         font-style: normal;
         padding-bottom: em(20px, 20px);
     }
     &-normal {
         font-size: em(36px);
-        font-weight: normal;
         text-transform: uppercase;
         font-style: normal;
     }
     &-important {
         font-size: em(72px);
-        font-weight: normal;
         text-transform: uppercase;
         font-style: normal;
     }
