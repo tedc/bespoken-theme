@@ -1,10 +1,10 @@
-<div class="col-12">
-<div class="video <?php echo get_sub_field('full') ? ' full' : 'content row-lg'?>">
+<div class="col-12 <?php echo get_sub_field('colore_sfondo') ?>">
+<div class="video<?php echo get_sub_field('full') ? ' full' : ' content row-lg'?>">
     <?php if (get_sub_field('cornice') == true) :
         get_template_part('templates/cornice');
     endif; ?>
     <div class="container-player">
-        <img src="<?php echo  get_sub_field('video') ?>">
+        <img class="screenshot" src="<?php echo  get_sub_field('video') ?>">
         <div class="video-foreground">
             <?php $oembed = get_sub_field('video_embed');
             echo $oembed; ?>
