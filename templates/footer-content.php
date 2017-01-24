@@ -4,10 +4,10 @@
 </footer>
 <nav class="cat">
     <span class="cat-text"><?php the_field('frase_sub_footer', 'option'); ?></span>
-    <a class="btn" href="<?php the_field('contact_page', 'option'); ?>">
+    <span class="btn" ng-click="isModal=true;isContact=true">
         <span class="btn-line">
             <span class="btn-arrow-up"></span>
             <span class="btn-arrow-down"></span>
         </span>
-    </a>
+    </span>
 </nav>
