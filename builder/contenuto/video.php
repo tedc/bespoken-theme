@@ -25,13 +25,15 @@ endif;?>
         </div>
     </div>
     <h3 class="title-video"><?php _e('La parola del cliente','bspkn')?></h3>
-    <h3 class="clients"><?php the_sub_field('titolo') ?></h3>
+    <span class="clients"><h3><?php the_sub_field('titolo') ?></h3>
+        <h4><?php the_sub_field('titolo') ?></h4>
+    </span>
     <?php if (get_sub_field('video_embed') != ""){?>
         <div class="container-play">
             <div class="icon-play play">PLAY</div>
         </div>
         <div class="container-close">
-            <div class="close"><?php _e("chiudi", "bspkn")?></div>
+            <div class="close"><?php _e("CHIUDI", "bspkn")?></div>
         </div>
     <?php } ?>
 </div>
