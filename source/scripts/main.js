@@ -43523,13 +43523,10 @@ module.exports = function() {
       "$element", '$scope', "$document", function($element, $scope, $document) {
         var prevTime;
         $scope.goToAnchor = function(val) {
-          var lnd, nav;
-          nav = $document[0].querySelector('.banner').offsetHeight;
-          lnd = $element[0].offsetHeight;
           controller.scrollTo(function(newpos) {
             TweenMax.to(window, 1, {
               scrollTo: {
-                y: newpos - nav - lnd
+                y: newpos
               }
             });
           });
