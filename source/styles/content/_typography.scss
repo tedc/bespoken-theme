@@ -5,9 +5,6 @@
 html {
     overflow-x: hidden;
     overflow-y: auto;
-    &.wf-loading * {
-        color: transparent !important;
-    }
 }
 
 body {
@@ -179,5 +176,28 @@ h5 {
         font-size: em(70px, 48px);
         color: $purple;
         font-style: italic;
+    }
+}
+
+%subline {
+    color: $w;
+    position: relative;
+    display: inline-block;
+    &:after {
+        position: absolute;
+        height: 2px;
+        left: 0%;
+        right: 100%;
+        bottom: 0;
+        background-color: $w;
+        content: '';
+        transition: left $speed, right $speed $speed;
+    }
+    &:hover {
+        &:after {
+            left: 100%;
+            right: 0%;
+            transition: left $speed $speed, right $speed;
+        }
     }
 }

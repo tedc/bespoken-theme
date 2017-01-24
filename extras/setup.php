@@ -16,3 +16,7 @@ function ng_app($html) {
 }
 
 add_filter( 'language_attributes', 'ng_app', 100 );
+
+register_nav_menus([
+    'service_navigation' => __('Servizi', 'bspkn')
+  ]);
