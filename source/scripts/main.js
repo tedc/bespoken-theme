@@ -43522,10 +43522,15 @@ module.exports = function($timeout, $rootScope) {
     addClass: function(element, className, done) {
       $rootScope.spliTl.reverse();
       TweenMax.to(element.find('header'), .5, {
-        autoAlpha: false,
-        delay: 1,
-        onComplete: done
+        opacity: 0,
+        delay: 1
       });
+      $timeout(function() {
+        TweenMax.set(element.find('header'), {
+          visibility: 'hidden'
+        });
+        done();
+      }, 1500);
     },
     removeClass: function(element, className, done) {
       TweenMax.to(element, {
