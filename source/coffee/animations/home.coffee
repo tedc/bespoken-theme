@@ -4,9 +4,12 @@ module.exports = ($timeout, $rootScope)->
 			$rootScope.spliTl.reverse()
 			TweenMax.to element.find('header'), .5,
 				opacity : 0
-				visibility : 'hidden'
 				delay: 1
-				onComplete : done
+				onComplete : ->
+					TweenMax.set element,
+						visibility : 'hidden'
+						done()
+					return
 			return
 		removeClass : (element, className, done)->
 			TweenMax.to element,
