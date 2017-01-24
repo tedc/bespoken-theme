@@ -8,6 +8,7 @@
         display: block;
     }
     .container-player {
+        position: relative;
 /*        position: absolute;
         left: 0;
         top: 0;
@@ -48,6 +49,12 @@
                 height: 100%;
                 visibility: hidden;
             }
+        }
+        .clients {
+            position: absolute;
+            left: 0;
+            bottom:0;
+            color: $w;
         }
     }
     .container-play {
