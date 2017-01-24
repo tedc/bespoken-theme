@@ -43521,21 +43521,17 @@ module.exports = function($timeout, $rootScope) {
   return home = {
     addClass: function(element, className, done) {
       $rootScope.spliTl.reverse();
-      TweenMax.to(element, .5, {
+      TweenMax.to(element.find('header'), .5, {
         autoAlpha: false,
-        delay: .25,
+        delay: 1,
         onComplete: done
       });
-      TweenMax.staggerFrom('.carousel-item', .5, {
-        x: -50,
-        delay: .45
-      }, .15);
     },
     removeClass: function(element, className, done) {
       TweenMax.to(element, {
         paddingTop: "100vh",
         onComplete: function() {
-          $rootScope.spliTl.reverse();
+          $rootScope.spliTl.play();
           done();
         }
       });
