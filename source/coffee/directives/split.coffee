@@ -6,7 +6,7 @@ module.exports = ($timeout)->
 			Tl = new TimelineMax
 				paused : true
 			if attrs.kind is 'home'
-				Tl.staggerFrom split.words, .15,
+				Tl.staggerFrom split.words, .5,
 					y : "-100%"
 					rotationX : 180
 					force3D : true
@@ -14,6 +14,7 @@ module.exports = ($timeout)->
 			lunch = ->
 				Tl.play() if isLoaded	
 				lunch() if not isLoaded
+				console.log on
 				return
 			$timeout lunch, 0
 			return

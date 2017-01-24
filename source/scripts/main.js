@@ -39988,7 +39988,7 @@ module.exports = function($timeout) {
         paused: true
       });
       if (attrs.kind === 'home') {
-        Tl.staggerFrom(split.words, .15, {
+        Tl.staggerFrom(split.words, .5, {
           y: "-100%",
           rotationX: 180,
           force3D: true
@@ -40001,6 +40001,7 @@ module.exports = function($timeout) {
         if (!isLoaded) {
           lunch();
         }
+        console.log(true);
       };
       $timeout(lunch, 0);
     }
