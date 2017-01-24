@@ -14,6 +14,11 @@
 		text-align: center;
 		font-weight: normal;
 		margin: auto;
+		transition: $speed transform, $speed opacity;
+		.scrolled & {
+			transform: translate3d(0, 0%, 0);
+			opacity: 0;
+		}
 		&-row {
 			display: inline-block;
 			overflow: hidden;
@@ -42,9 +47,10 @@
 		flex-direction: column;
 		position: relative;
 		z-index: 10;
-		transition: $speed/2 transform;
+		transition: $speed transform, box-shadow $speed/2;
 		.scrolled & {
 			transform: translate3d(0, -100%, 0);
+			box-shadow: 0 -5px 10px transparentize($b, .65);
 		}
 		.carousel {
 			flex: 20;
