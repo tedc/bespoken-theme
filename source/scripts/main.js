@@ -39930,6 +39930,7 @@ module.exports = function() {
       }
       html += '</span>';
       element.empty().prepend(html).append(html);
+      console.log(true);
     }
   };
 };
@@ -39995,8 +39996,6 @@ bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResour
 require('./directives/index.coffee');
 
 require('./resources/index.coffee');
-
-console.log(true);
 
 
 },{"./directives/index.coffee":14,"./resources/index.coffee":19,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}],18:[function(require,module,exports){

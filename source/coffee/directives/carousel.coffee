@@ -2,7 +2,7 @@ em = (val)->
 	val/16
 module.exports = ->
 	carousel =
-		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", ($scope, $window, $attrs, $element, $timeout)->
+		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", ($scope, $window, $attrs, $element, $timeout)->		
 			w = angular.element $window
 			container = $element[0].querySelector '.carousel-container'
 			wrapper = container.querySelector '.carousel-wrapper'
