@@ -8,7 +8,7 @@ elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<?php $src = the_sub_field('immagine'); ?>
+<?php $src = get_sub_field('immagine'); ?>
 <figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>" style="background-image:url('<?php echo $src ?>')";>
     <img src="<?php echo $src ?>">
 </figure>
