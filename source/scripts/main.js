@@ -39913,7 +39913,7 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', require('./split.coffee'));
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]);
 
 
 },{"./carousel.coffee":13,"./menu.coffee":15,"./mousewheel.coffee":16,"./split.coffee":17}],15:[function(require,module,exports){
@@ -39976,20 +39976,33 @@ exports.down = function() {
 
 
 },{}],17:[function(require,module,exports){
-module.exports = function() {
+module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
     link: function(scope, element, attrs) {
-      var split;
+      var Tl, lunch, split;
       split = new SplitText(element, {
         type: 'chars,words'
       });
+      Tl = new TimelineMax({
+        paused: true
+      });
       if (attrs.kind === 'home') {
-        TweenMax.staggerFrom(split.chars, .25, {
+        Tl.staggerFrom(split.words, .15, {
           y: "-100%",
-          rotationX: 180
+          rotationX: 180,
+          force3D: true
         }, .05);
       }
+      lunch = function() {
+        if (isLoaded) {
+          Tl.play();
+        }
+        if (!isLoaded) {
+          lunch();
+        }
+      };
+      $timeout(lunch, 0);
     }
   };
 };
