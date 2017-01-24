@@ -9,7 +9,7 @@
     "lib.js": {
       "files": [
         "scripts/modernizr/modernizr.build.js",
-        "scripts/splitText2.js",
+        "scripts/st.js",
         "../bower_components/gsap/src/uncompressed/TweenMax.js",
         "../bower_components/gsap/src/uncompressed/utils/Draggable.js"
       ],
