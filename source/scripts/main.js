@@ -39866,7 +39866,6 @@ module.exports = function() {
         TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
           width: itemW + "%"
         });
-        console.log($scope.$eval($attrs.mousewheel));
         $timeout(function() {
           $scope.carousel = new IScroll(container, {
             preventDefault: false,
@@ -39914,6 +39913,8 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
+console.log(bspkn);
+
 bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down);
 
 
@@ -39931,6 +39932,7 @@ module.exports = function() {
       }
       html += '</span>';
       element.empty().prepend(html).append(html);
+      console.log(true);
     }
   };
 };
@@ -39995,5 +39997,197 @@ bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResour
 
 require('./directives/index.coffee');
 
+require('./resources/index.coffee');
 
-},{"./directives/index.coffee":14,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}]},{},[17]);
+
+},{"./directives/index.coffee":14,"./resources/index.coffee":19,"angular":12,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10}],18:[function(require,module,exports){
+module.exports = function() {
+  var serializeData, transformRequest;
+  serializeData = function(data) {
+    var buffer, k, key, source, string, v, value, values;
+    if (!require('angular').isObject(data)) {
+      string = data == null ? "" : data.toString();
+      return string;
+    }
+    buffer = [];
+    for (k in data) {
+      v = data[k];
+      if (require('angular').isObject(v)) {
+        values = [];
+        for (key in v) {
+          value = v[key];
+          values.push("" + (encodeURIComponent(value == null ? '' : value)));
+        }
+        v = values.join(", ").replace(/%20/g, " ");
+      }
+      if (!data.hasOwnProperty(k)) {
+        continue;
+      }
+      buffer.push((encodeURIComponent(k)) + "=" + (encodeURIComponent(v == null ? '' : v)));
+    }
+    source = buffer.join("&").replace(/%20/g, "+");
+    return source;
+  };
+  return transformRequest = function(data, getHeaders) {
+    var headers;
+    headers = getHeaders();
+    headers["Content-type"] = "application/x-www-form-urlencoded; charset=utf-8";
+    return serializeData(data);
+  };
+};
+
+
+},{"angular":12}],19:[function(require,module,exports){
+var bspkn;
+
+bspkn = angular.module('bspkn');
+
+bspkn.service('loadGoogleMapAPI', [
+  '$window', '$q', function($window, $q) {
+    var deferred, loadScript;
+    deferred = $q.defer();
+    loadScript = function() {
+      var script;
+      script = document.createElement('script');
+      script.id = 'mapJS';
+      script.src = "https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize&key=" + google_api;
+      document.body.appendChild(script);
+    };
+    window.initialize = function() {
+      deferred.resolve();
+    };
+    loadScript();
+    return deferred.promise;
+  }
+]).factory('storageService', function() {
+  var storage;
+  return storage = {
+    get: function(key) {
+      return localStorage.getItem(key);
+    },
+    save: function(key, data) {
+      return localStorage.setItem(key, JSON.stringify(data));
+    },
+    remove: function(key) {
+      return localStorage.removeItem(key);
+    },
+    clear: function(key) {
+      return localStorage.clearAll(key);
+    }
+  };
+}).factory('sessionService', function() {
+  var storage;
+  return storage = {
+    get: function(key) {
+      return sessionStorage.getItem(key);
+    },
+    save: function(key, data) {
+      return sessionStorage.setItem(key, JSON.stringify(data));
+    },
+    remove: function(key) {
+      return sessionStorage.removeItem(key);
+    },
+    clear: function(key) {
+      return sessionStorage.clearAll(key);
+    }
+  };
+}).factory('cacheService', [
+  'storageService', function(storageService) {
+    var cache;
+    return cache = {
+      getData: function(key) {
+        var exp, now, stored;
+        if ((key == null) && typeof key === "undefined") {
+          return false;
+        }
+        if (Modernizr.localstorage) {
+          stored = JSON.parse(storageService.get(key));
+          if (stored == null) {
+            return false;
+          } else {
+            now = new Date();
+            exp = stored.expiration;
+            if (now.getTime() > exp) {
+              return false;
+            } else {
+              return stored;
+            }
+          }
+        } else {
+          return false;
+        }
+      },
+      setData: function(key, data) {
+        if (((key == null) && typeof key === "undefined") || ((data == null) && typeof data === "undefined")) {
+          return false;
+        }
+        if (Modernizr.localstorage) {
+          storageService.save(key, data);
+        } else {
+          return false;
+        }
+      },
+      removeData: function(key, data) {
+        if (((key == null) && typeof key === "undefined") || ((data == null) && typeof data === "undefined")) {
+          return false;
+        }
+        if (Modernizr.localstorage) {
+          storageService.remove(key, data);
+        } else {
+          return false;
+        }
+      }
+    };
+  }
+]).factory('cacheSessionService', [
+  'sessionService', function(sessionService) {
+    var cache;
+    return cache = {
+      getData: function(key) {
+        var exp, now, stored;
+        if ((key == null) && typeof key === "undefined") {
+          return false;
+        }
+        if (Modernizr.sessionstorage) {
+          stored = JSON.parse(sessionService.get(key));
+          if (stored == null) {
+            return false;
+          } else {
+            now = new Date();
+            exp = stored.expiration;
+            if (now.getTime() > exp) {
+              return false;
+            } else {
+              return stored;
+            }
+          }
+        } else {
+          return false;
+        }
+      },
+      setData: function(key, data) {
+        if (((key == null) && typeof key === "undefined") || ((data == null) && typeof data === "undefined")) {
+          return false;
+        }
+        if (Modernizr.sessionstorage) {
+          sessionService.save(key, data);
+        } else {
+          return false;
+        }
+      },
+      removeData: function(key, data) {
+        if (((key == null) && typeof key === "undefined") || ((data == null) && typeof data === "undefined")) {
+          return false;
+        }
+        if (Modernizr.sessionstorage) {
+          sessionService.remove(key, data);
+        } else {
+          return false;
+        }
+      }
+    };
+  }
+]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
+
+
+},{"./form.coffee":18}]},{},[17]);

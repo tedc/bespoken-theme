@@ -1,5 +1,5 @@
-frt = angular.module 'frt'
-frt
+bspkn = angular.module 'bspkn'
+bspkn
     .service 'loadGoogleMapAPI', ['$window', '$q', ($window, $q)->
             deferred = $q.defer()
             loadScript = ->
@@ -101,7 +101,3 @@ frt
                 return
         ]
     .factory 'transformRequestAsFormPost', [ require './form.coffee']
-    .factory 'InstagramPosts', [ "$resource", "cacheService", require './instagram.coffee']
-    .factory 'FacebookReviews', [ "$resource", "cacheService", require './facebook.coffee']
-    .factory 'getPosts', [ "$resource", "cacheService", require './more.coffee']
-    .factory 'getSearch', [ "$resource", require './search.coffee']
