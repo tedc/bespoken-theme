@@ -15,3 +15,8 @@ function ng_app($html) {
 }
 
 add_filter( 'language_attributes', 'ng_app' );
+
+function ng_body_class($classes) {
+	return $classes . ' ng-class="{ovhidden: isModal}"';
+}
+add_filter( 'body_class', 'ng_body_class' );
