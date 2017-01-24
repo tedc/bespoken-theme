@@ -58,7 +58,7 @@
         border: 2px solid transparent;
         border-radius: 50%;
     }
-    &:hover,  .btn-send:hover &, .btn-complete:hover & {
+    &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover & {
         &:before,  &:after {
             border-color: $w;
             animation: pulse 2s infinite linear;
