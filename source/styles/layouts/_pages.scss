@@ -29,27 +29,8 @@
 			}
 		}
 		a {
-			color: $w;
 			font-weight: bold;
-			position: relative;
-			display: inline-block;
-			&:after {
-				position: absolute;
-				height: 2px;
-				left: 0%;
-				right: 100%;
-				bottom: 0;
-				background-color: $w;
-				content: '';
-				transition: left $speed, right $speed $speed;
-			}
-			&:hover {
-				&:after {
-					left: 100%;
-					right: 0%;
-					transition: left $speed $speed, right $speed;
-				}
-			}
+			@extend %subline;
 		}
 	}
 	&-container {

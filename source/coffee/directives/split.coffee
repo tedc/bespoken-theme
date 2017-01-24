@@ -5,13 +5,10 @@ module.exports = ($timeout)->
 				type : 'chars,words'
 			Tl = new TimelineMax
 				paused : true
+				delay: .5
 			if attrs.kind is 'home'
 				Tl.staggerFrom split.words, .5,
 					y : "-100%"
 				, .05
-			lunch = ->
-				Tl.play() if isLoaded	
-				lunch() if not isLoaded
-				return
-			$timeout lunch, 100
+			Tl.play()
 			return

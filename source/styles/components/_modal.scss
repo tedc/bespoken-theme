@@ -9,5 +9,23 @@
 	&-container {
 		@include absfull;
 		overflow: hidden;
+		display: flex;
+		align-items: center;
+	}
+	.menu, .form {
+		width: $f;
+		margin: auto;
+	}
+}
+
+.menu {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	color: $w;
+	a {
+		@extend %subline;
+		font-size: em(48px);
+		line-height: percentage(57px/48px);
 	}
 }

@@ -12,7 +12,7 @@
 				<div class="carousel-wrapper">
 					<?php while($q->have_posts()) : $q->the_post(); ?>
 					<?php get_template_part( 'templates/content', 'related' ); ?>
-					<?php endwhile; ?>	
+					<?php endwhile; wp_reset_query(); ?>	
 				</div>
 			</div>
 			<?php if($q->found_posts > 1) : ?>
