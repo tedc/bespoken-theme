@@ -3,6 +3,7 @@
         get_template_part('templates/cornice');
     endif; ?>
     <div class="container-player" style="background-image: url(<?php echo  get_sub_field('video') ?>)">
+        <img src="<?php echo  get_sub_field('video') ?>">
         <div class="video-foreground">
             <?php $oembed = get_sub_field('video_embed');
             echo $oembed; ?>
