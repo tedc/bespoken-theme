@@ -49,6 +49,12 @@
 		            <span class="btn-arrow-down"></span>
 		        </span>
 			</span>
+			<span class="btn btn-prev" ng-click="">
+				<span class="btn-line up">
+		            <span class="btn-arrow-up"></span>
+		            <span class="btn-arrow-down"></span>
+		        </span>
+			</span>
 			<span class="btn btn-next" ng-click="move(true)">
 				<span class="btn-line">
 		            <span class="btn-arrow-up"></span>
