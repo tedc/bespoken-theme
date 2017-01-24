@@ -7,5 +7,4 @@ module.exports = ->
 				html += "<span class='letter'>#{i}</span>"
 			html += '</span>'
 			element.empty().prepend(html).append(html)
-			console.log on
 			return

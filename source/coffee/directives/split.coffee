@@ -1,4 +1,4 @@
-module.exports =
+module.exports = ->
 	splitTitle =
 		link : (scope, element, attrs)->
 			split = new SplitText element,
