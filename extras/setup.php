@@ -11,7 +11,9 @@ if (function_exists('acf_add_options_page')) {
 }
 
 function ng_app($html) {
-	return $html . ' class="no-js" ng-app="bspkn"';
+	$html =  $html . ' class="no-js" ng-app="bspkn"';
+	var_dump($html);
+	return $html;
 }
 
 add_filter( 'language_attributes', 'ng_app' );
