@@ -58,13 +58,13 @@
 
 .row {
     padding: {
-        top: em(75px/2);
-        bottom: em(75px/2);
+        top: em(50px/2);
+        bottom: em(50px/2);
     }
     @include breakpoint(640px) {
         padding: {
-            top: em(75px);
-            bottom: em(75px);
+            top: em(50px);
+            bottom: em(50px);
         }
     }
     &-btm {
@@ -104,6 +104,7 @@
         }
     }
     &-md {
+
         padding: {
             top: em(75px/2);
             bottom: em(75px/2);
