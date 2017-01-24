@@ -5,7 +5,7 @@
 	width: $f;
 	height: $f;
 	z-index: 9999;
-	visibility: hidden;
+	display: none;
 	&-container {
 		@include absfull;
 		overflow: hidden;

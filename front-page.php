@@ -1,4 +1,4 @@
-<section class="home-page">
+<section class="home-page" ng-anchors>
 	<header class="page-header" id="header" ng-mouse-wheel-down="scrollToAnchor('#home')">
 		<div class="gradient"></div>
 		<h2 class="home-title" ng-split-title kind="home">
