@@ -10,9 +10,6 @@ if (function_exists('acf_add_options_page')) {
     ));
 }
 
-function image() {
-    add_image_size('grid-img', 680, 395, true);
-}
 
 function ng_app($html) {
 	$html =  $html . ' class="no-js" ng-app="bspkn"';
