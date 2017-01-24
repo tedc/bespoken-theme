@@ -17,6 +17,12 @@
 		</span>
 	</header>
 	<div id="home" class="home-container">
+		<span class="btn up" ng-click="isScrolled=false">
+			<span class="btn-line">
+	            <span class="btn-arrow-up"></span>
+	            <span class="btn-arrow-down"></span>
+	        </span>
+		</span>		
 		<?php 
 			$query = new WP_Query(
 				array(

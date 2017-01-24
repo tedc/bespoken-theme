@@ -23,12 +23,6 @@
 			            <span class="btn-arrow-down"></span>
 			        </span>
 				</span>
-				<span class="btn up" ng-click="goToAnchor('#home')">
-					<span class="btn-line">
-			            <span class="btn-arrow-up"></span>
-			            <span class="btn-arrow-down"></span>
-			        </span>
-				</span>
 				<span class="btn btn-next" ng-click="move(true)">
 					<span class="btn-line">
 			            <span class="btn-arrow-up"></span>
