@@ -7,10 +7,11 @@ module.exports = ->
 			curTime = new Date().getTime()
 			$scope.scrollWheel = ->
 				if typeof prevTime isnt 'undefined'
-	                timeDiff = curTime - prevTime
-	                if timeDiff > 200      
-	                    $scope.scroll()
-                prevTime = curTime
-                return
+					timeDiff = curTime - prevTime
+					if timeDiff > 200      
+						$scope.scroll()
+						console.log on
+				prevTime = curTime
+				return
 			return
 		]

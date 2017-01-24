@@ -43643,6 +43643,7 @@ module.exports = function() {
             timeDiff = curTime - prevTime;
             if (timeDiff > 200) {
               $scope.scroll();
+              console.log(true);
             }
           }
           prevTime = curTime;
