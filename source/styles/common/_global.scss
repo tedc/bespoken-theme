@@ -6,19 +6,19 @@
     @return ($px / $base) * 1em;
 }
 
-@function vw($target, $vp) {
+@function vw($target, $vp: 1366) {
     $vw-context: ($vp*.01) * 1px;
     @return ($target/$vw-context) * 1vw;
 }
 
-@function vh($target, $vp : 768x) {
+@function vh($target, $vp : 768) {
     $vw-context: ($vp*.01) * 1px;
     @return ($target/$vw-context) * 1vh;
 }
 
-@function vmax($target) {
-    $vw-context: (1440*.01) * 1px;
-    @return ($target/$vw-context) * 1vmax;
+@function vmin($target, $vp: 768) {
+    $vw-context: ($vp*.01) * 1px;
+    @return ($target/$vw-context) * 1vmin;
 }
 
 @mixin clearfix {
