@@ -7,9 +7,9 @@ module.exports = ($timeout)->
 				paused : true
 				delay: .5
 			if $attrs.kind is 'home'
-				$rootScope.Tl.staggerFrom $rootScope.split.words, .5,
+				$rootScope.spliTl.staggerFrom $rootScope.split.words, .5,
 					y : "-100%"
 				, .05
-			Tl.play()
+			$rootScope.spliTl.play()
 			return
 		]
