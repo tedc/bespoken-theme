@@ -1,4 +1,4 @@
-<section class="home-page" ng-home>
+<section class="home-page" ng-home ng-class="{scrolled:isScrolled}">
 	<header class="page-header" id="header" ng-mouse-wheel-down="scrollWheel()">
 		<div class="gradient"></div>
 		<h2 class="home-title" ng-split-title kind="home">
