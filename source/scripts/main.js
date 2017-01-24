@@ -40037,11 +40037,11 @@ module.exports = function() {
 
 
 },{"angular":12}],19:[function(require,module,exports){
-var frt;
+var bspkn;
 
-frt = angular.module('frt');
+bspkn = angular.module('bspkn');
 
-frt.service('loadGoogleMapAPI', [
+bspkn.service('loadGoogleMapAPI', [
   '$window', '$q', function($window, $q) {
     var deferred, loadScript;
     deferred = $q.defer();

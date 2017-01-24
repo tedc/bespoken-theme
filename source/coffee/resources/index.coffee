@@ -1,5 +1,5 @@
-frt = angular.module 'frt'
-frt
+bspkn = angular.module 'bspkn'
+bspkn
     .service 'loadGoogleMapAPI', ['$window', '$q', ($window, $q)->
             deferred = $q.defer()
             loadScript = ->
