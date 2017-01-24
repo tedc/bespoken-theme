@@ -1,6 +1,9 @@
 .home {
 	overflow: hidden;
 	height: 100vh;
+	&-page {
+		padding-top: 100vh;
+	}
 	.logo, .btn-menu {
 		position: fixed;
 	}
@@ -38,7 +41,11 @@
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		z-index: 1;
+		z-index: 10;
+		transition: $speed/2 transform;
+		.scrolled & {
+			transform: translate3d(0, -100%, 0);
+		}
 		.carousel {
 			flex: 20;
 			display: flex;
@@ -56,7 +63,6 @@
 		top: 0;
 		width: $f;
 		left: 0;
-		z-index: 4;
 		min-height: 0;
 		height: 100vh;
 		align-items: center;

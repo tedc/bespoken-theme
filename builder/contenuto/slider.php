@@ -22,10 +22,10 @@ endif;?>
     endif;
 
     if (get_sub_field('tipologia') == 'immagini') {
-        $max = count(get_sub_field('galleria_immagini')); 
+        $max = count(get_sub_field('galleria_immagini')) - 1; 
     }
     if (get_sub_field('tipologia') == 'testo') {
-        $max = count(get_sub_field('galleria_testo')); 
+        $max = count(get_sub_field('galleria_testo')) - 1; 
     } 
 ?>
 
