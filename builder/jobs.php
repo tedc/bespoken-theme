@@ -1,5 +1,6 @@
 <?php
 $jobs = get_field('posizioni');
+var_dump($jobs);
 if( $jobs ): ?>
     <?php foreach( $jobs as $job):?>
         <?php setup_postdata($job); ?>
