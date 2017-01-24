@@ -62,6 +62,7 @@
         background-color: $b;
         flex: 0 0 auto;
         width: $f;
+        color: $w;
         &.alt {
             background-color: $purple;
         }
@@ -75,6 +76,26 @@
             [items="4"] & {
                 width: $f/4;
             }
+        }
+        .title {
+            font-size: em(24px);
+            padding: 0 em(50px);
+            font-weight: bold;
+            @include breakpoint(640px) {
+                font-size: em(30px);
+            }
+            @include breakpoint($bp) {
+                font-size: em(40px;)
+            }
+        }
+        .btn {
+            position: absolute;
+            bottom: em(15px);
+            &-text {
+                font-size: em(18px);
+            }
+            left: 50%;
+            transform: translate3d(-50%, 0, 0);
         }
     }
     &-nav {
