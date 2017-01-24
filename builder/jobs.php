@@ -5,11 +5,11 @@ if( $jobs ): ?>
         <?php setup_postdata($post); ?>
     <div class="col-<?php the_sub_field("n_cols") ?>">
 <!--        --><?php /*var_dump(get_field('icon', $post->ID))*/?>
-        <?php var_dump(the_field('icon', $post->ID)["url"])?>
+      <!--  --><?php /*var_dump(the_field('icon', $post->ID)["url"])*/?>
        <!-- <?php /*var_dump(get_sub_field('icon', $post->ID)["url"])*/?>
         --><?php /*get_field('icon', $post->ID)*/?>
             <figure>
-                <img src="<?php echo get_field('icon', $post->ID)["url"]?>">
+                <img src="<?php the_field('icon', $post->ID)["url"]?>">
             </figure>
             <?php the_title(); ?>
     </div>
