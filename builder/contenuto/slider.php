@@ -29,7 +29,7 @@ endif;?>
     } 
 ?>
 
-    <div class="slider" ng-slider ng-swipe-left="move(true, pos, <?php echo $max; ?>)" ng-swipe-right="move(false, pos, <?php echo $max; ?>)">
+    <div class="slider" ng-slider ng-swipe-left="dir(true, pos, <?php echo $max; ?>)" ng-swipe-right="dir(false, pos, <?php echo $max; ?>)">
         <div class="slider-wrapper">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
@@ -59,14 +59,14 @@ endif;?>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number row">
-            <span class="arrow-prev" ng-click="move(false, pos, <?php echo $max; ?>)">
+            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
                 </span>
             </span>
             <span class="gallery-count"><span class="current-slide" ng-bind-html="pos + 1">1</span> / <?php echo $n_page ?></span>
-            <span class="arrow-next" ng-click="move(true, pos, <?php echo $max; ?>)">
+            <span class="arrow-next" ng-click="dir(true, pos, <?php echo $max; ?>)">
                  <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
@@ -75,13 +75,13 @@ endif;?>
             </nav>
         <?php elseif (get_sub_field('navigatore') == 'arrow') : ?>
             <nav class="nav-arrow <?php echo get_sub_field('colore_navigatore')== 'purple'? 'emphasis' : ''?>">
-            <span class="btn reverse btn-prev" ng-click="move(false, pos, <?php echo $max; ?>)">
+            <span class="btn reverse btn-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
                 </span>
             </span>
-            <span class="btn btn-next" ng-click="move(false, pos, <?php echo $max; ?>)">
+            <span class="btn btn-next" ng-click="dir(false, pos, <?php echo $max; ?>)">
                 <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>

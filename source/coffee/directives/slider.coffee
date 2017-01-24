@@ -7,6 +7,7 @@ module.exports = ->
             w = angular.element $window
             isContent = if $attrs.isContentAnim then on else off
             delay = if $attrs.delay then $scope.$eval $attrs.delay else 0
+            $scope.isSliding = off
             $scope.dir = (cond, pos, max)->
                 #return if (pos - 1 < 0 and not cond) or (pos + 1 > max and cond)
                 return if $scope.isSliding
