@@ -43792,7 +43792,7 @@ module.exports = function() {
           $scope.pos = pos;
           Tl.to($element[0].querySelector('.mask'), speed, {
             right: "0%"
-          }).set($element[0].querySelectorAll('.slider-item'), speed, {
+          }).set($element[0].querySelectorAll('.slider-item'), {
             x: "-" + (100 * $scope.pos) + "%"
           }).to($element[0].querySelector('.mask'), speed, {
             left: "100%"
