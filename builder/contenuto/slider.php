@@ -30,7 +30,7 @@ endif;?>
 ?>
 
     <div class="slider" ng-slider ng-swipe-left="move(true, pos, <?php echo $max; ?>)" ng-swipe-right="move(false, pos, <?php echo $max; ?>)">
-        <ul class="slider-wrapper">
+        <div class="slider-wrapper">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
                 <?php if ($images): ?>
@@ -38,9 +38,9 @@ endif;?>
                     $max = count($images);
                     $n_page = 0;
                     foreach ($images as $image): ?>
-                        <li class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <figure><?php echo wp_get_attachment_image($image["id"], "large"); ?></figure>
-                        </li>
+                        </div>
                         <?php $n_page++; endforeach; ?>
                 <?php endif ?>
             <?php elseif (get_sub_field('tipologia') == 'testo') :
@@ -49,14 +49,14 @@ endif;?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
-                        <li class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <?php the_sub_field('pagine'); ?>
-                        </li>
+                        </div>
                         <?php $n_page++; endwhile ?>
                 <?php endif ?>
             <?php endif ?>
             <div class="mask"></div>
-        </ul>
+        </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number row">
             <span class="arrow-prev" ng-click="move(false, pos, <?php echo $max; ?>)">

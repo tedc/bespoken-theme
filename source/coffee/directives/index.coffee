@@ -7,3 +7,4 @@ bspkn
 	.directive 'ngSplitTitle', ["$timeout", require './split.coffee' ]
 	.directive 'ngAnchors', [ require './anchors.coffee' ]
 	.directive 'ngHome', [ require './home.coffee' ]
+	.directive 'ngSlider', [ require './slider.coffee' ]

@@ -1,7 +1,7 @@
 <section class="home-page" ng-home ng-class="{scrolled:isScrolled}">
 	<header class="page-header" id="header" ng-mouse-wheel-down="scrollWheel()">
 		<div class="gradient"></div>
-		<h2 class="home-title" ng-split-title kind="home">
+		<h2 class="home-title">
 			<span class="home-title-row">
 				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
 			</span><br />
