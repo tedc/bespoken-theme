@@ -4,6 +4,7 @@
     &-number {
         font-size: em(40px);
         width: 60px;
+        flex: 0 0 auto;
         color: $purple;
         position: relative;
         line-height: 1;
