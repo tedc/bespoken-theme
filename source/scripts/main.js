@@ -43701,27 +43701,20 @@ module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
     link: function(scope, element, attrs) {
-      var Tl, lunch, split;
+      var Tl, split;
       split = new SplitText(element, {
         type: 'chars,words'
       });
       Tl = new TimelineMax({
-        paused: true
+        paused: true,
+        delay: .5
       });
       if (attrs.kind === 'home') {
         Tl.staggerFrom(split.words, .5, {
           y: "-100%"
         }, .05);
       }
-      lunch = function() {
-        if (isLoaded) {
-          Tl.play();
-        }
-        if (!isLoaded) {
-          lunch();
-        }
-      };
-      $timeout(lunch, 100);
+      Tl.play();
     }
   };
 };
