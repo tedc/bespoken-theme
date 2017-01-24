@@ -43523,13 +43523,9 @@ module.exports = function($timeout, $rootScope) {
       $rootScope.spliTl.reverse();
       TweenMax.to(element.find('header'), .5, {
         autoAlpha: false,
-        delay: .5,
+        delay: 1,
         onComplete: done
       });
-      TweenMax.staggerFrom('.carousel-item', .5, {
-        scaleX: 0.7,
-        delay: .75
-      }, .15);
     },
     removeClass: function(element, className, done) {
       TweenMax.to(element, {

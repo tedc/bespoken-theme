@@ -4,12 +4,8 @@ module.exports = ($timeout, $rootScope)->
 			$rootScope.spliTl.reverse()
 			TweenMax.to element.find('header'), .5,
 				autoAlpha : off
-				delay: .5
+				delay: 1
 				onComplete : done
-			TweenMax.staggerFrom '.carousel-item', .5,
-				scaleX : 0.7
-				delay: .75
-			, .15
 			return
 		removeClass : (element, className, done)->
 			TweenMax.to element,
