@@ -3,15 +3,11 @@ $jobs = get_sub_field('posizioni');
 if( $jobs ): ?>
     <?php foreach( $jobs as $post):?>
         <?php setup_postdata($post); ?>
-    <div class="col-<?php the_sub_field("n_cols") ?>">
-<!--        --><?php /*var_dump(get_field('icon', $post->ID))*/?>
-      <!--  --><?php /*var_dump(the_field('icon', $post->ID)["url"])*/?>
-       <!-- <?php /*var_dump(get_sub_field('icon', $post->ID)["url"])*/?>
-        --><?php /*get_field('icon', $post->ID)*/?>
+    <div class="col-<?php the_sub_field("n_cols") ?> col-jobs">
             <figure>
                 <img src="<?php the_field('icon', $post->ID)["url"]?>">
             </figure>
-            <?php the_title(); ?>
+            <h3 class="job-title"><?php the_title(); ?></h3>
     </div>
     <?php endforeach; ?>
     <?php wp_reset_postdata();?>
