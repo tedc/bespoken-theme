@@ -1,7 +1,7 @@
 <header class="page-header">
 	<div class="gradient"></div>
-	<h2 class="home-title" ng-split-title>
-		<span class="home-title-row" kind="home">
+	<h2 class="home-title" ng-split-title kind="home">
+		<span class="home-title-row">
 			<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
 		</span><br />
 		<span class="home-title-row">
