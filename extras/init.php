@@ -1,8 +1,8 @@
 <?php
 	$extra_includes = [
-        'extras/scripts.php',
         'extras/setup.php',
         'extras/utils.php',
+        'extras/scripts.php',
     ];
 
 foreach ($extra_includes as $file) {
