@@ -12,8 +12,6 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         },
         n = i("com.greensock.utils"),
         o = "SplitText",
-        s = String.fromCharCode(103, 114, 101, 101, 110, 115, 111, 99, 107, 46, 99, 111, 109),
-        l = String.fromCharCode(47, 114, 101, 113, 117, 105, 114, 101, 115, 45, 109, 101, 109, 98, 101, 114, 115, 104, 105, 112, 47),
         a = function(e) {
             var t = e.nodeType,
                 i = "";
@@ -75,7 +73,7 @@ var _gsScope = "undefined" != typeof module && module.exports && "undefined" != 
         B = n.SplitText = t.SplitText = function(t, i) {
             if ("string" == typeof t && (t = B.selector(t)), !t)
                 throw "cannot split a null element.";
-            return d ? (this.elements = c(t) ? g(t) : [t], this.chars = [], this.words = [], this.lines = [], this._originals = [], this.vars = i || {}, void this.split(i))
+            this.elements = c(t) ? g(t) : [t], this.chars = [], this.words = [], this.lines = [], this._originals = [], this.vars = i || {}, void this.split(i)
         },
         O = function(e, t, i) {
             var n = e.nodeType;
