@@ -11,9 +11,7 @@ endif; ?>
 <div class="video <?php echo get_sub_field('full') ? ' full' : 'content ' . $padding ?>">
 
     <?php if (get_sub_field('cornice') == true) :
-        echo '<div class="container-cornice">';
         get_template_part('templates/cornice');
-    echo '</div>';
     endif; ?>
     <?php $file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('file')); ?>
     <div class="container-player" style="background-image: url(<?php echo $file ?>.jpg)">
