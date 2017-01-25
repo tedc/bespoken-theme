@@ -41,6 +41,7 @@
 		opacity: 0;
 		visibility: hidden;
 		transition: $speed opacity, $speed visibility;
+		z-index: 3;
 		.modal-container.visible & {
 			visibility: visible;
 			opacity: 1;
@@ -67,6 +68,8 @@
 		transform: translate3d(-30%, 0, 0);
 		opacity: 0;
 		transition: $speed/2 opacity, $speed/2 transform;
+		@include normalize_padding;
+		padding-bottom: em(36px);
 		.title {
 			text-transform: uppercase;
 			font-weight: bold;
@@ -76,9 +79,13 @@
 			opacity: 1;
 			transform: translate3d(0%, 0, 0);
 			transition-delay: $speed;
-			&:nth-child(1) {
-				transition-delay: $speed*1.5;
-			}
 		}
+	}
+}
+
+#main-menu {
+	padding-top: em(36px);
+	.modal-container.visible & {
+		transition-delay: $speed*1.5;
 	}
 }

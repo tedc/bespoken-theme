@@ -81,6 +81,7 @@
         .btn-line {
             transition: transform $speed, opacity $speed;
             .visible & {
+                transition-delay: $speed*1.5;
                 &:nth-child(1) {
                     transform: rotate(45deg);
                 }
@@ -96,9 +97,6 @@
                     }
                 }
             }
-        }
-        .visible {
-            opacity: 1;
         }
     }
     &.up {
