@@ -26,15 +26,15 @@
     margin: 0;
     overflow: hidden;
     position: relative;
-    max-height: calc(100vh - #{em(80px)});
+    //max-height: calc(100vh - #{em(80px)});
     .slider-item {
         width: 100%;
         flex: 0 0 auto;
         text-align: center;
-        max-height: calc(100vh - #{em(80px)});
+        //max-height: calc(100vh - #{em(80px)});
         overflow: hidden;
         background: {
-            size: cover;
+            //size: cover;
             position: center;
             repeat: no-repeat;
         }
@@ -43,7 +43,7 @@
             margin: 0;
             width: auto;
             width:100%;
-            visibility: hidden;
+            //visibility: hidden;
             img{
                 width: 100%;
                 height:	auto;
@@ -58,6 +58,9 @@
             max-height: calc(100vh - #{em(195px)});
             background: {
                 size: contain;
+            }
+            figure {
+                visibility: hidden;
             }
         }
     }
