@@ -91,13 +91,13 @@
                 }
             }
         } 
-        &:hover, &:hover .modal-container.visible & {
+        &:hover {
             .btn-line {
                 &:nth-child(1) {
-                    transform: rotate(0deg);
+                    transform: rotate(0deg) !important;
                 }
                 &:nth-child(2) {
-                    transform: rotate(0deg);
+                    transform: rotate(0deg) !important;
                 }
             }
         }
