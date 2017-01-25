@@ -35,13 +35,13 @@ function column_acf_flexible_content_layout_title( $title, $field, $layout, $i )
 		} 
 		if($row['acf_fc_layout']== 'immagine') {
 			$img = $row['immagine']['sizes']['thumbnail'];
-			$title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$img.'" style="height:36px" /></div>';
+			$title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$img.'" style="height:36px" /></div>';
 		}
 		if($row['acf_fc_layout']== 'slider') {
 			if ($row['tipologia'] == 'immagini') {
                 $image = $row['galleria_immagini'][0];
                 $src = wp_get_attachment_image_url( $image['id'], 'thumbnail' );
-                $title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$src.'" style="height:36px" /></div>';
+                $title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$src.'" style="height:36px" /></div>';
 			}
 			if ($row['tipologia'] == 'testo') {
 				$title .= ' Galleria di testo (ie. Manifesto)';
@@ -49,7 +49,7 @@ function column_acf_flexible_content_layout_title( $title, $field, $layout, $i )
 		}
 		if($row['acf_fc_layout']== 'video') {
 			$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $row['file']);
-			$title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$file.'.jpg" style="height:36px" /></div>';
+			$title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$file.'.jpg" style="height:36px" /></div>';
 		}	
 		if($row['acf_fc_layout']== 'citazoine') {
 			$title .= ' Citazione';
@@ -66,6 +66,7 @@ add_filter('acf/fields/flexible_content/layout_title/name=colonna', 'column_acf_
 function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	if($layout === 'riga') :
 		$tite = $title . ':';
+		var_dump(get_sub_field('colonna'));
 		if(get_sub_field('colonna')) : foreach(get_sub_field('colonna') as $row) :
 		if($row['acf_fc_layout'] ===  'testo') {
 			if($row['testo'][0]['titolo_precompilato'] && trim($row['testo'][0]['titolo']) =='') {
@@ -76,13 +77,13 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 		} 
 		if($row['acf_fc_layout'] === 'immagine') {
 			$img = $row['immagine']['sizes']['thumbnail'];
-			$title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$img.'" style="height:36px" /></div>';
+			$title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$img.'" style="height:36px" /></div>';
 		}
 		if($row['acf_fc_layout'] === 'slider') {
 			if ($row['tipologia'] == 'immagini') {
                 $image = $row['galleria_immagini'][0];
                 $src = wp_get_attachment_image_url( $image['id'], 'thumbnail' );
-                $title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$src.'" style="height:36px" /></div>';
+                $title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$src.'" style="height:36px" /></div>';
 			}
 			if ($row['tipologia'] == 'testo') {
 				$title .= ' Galleria di testo (ie. Manifesto)';
@@ -90,7 +91,7 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 		}
 		if($row['acf_fc_layout'] === 'video') {
 			$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $row('file'));
-			$title .= ' <div class="thumbnail" style="display:inline-block;"><img src="'.$file.'.jpg" style="height:36px" /></div>';
+			$title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$file.'.jpg" style="height:36px" /></div>';
 		}	
 		if($row['acf_fc_layout'] === 'citazoine') {
 			$title .= ' Citazione';
