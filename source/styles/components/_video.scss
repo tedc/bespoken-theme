@@ -142,10 +142,10 @@
     height:0;
     padding-top: percentage(68px/972px);
     z-index: 2;
+    max-width: $max-width;
+    margin: 0 auto;
     svg {
         @include absfull;
         display: block;
-        max-width: $max-width;
-        margin: 0 auto;
     }
 }
