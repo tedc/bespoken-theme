@@ -43528,11 +43528,12 @@ module.exports = function($window) {
   var job;
   return job = {
     addClass: function(element, className, done) {
-      var content, height, w;
+      var content, height, row, w;
       if (className !== 'visible') {
         return;
       }
       w = angular.element($window);
+      row = element[0].querySelector('.job-row');
       content = element[0].querySelector('.job-content');
       TweenMax.set(content, {
         display: 'block'
@@ -43549,7 +43550,7 @@ module.exports = function($window) {
           done();
         }
       });
-      TweenMax.to(element, .5, {
+      TweenMax.to(row, .5, {
         height: "+=" + height
       });
       w.on('resize', function() {
@@ -43559,16 +43560,17 @@ module.exports = function($window) {
         }
         height = content.offsetHeight;
         h = element[0].offsetHeight + height;
-        TweenMax.to(element, {
+        TweenMax.to(row, {
           height: h
         });
       });
     },
     removeClass: function(element, className, done) {
-      var content, height;
+      var content, height, row;
       if (className !== 'visible') {
         return;
       }
+      row = element[0].querySelector('.job-row');
       content = element[0].querySelector('.job-content');
       height = content.offsetHeight;
       TweenMax.fromTo(content, .5, {
@@ -43576,7 +43578,7 @@ module.exports = function($window) {
       }, {
         height: 0
       });
-      TweenMax.to(element, .5, {
+      TweenMax.to(row, .5, {
         height: "-=" + height,
         onComplete: function() {
           TweenMax.set([element, content], {

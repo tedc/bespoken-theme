@@ -2,7 +2,7 @@
     &s {
         position: relative;
     }
-    position: static;
+    position: static !important;
     text-align: center;
     @include normalize_padding;
     &-title {
@@ -13,6 +13,9 @@
     p {
         text-align: center;
         @include normalize_padding;
+    }
+    &-row {
+        position: relative;
     }
     &-content {
         position: absolute;

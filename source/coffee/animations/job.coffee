@@ -3,6 +3,7 @@ module.exports = ($window)->
 		addClass : (element, className, done)->
 			return if className isnt 'visible'
 			w = angular.element $window
+			row = element[0].querySelector '.job-row'
 			content = element[0].querySelector '.job-content'
 			TweenMax.set content,
 				display: 'block'
@@ -19,18 +20,19 @@ module.exports = ($window)->
 						done()
 						return
 				}
-			TweenMax.to element, .5,
+			TweenMax.to row, .5,
 				height : "+=#{height}"
 			w.on 'resize', ->
 				return if not element.hasClass 'visible'
 				height = content.offsetHeight
 				h = element[0].offsetHeight + height
-				TweenMax.to element,
+				TweenMax.to row,
 					height : h
 				return
 			return
 		removeClass : (element, className, done)->
 			return if className isnt 'visible'
+			row = element[0].querySelector '.job-row'
 			content = element[0].querySelector '.job-content'
 			height = content.offsetHeight
 			TweenMax.fromTo content, .5,
@@ -40,7 +42,7 @@ module.exports = ($window)->
 				{
 					height : 0
 				}
-			TweenMax.to element, .5,
+			TweenMax.to row, .5,
 				height : "-=#{height}"
 				onComplete : ->
 					TweenMax.set [element, content],
