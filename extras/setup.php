@@ -63,7 +63,7 @@ function column_acf_flexible_content_layout_title( $title, $field, $layout, $i )
 // name
 add_filter('acf/fields/flexible_content/layout_title/name=colonna', 'column_acf_flexible_content_layout_title', 10, 4);
 
-function row_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
+function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	if(get_row_layout() === 'riga') {
 		$tite = $title . ':';
 		if(have_rows('colonna')) : $row = 0; while(have_rows('colonna')) : the_row();
@@ -100,5 +100,5 @@ function row_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	return $title;
 }
 
-add_filter('acf/fields/flexible_content/layout_title/name=colonna', 'builder_acf_flexible_content_layout_title', 10, 4);
+add_filter('acf/fields/flexible_content/layout_title/name=builder', 'builder_acf_flexible_content_layout_title', 10, 4);
 
