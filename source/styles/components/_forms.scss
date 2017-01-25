@@ -138,16 +138,26 @@ textarea {
 		@include breakpoint($bp) {
 			width: $f/3;
 		}
+		p {
+			padding-bottom: em(50px, 18px);
+		}
 		a {
 			color: $purple;
+			font-weight: bold;
 			&:hover {
 				color: $violet;
 			}
+		}
+		[class^="icon"], [class*=" icon"] {
+			font-size: 20px;
+			margin-left: 20px;
+			font-weight: normal;
 		}
 	}
 	&-inputs {
 		background-color: $anthracite;
 		color: $light;
+		align-content: flex-start;
 		@include breakpoint($bp) {
 			width: ($f/3) * 2;
 		}
@@ -156,6 +166,7 @@ textarea {
 		padding-bottom: em(25px);
 	}
 	&-label {
+		padding-bottom: em(25px);
 		&-text {
 			font-size: 12px;
 		}
