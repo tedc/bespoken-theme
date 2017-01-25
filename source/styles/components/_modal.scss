@@ -7,6 +7,9 @@
 	z-index: 9999;
 	overflow: hidden;
 	transition: $speed height;
+	li {
+		list-style-type: none;
+	}
 	&-container {
 		position: absolute;
 		width: $f;
@@ -17,6 +20,7 @@
 		display: flex;
 		align-items: center;
 		transition: visibility $speed;
+		visibility: hidden;
 		&.visible {
 			visibility: visible;
 			transition-duration: 0;
@@ -54,6 +58,7 @@
 		@extend %subline;
 		font-size: em(48px);
 		line-height: percentage(57px/48px);
+		text-transform: lowercase;
 	}
 	&-item {
 		list-style-type: none;
@@ -62,10 +67,18 @@
 		transform: translate3d(-30%, 0, 0);
 		opacity: 0;
 		transition: $speed/2 opacity, $speed/2 transform;
+		.title {
+			text-transform: uppercase;
+			font-weight: bold;
+			font-size: em(24px);
+		}
 		.modal-container.visible & {
 			opacity: 1;
 			transform: translate3d(0%, 0, 0);
 			transition-delay: $speed;
+			&:nth-child(1) {
+				transition-delay: $speed*1.5;
+			}
 		}
 	}
 }
