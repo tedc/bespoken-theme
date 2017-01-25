@@ -24,9 +24,11 @@ module.exports = ($window)->
 			TweenMax.to element, .5,
 				height : h + height
 			w.on 'resize', ->
+				console.log on
 				return if not element.hasClass 'visible'
 				height = content.offsetHeight
 				h = row.offsetHeight + height
+				console.log height, h
 				TweenMax.to element,
 					height : h + height
 				return
