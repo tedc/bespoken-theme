@@ -97,6 +97,7 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 		}
 		$row++; endwhile; endif;
 	}
+
 	return $title;
 }
 
