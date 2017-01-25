@@ -9,12 +9,16 @@
         @include gradientAnim;
     }
     .cover {
-        width: 100%;
-        height: 100%;
         background-size: cover;
         background-repeat: no-repeat;
-        position: absolute;
-        background-position: 50%;
+        background-position: center;
+        @include absfull;
+        &:before {
+            @include absfull;
+            opacity: .25;
+            background-color: $b;
+            content: '';
+        }
     }
 }
 
