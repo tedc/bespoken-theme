@@ -43555,13 +43555,11 @@ module.exports = function($window) {
         height: h + height
       });
       w.on('resize', function() {
-        console.log(true);
         if (!element.hasClass('visible')) {
           return;
         }
         height = content.offsetHeight;
-        h = row.offsetHeight + height;
-        console.log(height, h);
+        h = row.offsetHeight;
         TweenMax.to(element, {
           height: h + height
         });
