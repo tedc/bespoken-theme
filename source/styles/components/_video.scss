@@ -140,3 +140,9 @@
     position: absolute;
     transform: translateX(-50%);
 }
+
+.container-cornice {
+    width: 100%;
+    height:percentage(68px/972px);
+    padding-top: 100%
+}
