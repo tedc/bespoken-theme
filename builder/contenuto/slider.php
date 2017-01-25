@@ -35,7 +35,6 @@ endif;?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
                 <?php if ($images): ?>
                     <?php 
-                    $max = count($images);
                     $n_page = 0;
                     foreach ($images as $image): ?>
                         <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
@@ -58,8 +57,14 @@ endif;?>
             <div class="mask"></div>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
+<<<<<<< HEAD
             <nav class="nav-number row">
             <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
+=======
+            <nav class="nav-number">
+            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
+
+>>>>>>> 7a7330e957799f800360e5c8003e2c211f2bc974
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>

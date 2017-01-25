@@ -5,7 +5,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    padding: {
+        top: em(25px/2);
+        bottom: em(25px);
+    }
+    @include breakpoint(640px) {
+        padding: {
+            top: em(25px);
+            bottom: em(50px);
+        }
+    }
     .arrow-prev {
         position: relative;
         width: em(40px);
