@@ -23,14 +23,15 @@ register_nav_menus([
 ]);
 
 function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
-	$title = '<h4>' . $title . ':';
+	$title = $title . ':';
 
+	var_dump(get_sub_field('contenuto'));
 	if(have_rows('contenuto')) : while(have_rows('contenuto')) : the_row();
 		if(get_row_layout() == 'testo') {
 			if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') {
-				$title .= ' '.get_sub_field('titolo_precompilato').'</h4>';
+				$title .= ' '.get_sub_field('titolo_precompilato');
 			} else {
-				$title .= ' '.get_sub_field('titolo').'</h4>';
+				$title .= ' '.get_sub_field('titolo');
 			}
 		} 
 		if(get_row_layout() == 'immagine') {
@@ -48,7 +49,7 @@ function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
                 $title .= ' <div class="thumbnail"><img src="'.$src.'" style="height:36px" /></div>';
 			}
 			if (get_sub_field('tipologia') == 'testo') {
-				$title .= ' Galleria di testo (ie. Manifesto)'.'</h4>';
+				$title .= ' Galleria di testo (ie. Manifesto)';
 			}
 		}
 		if(get_row_layout() == 'video') {
@@ -56,7 +57,7 @@ function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 			$title .= ' <div class="thumbnail"><img src="'.$file.'.jpg" style="height:36px" /></div>';
 		}	
 		if(get_row_layout() == 'citazoine') {
-			$title .= ' Citazione'.'</h4>';
+			$title .= ' Citazione';
 		}
 	endwhile; endif;
 	// return
