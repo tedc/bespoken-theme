@@ -1,7 +1,7 @@
 .logo {
     position: absolute;
     font-size: em($base_font_size);
-    width: calc(10px + #{em(150px)});
+    width: calc(10px + #{em(40px)});
     background-position: 10px center;
     @include breakpoint(640px){
         width: em(175px);
@@ -15,7 +15,7 @@
     height: em(40px);
     background-image: url(../images/logo-white.svg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: auto 100%;
     white-space: nowrap;
     overflow: hidden;
     text-indent: 120%;

@@ -3,16 +3,22 @@
 	top: 0;
 	left: 0;
 	width: $f;
-	height: $f;
+	height: 0;
 	z-index: 9999;
-	display: none;
+	overflow: hidden;
 	&-container {
-		@include absfull;
+		position: absolute;
+		width: $f;
+		left: 0;
+		top: 0;
+		height: 100vh;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
+		transition: visibility $speed;
 		&.visible {
 			visibility: visible;
+			transition-duration: 0;
 		}
 	}
 	.menu, .form {
@@ -24,24 +30,17 @@
 		visibility: visible;
 	}
 	.gradient {
-		border-radius: 100%;
-		width: 400%;
-		height: 0;
-		padding-top: 400%;
-		top: -100%;
-		right: -100%;
-		transform: scale(0);
+		@include absfull;
 		@include gradientAnim;
-		.modal-container.visible & {
-			transform: scale(1);
-		}
 	}
 	.close {
 		opacity: 0;
 		visibility: hidden;
+		transition: $speed opacity, $speed visibility;
 		.modal-container.visible & {
 			visibility: visible;
 			opacity: 1;
+			transition-delay: $speed;
 		}
 	}
 }
@@ -62,9 +61,11 @@
 	.nav {
 		transform: translate3d(-30%, 0, 0);
 		opacity: 0;
+		transition: $speed/2 opacity, $speed/2 transform;
 		.modal-container.visible & {
 			opacity: 1;
 			transform: translate3d(0%, 0, 0);
+			transition-delay: $speed;
 		}
 	}
 }
