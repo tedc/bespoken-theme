@@ -9,11 +9,12 @@ elseif (get_sub_field('spaziatura') == '2'):
 endif; ?>
 
 <div class="video <?php echo get_sub_field('full') ? ' full' : 'content ' . $padding ?>">
-    <div class="container-cornice">
+
     <?php if (get_sub_field('cornice') == true) :
+        echo '<div class="container-cornice">';
         get_template_part('templates/cornice');
+    echo '</div>';
     endif; ?>
-    </div>
     <?php $file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('file')); ?>
     <div class="container-player" style="background-image: url(<?php echo $file ?>.jpg)">
         <video poster="<?php echo $file ?>.jpg" class="player" autoplay loop muted>
