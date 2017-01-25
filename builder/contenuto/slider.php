@@ -44,12 +44,12 @@ endif;?>
                         <?php $n_page++; endforeach; ?>
                 <?php endif ?>
             <?php elseif (get_sub_field('tipologia') == 'testo') :
-
+                $max= $n_page-1;
              ?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
-                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <div class="slider-item" ng-class="{current:pos==<?php echo $max ?>}">
                             <?php the_sub_field('pagine'); ?>
                         </div>
                         <?php $n_page++; endwhile ?>
@@ -59,7 +59,7 @@ endif;?>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number row">
-            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo 3; ?>)">
+            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
