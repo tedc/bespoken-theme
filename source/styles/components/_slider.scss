@@ -26,12 +26,12 @@
     margin: 0;
     overflow: hidden;
     position: relative;
-    max-height: 100vh;
+    max-height: calc(100vh - #{em(80px)});
     .slider-item {
         width: 100%;
         flex: 0 0 auto;
         text-align: center;
-        max-height: 100vh;
+        max-height: calc(100vh - #{em(80px)});
         overflow: hidden;
         background: {
             size: cover;
@@ -53,7 +53,7 @@
 
     }
     &.slider-wrapper-contain {
-        max-height: calc(100vh - #{em(65px)});
+        max-height: calc(100vh - #{em(195px)});
         .slider-item {
             max-height: calc(100vh - #{em(195px)});
             background: {
