@@ -80,9 +80,9 @@
         opacity: 1;
         z-index: 3;
         .btn-line {
-            transition: transform $speed, opacity $speed;
+            transition: transform $speed;
             .modal-container.visible & {
-                transition-delay: $speed*1.5;
+                transition-delay: $speed*2;
                 &:nth-child(1) {
                     transform: rotate(45deg);
                 }
@@ -98,8 +98,14 @@
                     }
                 }
             }
-        }  
+        } 
+        .modal & {
+            min-height: em(40px);
+            min-width: em(40px);
+            top: em(40px);
+        } 
         .modal-container.visible & {
+            transition: visibility $speed, opacity $speed;
             visibility: visible;
             opacity: 1;
             transition-delay: $speed;
