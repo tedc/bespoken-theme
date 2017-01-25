@@ -4,7 +4,7 @@ if ($jobs): ?>
     <div class="grid-12 row-md jobs">
     <?php foreach ($jobs as $post): ?>
         <?php setup_postdata($post); ?>
-        <div class="col-<?php the_sub_field("n_cols") ?> job row" id="job_<?php the_ID(); ?>"
+        <div class="col-<?php the_sub_field("n_cols") ?> job" id="job_<?php the_ID(); ?>"
              ng-class="{visible : isJob == <?php the_ID(); ?>}">
             <div class="job-row row">
             <figure>

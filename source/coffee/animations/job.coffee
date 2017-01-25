@@ -8,6 +8,7 @@ module.exports = ($window)->
 			TweenMax.set content,
 				display: 'block'
 			height = content.offsetHeight
+			h = row.offsetHeight
 			TweenMax.fromTo content, .5,
 				{
 					height: 0
@@ -21,13 +22,13 @@ module.exports = ($window)->
 						return
 				}
 			TweenMax.to row, .5,
-				height : "+=#{height}"
+				height : h + height
 			w.on 'resize', ->
 				return if not element.hasClass 'visible'
 				height = content.offsetHeight
-				h = element[0].offsetHeight + height
+				h = row.offsetHeight + height
 				TweenMax.to row,
-					height : h
+					height : h + height
 				return
 			return
 		removeClass : (element, className, done)->
@@ -35,6 +36,7 @@ module.exports = ($window)->
 			row = element[0].querySelector '.job-row'
 			content = element[0].querySelector '.job-content'
 			height = content.offsetHeight
+			h = row.offsetHeight
 			TweenMax.fromTo content, .5,
 				{
 					height: height
@@ -43,7 +45,7 @@ module.exports = ($window)->
 					height : 0
 				}
 			TweenMax.to row, .5,
-				height : "-=#{height}"
+				height : h
 				onComplete : ->
 					TweenMax.set [element, content],
 						clearProps : 'all'

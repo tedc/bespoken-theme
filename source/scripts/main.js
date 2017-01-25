@@ -43528,7 +43528,7 @@ module.exports = function($window) {
   var job;
   return job = {
     addClass: function(element, className, done) {
-      var content, height, row, w;
+      var content, h, height, row, w;
       if (className !== 'visible') {
         return;
       }
@@ -43539,6 +43539,7 @@ module.exports = function($window) {
         display: 'block'
       });
       height = content.offsetHeight;
+      h = row.offsetHeight;
       TweenMax.fromTo(content, .5, {
         height: 0
       }, {
@@ -43551,35 +43552,35 @@ module.exports = function($window) {
         }
       });
       TweenMax.to(row, .5, {
-        height: "+=" + height
+        height: h + height
       });
       w.on('resize', function() {
-        var h;
         if (!element.hasClass('visible')) {
           return;
         }
         height = content.offsetHeight;
-        h = element[0].offsetHeight + height;
+        h = row.offsetHeight + height;
         TweenMax.to(row, {
-          height: h
+          height: h + height
         });
       });
     },
     removeClass: function(element, className, done) {
-      var content, height, row;
+      var content, h, height, row;
       if (className !== 'visible') {
         return;
       }
       row = element[0].querySelector('.job-row');
       content = element[0].querySelector('.job-content');
       height = content.offsetHeight;
+      h = row.offsetHeight;
       TweenMax.fromTo(content, .5, {
         height: height
       }, {
         height: 0
       });
       TweenMax.to(row, .5, {
-        height: "-=" + height,
+        height: h,
         onComplete: function() {
           TweenMax.set([element, content], {
             clearProps: 'all'
