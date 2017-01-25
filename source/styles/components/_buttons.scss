@@ -82,7 +82,6 @@
         .btn-line {
             transition: transform $speed;
             .modal-container.visible & {
-                transition-delay: $speed*2;
                 &:nth-child(1) {
                     transform: rotate(45deg);
                 }
@@ -93,7 +92,6 @@
         } 
         &:hover {
             .btn-line {
-                transition-delay: 0 !important;
                 &:nth-child(1) {
                     transform: rotate(0deg) !important;
                 }
