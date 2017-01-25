@@ -25,41 +25,36 @@ register_nav_menus([
 function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	$title = $title . ':';
 
-	var_dump(get_sub_field('contenuto'));
-	if(have_rows('contenuto')) : while(have_rows('contenuto')) : the_row();
-		if(get_row_layout() == 'testo') {
-			if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') {
-				$title .= ' '.get_sub_field('titolo_precompilato');
+	if(get_sub_field('contenuto')) : foreach(get_sub_field('contenuto') as $row) :
+		if($row['acf_fc_layout'] == 'testo') {
+			if(!$row['titolo_precompilato'[] && trim($row['titolo'])!='') {
+				$title .= ' '.$row['titolo_precompilato'];
 			} else {
-				$title .= ' '.get_sub_field('titolo');
+				$title .= ' '.$row['titolo'];
 			}
 		} 
-		if(get_row_layout() == 'immagine') {
-			$img = get_sub_field('immagine')['sizes']['thumbnail'];
-			$title .= ' <div class="thumbnail"><<img src="'.$img.'" style="height:36px" /></div>';
-		}
-		if(get_row_layout() == 'immagine') {
-			$img = get_sub_field('immagine')['sizes']['thumbnail'];
+		if($row['acf_fc_layout']== 'immagine') {
+			$img = $row['immagine']['sizes']['thumbnail'];
 			$title .= ' <div class="thumbnail"><img src="'.$img.'" style="height:36px" /></div>';
 		}
-		if(get_row_layout() == 'slider') {
-			if (get_sub_field('tipologia') == 'immagini') {
-                $image = get_sub_field('galleria_immagini')[0];
+		if($row['acf_fc_layout']== 'slider') {
+			if ($row['tipologia'] == 'immagini') {
+                $image = $row['galleria_immagini'][0];
                 $src = wp_get_attachment_image_url( $image['id'], 'thumbnail' );
                 $title .= ' <div class="thumbnail"><img src="'.$src.'" style="height:36px" /></div>';
 			}
-			if (get_sub_field('tipologia') == 'testo') {
+			if ($row['tipologia'] == 'testo') {
 				$title .= ' Galleria di testo (ie. Manifesto)';
 			}
 		}
-		if(get_row_layout() == 'video') {
-			$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', get_sub_field('file'));
+		if($row['acf_fc_layout']== 'video') {
+			$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $row['file']);
 			$title .= ' <div class="thumbnail"><img src="'.$file.'.jpg" style="height:36px" /></div>';
 		}	
-		if(get_row_layout() == 'citazoine') {
+		if($row['acf_fc_layout']== 'citazoine') {
 			$title .= ' Citazione';
 		}
-	endwhile; endif;
+	endforeach; endif;
 	// return
 	return $title;
 	
