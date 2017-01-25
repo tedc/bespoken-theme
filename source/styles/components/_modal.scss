@@ -7,6 +7,9 @@
 	z-index: 9999;
 	overflow: hidden;
 	transition: $speed height;
+	ul {
+		margin: 0;
+	}
 	li {
 		list-style-type: none;
 	}
@@ -69,12 +72,13 @@
 		opacity: 0;
 		transition: $speed/2 opacity, $speed/2 transform;
 		@include normalize_padding;
-		padding-bottom: em(28px);
+		padding-bottom: em(38px);
 		.title {
 			text-transform: uppercase;
 			font-weight: bold;
 			font-size: em(24px);
 			line-height: percentage(57px/48px);
+			padding-bottom: em(10px, 24px);
 		}
 		.modal-container.visible & {
 			opacity: 1;
@@ -85,7 +89,7 @@
 }
 
 #main-menu {
-	padding-top: em(36px);
+	padding-top: em(38px);
 	.modal-container.visible & {
 		transition-delay: $speed*1.5;
 	}
