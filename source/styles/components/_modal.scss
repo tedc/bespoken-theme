@@ -6,6 +6,7 @@
 	height: 0;
 	z-index: 9999;
 	overflow: hidden;
+	transition: $speed height;
 	&-container {
 		position: absolute;
 		width: $f;
@@ -27,7 +28,7 @@
 		visibility: hidden;
 	}
 	&.visible {
-		visibility: visible;
+		height: 100vh;
 	}
 	.gradient {
 		@include absfull;
