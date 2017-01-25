@@ -16,9 +16,7 @@
         <div class="container-play">
             <div class="icon-play play"></div>
         </div>
-        <div class="container-close">
-            <div class="close"><?php _e("CHIUDI", "bspkn") ?></div>
-        </div>
+        <?php close('isModal=false;isMenu=false'); ?>
     <?php } ?>
 </div>
 </div>

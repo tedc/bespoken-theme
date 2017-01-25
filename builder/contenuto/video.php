@@ -26,7 +26,6 @@ endif; ?>
             <?php $oembed = get_sub_field('video_embed');
             echo $oembed; ?>
         </div>
-        <h3 class="title-video"><?php _e('La parola del cliente', 'bspkn') ?></h3>
         <span class="clients">
             <h3><?php the_sub_field('titolo') ?></h3>
             <h4><?php the_sub_field('sottotitolo') ?></h4>
@@ -34,10 +33,8 @@ endif; ?>
     </div>
     <?php if (get_sub_field('video_embed') != "") { ?>
         <div class="container-play">
-            <div class="icon-play play">PLAY</div>
+            <div class="icon-play play"></div>
         </div>
-        <div class="container-close">
-            <div class="close"><?php _e("CHIUDI", "bspkn") ?></div>
-        </div>
+        <?php close('isModal=false;isMenu=false'); ?>
     <?php } ?>
 </div>
