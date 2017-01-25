@@ -15,7 +15,7 @@ module.exports = ($window)->
 					height: height
 					onComplete : ->
 						TweenMax.set content,
-							height: auto;
+							height: "auto";
 						done()
 						return
 				}
@@ -33,8 +33,13 @@ module.exports = ($window)->
 			return if className isnt 'visible'
 			content = element[0].querySelector '.job-content'
 			height = content.offsetHeight
-			TweenMax.to content, .5,
-				height : 0
+			TweenMax.fromTo content, .5,
+				{
+					height: height
+				}
+				{
+					height : 0
+				}
 			TweenMax.to element, .5,
 				height : "-=#{height}"
 				onComplete : ->

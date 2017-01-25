@@ -43544,7 +43544,7 @@ module.exports = function($window) {
         height: height,
         onComplete: function() {
           TweenMax.set(content, {
-            height: auto
+            height: "auto"
           });
           done();
         }
@@ -43571,7 +43571,9 @@ module.exports = function($window) {
       }
       content = element[0].querySelector('.job-content');
       height = content.offsetHeight;
-      TweenMax.to(content, .5, {
+      TweenMax.fromTo(content, .5, {
+        height: height
+      }, {
         height: 0
       });
       TweenMax.to(element, .5, {
