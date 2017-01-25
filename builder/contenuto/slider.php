@@ -1,4 +1,4 @@
-<?php $align = ((get_sub_field('allineamento_testo') == 'align-right') ? ' align-right' : (get_sub_field('allineamento_testo') == 'align-center') ? ' align-center' : ''); $max = 0; ?>
+<?php $align = ((get_sub_field('allineamento_testo') == 'alignright') ? ' alignright' : (get_sub_field('allineamento_testo') == 'aligncenter') ? ' aligncenter' : ''); $max = 0; ?>
 
 <?php if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
