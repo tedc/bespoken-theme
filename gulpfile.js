@@ -304,8 +304,8 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('Iconfont', function(done){
-    var iconStream = gulp.src([path.source + 'fonts/*.svg'])
-        .pipe(iconfont({ fontName: 'jurgita-icons', normalize : true, formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'] }));
+    var iconStream = gulp.src([path.source + 'fonts/icons/*.svg'])
+        .pipe(iconfont({ fontName: 'bspkn-icons', normalize : true, formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'] }));
 
     async.parallel([
         function handleGlyphs (cb) {
@@ -313,12 +313,12 @@ gulp.task('Iconfont', function(done){
                 gulp.src(path.source + 'fonts/template.css')
                     .pipe(consolidate('lodash', {
                         glyphs: glyphs,
-                        fontName: 'jurgita-icons',
+                        fontName: 'bspkn-icons',
                         fontPath: '../fonts/',
                         className: 'icon'
                     }))
                     .pipe(rename({
-                        basename : '_fonts',
+                        basename : '_icons',
                         extname : '.scss'
                     }))
                     .pipe(gulp.dest(path.source + 'styles/content'))

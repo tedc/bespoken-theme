@@ -22,7 +22,7 @@
 		overflow: hidden;
 		display: flex;
 		align-items: center;
-		transition: visibility $speed;
+		transition: visibility $speed, transform $speed;
 		visibility: hidden;
 		transform: translate3d(0, -20%, 0);
 		.gradient {

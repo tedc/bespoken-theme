@@ -143,7 +143,7 @@ textarea {
 		}
 		a {
 			color: $purple;
-			font-weight: bold;
+			font-weight: 500;
 			&:hover {
 				color: $violet;
 			}
@@ -207,6 +207,7 @@ textarea {
 	box-shadow: 0 5px 10px transparentize($b, .75);
 	transition: box-shadow $speed, background-position $speed;
 	padding: 0;
+	cursor: pointer;
 	@include appearance(none);
 	@include gradient;
 	.btn {
