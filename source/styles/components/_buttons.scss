@@ -91,7 +91,7 @@
                 }
             }
         } 
-        &:hover {
+        &:hover, &:hover .modal-container.visible & {
             .btn-line {
                 &:nth-child(1) {
                     transform: rotate(0deg);
