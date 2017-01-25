@@ -64,7 +64,6 @@ function column_acf_flexible_content_layout_title( $title, $field, $layout, $i )
 add_filter('acf/fields/flexible_content/layout_title/name=colonna', 'column_acf_flexible_content_layout_title', 10, 4);
 
 function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
-	var_dump($field);
 	if($field['acf_fc_layout'] === 'riga') :
 		$tite = $title . ':';
 		if(get_sub_field('colonna')) : foreach(get_sub_field('colonna') as $row) :
