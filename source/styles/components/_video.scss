@@ -91,6 +91,10 @@
             height: 100px;
             border-radius: 50%;
             border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity $speed;
             &:after {
                 content: "";
                 width: 0;
@@ -98,6 +102,12 @@
                 border-top: 30px solid transparent;
                 border-bottom: 30px solid transparent;
                 border-left: 30px solid $w;
+                left: 5px;
+                position: relative;
+            }
+
+            &:hover {
+                opacity: 0.7;
             }
         }
     }
