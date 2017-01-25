@@ -28,7 +28,7 @@ function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	if(get_sub_field('contenuto')) : foreach(get_sub_field('contenuto') as $row) :
 		if($row['acf_fc_layout'] == 'testo') {
 			var_dump($row['testo'][0]);
-			if(!$row['testo'][0]['titolo_precompilato'] && trim($row['testo'][0]['titolo'])!='') {
+			if($row['testo'][0]['titolo_precompilato'] && trim($row['testo'][0]['titolo'])=='') {
 				$title .= ' '.$row['testo'][0]['titolo_precompilato'];
 			} else {
 				$title .= ' '.$row['testo'][0]['titolo'];
