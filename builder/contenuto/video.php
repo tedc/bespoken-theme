@@ -28,11 +28,11 @@ endif; ?>
             <h3><?php the_sub_field('titolo') ?></h3>
             <h4><?php the_sub_field('sottotitolo') ?></h4>
         </span>
+        <?php if (get_sub_field('video_embed') != "") { ?>
+            <div class="container-play">
+                <div class="icon-play play"></div>
+            </div>
+            <?php close('isModal=false;isMenu=false'); ?>
+        <?php } ?>
     </div>
-    <?php if (get_sub_field('video_embed') != "") { ?>
-        <div class="container-play">
-            <div class="icon-play play"></div>
-        </div>
-        <?php close('isModal=false;isMenu=false'); ?>
-    <?php } ?>
 </div>
