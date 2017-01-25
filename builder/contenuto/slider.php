@@ -57,13 +57,9 @@ endif;?>
             <div class="mask"></div>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
-<<<<<<< Updated upstream
-            <nav class="nav-number row">
-            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo 3; ?>)">
-=======
             <nav class="nav-number">
             <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
->>>>>>> Stashed changes
+
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
