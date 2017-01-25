@@ -25,7 +25,7 @@ register_nav_menus([
 function my_acf_flexible_content_layout_title( $title, $field, $layout, $i ) {
 	$title = '<h4>' . $title . ':'
 
-	if((have_rows('contenuto')) : while(have_rows('contenuto')) : the_row();
+	if(have_rows('contenuto')) : while(have_rows('contenuto')) : the_row();
 		if(get_row_layout() == 'testo') {
 			if(!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo'))!='') {
 				$title .= ' '.get_sub_field('titolo_precompilato').'</h4>';
