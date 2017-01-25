@@ -9,4 +9,3 @@ bspkn
 	.directive 'ngHome', [ require './home.coffee' ]
 	.directive 'ngSlider', [ require './slider.coffee' ]
 	.directive 'ngVideo', [ require './video.coffee' ]
-	.directive 'ngJob', [ require './video.coffee' ]
