@@ -48,7 +48,7 @@
     &.slider-wrapper-contain {
         max-height: calc(100vh - #{em(65px)});
         .slider-item {
-            max-height: calc(100vh - #{em(65px)});
+            max-height: calc(100vh - #{em(115px)});
             overflow: hidden;
             background: {
                 size: contain;

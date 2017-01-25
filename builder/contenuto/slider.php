@@ -38,7 +38,7 @@ endif;?>
                     <?php 
                     $n_page = 0;
                     foreach ($images as $image): ?>
-                        <?php $style = (get_sub_field('navigatore') == 'number') ? ' style="background-image:'.wp_get_attachment_image_url( $image['id'], 'large' ).'"' : ''; ?>         
+                        <?php $style = (get_sub_field('navigatore') == 'number') ? ' style="background-image:url('.wp_get_attachment_image_url( $image['id'], 'large' ).')"' : ''; ?>         
                         <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}"<?php echo $style; ?>>
                             <figure><?php echo wp_get_attachment_image($image["id"], "large"); ?></figure>
                         </div>
