@@ -69,8 +69,8 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 	if($field['acf_fc_layout'] === 'riga') {
 		$tite = $title . ':';
 		if(get_sub_field('colonna')) : foreach(get_sub_field('colonna') as $row);
-			if($row['acf_fc_layout'] ===  'testo') {
-			if($row['testo'][0]['titolo_precompilato'] && trim($row['testo'][[0]['titolo'])=='') {
+		if($row['acf_fc_layout'] ===  'testo') {
+			if($row['testo'][0]['titolo_precompilato'] && trim($row['testo'][0]['titolo'])=='') {
 				$title .= ' '.$row['testo'[[0]['titolo_precompilato'];
 			} else {
 				$title .= ' '.$row['testo'][0]['titolo'];
