@@ -10,7 +10,7 @@
         right: 100%;
         background-color: $w;
         z-index: 1;
-        height: 100%;
+        height: 120%;
         .alternate & {
             background-color: $light;
         }
@@ -44,6 +44,21 @@
             }
         }
 
+    }
+    &.slider-wrapper-contain {
+        max-height: calc(100vh - #{em(65px)});
+        .slider-item {
+            max-height: calc(100vh - #{em(65px)});
+            overflow: hidden;
+            background: {
+                size: contain;
+                position: center;
+                repeat: no-repeat;
+            }
+            figure {
+                visibility: hidden;
+            }
+        }
     }
 }
 .slider-only-text {

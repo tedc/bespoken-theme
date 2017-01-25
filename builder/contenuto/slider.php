@@ -30,14 +30,16 @@ endif;?>
 ?>
 
     <div class="slider" ng-slider ng-swipe-left="dir(true, pos, <?php echo $max; ?>)" ng-swipe-right="dir(false, pos, <?php echo $max; ?>)">
-        <div class="slider-wrapper">
+        <?php $itemClass = (get_sub_field('navigatore') == 'number') ? ' slider-wrapper-contain' : ''; ?>
+        <div class="slider-wrapper<?php echo $itemClass; ?>">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
                 <?php if ($images): ?>
                     <?php 
                     $n_page = 0;
                     foreach ($images as $image): ?>
-                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <?php $itemClass = (get_sub_field('navigatore') == 'number') ? ' style="background-image:'.wp_get_attachment_image_url( $image['id'], 'large' )'"' : ''; ?>         
+                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}"<?php echo $style; ?>>
                             <figure><?php echo wp_get_attachment_image($image["id"], "large"); ?></figure>
                         </div>
                         <?php $n_page++; endforeach; ?>
@@ -57,14 +59,8 @@ endif;?>
             <div class="mask"></div>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
-<<<<<<< HEAD
-            <nav class="nav-number row">
-            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
-=======
             <nav class="nav-number">
             <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
-
->>>>>>> 7a7330e957799f800360e5c8003e2c211f2bc974
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
