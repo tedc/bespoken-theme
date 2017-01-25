@@ -43516,41 +43516,6 @@ if ( typeof module != 'undefined' && module.exports ) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],16:[function(require,module,exports){
-module.exports = function() {
-  var anchors;
-  return anchors = {
-    controller: [
-      "$element", '$scope', "$document", function($element, $scope, $document) {
-        var prevTime;
-        $scope.goToAnchor = function(val) {
-          controller.scrollTo(function(newpos) {
-            TweenMax.to(window, 1, {
-              scrollTo: {
-                y: newpos
-              }
-            });
-          });
-          controller.scrollTo(val);
-        };
-        prevTime = new Date().getTime();
-        $scope.scrollToAnchor = function(val) {
-          var curTime, timeDiff;
-          curTime = new Date().getTime();
-          if (typeof prevTime !== 'undefined') {
-            timeDiff = curTime - prevTime;
-            if (timeDiff > 200) {
-              $scope.goToAnchor(val);
-            }
-          }
-          prevTime = curTime;
-        };
-      }
-    ]
-  };
-};
-
-
-},{}],17:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -43626,7 +43591,7 @@ module.exports = function() {
 };
 
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 module.exports = function() {
   var home;
   return home = {
@@ -43655,15 +43620,15 @@ module.exports = function() {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngJob', [require('./video.coffee')]);
 
 
-},{"./anchors.coffee":16,"./carousel.coffee":17,"./home.coffee":18,"./menu.coffee":20,"./mousewheel.coffee":21,"./slider.coffee":22,"./split.coffee":23}],20:[function(require,module,exports){
+},{"./carousel.coffee":16,"./home.coffee":17,"./menu.coffee":19,"./mousewheel.coffee":20,"./slider.coffee":21,"./split.coffee":22,"./video.coffee":23}],19:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -43682,7 +43647,7 @@ module.exports = function() {
 };
 
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 exports.up = function() {
   return function(scope, element, attrs) {
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
@@ -43722,7 +43687,7 @@ exports.down = function() {
 };
 
 
-},{}],22:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   var slider;
   return slider = {
@@ -43773,7 +43738,7 @@ module.exports = function() {
 };
 
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -43792,6 +43757,42 @@ module.exports = function($timeout) {
           }, .05);
         }
         $rootScope.spliTl.play();
+      }
+    ]
+  };
+};
+
+
+},{}],23:[function(require,module,exports){
+module.exports = function() {
+  var video;
+  return video = {
+    scope: true,
+    controller: [
+      "$scope", "$element", function($scope, $element) {
+        var enterVideoScene, tween;
+        tween = TweenMax.to({
+          index: 0
+        }, 5, {
+          index: 10,
+          onUpdateParams: ['{self}'],
+          onUpdate: function(evt) {
+            if (evt.target.index > 0 && evt.target.index <= 9.6) {
+              $scope.playVideo(true);
+            } else {
+              $scope.playVideo(false);
+            }
+          }
+        });
+        enterVideoScene = new ScrollMagic.Scene({
+          triggerElement: $element[0],
+          duration: "100%"
+        }).setTween(tween).addTo(controller);
+        $scope.playVideo = function(cond) {
+          if (cond($element[0].play())) {
+            $element[0].pause();
+          }
+        };
       }
     ]
   };
@@ -43824,7 +43825,7 @@ require('./directives/index.coffee');
 require('./resources/index.coffee');
 
 
-},{"./directives/index.coffee":19,"./resources/index.coffee":26,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],25:[function(require,module,exports){
+},{"./directives/index.coffee":18,"./resources/index.coffee":26,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],25:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
