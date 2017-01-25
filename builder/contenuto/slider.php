@@ -59,8 +59,7 @@ endif;?>
         </div>
         <?php if (get_sub_field('navigatore') == 'number') : ?>
             <nav class="nav-number row">
-                <?php var_dump($max)?>
-            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $max; ?>)">
+            <span class="arrow-prev" ng-click="dir(false, pos, <?php echo $n_page; ?>)">
                   <span class="btn-line">
                     <span class="btn-arrow-up"></span>
                     <span class="btn-arrow-down"></span>
