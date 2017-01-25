@@ -1,10 +1,10 @@
 <?php
 $jobs = get_sub_field('posizioni');
 if ($jobs): ?>
-    <div class="grid-12 row-lg">
+    <div class="grid-12 row-lg jobs">
     <?php foreach ($jobs as $post): ?>
         <?php setup_postdata($post); ?>
-        <div class="col-<?php the_sub_field("n_cols") ?> col-jobs" id="job_<?php the_ID(); ?>"
+        <div class="col-<?php the_sub_field("n_cols") ?> job" id="job_<?php the_ID(); ?>"
              ng-class="{visible : isJob == <?php the_ID(); ?>}">
             <figure>
                 <img src="<?php the_field('icon', $post->ID)["url"] ?>">
