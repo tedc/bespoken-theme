@@ -90,7 +90,7 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 				}
 			}
 			if($row['acf_fc_layout'] === 'video') {
-				$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $row('file'));
+				$file = preg_replace('/\\.[^.\\s]{3,4}$/', '', $row['file']);
 				$title .= ' <div class="thumbnail" style="display:inline-block; vertical-align:middle"><img src="'.$file.'.jpg" style="height:36px" /></div>';
 			}	
 			if($row['acf_fc_layout'] === 'citazoine') {
