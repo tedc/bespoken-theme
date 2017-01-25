@@ -48,6 +48,21 @@
 						<?php _e('Autorizzo il trattamento dei dati personali ai sensi del D. lgs. 196/03s', 'bspkn'); ?>
 					</span>
 				</label>
+				<input type="checkbox" name="newsletter" id="newsletter">
+				<label for="privacy" class="form-label" ng-click="isNewsletter = !isNewsletter">
+					<span class="check">
+						<span class="check-text">
+							<?php _e('Sì', 'bspkn'); ?>
+						</span>
+						<span class="check-text">
+							<?php _e('No', 'bspkn'); ?>
+						</span>
+						<i class="cursor"></i>
+					</span>
+					<span class="form-label-text">
+						<?php _e('Voglio iscrivermi alla vostra newsletter', 'bspkn'); ?>
+					</span>
+				</label>
 			</div>
 		</div>
 	</form>
