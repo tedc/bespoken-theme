@@ -21,13 +21,13 @@ module.exports = ($window)->
 						done()
 						return
 				}
-			TweenMax.to row, .5,
+			TweenMax.to element, .5,
 				height : h + height
 			w.on 'resize', ->
 				return if not element.hasClass 'visible'
 				height = content.offsetHeight
 				h = row.offsetHeight + height
-				TweenMax.to row,
+				TweenMax.to element,
 					height : h + height
 				return
 			return
@@ -44,7 +44,7 @@ module.exports = ($window)->
 				{
 					height : 0
 				}
-			TweenMax.to row, .5,
+			TweenMax.to element, .5,
 				height : h
 				onComplete : ->
 					TweenMax.set [element, content],

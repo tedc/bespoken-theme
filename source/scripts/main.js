@@ -43551,7 +43551,7 @@ module.exports = function($window) {
           done();
         }
       });
-      TweenMax.to(row, .5, {
+      TweenMax.to(element, .5, {
         height: h + height
       });
       w.on('resize', function() {
@@ -43560,7 +43560,7 @@ module.exports = function($window) {
         }
         height = content.offsetHeight;
         h = row.offsetHeight + height;
-        TweenMax.to(row, {
+        TweenMax.to(element, {
           height: h + height
         });
       });
@@ -43579,7 +43579,7 @@ module.exports = function($window) {
       }, {
         height: 0
       });
-      TweenMax.to(row, .5, {
+      TweenMax.to(element, .5, {
         height: h,
         onComplete: function() {
           TweenMax.set([element, content], {
