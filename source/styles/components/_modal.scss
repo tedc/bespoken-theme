@@ -4,7 +4,7 @@
 	left: 0;
 	width: $f;
 	height: 0;
-	z-index: 9999;
+	z-index: 9998;
 	overflow: hidden;
 	transition: $speed height;
 	ul {
@@ -24,14 +24,19 @@
 		align-items: center;
 		transition: visibility $speed;
 		visibility: hidden;
+		transform: translate3d(0, 20%, 0);
 		&.visible {
 			visibility: visible;
-			transition-duration: 0;
+			transition: visibility 0, transform $speed;
+			transform: translate3d(0, 0%, 0);
 		}
 	}
 	.menu, .form {
 		width: $f;
 		margin: auto;
+	}
+	.form {
+		min-height: 100vh;
 	}
 	&.visible {
 		height: 100vh;

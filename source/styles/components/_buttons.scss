@@ -78,6 +78,7 @@
         right: em(50px);
         top: em(50px);
         opacity: 1;
+        z-index: 3;
         .btn-line {
             transition: transform $speed, opacity $speed;
             .visible & {
