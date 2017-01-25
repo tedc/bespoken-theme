@@ -27,7 +27,7 @@ module.exports = ($window)->
 				return if not element.hasClass 'visible'
 				height = content.offsetHeight
 				h = row.offsetHeight
-				TweenMax.to element,
+				TweenMax.set element,
 					height : h + height
 				return
 			return

@@ -43560,7 +43560,7 @@ module.exports = function($window) {
         }
         height = content.offsetHeight;
         h = row.offsetHeight;
-        TweenMax.to(element, {
+        TweenMax.set(element, {
           height: h + height
         });
       });
