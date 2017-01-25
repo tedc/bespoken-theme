@@ -10,7 +10,7 @@ elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
 endif;?>
 
-<div class="<?php echo get_sub_field('full') ? ' full' : 'content '.$padding ?> ">
+<div class="<?php echo (get_sub_field('full') && get_sub_field('navigatore') != 'number') ? ' full' : 'content '.$padding ?> ">
     <?php if ((get_sub_field('titolo') != '')) : ?>
         <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php 
@@ -38,7 +38,7 @@ endif;?>
                     <?php 
                     $n_page = 0;
                     foreach ($images as $image): ?>
-                        <?php $style = (get_sub_field('navigatore') == 'number') ? ' style="background-image:url('.wp_get_attachment_image_url( $image['id'], 'large' ).')"' : ''; ?>         
+                        <?php $style = ' style="background-image:url('.wp_get_attachment_image_url( $image['id'], 'large' ).')"'; ?>         
                         <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}"<?php echo $style; ?>>
                             <figure><?php echo wp_get_attachment_image($image["id"], "large"); ?></figure>
                         </div>
