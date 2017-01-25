@@ -12,7 +12,7 @@ if ($jobs): ?>
             <h3 class="job-title"><?php the_title(); ?></h3>
             <?php the_excerpt(); ?>
             <a href="#" ng-click="$event.preventDefault(); isJob = <?php the_ID(); ?>" class="permalink"></a>
-            <div class="job-content">
+            <div class="job-content row-lg">
                 <?php the_content() ?>
             </div>
         </div>

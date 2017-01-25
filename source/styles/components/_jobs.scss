@@ -1,8 +1,10 @@
 .job {
     &s {
-        position: center;
+        position: relative;
     }
     position: static;
+    text-align: center;
+    @include normalize_padding;
     &-title {
         font-size: em(22px);
         text-transform: uppercase;
@@ -10,8 +12,7 @@
     }
     p {
         text-align: center;
-        padding-left: 70px;
-        padding-right: 70px;
+        @include normalize_padding;
     }
     &-content {
         position: absolute;
@@ -20,5 +21,7 @@
         top: auto;
         display: none;
         background-color: $light;
+        text-align: left;
+        @include normalize_padding;
     }
 }
