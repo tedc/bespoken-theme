@@ -81,7 +81,7 @@
         z-index: 3;
         .btn-line {
             transition: transform $speed, opacity $speed;
-            .visible & {
+            .modal-container.visible & {
                 transition-delay: $speed*1.5;
                 &:nth-child(1) {
                     transform: rotate(45deg);
@@ -98,6 +98,11 @@
                     }
                 }
             }
+        }  
+        .modal-container.visible & {
+            visibility: visible;
+            opacity: 1;
+            transition-delay: $speed;
         }
     }
     &.up {
