@@ -14,7 +14,7 @@
         position: relative;
         max-width: $max-width;
         margin: 0 auto;
-        box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.7);
+        box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
         .player {
             display: block;
             width: 100%;
@@ -84,8 +84,11 @@
             content: "";
             width: 0;
             height: 0;    
-            border-width: em(19px) 0 em(19px) em(33px);
-            border-color: transparent transparent transparent $w;
+            border: {
+                width: em(19px) 0 em(19px) em(33px);
+                color: transparent transparent transparent $w;
+                style: solid;
+            }
             left: em(5px);
             position: relative;
         }
