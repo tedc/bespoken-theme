@@ -57,12 +57,12 @@ endif;?>
                 <?php endif ?>
             <?php elseif (get_sub_field('tipologia') == 'testo') :
              ?>
-                <?php var_dump(get_sub_field('allineamento_v')) ?>
+                <?php $align = get_sub_field('allineamento_v') ?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
 
-                        <div class="slider-item <?php if(get_sub_field('allineamento_v')=='v-top' ? '' : the_sub_field('allineamento_v'))?>" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <div class="slider-item <?php echo $align?>" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <?php the_sub_field('pagine'); ?>
                         </div>
                         <?php $n_page++; endwhile ?>
