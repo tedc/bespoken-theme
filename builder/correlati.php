@@ -2,10 +2,10 @@
 	$ids = array();
 	$posts = get_sub_field('related');
 	$type = $posts[0]->post_type;
-	echo count($posts);
 	foreach ($posts as $p) {
 		array_push($ids, $p->ID);
 	}
+	var_dump($ids);
 	$query = new WP_Query(
 		array(
 			'post_type' => $type,
