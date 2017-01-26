@@ -18,7 +18,7 @@
         <?php else : ?>
             <h2 class="title title-minus emphasis"><em><?php the_sub_field('titolo_precompilato'); ?></em></h2>
         <?php endif ?>
-        <?php if (the_sub_field('contenuto')=='') : ?>
+        <?php if(the_sub_field('contenuto')!='') : ?>
             <div class="description <?php echo $align ?>"><?php the_sub_field('contenuto') ?></div>
         <?php endif ?>
     </div>
