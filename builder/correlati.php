@@ -5,7 +5,7 @@
 	$posts = get_sub_field('related');
 	foreach ($posts as $p) {
 		array_push($ids, $p->ID);
-		array_push($ids, $p->post_type);
+		array_push($types, $p->post_type);
 	}
 	$query = new WP_Query(
 		array(
