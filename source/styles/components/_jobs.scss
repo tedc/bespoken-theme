@@ -22,9 +22,6 @@
     }
     &-icon {
         position: relative;
-        width: auto;
-        max-width: 100%;
-        display: inline-block;
         .btn {
             position: absolute;
             top: 50%;
@@ -47,10 +44,6 @@
         }
     }
     &-image {
-        max-width: 160px;
-        max-height: 130px;
-        width: 100%;
-        display: block;
         transition: $speed opacity, $speed visibility;
         &-overlay {
             position: absolute;
