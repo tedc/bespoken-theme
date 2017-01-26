@@ -51,10 +51,10 @@
         height: 100%;
         border: 2px solid transparent;
         border-radius: 50%;
+        border-color: $w;
     }
-    &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:hover & {
+    &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover & {
         &:before,  &:after {
-            border-color: $w;
             animation: pulse 2s infinite linear;
         }
         &:after {

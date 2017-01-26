@@ -37,7 +37,7 @@
             transition: $speed opacity, $speed visibility;
             opacity: 0;
             visibility: hidden;
-            .job:hover & {
+            .job:not(.visible):hover & {
                 opacity: 1;
                 visibility: visible;
             }
@@ -56,6 +56,10 @@
             }
         }
         &-overlay, .visible & {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .job:not(.visible):hover & {
             opacity: 0;
             visibility: hidden;
         }
@@ -83,6 +87,9 @@
                 transition-delay: $speed;
                 transition-duration: $speed;
             }
+        }
+        .close, .close:before, .close:after {
+            border-color: $purple;
         }
     }
 }
