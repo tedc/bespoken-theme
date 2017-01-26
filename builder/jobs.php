@@ -7,8 +7,9 @@ if ($jobs): ?>
         <div class="col-<?php the_sub_field("n_cols") ?> job" id="job_<?php the_ID(); ?>"
              ng-class="{visible : isJob == <?php the_ID(); ?>}">
             <div class="job-row row">
-            <figure>
-                <img src="<?php the_field('icon', $post->ID)["url"] ?>">
+            <figure class="job-icon">
+                <img src="<?php the_field('icon', $post->ID)["url"] ?>" class="job-image">
+                <img src="<?php the_field('icon', $post->ID)["url"] ?>" class="job-image-overlay">
             </figure>
             <h3 class="job-title"><?php the_title(); ?></h3>
             <?php the_excerpt(); ?>

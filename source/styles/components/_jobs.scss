@@ -3,19 +3,40 @@
         position: relative;
     }
     position: static !important;
-    text-align: center;
     @include normalize_padding;
+    &.visible {
+        background-color: $light;
+        transition: color $speed;
+    }
     &-title {
         font-size: em(22px);
         text-transform: uppercase;
         line-height: $interline-title;
+        transition: color $speed;
+        .visible & {
+            color: $purple;
+        }
     }
-    p {
-        text-align: center;
-        @include normalize_padding;
+    &-icon {
+        position: relative;
+    }
+    &-image {
+        transition: $speed opacity, $speed visibility;
+        &-overlay {
+            @include absfull;
+            .visible & {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        &-overlay, .visible & {
+            opacity: 0;
+            visibility: hidden;
+        }
     }
     &-row {
         position: relative;
+        text-align: center;
     }
     &-content {
         position: absolute;
@@ -26,5 +47,16 @@
         background-color: $light;
         text-align: left;
         @include normalize_padding;
+        > .row {
+            opacity: 0;
+            visibility: hidden;
+            transition: 0s opacity, 0s visibility;
+            .visible & {
+                opacity: 1;
+                visibility: visible;
+                transition-delay: $speed;
+                transition-duration: $speed;
+            }
+        }
     }
 }
