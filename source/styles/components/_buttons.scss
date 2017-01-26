@@ -55,6 +55,7 @@
         backface-visibility: hidden;
         perspective: 1000px;
         opacity: 0;
+        transform-style: preserve-3d;
     }
     &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover & {
         &:before,  &:after {
@@ -150,5 +151,6 @@
     0%   {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 0}
     1%   {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 1}
     50% {width: 200%; height: 200%; opacity: 0}
-    100% {width: 200%; height: 200%; opacity: 0}
+    95% {width: 200%; height: 200%; opacity: 0}
+    100% {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 0}
 }
