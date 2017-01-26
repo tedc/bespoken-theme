@@ -3,12 +3,13 @@
 		echo '<span class="btn close" ng-click="'.$ngClick.'"><span class="btn-line"></span><span class="btn-line"></span></span>';
 	}
 
-	function carousel($q, $el, $mw) { ?>
+	function carousel($q, $el, $mw, $l) { ?>
 		<?php
 			if($q->have_posts()) : 
 		?>
-		<div<?php if($q->found_posts > 1) : ?> ng-carousel items="<?php echo $el; ?>" max="<?php echo $q->found_posts; ?>" mousewheel="<?php echo $mw; ?>"<?php endif; ?> class="carousel">
-			<div class="carousel-container">
+		<div<?php if($q->found_posts > 1) : ?> ng-carousel items="<?php echo $el; ?>" max="<?php echo $q->found_posts; ?>" mousewheel="<?php echo $mw; ?>"<?php endif; ?> class="carousel<?php echo ($l) ? ' closing' : ''; ?>"<?php echo ($l) ? ' id="last-related"' : ''; ?>>
+			<?php $sm = ($l) ? ' ng-sm trigger-element="last-related" set-class-toggle="pinned" trigger-hook="onLeave"' : ''; ?>
+			<div class="carousel-container"<?php $sm; ?>>
 				<div class="carousel-wrapper">
 					<?php while($q->have_posts()) : $q->the_post(); ?>
 					<?php get_template_part( 'templates/content', 'related' ); ?>

@@ -74,9 +74,21 @@
 
 .carousel {
     position: relative;
+    &.closing {
+        height: 100vh;
+    }
     &-container {
         overflow: hidden;
         position: relative;
+        .closing & {
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            bottom: 0;
+            &.pinned {
+                position: absolute;
+            }
+        }
     }
     &-wrapper {
         flex-wrap: nowrap;

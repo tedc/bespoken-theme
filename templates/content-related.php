@@ -1,6 +1,6 @@
 <div class="carousel-item">
 	<div class="cover" style="background-image: url(<?php the_post_thumbnail_url('full'); ?>)"></div>
-	<div class="carousel-item-content">
+	<div class="carousel-item-content row-lg">
 		<?php if(get_field('icon_white')) : ?>
 		<figure class="logo">
 			<img src="<?php the_field('icon_white'); ?>" class="logo" />
