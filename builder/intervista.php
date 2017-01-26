@@ -1,4 +1,4 @@
-<div class="video<?php echo get_sub_field('full') ? ' full' : ' content row-lg' ?> <?php echo get_sub_field('colore_sfondo') ?>">
+<div class="video row-lg <?php echo get_sub_field('colore_sfondo') ?>">
     <div class="container-player">
         <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
         <div class="video-foreground">
