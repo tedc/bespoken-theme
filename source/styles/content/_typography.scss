@@ -115,19 +115,55 @@ h5 {
 
     &-minus {
         font-size: em(20px);
-        text-transform: uppercase;
         font-style: normal;
         padding-bottom: em(20px, 20px);
     }
-    &-normal {
-        font-size: em(36px);
-        text-transform: uppercase;
+    &-minus-normal {
+        font-size: em(24px);
         font-style: normal;
+        padding-bottom: em(30px, 24px);
+
+    }
+    &-normal {
+        font-style: normal;
+        font-size: em(24px);
+        padding-bottom: em(30px, 24px);
+
+        @include breakpoint(640px) {
+            font-size: em(30px);
+            padding-bottom: em(30px, 30px);
+        }
+        @include breakpoint($bp) {
+            font-size: em(36px);
+            padding-bottom: em(30px, 36px);
+        }
+    }
+    &-normal-important {
+        font-style: normal;
+        font-size: em(24px);
+        padding-bottom: em(30px, 24px);
+        @include breakpoint(640px) {
+            font-size: em(36px);
+            padding-bottom: em(30px, 36px);
+        }
+        @include breakpoint($bp) {
+            font-size: em(48px);
+            padding-bottom: em(30px, 48px);
+        }
+
     }
     &-important {
-        font-size: em(72px);
-        text-transform: uppercase;
         font-style: normal;
+        font-size: em(36px);
+        padding-bottom: em(30px, 36px);
+        @include breakpoint(640px) {
+            font-size: em(48px);
+            padding-bottom: em(30px, 48px);
+        }
+        @include breakpoint($bp) {
+            font-size: em(72px);
+            padding-bottom: em(30px, 72px);
+        }
     }
 }
 
