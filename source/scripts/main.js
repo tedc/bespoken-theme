@@ -43830,7 +43830,7 @@ module.exports = function($rootScope, $timeout) {
     scope: true,
     link: function(scope, element, attrs) {
       var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;
-      if (mobilecheck()) {
+      if (isMobile) {
         return false;
       }
       duration = attrs.duration && attrs.duration.indexOf('%') !== -1 ? attrs.duration : (attrs.duration ? scope.$eval(attrs.duration) : 0);
