@@ -9,7 +9,7 @@
 	}
 	$query = new WP_Query(
 		array(
-			'post_type' => $type,
+			'post_type' => $types,
 			'post__in' => $ids,
 			'posts_per_page' => count($posts),
 			'orderby' => 'post__in'
