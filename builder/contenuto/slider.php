@@ -60,6 +60,7 @@ endif;?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
+                        <?php var_dump(get_sub_field('allineamento_testo')) ?>
                         <div class="slider-item <?php if(get_sub_field('allineamento_testo')=='v-top' ? '' : the_sub_field('allineamento_testo'))?>" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <?php the_sub_field('pagine'); ?>
                         </div>
