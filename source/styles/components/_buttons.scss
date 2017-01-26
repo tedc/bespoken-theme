@@ -52,11 +52,10 @@
         border: 2px solid transparent;
         border-radius: 50%;
         border-color: $w;
-        margin: -2px 0 0 -2px;
     }
     &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover & {
         &:before,  &:after {
-            animation: pulse 2s infinite linear;
+            animation: pulse 2s infinite linear forwards;
         }
         &:after {
             animation-delay: 0.4s;
