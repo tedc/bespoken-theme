@@ -44,6 +44,8 @@
         }
     }
     &-image {
+        height: em(130px);
+        width: em(170px);
         transition: $speed opacity, $speed visibility;
         &-overlay {
             position: absolute;
