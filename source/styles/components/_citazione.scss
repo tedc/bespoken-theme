@@ -19,9 +19,10 @@
             bottom: em(150px, 36px);
         }
     }
-    .marks {
+    .start-marks, .end-marks {
         color: $purple;
-        font-size: em(72px, 36px);
+        font-size: em(90px, 36px);
+        line-height: 0;
     }
 }
 
