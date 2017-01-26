@@ -14,7 +14,7 @@
         <?php $align = ((get_sub_field('allineamento_testo'))); ?>
         <?php if (!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo')) != '') : ?>
 
-            <h3 class="title <?php echo $align ?><?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php the_sub_field('grandezza_titolo') ?> <?php echo (get_sub_field('contenuto')=='') ? ' no-padding' : '' ?>"><?php the_sub_field('titolo') ?></h3>
+            <h3 class="title <?php echo $align ?> <?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php the_sub_field('grandezza_titolo') ?> <?php echo (get_sub_field('contenuto')=='') ? ' no-padding' : '' ?>"><?php the_sub_field('titolo') ?></h3>
         <?php else : ?>
             <h2 class="title title-minus emphasis"><em><?php the_sub_field('titolo_precompilato'); ?></em></h2>
         <?php endif ?>
