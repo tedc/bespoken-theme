@@ -1,6 +1,6 @@
 <?php use Roots\Sage\Titles; ?>
 <?php get_template_part('templates/breadcrumbs'); ?>
-<div class="page-header">
+<header class="page-header">
     <?php get_template_part('templates/header', get_field('kind')) ?>
     <div class="container-text-header">
         <div class="text-header">
@@ -16,4 +16,4 @@
             <?php endif; ?>
         </div>
     </div>
-</div>
+</header>
