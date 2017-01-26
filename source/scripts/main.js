@@ -43636,10 +43636,10 @@ module.exports = function() {
             mouseWheel: $scope.$eval($attrs.mousewheel),
             mouseWheelSpeed: 200
           });
+          $scope.carousel.on('scrollEnd', function() {
+            console.log(this);
+          });
         }, 20);
-        $scope.carousel.on('scrollEnd', function() {
-          console.log(this);
-        });
         $scope.move = function(cond) {
           if (cond) {
             $scope.carousel.next();

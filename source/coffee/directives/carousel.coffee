@@ -27,12 +27,12 @@ module.exports = ->
 					scrollY: off
 					snap: '.carousel-item'
 					mouseWheel: $scope.$eval $attrs.mousewheel
-					mouseWheelSpeed: 200
+					mouseWheelSpeed: 200	
+				$scope.carousel.on 'scrollEnd', ->
+					console.log @
+					return
 				return
 			, 20
-			$scope.carousel.on 'scrollEnd', ->
-				console.log @
-				return
 			$scope.move = (cond)->
 				if cond then $scope.carousel.next() else $scope.carousel.prev()
 				return
