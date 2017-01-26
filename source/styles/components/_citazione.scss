@@ -23,6 +23,13 @@
         color: $purple;
         font-size: em(90px, 36px);
         line-height: 0;
+        position: relative;
+    }
+    .start-marks {
+        top: 25px;
+    }
+    .end-marks {
+       top: 65px;
     }
 }
 
