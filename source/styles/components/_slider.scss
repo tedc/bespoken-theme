@@ -76,18 +76,18 @@
     position: relative;
     &.closing {
         height: 100vh;
+        overflow: hidden;
     }
     &-container {
         overflow: hidden;
         position: relative;
         .closing & {
-            position: fixed;
-            height: 100vh;
+            position: absolute;
+            width: $f;
+            transform: translate3d(0%, -100%, 0);
+            height: 100%;
             left: 0;
             bottom: 0;
-            &.pinned {
-                position: absolute;
-            }
         }
     }
     &-wrapper {
