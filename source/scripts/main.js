@@ -43861,11 +43861,6 @@ module.exports = function($rootScope, $timeout) {
         tween = false;
       }
       classToggle = attrs.classToggle ? attrs.classToggle : false;
-      $rootScope.$on('sceneDestroy', function() {
-        if (scene) {
-          scene.destroy();
-        }
-      });
       if (scene) {
         scene.destroy();
       }

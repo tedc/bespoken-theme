@@ -44,10 +44,6 @@ module.exports = ($rootScope, $timeout)->
             classToggle = if attrs.classToggle then attrs.classToggle else off
             ## DESTROY SCENE IF EXISTS OR IS DESTROYED
             
-            $rootScope.$on 'sceneDestroy', ->
-                scene.destroy() if scene
-                return
-                
             scene.destroy() if scene
             scene = new ScrollMagic.Scene
                             triggerElement : trigger
