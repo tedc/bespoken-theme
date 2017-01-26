@@ -4,7 +4,7 @@
         <div class="video-foreground">
             <?php 
             $oembed = get_sub_field('video_embed');
-            $oembed = str_replace('src=', 'id="player_'.get_the_ID().'_'.$row'" src=', $oembed);
+            $oembed = str_replace('src=', 'id="player_'.get_the_ID().'_'.$row.'" src=', $oembed);
             echo $oembed; ?>
         </div>
         <h3 class="title-video"><?php _e('La parola del cliente', 'bspkn') ?></h3>
