@@ -10,7 +10,7 @@ endif;?>
 
 
 <figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>">
-    <img src="<?php the_sub_field('immagine'); ?>">
+	<img src="<?php echo get_sub_field('immagine')['url']; ?>">
 </figure>
 <!--
 <?php /*$src = get_sub_field('immagine'); */?>

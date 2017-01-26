@@ -1,5 +1,6 @@
 <?php $users = get_sub_field('utenti') ?>
 <?php if ($users): ?>
+    <div class="grid-12">
     <?php $i = 0;
     foreach ($users as $user): ?>
         <div class="col-<?php the_sub_field("n_cols") ?> user-col" data-position="<?php echo $i ?>">
@@ -36,4 +37,5 @@
         </div>
         <?php if ($i = 4): $i = 0; endif ?>
         <?php $i++; endforeach; ?>
+    </div>
 <?php endif; ?>

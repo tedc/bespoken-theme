@@ -43516,41 +43516,84 @@ if ( typeof module != 'undefined' && module.exports ) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],16:[function(require,module,exports){
-module.exports = function() {
-  var anchors;
-  return anchors = {
-    controller: [
-      "$element", '$scope', "$document", function($element, $scope, $document) {
-        var prevTime;
-        $scope.goToAnchor = function(val) {
-          controller.scrollTo(function(newpos) {
-            TweenMax.to(window, 1, {
-              scrollTo: {
-                y: newpos
-              }
-            });
-          });
-          controller.scrollTo(val);
-        };
-        prevTime = new Date().getTime();
-        $scope.scrollToAnchor = function(val) {
-          var curTime, timeDiff;
-          curTime = new Date().getTime();
-          if (typeof prevTime !== 'undefined') {
-            timeDiff = curTime - prevTime;
-            if (timeDiff > 200) {
-              $scope.goToAnchor(val);
-            }
-          }
-          prevTime = curTime;
-        };
+var bspkn;
+
+bspkn = angular.module('bspkn');
+
+bspkn.animation('.job', ["$window", require('./job.coffee')]);
+
+
+},{"./job.coffee":17}],17:[function(require,module,exports){
+module.exports = function($window) {
+  var job;
+  return job = {
+    addClass: function(element, className, done) {
+      var content, h, height, row, w;
+      if (className !== 'visible') {
+        return;
       }
-    ]
+      w = angular.element($window);
+      row = element[0].querySelector('.job-row');
+      content = element[0].querySelector('.job-content');
+      TweenMax.set(content, {
+        display: 'block'
+      });
+      height = content.offsetHeight;
+      h = row.offsetHeight;
+      TweenMax.fromTo(content, .5, {
+        height: 0
+      }, {
+        height: height,
+        onComplete: function() {
+          TweenMax.set(content, {
+            height: "auto"
+          });
+          done();
+        }
+      });
+      TweenMax.to(element, .5, {
+        height: h + height
+      });
+      w.on('resize', function() {
+        if (!element.hasClass('visible')) {
+          return;
+        }
+        height = content.offsetHeight;
+        h = row.offsetHeight;
+        TweenMax.set(element, {
+          height: h + height
+        });
+      });
+    },
+    removeClass: function(element, className, done) {
+      var content, h, height, row;
+      if (className !== 'visible') {
+        return;
+      }
+      row = element[0].querySelector('.job-row');
+      content = element[0].querySelector('.job-content');
+      height = content.offsetHeight;
+      h = row.offsetHeight;
+      TweenMax.fromTo(content, .5, {
+        height: height
+      }, {
+        height: 0
+      });
+      TweenMax.to(element, .5, {
+        height: h,
+        onComplete: function() {
+          TweenMax.set([element, content], {
+            clearProps: 'all'
+          });
+          done();
+        }
+      });
+    }
   };
 };
 
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -43626,7 +43669,7 @@ module.exports = function() {
 };
 
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   var home;
   return home = {
@@ -43655,15 +43698,15 @@ module.exports = function() {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]);
 
 
-},{"./anchors.coffee":16,"./carousel.coffee":17,"./home.coffee":18,"./menu.coffee":20,"./mousewheel.coffee":21,"./slider.coffee":22,"./split.coffee":23}],20:[function(require,module,exports){
+},{"./carousel.coffee":18,"./home.coffee":19,"./menu.coffee":21,"./mousewheel.coffee":22,"./slider.coffee":23,"./split.coffee":24,"./video.coffee":25}],21:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -43682,7 +43725,7 @@ module.exports = function() {
 };
 
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 exports.up = function() {
   return function(scope, element, attrs) {
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
@@ -43722,7 +43765,7 @@ exports.down = function() {
 };
 
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 module.exports = function() {
   var slider;
   return slider = {
@@ -43773,7 +43816,7 @@ module.exports = function() {
 };
 
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -43798,7 +43841,43 @@ module.exports = function($timeout) {
 };
 
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
+module.exports = function() {
+  var video;
+  return video = {
+    scope: true,
+    controller: [
+      "$scope", "$element", function($scope, $element) {
+        var enterVideoScene, tween;
+        tween = TweenMax.to({
+          index: 0
+        }, 5, {
+          index: 10,
+          onUpdateParams: ['{self}'],
+          onUpdate: function(evt) {
+            if (evt.target.index > 0 && evt.target.index <= 9.6) {
+              $scope.playVideo(true);
+            } else {
+              $scope.playVideo(false);
+            }
+          }
+        });
+        enterVideoScene = new ScrollMagic.Scene({
+          triggerElement: $element[0],
+          duration: "100%"
+        }).setTween(tween).addTo(controller);
+        $scope.playVideo = function(cond) {
+          if (cond($element[0].play())) {
+            $element[0].pause();
+          }
+        };
+      }
+    ]
+  };
+};
+
+
+},{}],26:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -43823,8 +43902,10 @@ require('./directives/index.coffee');
 
 require('./resources/index.coffee');
 
+require('./animations/index.coffee');
 
-},{"./directives/index.coffee":19,"./resources/index.coffee":26,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],25:[function(require,module,exports){
+
+},{"./animations/index.coffee":16,"./directives/index.coffee":20,"./resources/index.coffee":28,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],27:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -43861,7 +43942,7 @@ module.exports = function() {
 };
 
 
-},{"angular":13}],26:[function(require,module,exports){
+},{"angular":13}],28:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -44014,4 +44095,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":25}]},{},[24]);
+},{"./form.coffee":27}]},{},[26]);
