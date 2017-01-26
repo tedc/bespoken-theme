@@ -52,6 +52,9 @@
         border: 2px solid transparent;
         border-radius: 50%;
         border-color: $w;
+        backface-visibility: hidden;
+        perspective: 1000px;
+        opacity: 0;
     }
     &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover & {
         &:before,  &:after {
@@ -144,7 +147,8 @@
 }
 
 @keyframes pulse {
-    0%   {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 1}
+    0%   {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 0}
+    1%   {width: calc(100% + 4px); height: calc(100% + 4px); opacity: 1}
     50% {width: 200%; height: 200%; opacity: 0}
     100% {width: 200%; height: 200%; opacity: 0}
 }
