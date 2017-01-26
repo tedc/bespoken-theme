@@ -116,13 +116,14 @@
             }
         }
         .btn {
-            position: absolute;
-            bottom: em(15px);
+            // position: absolute;
+            // bottom: em(15px);
             &-text {
-                font-size: em(18px);
+                font-size: em(12px);
+                padding: 0 em(20px, 12px);
             }
-            left: 50%;
-            transform: translate3d(-50%, 20%, 0);
+            // left: 50%;
+            // transform: translate3d(-50%, 20%, 0);
             opacity: 0;
             transition: opacity $speed, transform $speed;
         }

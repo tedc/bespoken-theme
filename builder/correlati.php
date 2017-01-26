@@ -6,8 +6,10 @@
 		array_push($ids, $p->ID);
 	}
 	$query = new WP_Query(
-		'post_type' => $type,
-		'post__in' => $ids,
-		'posts_per_page' => count($posts)
+		array(
+			'post_type' => $type,
+			'post__in' => $ids,
+			'posts_per_page' => count($posts)
+		)
 	);
 	carousel($query, get_sub_field('n_cols'), 'false'); ?>

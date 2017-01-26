@@ -66,8 +66,8 @@
         }
     }
     &-text {
-        font-size: $font-size;
-        padding: 0 em(20px, $font-size);
+        font-size: em($base_font_size);
+        padding: 0 em(20px, $base_font_size);
         font-weight: bold;
         text-transform: uppercase;
         &:before {
