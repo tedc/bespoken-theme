@@ -216,13 +216,13 @@ svg {
     display: block;
 }
 
-.slider-item .v-center{
+.slider-item.v-center{
     display: flex;
     justify-content: center;
     flex-direction: column;
 }
 
-.slider-item .v-bottom{
+.slider-item.v-bottom{
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
