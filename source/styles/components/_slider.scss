@@ -33,6 +33,9 @@
         text-align: center;
         //max-height: calc(100vh - #{em(80px)});
         overflow: hidden;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         background: {
             //size: cover;
             position: center;
