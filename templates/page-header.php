@@ -1,6 +1,10 @@
 <?php use Roots\Sage\Titles; ?>
 <?php get_template_part('templates/breadcrumbs'); ?>
+<<<<<<< Updated upstream
 <header class="page-header">
+=======
+<header class="page-header" id="header">
+>>>>>>> Stashed changes
     <?php get_template_part('templates/header', get_field('kind')) ?>
     <div class="container-text-header">
         <div class="text-header">

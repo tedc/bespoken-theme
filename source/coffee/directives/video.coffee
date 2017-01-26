@@ -17,7 +17,7 @@ module.exports = ->
                 .setTween tween
                 .addTo controller
             $scope.playVideo = (cond)->
-                if cond $element[0].play() then $element[0].pause()
+                if cond then $element[0].play() else $element[0].pause()
                 return
             return
         ]

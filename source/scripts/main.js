@@ -43703,10 +43703,10 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngSm', [require('./sm.coffee')]);
 
 
-},{"./carousel.coffee":18,"./home.coffee":19,"./menu.coffee":21,"./mousewheel.coffee":22,"./slider.coffee":23,"./split.coffee":24,"./video.coffee":25}],21:[function(require,module,exports){
+},{"./carousel.coffee":18,"./home.coffee":19,"./menu.coffee":21,"./mousewheel.coffee":22,"./slider.coffee":23,"./sm.coffee":24,"./split.coffee":25,"./video.coffee":26}],21:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -43817,6 +43817,82 @@ module.exports = function() {
 
 
 },{}],24:[function(require,module,exports){
+var em;
+
+em = function(val) {
+  return val / 16;
+};
+
+module.exports = function($rootScope, $timeout) {
+  var sm;
+  return sm = {
+    restrict: 'AE',
+    scope: true,
+    link: function(scope, element, attrs) {
+      var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;
+      if (mobilecheck()) {
+        return false;
+      }
+      duration = attrs.duration && attrs.duration.indexOf('%') !== -1 ? attrs.duration : (attrs.duration ? scope.$eval(attrs.duration) : 0);
+      trigger = attrs.triggerElement ? attrs.triggerElement : element[0];
+      trigger = trigger === 'parent' ? element.parent()[0] : trigger;
+      el = attrs.triggerElement && attrs.triggerElement.indexOf('#') !== -1 ? document.querySelector(attrs.triggerElement) : trigger;
+      hook = attrs.triggerHook ? attrs.triggerHook : 0.5;
+      if (typeof scope.$eval(hook === "number")) {
+        winPer = scope.$eval(hook);
+      } else {
+        if (hook === 'onEnter') {
+          winPer = 1;
+        } else if (hook === 'onLeave') {
+          winPer = 0;
+        } else if (hook === 'onCenter') {
+          winPer = 0.5;
+        }
+      }
+      duration = attrs.heightDuration ? el.offsetHeight * scope.$eval(attrs.heightDuration) + (window.innerHeight * winPer) : duration;
+      offset = attrs.offset ? scope.$eval(attrs.offset) : 0;
+      pin = attrs.pin ? element[0] : false;
+      from = attrs.from ? scope.$eval(attrs.from) : false;
+      to = attrs.to ? scope.$eval(attrs.to) : false;
+      speed = attrs.speed ? scope.$eval(attrs.speed) : .5;
+      if (from || to) {
+        tween = from && to ? TweenMax.fromTo(element, speed, from, to) : (from ? TweenMax.from(element, speed, from) : TweenMax.to(element, .5, to));
+      } else {
+        tween = false;
+      }
+      classToggle = attrs.classToggle ? attrs.classToggle : false;
+      $rootScope.$on('sceneDestroy', function() {
+        if (scene) {
+          scene.destroy();
+        }
+      });
+      if (scene) {
+        scene.destroy();
+      }
+      scene = new ScrollMagic.Scene({
+        triggerElement: trigger,
+        triggerHook: hook,
+        offset: offset,
+        duration: duration
+      });
+      $timeout(function() {
+        if (tween !== false) {
+          scene.setTween(tween);
+        }
+        if (classToggle !== false) {
+          scene.setClassToggle(element[0], classToggle);
+        }
+        if (pin !== false) {
+          scene.setPin(pin);
+        }
+        return scene.addTo(controller);
+      }, 0);
+    }
+  };
+};
+
+
+},{}],25:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -43841,7 +43917,7 @@ module.exports = function($timeout) {
 };
 
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 module.exports = function() {
   var video;
   return video = {
@@ -43867,7 +43943,9 @@ module.exports = function() {
           duration: "100%"
         }).setTween(tween).addTo(controller);
         $scope.playVideo = function(cond) {
-          if (cond($element[0].play())) {
+          if (cond) {
+            $element[0].play();
+          } else {
             $element[0].pause();
           }
         };
@@ -43877,7 +43955,7 @@ module.exports = function() {
 };
 
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -43905,7 +43983,7 @@ require('./resources/index.coffee');
 require('./animations/index.coffee');
 
 
-},{"./animations/index.coffee":16,"./directives/index.coffee":20,"./resources/index.coffee":28,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],27:[function(require,module,exports){
+},{"./animations/index.coffee":16,"./directives/index.coffee":20,"./resources/index.coffee":29,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],28:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -43942,7 +44020,7 @@ module.exports = function() {
 };
 
 
-},{"angular":13}],28:[function(require,module,exports){
+},{"angular":13}],29:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -44095,4 +44173,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":27}]},{},[26]);
+},{"./form.coffee":28}]},{},[27]);
