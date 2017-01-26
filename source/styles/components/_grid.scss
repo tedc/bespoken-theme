@@ -80,7 +80,7 @@
         }
         @include breakpoint($bp) {
             padding: {
-                top: em(150px);
+                top: em(100px);
                 bottom: em(75px/2);
             }
         }
@@ -99,7 +99,7 @@
         @include breakpoint($bp) {
             padding: {
                 top: em(75px/2);
-                bottom: em(150px);
+                bottom: em(100px);
             }
         }
     }
@@ -123,7 +123,7 @@
             @include breakpoint($bp) {
                 padding: {
                     bottom: em(75px);
-                    top: em(150px);
+                    top: em(100px);
                 }
             }
         }
@@ -135,7 +135,7 @@
             @include breakpoint($bp) {
                 padding: {
                     top: em(75px);
-                    bottom: em(150px)
+                    bottom: em(100px)
                 }
             }
         }
@@ -153,8 +153,8 @@
         }
         @include breakpoint($bp) {
             padding: {
-                top: em(150px);
-                bottom: em(150px);
+                top: em(100px);
+                bottom: em(100px);
             }
         }
         &-btm {
@@ -168,7 +168,7 @@
             }
             @include breakpoint($bp) {
                 padding: {
-                    bottom: em(150px);
+                    bottom: em(100px);
                 }
             }
         }
@@ -183,7 +183,7 @@
             }
             @include breakpoint($bp) {
                 padding: {
-                    top: em(150px);
+                    top: em(100px);
                 }
             }
         }

@@ -4,14 +4,12 @@
     position: relative;
     background-size: cover;
     background-position: 50%;
-
     margin: 0 auto;
     .screenshot {
         width: 100%;
         height: auto;
         display: block;
     }
-
     .container-player {
         position: relative;
         max-width: $max-width;
@@ -41,13 +39,22 @@
         }
         .clients {
             position: absolute;
-            left: em(60px);
-            bottom: em(60px);
+            left: 0;
+            bottom: 0;
             color: $w;
-            h4 {
-                font-weight: normal;
-                line-height: $interline-title;
-            }
+            @include normalize_padding;
+        }
+        .name, .company {
+            padding-bottom: 0;
+            line-height: $interline-title;
+        }
+        .name {
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: em(36px);
+        }
+        .company {
+            font-size: em(24px);
         }
     }
 
@@ -65,8 +72,8 @@
         transform: translate3d(-50%, -50%, 0);
         opacity: 1;
         color: #fff;
-        width: 100px;
-        height: 100px;
+        width: em(100px);
+        height: em(100px);
         border-radius: 50%;
         border: 2px solid white;
         display: flex;
@@ -76,11 +83,10 @@
         &:after {
             content: "";
             width: 0;
-            height: 0;
-            border-top: 30px solid transparent;
-            border-bottom: 30px solid transparent;
-            border-left: 30px solid $w;
-            left: 5px;
+            height: 0;    
+            border-width: em(19px) 0 em(19px) em(33px);
+            border-color: transparent transparent transparent $w;
+            left: em(5px);
             position: relative;
         }
         &:hover {
