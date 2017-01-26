@@ -52,40 +52,51 @@ p {
 
 h1 {
     font-size: em(36px);
+    padding-bottom: em(30px, 36px);
     @include breakpoint(640px) {
         font-size: em(48px);
+        padding-bottom: em(30px, 48px);
     }
     @include breakpoint($bp) {
         font-size: em(72px);
+        padding-bottom: em(30px, 72px);
     }
 }
 
 h2 {
     font-size: em(24px);
+    padding-bottom: em(30px, 24px);
     @include breakpoint(640px) {
         font-size: em(36px);
+        padding-bottom: em(30px, 36px);
     }
     @include breakpoint($bp) {
         font-size: em(48px);
+        padding-bottom: em(30px, 48px);
     }
 }
 
 h3 {
     font-size: em(24px);
+    padding-bottom: em(30px, 24px);
     @include breakpoint(640px) {
         font-size: em(30px);
+        padding-bottom: em(30px, 30px);
     }
     @include breakpoint($bp) {
         font-size: em(36px);
+        padding-bottom: em(30px, 36px);
     }
 }
 
 h4 {
     font-size: em(24px);
+    padding-bottom: em(30px, 24px);
 }
 
 h5 {
     font-size: em(20px);
+    padding-bottom: em(20px, 20px);
 }
 
 .title, .subtitle {
@@ -117,12 +128,13 @@ h5 {
         font-size: em(20px);
         font-style: normal;
         padding-bottom: em(20px, 20px);
+        text-transform: uppercase;
     }
     &-minus-normal {
         font-size: em(24px);
         font-style: normal;
         padding-bottom: em(30px, 24px);
-
+        text-transform: uppercase;
     }
     &-normal {
         font-style: normal;
