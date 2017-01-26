@@ -5,7 +5,7 @@ module.exports = ($rootScope, $timeout)->
         restrict : 'AE'
         scope: on
         link: (scope, element, attrs)->
-            return off if isMobile
+            return off if mobilecheck()
             ## EVAL DURATION
             duration = if attrs.duration and attrs.duration.indexOf('%') isnt -1 then attrs.duration else (if attrs.duration then scope.$eval attrs.duration else 0)
             
@@ -44,6 +44,10 @@ module.exports = ($rootScope, $timeout)->
             classToggle = if attrs.classToggle then attrs.classToggle else off
             ## DESTROY SCENE IF EXISTS OR IS DESTROYED
             
+            $rootScope.$on 'sceneDestroy', ->
+                scene.destroy() if scene
+                return
+                
             scene.destroy() if scene
             scene = new ScrollMagic.Scene
                             triggerElement : trigger

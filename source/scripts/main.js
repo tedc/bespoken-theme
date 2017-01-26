@@ -43703,7 +43703,7 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngSm', ["$timeout", require('./sm.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
 
 
 },{"./carousel.coffee":18,"./home.coffee":19,"./menu.coffee":21,"./mousewheel.coffee":22,"./slider.coffee":23,"./sm.coffee":24,"./split.coffee":25,"./video.coffee":26}],21:[function(require,module,exports){
@@ -43830,7 +43830,7 @@ module.exports = function($rootScope, $timeout) {
     scope: true,
     link: function(scope, element, attrs) {
       var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;
-      if (isMobile) {
+      if (mobilecheck()) {
         return false;
       }
       duration = attrs.duration && attrs.duration.indexOf('%') !== -1 ? attrs.duration : (attrs.duration ? scope.$eval(attrs.duration) : 0);
@@ -43861,6 +43861,11 @@ module.exports = function($rootScope, $timeout) {
         tween = false;
       }
       classToggle = attrs.classToggle ? attrs.classToggle : false;
+      $rootScope.$on('sceneDestroy', function() {
+        if (scene) {
+          scene.destroy();
+        }
+      });
       if (scene) {
         scene.destroy();
       }
