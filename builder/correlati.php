@@ -2,7 +2,7 @@
 	$ids = array();
 	$posts = get_sub_field('related');
 	$type = $posts[0]->post_type;
-	echo count($spots);
+	echo count($posts);
 	foreach ($posts as $p) {
 		array_push($ids, $p->ID);
 	}
