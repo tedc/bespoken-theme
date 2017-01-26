@@ -1,4 +1,4 @@
-<?php $align = ((get_sub_field('allineamento_testo') == 'alignright') ? ' alignright' : (get_sub_field('allineamento_testo') == 'aligncenter') ? ' aligncenter' : ''); $max = 0; ?>
+<?php $max = 0; ?>
 
 <?php if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
@@ -60,7 +60,7 @@ endif;?>
                 <?php if (have_rows('galleria_testo')): ?>
                     <?php $n_page = 0;
                     while (have_rows('galleria_testo')) : the_row(); ?>
-                        <div class="slider-item" ng-class="{current:pos==<?php echo $n_page ?>}">
+                        <div class="slider-item <?php echo (get_sub_field('allineamento_testo')=='v-top' ? '' : get_sub_field('allineamento_testo'))?>" ng-class="{current:pos==<?php echo $n_page ?>}">
                             <?php the_sub_field('pagine'); ?>
                         </div>
                         <?php $n_page++; endwhile ?>
