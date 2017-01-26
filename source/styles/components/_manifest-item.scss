@@ -26,5 +26,8 @@
     &-label {
         text-align: left;
         line-height: $interline-base;
+        strong {
+            font-style: italic;
+        }
     }
 }
