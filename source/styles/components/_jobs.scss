@@ -11,7 +11,8 @@
         transition-delay: $speed;
     }
     &-title {
-        font-size: em(22px);
+        font-size: em(24px);
+        padding-bottom: em(25px, 24px);
         text-transform: uppercase;
         line-height: $interline-title;
         transition: color $speed;
@@ -36,7 +37,7 @@
             transition: $speed opacity, $speed visibility;
             opacity: 0;
             visibility: hidden;
-            .visible & {
+            .job:hover & {
                 opacity: 1;
                 visibility: visible;
             }
