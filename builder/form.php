@@ -1,5 +1,4 @@
 <form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid)">
-	<?php close('isModal=false;isContact=false'); ?>
 	<div class="form-content row-lg">
 		<div class="content">
 			<?php the_sub_field('testo'); ?>
