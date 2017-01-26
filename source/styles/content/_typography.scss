@@ -33,6 +33,7 @@ p, h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
 }
+
 h1, h2, h3, h4, h5, h6 {
     line-height: $interline-title
 }
@@ -42,7 +43,7 @@ p {
     .content & {
         font-size: em(18px);
         color: $gray;
-  /*      padding-bottom: em(50px, 18px);*/
+        /*      padding-bottom: em(50px, 18px);*/
         &:nth-last-child(1), &:nth-last-of-type(1) {
             padding-bottom: 0;
         }
@@ -50,15 +51,33 @@ p {
 }
 
 h1 {
-    font-size: em(72px);
+    font-size: em(36px);
+    @include breakpoint(640px) {
+        font-size: em(48px);
+    }
+    @include breakpoint($bp) {
+        font-size: em(72px);
+    }
 }
 
 h2 {
-    font-size: em(48px);
+    font-size: em(24px);
+    @include breakpoint(640px) {
+        font-size: em(36px);
+    }
+    @include breakpoint($bp) {
+        font-size: em(48px);
+    }
 }
 
 h3 {
-    font-size: em(36px);
+    font-size: em(24px);
+    @include breakpoint(640px) {
+        font-size: em(30px);
+    }
+    @include breakpoint($bp) {
+        font-size: em(36px);
+    }
 }
 
 h4 {
@@ -112,7 +131,6 @@ h5 {
     }
 }
 
-
 .subtitle {
     .page-header & {
         font-size: em(24px);
@@ -126,21 +144,27 @@ h5 {
 .bg-white {
     background-color: $w;
 }
-.alternate{
+
+.alternate {
     background-color: $light;
 }
+
 .bg-dark {
     background-color: $gray-dark;
 }
+
 .bg-gradient {
     @include gradient();
 }
+
 .aligncenter {
     text-align: center;
 }
+
 .alignleft {
     text-align: left;
 }
+
 .alignright {
     text-align: right;
 }
@@ -150,11 +174,13 @@ h5 {
     flex-direction: column;
     justify-content: flex-start;
 }
+
 .center-v {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 .bottom-v {
     display: flex;
     flex-direction: column;

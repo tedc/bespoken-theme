@@ -32,3 +32,18 @@
         flex-direction: column;
     }
 }
+
+.video-cover-header {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .video-item {
+        display: block;
+        width: 100%;
+    }
+}
