@@ -22,7 +22,7 @@
 				wf.async = true;
 				s.parentNode.insertBefore(wf, s);
 		   	})(document);
-
+		   	var isMobile = <?php echo (is_handheld) ? 'true' : 'false'; ?>;
 	    </script>
 	    <?php
 	}
