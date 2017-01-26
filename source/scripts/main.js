@@ -43620,7 +43620,6 @@ module.exports = function() {
         }
         width = (100 / $scope.num) * max;
         itemW = 100 / max;
-        console.log(wrapper, width, itemW);
         TweenMax.set(wrapper, {
           width: width + "%"
         });
@@ -43638,6 +43637,9 @@ module.exports = function() {
             mouseWheelSpeed: 200
           });
         }, 20);
+        $scope.carousel.on('scrollEnd', function() {
+          console.log(this);
+        });
         $scope.move = function(cond) {
           if (cond) {
             $scope.carousel.next();

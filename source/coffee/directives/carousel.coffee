@@ -15,7 +15,6 @@ module.exports = ->
 				$scope.num = items
 			width = ( 100 / $scope.num ) * max
 			itemW = 100 / max
-			console.log wrapper, width, itemW
 			TweenMax.set wrapper,
 				width : "#{width}%"
 			TweenMax.set wrapper.querySelectorAll('.carousel-item'),
@@ -31,6 +30,9 @@ module.exports = ->
 					mouseWheelSpeed: 200
 				return
 			, 20
+			$scope.carousel.on 'scrollEnd', ->
+				console.log @
+				return
 			$scope.move = (cond)->
 				if cond then $scope.carousel.next() else $scope.carousel.prev()
 				return
@@ -48,5 +50,6 @@ module.exports = ->
 					width : "#{itemW}%"
 				$scope.carousel.refresh()
 				return
+
 			return
 		]
