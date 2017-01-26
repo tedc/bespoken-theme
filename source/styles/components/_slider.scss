@@ -33,9 +33,6 @@
         text-align: center;
         //max-height: calc(100vh - #{em(80px)});
         overflow: hidden;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
         background: {
             //size: cover;
             position: center;
@@ -217,4 +214,16 @@ svg {
     max-width: $max-width;
     margin: 0 auto;
     display: block;
+}
+
+.slider-item .v-center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider-item .v-bottom{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
 }
