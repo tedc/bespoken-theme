@@ -13,4 +13,4 @@
         }
     }
 </style>
-<div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" from="{'background-position':'50% 50%'}" to="{'background-position':'50% 0%'}" offset="100"></div>
+<div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : 100}" offset="100"></div>
