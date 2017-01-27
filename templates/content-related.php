@@ -9,8 +9,8 @@
 		<h2 class="title"><?php the_title(); ?></h2>
 		<div class="excerpt">
 			<?php the_excerpt(); ?>		
-			<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></span>
 		</div>
+		<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></span>
 	</div>
 	<a href="href="<?php the_permalink(); ?>" class="permalink"></a>
 </div>

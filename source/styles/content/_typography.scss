@@ -189,8 +189,10 @@ h5 {
     }
 }
 
-.bg-white {
+.grid-12 {
     background-color: $w;
+    position: relative;
+    z-index: 1;
 }
 
 .alternate {
