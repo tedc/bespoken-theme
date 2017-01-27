@@ -2,13 +2,14 @@ em = (val)->
 	val/16
 module.exports = ->
 	carousel =
-		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", ($scope, $window, $attrs, $element, $timeout)->		
+		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", ($scope, $window, $attrs, $element, $timeout, $rootScope)->		
 			w = angular.element $window
 			container = $element[0].querySelector '.carousel-container'
 			wrapper = container.querySelector '.carousel-wrapper'
 			items = $scope.$eval $attrs.items
 			max = $scope.$eval $attrs.max
 			$scope.num = 1
+			$rootScope.currentPosX = null
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 				$scope.num = 2
 			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
@@ -29,7 +30,7 @@ module.exports = ->
 					mouseWheel: $scope.$eval $attrs.mousewheel
 					mouseWheelSpeed: 200	
 				$scope.carousel.on 'scrollEnd', ->
-					console.log @
+					$scope.currentPosX = @
 					return
 				return
 			, 20

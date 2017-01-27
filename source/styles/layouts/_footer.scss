@@ -33,6 +33,10 @@
         top: em(15px);
         bottom: em(15px);
     }
+    transform: translate3d(0, 100%, 0);
+    .handheld & {
+        transform: translate3d(0, 0, 0);
+    }
     a {
         color: $w;
     }

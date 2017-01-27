@@ -43,9 +43,16 @@
             }
         }
     }
-    &-image {
+    &-svg, &-image {
         width: em(164px);
-        transition: $speed opacity, $speed visibility;
+        transition: $speed opacity, $speed visibility;  
+        .job:not(.visible):hover & {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+    }
+    &-image {
         &-overlay {
             position: absolute;
             top: 50%;
@@ -74,10 +81,6 @@
             .job.visible & {
                 fill: $gray !important;
             }
-        }  
-        .job:not(.visible):hover & {
-            opacity: 0;
-            visibility: hidden;
         }
     }
     &-row {
