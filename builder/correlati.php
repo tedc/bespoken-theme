@@ -1,4 +1,12 @@
-<?php 
+<?php
+	if(get_post_type() == 'servizi') :
+		$array_query = array(
+			'post_type' => 'servizi',
+			'post_parent' => ($post->post_parent > 0) ? $post->post_parent : $post->ID,
+			'posts_per_page' => -1,
+			'orderby' => 'name'
+		);
+	else :
 	$ids = array();
 	$types = array();
 	$last = ($row == $count_row) ? true : false;
@@ -7,12 +15,22 @@
 		array_push($ids, $p->ID);
 		array_push($types, $p->post_type);
 	}
-	$query = new WP_Query(
-		array(
+	$array_query = array(
 			'post_type' => $types,
 			'post__in' => $ids,
 			'posts_per_page' => count($posts),
 			'orderby' => 'post__in'
-		)
+		);
+	endif;
+	$query = new WP_Query(
+		$array_query
 	);
-	carousel($query, get_sub_field('n_cols'), 'false', $last); ?>
+	if(get_post_type() == 'servizi') {
+		?>
+	<div class="aligncenter row-lg content">
+		<h3 class="title title-normal-important"><?php _e('Le attività da svolgere', 'bspkn'); ?></h3>
+	</div>
+	<?php }
+	carousel($query, get_sub_field('n_cols'), 'false', $last);
+
+	?>

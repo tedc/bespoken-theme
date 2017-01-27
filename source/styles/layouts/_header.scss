@@ -3,6 +3,7 @@
     min-height: 110vh;
     display: flex;
     flex-direction: column;
+    z-index: 1;
     .gradient {
         @include absfull;
         @include gradient;
