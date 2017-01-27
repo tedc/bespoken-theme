@@ -28,7 +28,8 @@
 				array(
 					'post_type' => 'servizi',
 					'posts_per_page' => -1,
-					'order_by' => 'menu_order'
+					'order_by' => 'menu_order',
+					'post_parent' => 0
 				)
 			); ?>
 		<?php carousel($query, 3, 'true', false); ?>

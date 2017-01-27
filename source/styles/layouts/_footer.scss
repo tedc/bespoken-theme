@@ -1,11 +1,14 @@
 .footer {
     font-size: 12px;
     padding-top: 10px;
-    padding-bottom: em(90px, 12px);
     text-align: center;
     background-color: $w;
     position: relative;
-    z-index: 1;
+    z-index: 1; 
+    padding-bottom: em(65px, 12px);
+    @include breakpoint($bp) {
+        padding-bottom: em(75px, 12px);
+    }
     .link-cookie {
         color: $purple;
         font-weight: bold;
@@ -41,6 +44,7 @@
        min-height: 0;
        min-width: 0;
        width: em(35px);
-       height: em(35px); 
+       height: em(35px);
+       flex: 0 0 auto;
     }
 }
