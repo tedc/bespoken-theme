@@ -7,6 +7,7 @@ $query = new WP_Query(
 				'posts_per_page' => count(get_sub_field('cases'))
 			)
 		);
+var_dump($query);
 if(get_sub_field('tipo') == 0) : ?>
 	<?php $colClass = get_sub_field('cols'); ?>
 	<div class="grid-12 row-lg">
