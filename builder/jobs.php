@@ -1,15 +1,20 @@
 <?php
 $jobs = get_sub_field('posizioni');
+$pattern = '/[\w\-]+\.(svg)/';
 if ($jobs): ?>
     <div class="grid-12 jobs">
     <?php foreach ($jobs as $post): ?>
         <?php setup_postdata($post); ?>
-        <div class="col-<?php the_sub_field("n_cols") ?> job" id="job_<?php the_ID(); ?>"
+        <div class="col-<?php the_sub_field('n_cols') ?> job" id="job_<?php the_ID(); ?>"
              ng-class="{visible : isJob == <?php the_ID(); ?>}">
             <div class="job-row row">
             <figure class="job-icon">
-                <img src="<?php the_field('icon', $post->ID)["url"] ?>" class="job-image">
-                <img src="<?php the_field('icon', $post->ID)["url"] ?>" class="job-image-overlay">
+            <?php if(preg_match($pattern, get_the_field('icon', $post->ID))) : ?>
+                <?php echo file_get_contents(get_the_field('icon')); ?>
+            <?php else : ?>
+                <img src="<?php the_field('icon', $post->ID) ?>" class="job-image">
+                <img src="<?php the_field('icon_white', $post->ID) ?>" class="job-image-overlay">
+            <?php endif; ?>
                 <span class="btn">
                     <span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
                 </span>
