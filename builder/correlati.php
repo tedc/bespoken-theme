@@ -27,8 +27,10 @@
 	);
 	if(get_post_type() == 'servizi') {
 		?>
-	<div class="aligncenter row-lg content">
-		<h3 class="title title-normal-important"><?php _e('Le attività da svolgere', 'bspkn'); ?></h3>
+	<div class="grid-12 row-lg">
+		<div class="col-12 alternate">
+			<h3 class="title title-normal-important"><?php _e('Le attività da svolgere', 'bspkn'); ?></h3>
+		</div>
 	</div>
 	<?php }
 	carousel($query, get_sub_field('n_cols'), 'false', $last);
