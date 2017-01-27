@@ -9,10 +9,10 @@ $query = new WP_Query(
 		);
 if(get_sub_field('case_kind') == 0) : ?>
 	<?php $colClass = get_sub_field('cols'); ?>
-	<div class="grid-12 row-lg">
+	<div class="grid-12 row-lg alternate">
 		<?php 
 		
-		while($query->have_posts) : $query->the_post(); ?>
+		while($query->have_posts()) : $query->the_post(); ?>
 		<li class="col-<?php the_sub_field('cols'); ?>">
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
                 
