@@ -28,7 +28,7 @@
 	if(get_post_type() == 'servizi') {
 		?>
 	<div class="grid-12 alternate row-lg">
-		<div class="col-12 aligncener">
+		<div class="col-12 aligncenter">
 			<h3 class="title title-normal-important"><?php _e('Le attività da svolgere', 'bspkn'); ?></h3>
 		</div>
 	</div>
