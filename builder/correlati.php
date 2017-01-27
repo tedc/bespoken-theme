@@ -1,4 +1,5 @@
 <?php
+	$last = ($row == $count_row) ? true : false;
 	if(get_post_type() == 'servizi') :
 		$array_query = array(
 			'post_type' => 'servizi',
@@ -9,7 +10,6 @@
 	else :
 	$ids = array();
 	$types = array();
-	$last = ($row == $count_row) ? true : false;
 	$posts = get_sub_field('related');
 	foreach ($posts as $p) {
 		array_push($ids, $p->ID);
