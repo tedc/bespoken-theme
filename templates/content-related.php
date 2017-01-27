@@ -12,5 +12,5 @@
 		</div>
 		<span class="btn"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></span>
 	</div>
-	<a href="href="<?php the_permalink(); ?>" class="permalink"></a>
+	<a href="<?php the_permalink(); ?>" class="permalink"></a>
 </div>
