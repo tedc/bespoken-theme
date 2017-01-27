@@ -12,7 +12,7 @@ if ($jobs): ?>
             <?php if(preg_match($pattern, get_field('icon', $post->ID))) : ?>
                 <?php 
                     $svg = file_get_contents(get_field('icon'));
-                    $svg = str_replace('id', 'class="job-image job-svg" id', $svg);
+                    $svg = str_replace('id', 'class="job-svg" id', $svg);
                     echo $svg;
                 ?>
             <?php else : ?>
