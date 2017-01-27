@@ -11,8 +11,8 @@
             <?php else :?>
             <h1 class="title"><?php the_title(); ?></h1>
             <?php endif ?>
-            <?php if (get_field('sottotitolo')) : ?>
-                <h2 class="subtitle"><?php the_field('sottotitolo'); ?></h2>
+            <?php if (get_field('sottotitolo_testata')) : ?>
+                <h2 class="subtitle"><?php the_field('sottotitolo_testata'); ?></h2>
             <?php endif; ?>
         </div>
     </div>
