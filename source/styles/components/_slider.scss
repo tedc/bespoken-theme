@@ -177,6 +177,7 @@
             > p {
                 transition: $speed transform;
                 transform: translate3d(0, 100%, 0);
+                padding-bottom: em(50px, 18px);
             }
         }
         &:hover {

@@ -24,6 +24,10 @@
     align-items: center;
     justify-content: center;
     z-index: 9997;
+    padding: {
+        top: em(15px);
+        bottom: em(15px);
+    }
     a {
         color: $w;
     }
@@ -32,7 +36,9 @@
         padding-right: em(15px);
     }
     .btn {
-        margin-top: em(15px);
-        margin-bottom: em(15px);
+       min-height: 0;
+       min-width: 0;
+       width: em(35px);
+       height: em(35px); 
     }
 }

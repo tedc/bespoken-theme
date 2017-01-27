@@ -11,8 +11,11 @@ module.exports = ->
 					timeDiff = curTime - prevTime
 					if timeDiff > 200      
 						$scope.scroll()
-						console.log on
 				prevTime = curTime
+				return
+			$scope.scrollBack = ->
+				return if $rootScope.currentPosX is null	
+				$rootScope.isScrolled = false if $rootScope.currentPosX.absStartX == $rootScope.currentPosX.x
 				return
 			return
 		]
