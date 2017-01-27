@@ -9,8 +9,8 @@ if ($jobs): ?>
              ng-class="{visible : isJob == <?php the_ID(); ?>}">
             <div class="job-row row">
             <figure class="job-icon">
-            <?php if(preg_match($pattern, get_the_field('icon', $post->ID))) : ?>
-                <?php echo file_get_contents(get_the_field('icon')); ?>
+            <?php if(preg_match($pattern, get_field('icon', $post->ID))) : ?>
+                <?php echo file_get_contents(get_field('icon')); ?>
             <?php else : ?>
                 <img src="<?php the_field('icon', $post->ID) ?>" class="job-image">
                 <img src="<?php the_field('icon_white', $post->ID) ?>" class="job-image-overlay">
