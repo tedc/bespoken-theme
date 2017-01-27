@@ -1,5 +1,6 @@
 
 <?php 
+$pattern = '/[\w\-]+\.(svg)/';
 $query = new WP_Query(
 			array(
 				'post_type' => 'lavori',
