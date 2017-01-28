@@ -12,7 +12,7 @@
             <h5 class="company"><?php the_sub_field('sottotitolo') ?></h5>
         </div>
         <?php if (get_sub_field('video_embed') != "") { ?>       
-        <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)">
+        <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)" ng-class="{visible:isStarted}">
             <youtube-video video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
             <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
             <div class="controls">

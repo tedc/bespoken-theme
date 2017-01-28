@@ -1,8 +1,9 @@
 module.exports = ->
 	player = 
 		scope : on
-		controller : ['$scope', 'loadYoutubeApi', "$attrs", ($scope, loadYoutubeApi, $attrs)->
+		controller : ['$scope', 'loadYoutubeApi', "$attrs", "$timeout", ($scope, loadYoutubeApi, $attrs, $timeout)->
 			$scope.isPlaying = off
+			$scope.isStarted = off
 			loadYoutubeApi
 				.then ->
 					$scope.video =
@@ -14,8 +15,9 @@ module.exports = ->
 							modestbranding : 1
 							showinfo : 0
 					$scope.$on 'youtube.player.playing', ($event, player)->
-						$scope.isPlaying = on
-						console.log player			
+						$timeout ->
+							$scope.isPlaying = on
+						, 0		
 					return
 			return
 		]

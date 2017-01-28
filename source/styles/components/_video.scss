@@ -229,9 +229,9 @@
         height: 2px;
         transition: height $speed;
         position: relative;
-        &:hover {
-            height: 10px;
-        }
+    }
+    &:hover {
+        height: 10px;
     }
     .progress {
         &-bar, &-mask {
