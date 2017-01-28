@@ -44077,7 +44077,7 @@ module.exports = function() {
           if (seconds < 10) {
             seconds = "0" + seconds;
           }
-          return hours + ":" + minutes + "#:{seconds}";
+          return hours + ":" + minutes + ":" + seconds;
         };
         loadYoutubeApi.then(function() {
           $scope.video = {

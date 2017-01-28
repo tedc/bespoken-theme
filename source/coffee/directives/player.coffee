@@ -28,7 +28,7 @@ module.exports = ->
 				hours   = "0#{hours}" if hours < 10
 				minutes = "0#{minutes}" if minutes < 10
 				seconds = "0#{seconds}" if seconds < 10
-				return "#{hours}:#{minutes}#:{seconds}"
+				return "#{hours}:#{minutes}:#{seconds}"
 			loadYoutubeApi
 				.then ->
 					$scope.video =
