@@ -1,14 +1,13 @@
-<div class="video row-lg <?php echo get_sub_field('colore_sfondo') ?>" ng-player>
-    <div class="container-player">
-        <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
-        <div class="video-foreground">
-            <?php
+<?php
             $pattern = '/embed\/(\w+)\?\w+/';
             $oembed = get_sub_field('video_embed');
             $iframe = preg_match($pattern, $oembed, $matches);
-            print_r($matches);
-            $oembed = str_replace('src=', 'id="player_'.get_the_ID().'_'.$row.'" src=', $oembed);
-            echo $oembed; ?>
+?>
+<div class="video row-lg <?php echo get_sub_field('colore_sfondo') ?>" ng-player player="<?php echo $matches[1]; ?>">
+    <div class="container-player">
+        <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
+        <div class="video-foreground">
+            <youtube-video video-id="playerId"></youtube-video>
         </div>
         <h3 class="title-video"><?php _e('La parola del cliente', 'bspkn') ?></h3>
         <div class="clients row">

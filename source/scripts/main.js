@@ -4926,7 +4926,7 @@ module.exports = 'ngCookies';
 
 
 
-},{"iscroll":14,"platform":15}],6:[function(require,module,exports){
+},{"iscroll":16,"platform":17}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -7278,6 +7278,264 @@ require('./angular-touch');
 module.exports = 'ngTouch';
 
 },{"./angular-touch":10}],12:[function(require,module,exports){
+require('./src/angular-youtube-embed');
+module.exports = 'youtube-embed';
+
+},{"./src/angular-youtube-embed":13}],13:[function(require,module,exports){
+/* global YT */
+angular.module('youtube-embed', [])
+.service ('youtubeEmbedUtils', ['$window', '$rootScope', function ($window, $rootScope) {
+    var Service = {}
+
+    // adapted from http://stackoverflow.com/a/5831191/1614967
+    var youtubeRegexp = /https?:\/\/(?:[0-9A-Z-]+\.)?(?:youtu\.be\/|youtube(?:-nocookie)?\.com\S*[^\w\s-])([\w-]{11})(?=[^\w-]|$)(?![?=&+%\w.-]*(?:['"][^<>]*>|<\/a>))[?=&+%\w.-]*/ig;
+    var timeRegexp = /t=(\d+)[ms]?(\d+)?s?/;
+
+    function contains(str, substr) {
+        return (str.indexOf(substr) > -1);
+    }
+
+    Service.getIdFromURL = function getIdFromURL(url) {
+        var id = url.replace(youtubeRegexp, '$1');
+
+        if (contains(id, ';')) {
+            var pieces = id.split(';');
+
+            if (contains(pieces[1], '%')) {
+                // links like this:
+                // "http://www.youtube.com/attribution_link?a=pxa6goHqzaA&amp;u=%2Fwatch%3Fv%3DdPdgx30w9sU%26feature%3Dshare"
+                // have the real query string URI encoded behind a ';'.
+                // at this point, `id is 'pxa6goHqzaA;u=%2Fwatch%3Fv%3DdPdgx30w9sU%26feature%3Dshare'
+                var uriComponent = decodeURIComponent(pieces[1]);
+                id = ('http://youtube.com' + uriComponent)
+                        .replace(youtubeRegexp, '$1');
+            } else {
+                // https://www.youtube.com/watch?v=VbNF9X1waSc&amp;feature=youtu.be
+                // `id` looks like 'VbNF9X1waSc;feature=youtu.be' currently.
+                // strip the ';feature=youtu.be'
+                id = pieces[0];
+            }
+        } else if (contains(id, '#')) {
+            // id might look like '93LvTKF_jW0#t=1'
+            // and we want '93LvTKF_jW0'
+            id = id.split('#')[0];
+        }
+
+        return id;
+    };
+
+    Service.getTimeFromURL = function getTimeFromURL(url) {
+        url = url || '';
+
+        // t=4m20s
+        // returns ['t=4m20s', '4', '20']
+        // t=46s
+        // returns ['t=46s', '46']
+        // t=46
+        // returns ['t=46', '46']
+        var times = url.match(timeRegexp);
+
+        if (!times) {
+            // zero seconds
+            return 0;
+        }
+
+        // assume the first
+        var full = times[0],
+            minutes = times[1],
+            seconds = times[2];
+
+        // t=4m20s
+        if (typeof seconds !== 'undefined') {
+            seconds = parseInt(seconds, 10);
+            minutes = parseInt(minutes, 10);
+
+        // t=4m
+        } else if (contains(full, 'm')) {
+            minutes = parseInt(minutes, 10);
+            seconds = 0;
+
+        // t=4s
+        // t=4
+        } else {
+            seconds = parseInt(minutes, 10);
+            minutes = 0;
+        }
+
+        // in seconds
+        return seconds + (minutes * 60);
+    };
+
+    Service.ready = false;
+
+    function applyServiceIsReady() {
+        $rootScope.$apply(function () {
+            Service.ready = true;
+        });
+    };
+
+    // If the library isn't here at all,
+    if (typeof YT === "undefined") {
+        // ...grab on to global callback, in case it's eventually loaded
+        $window.onYouTubeIframeAPIReady = applyServiceIsReady;
+        console.log('Unable to find YouTube iframe library on this page.')
+    } else if (YT.loaded) {
+        Service.ready = true;
+    } else {
+        YT.ready(applyServiceIsReady);
+    }
+
+    return Service;
+}])
+.directive('youtubeVideo', ['$window', 'youtubeEmbedUtils', function ($window, youtubeEmbedUtils) {
+    var uniqId = 1;
+
+    // from YT.PlayerState
+    var stateNames = {
+        '-1': 'unstarted',
+        0: 'ended',
+        1: 'playing',
+        2: 'paused',
+        3: 'buffering',
+        5: 'queued'
+    };
+
+    var eventPrefix = 'youtube.player.';
+
+    $window.YTConfig = {
+        host: 'https://www.youtube.com'
+    };
+
+    return {
+        restrict: 'EA',
+        scope: {
+            videoId: '=?',
+            videoUrl: '=?',
+            player: '=?',
+            playerVars: '=?',
+            playerHeight: '=?',
+            playerWidth: '=?'
+        },
+        link: function (scope, element, attrs) {
+            // allows us to $watch `ready`
+            scope.utils = youtubeEmbedUtils;
+
+            // player-id attr > id attr > directive-generated ID
+            var playerId = attrs.playerId || element[0].id || 'unique-youtube-embed-id-' + uniqId++;
+            element[0].id = playerId;
+
+            // Attach to element
+            scope.playerHeight = scope.playerHeight || 390;
+            scope.playerWidth = scope.playerWidth || 640;
+            scope.playerVars = scope.playerVars || {};
+
+            // YT calls callbacks outside of digest cycle
+            function applyBroadcast () {
+                var args = Array.prototype.slice.call(arguments);
+                scope.$apply(function () {
+                    scope.$emit.apply(scope, args);
+                });
+            }
+
+            function onPlayerStateChange (event) {
+                var state = stateNames[event.data];
+                if (typeof state !== 'undefined') {
+                    applyBroadcast(eventPrefix + state, scope.player, event);
+                }
+                scope.$apply(function () {
+                    scope.player.currentState = state;
+                });
+            }
+
+            function onPlayerReady (event) {
+                applyBroadcast(eventPrefix + 'ready', scope.player, event);
+            }
+
+            function onPlayerError (event) {
+                applyBroadcast(eventPrefix + 'error', scope.player, event);
+            }
+
+            function createPlayer () {
+                var playerVars = angular.copy(scope.playerVars);
+                playerVars.start = playerVars.start || scope.urlStartTime;
+                var player = new YT.Player(playerId, {
+                    height: scope.playerHeight,
+                    width: scope.playerWidth,
+                    videoId: scope.videoId,
+                    playerVars: playerVars,
+                    events: {
+                        onReady: onPlayerReady,
+                        onStateChange: onPlayerStateChange,
+                        onError: onPlayerError
+                    }
+                });
+
+                player.id = playerId;
+                return player;
+            }
+
+            function loadPlayer () {
+                if (scope.videoId || scope.playerVars.list) {
+                    if (scope.player && typeof scope.player.destroy === 'function') {
+                        scope.player.destroy();
+                    }
+
+                    scope.player = createPlayer();
+                }
+            };
+
+            var stopWatchingReady = scope.$watch(
+                function () {
+                    return scope.utils.ready
+                        // Wait until one of them is defined...
+                        && (typeof scope.videoUrl !== 'undefined'
+                        ||  typeof scope.videoId !== 'undefined'
+                        ||  typeof scope.playerVars.list !== 'undefined');
+                },
+                function (ready) {
+                    if (ready) {
+                        stopWatchingReady();
+
+                        // URL takes first priority
+                        if (typeof scope.videoUrl !== 'undefined') {
+                            scope.$watch('videoUrl', function (url) {
+                                scope.videoId = scope.utils.getIdFromURL(url);
+                                scope.urlStartTime = scope.utils.getTimeFromURL(url);
+
+                                loadPlayer();
+                            });
+
+                        // then, a video ID
+                        } else if (typeof scope.videoId !== 'undefined') {
+                            scope.$watch('videoId', function () {
+                                scope.urlStartTime = null;
+                                loadPlayer();
+                            });
+
+                        // finally, a list
+                        } else {
+                            scope.$watch('playerVars.list', function () {
+                                scope.urlStartTime = null;
+                                loadPlayer();
+                            });
+                        }
+                    }
+            });
+
+            scope.$watchCollection(['playerHeight', 'playerWidth'], function() {
+                if (scope.player) {
+                    scope.player.setSize(scope.playerWidth, scope.playerHeight);
+                }
+            });
+
+            scope.$on('$destroy', function () {
+                scope.player && scope.player.destroy();
+            });
+        }
+    };
+}]);
+
+},{}],14:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -40260,11 +40518,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],13:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":12}],14:[function(require,module,exports){
+},{"./angular":14}],16:[function(require,module,exports){
 /*! iScroll v5.2.0 ~ (c) 2008-2016 Matteo Spinelli ~ http://cubiq.org/license */
 (function (window, document, Math) {
 var rAF = window.requestAnimationFrame	||
@@ -42357,7 +42615,7 @@ if ( typeof module != 'undefined' && module.exports ) {
 
 })(window, document, Math);
 
-},{}],15:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 (function (global){
 /*!
  * Platform.js <https://mths.be/platform>
@@ -43515,7 +43773,7 @@ if ( typeof module != 'undefined' && module.exports ) {
 }.call(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],16:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -43523,7 +43781,7 @@ bspkn = angular.module('bspkn');
 bspkn.animation('.job', ["$window", require('./job.coffee')]);
 
 
-},{"./job.coffee":17}],17:[function(require,module,exports){
+},{"./job.coffee":19}],19:[function(require,module,exports){
 module.exports = function($window) {
   var job;
   return job = {
@@ -43593,7 +43851,7 @@ module.exports = function($window) {
 };
 
 
-},{}],18:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -43604,7 +43862,7 @@ module.exports = function() {
   var carousel;
   return carousel = {
     controller: [
-      "$scope", "$window", "$attrs", "$element", "$timeout", function($scope, $window, $attrs, $element, $timeout) {
+      "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
         var container, itemW, items, max, w, width, wrapper;
         w = angular.element($window);
         container = $element[0].querySelector('.carousel-container');
@@ -43612,6 +43870,7 @@ module.exports = function() {
         items = $scope.$eval($attrs.items);
         max = $scope.$eval($attrs.max);
         $scope.num = 1;
+        $rootScope.currentPosX = null;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
           $scope.num = 2;
         }
@@ -43637,7 +43896,7 @@ module.exports = function() {
             mouseWheelSpeed: 200
           });
           $scope.carousel.on('scrollEnd', function() {
-            console.log(this);
+            $scope.currentPosX = this;
           });
         }, 20);
         $scope.move = function(cond) {
@@ -43671,7 +43930,7 @@ module.exports = function() {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 module.exports = function() {
   var home;
   return home = {
@@ -43689,10 +43948,17 @@ module.exports = function() {
             timeDiff = curTime - prevTime;
             if (timeDiff > 200) {
               $scope.scroll();
-              console.log(true);
             }
           }
           prevTime = curTime;
+        };
+        $scope.scrollBack = function() {
+          if ($rootScope.currentPosX === null) {
+            return;
+          }
+          if ($rootScope.currentPosX.absStartX === $rootScope.currentPosX.x) {
+            $rootScope.isScrolled = false;
+          }
         };
       }
     ]
@@ -43700,15 +43966,15 @@ module.exports = function() {
 };
 
 
-},{}],20:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./video.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
 
 
-},{"./carousel.coffee":18,"./home.coffee":19,"./menu.coffee":21,"./mousewheel.coffee":22,"./slider.coffee":23,"./sm.coffee":24,"./split.coffee":25,"./video.coffee":26}],21:[function(require,module,exports){
+},{"./carousel.coffee":20,"./home.coffee":21,"./menu.coffee":23,"./mousewheel.coffee":24,"./slider.coffee":25,"./sm.coffee":26,"./split.coffee":27,"./video.coffee":28}],23:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -43727,7 +43993,7 @@ module.exports = function() {
 };
 
 
-},{}],22:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 exports.up = function() {
   return function(scope, element, attrs) {
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
@@ -43767,7 +44033,7 @@ exports.down = function() {
 };
 
 
-},{}],23:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function() {
   var slider;
   return slider = {
@@ -43818,7 +44084,7 @@ module.exports = function() {
 };
 
 
-},{}],24:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -43832,6 +44098,8 @@ module.exports = function($rootScope, $timeout) {
     scope: true,
     link: function(scope, element, attrs) {
       var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;
+      $rootScope.isMenu = false;
+      $rootScope.isContact = false;
       if (isMobile) {
         return false;
       }
@@ -43894,7 +44162,7 @@ module.exports = function($rootScope, $timeout) {
 };
 
 
-},{}],25:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -43919,7 +44187,7 @@ module.exports = function($timeout) {
 };
 
 
-},{}],26:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function() {
   var video;
   return video = {
@@ -43957,7 +44225,7 @@ module.exports = function() {
 };
 
 
-},{}],27:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -43976,7 +44244,9 @@ require('angular-animate');
 
 require('angular-iscroll');
 
-bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'angular-iscroll']);
+require('angular-youtube-embed');
+
+bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'angular-iscroll', 'youtube-embed']);
 
 require('./directives/index.coffee');
 
@@ -43985,7 +44255,7 @@ require('./resources/index.coffee');
 require('./animations/index.coffee');
 
 
-},{"./animations/index.coffee":16,"./directives/index.coffee":20,"./resources/index.coffee":29,"angular":13,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11}],28:[function(require,module,exports){
+},{"./animations/index.coffee":18,"./directives/index.coffee":22,"./resources/index.coffee":31,"angular":15,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11,"angular-youtube-embed":12}],30:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -44022,7 +44292,7 @@ module.exports = function() {
 };
 
 
-},{"angular":13}],29:[function(require,module,exports){
+},{"angular":15}],31:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -44042,6 +44312,24 @@ bspkn.service('loadGoogleMapAPI', [
       deferred.resolve();
     };
     loadScript();
+    return deferred.promise;
+  }
+]).service('loadYoutubeApi', [
+  '$window', '$q', function($window, $q) {
+    var deferred, loadJs;
+    deferred = $q.defer();
+    loadJs = function() {
+      script.document.createElement('script');
+      script.id = 'ytApi';
+      script.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(script);
+      deferred.resolve();
+    };
+    if ($window.attachEvent) {
+      $window.attachEvent('onload', loadJs);
+    } else {
+      $window.addEventListener('load', loadJs, false);
+    }
     return deferred.promise;
   }
 ]).factory('storageService', function() {
@@ -44175,4 +44463,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":28}]},{},[27]);
+},{"./form.coffee":30}]},{},[29]);

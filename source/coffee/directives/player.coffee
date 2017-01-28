@@ -3,7 +3,7 @@ module.exports = ->
 		controller : ['$scope', 'loadYoutubeApi', "$attrs", ($scope, loadYoutubeApi, $attrs)->
 			loadYoutubeApi
 				.then ->
-					$scope.playerID
+					$scope.playerId = $attrs.player
 					return
 			return
 		]
