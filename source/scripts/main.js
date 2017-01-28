@@ -44040,7 +44040,7 @@ module.exports = function() {
     scope: true,
     controller: [
       '$scope', 'loadYoutubeApi', "$attrs", "$timeout", "$element", function($scope, loadYoutubeApi, $attrs, $timeout, $element) {
-        var onProgress, progressTimeout, timeToPercentage;
+        var onProgress, progressTimeout, secondsToTime, timeToPercentage;
         $scope.isPlaying = false;
         $scope.isStarted = false;
         $scope.isReady = false;
@@ -44050,6 +44050,7 @@ module.exports = function() {
           TweenMax.to($element[0].querySelector('.progress-mask'), .5, {
             width: (100 - timeToPercentage(player)) + "%"
           });
+          $scope.time = secondsToTime(player.getCurrentTime());
           progressTimeout = $timeout(function() {
             return onProgress(player);
           }, 0);
@@ -44060,6 +44061,23 @@ module.exports = function() {
           current = player.getCurrentTime();
           value = Math.round((current / total) * 100);
           return value;
+        };
+        secondsToTime = function(time) {
+          var hours, minutes, sec_num, seconds;
+          sec_num = parseInt(time, 10);
+          hours = Math.floor(sec_num / 3600);
+          minutes = Math.floor((sec_num - (hours * 3600)) / 60);
+          seconds = sec_num - (hours * 3600) - (minutes * 60);
+          if (hours < 10) {
+            hours = "0" + hours;
+          }
+          if (minutes < 10) {
+            minutes = "0" + minutes;
+          }
+          if (seconds < 10) {
+            seconds = "0" + seconds;
+          }
+          return hours + ":" + minutes + "#:{seconds}";
         };
         loadYoutubeApi.then(function() {
           $scope.video = {
