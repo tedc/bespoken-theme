@@ -8,7 +8,7 @@ module.exports = ->
 			$scope.isPaused = off
 			progressTimeout = null
 			onProgress = (player)->
-				TweenMax.to $element[0].querySelector('.progres-mask'), .5,
+				TweenMax.to $element[0].querySelector('.progress-mask'), .5,
 					width: "#{100 - timeToPercentage(player)}%"
 				progressTimeout = $timeout ->
 					onProgress(player)
