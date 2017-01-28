@@ -6,7 +6,6 @@
 <div class="video row-lg dark-bg">
     <div class="container-player">
         <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
-        <
         <h3 class="title-video"><?php _e('La parola del cliente', 'bspkn') ?></h3>
         <div class="clients row">
             <h4 class="name"><?php the_sub_field('titolo') ?></h4>
