@@ -141,15 +141,15 @@
     bottom: 0;
     width: $f;
     .buttons {
-        height: 50px;
+        height: 25px;
         width: 100px;
         border-radius: $f;
         @include gradient;
-        margin: 0 auto em(20px);
+        margin: 0 auto em(25px);
         display: flex;
     }
-    .play-pause, .stop {
-        width: $f/2;
+    .play-pause, .stop, .fs {
+        width: $f/3;
         transition: background-color $speed;
         &:hover {
             background-color: $w;
@@ -166,8 +166,8 @@
             transition: opacity $speed;
         }
         &:before {
-            width: 10px;
-            height: 20px;
+            width: 8px;
+            height: 10px;
             border: {
                 left: 2px solid $w;
                 right: 2px solid $w;
@@ -177,7 +177,7 @@
         }
         &:after {
             border-style: solid;
-            border-width: 10px 0 10px 15px;
+            border-width: 5px 0 5px 10px;
             border-color: transparent transparent transparent $w;
             content: '';
         }
@@ -201,14 +201,27 @@
     }
     .stop {
         &:before {
-            width: 20px;
-            height: 20px;
+            width: 10px;
+            height: 10px;
             background-color: $w;
             content: '';
         }
         &:hover {
             &:before {
                 background-color: $purple;
+            }
+        }
+    }
+    .fs {
+        &:before {
+            width: 10px;
+            height: 10px;
+            border: 2px solid $w;
+            content: '';
+        }
+        &:hover {
+            &:before {
+                border-color: $purple;
             }
         }
     }

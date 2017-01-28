@@ -19,6 +19,7 @@
                 <div class="buttons">
                     <span class="play-pause" ng-click="playPause()"></span>
                     <span class="stop" ng-click="video.player.stopVideo()"></span>
+                    <span class="fs" ng-click="video.player."></span>
                 </div>
                 <div class="status-bar">
                     <div class="progress-bar"></div>
