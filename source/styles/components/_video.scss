@@ -64,6 +64,7 @@
         align-items: center;
         justify-content: center;
         transition: opacity $speed;
+        opacity: 0;
         &:after {
             content: "";
             width: 0;
@@ -75,6 +76,9 @@
             }
             left: em(5px);
             position: relative;
+        }
+        &.visible {
+            opacity: 1;
         }
         &:hover {
             opacity: 0.3;
@@ -205,7 +209,10 @@
         }
     }
     .stop {
-        border: 1px solid $violet;
+        border: {
+            left: 1px solid $violet;
+            right: 1px soldi $violet;
+        }
         &:before {
             width: 10px;
             height: 10px;

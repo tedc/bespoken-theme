@@ -20,11 +20,14 @@ module.exports = ->
 						$timeout ->
 							$scope.isPlaying = on
 						, 0
+						console.log player
+						return
 					$scope.$on 'youtube.player.ready', ($event, player)->
 						$timeout ->
 							$scope.isReady = on
 						, 0
-					$scope.playPause = ()->
+						return
+					$scope.playPause = (player)->
 						if player.getPlayerState() is 1
 							$scope.isPaused = off
 						else

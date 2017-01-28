@@ -44056,16 +44056,17 @@ module.exports = function() {
             }
           };
           $scope.$on('youtube.player.playing', function($event, player) {
-            return $timeout(function() {
+            $timeout(function() {
               return $scope.isPlaying = true;
             }, 0);
+            console.log(player);
           });
           $scope.$on('youtube.player.ready', function($event, player) {
-            return $timeout(function() {
+            $timeout(function() {
               return $scope.isReady = true;
             }, 0);
           });
-          $scope.playPause = function() {
+          $scope.playPause = function(player) {
             if (player.getPlayerState() === 1) {
               $scope.isPaused = false;
             } else {
