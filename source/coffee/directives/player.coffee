@@ -12,7 +12,7 @@ module.exports = ->
 					width: "#{100 - timeToPercentage(player)}%"
 				progressTimeout = $timeout ->
 					onProgress(player)
-				, 20
+				, 0
 				return
 			timeToPercentage = (player)->
 				total = player.getDuration()

@@ -44052,7 +44052,7 @@ module.exports = function() {
           });
           progressTimeout = $timeout(function() {
             return onProgress(player);
-          }, 20);
+          }, 0);
         };
         timeToPercentage = function(player) {
           var current, total, value;
