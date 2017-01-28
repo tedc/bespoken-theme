@@ -147,10 +147,14 @@
         @include gradient;
         margin: 0 auto em(20px);
         display: flex;
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
     }
     .play-pause, .stop, .fs {
         width: $f/3;
         transition: background-color $speed;
+        position: relative;
         &:hover {
             background-color: $w;
         }
