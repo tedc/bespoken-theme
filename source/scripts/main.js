@@ -44042,6 +44042,8 @@ module.exports = function() {
       '$scope', 'loadYoutubeApi', "$attrs", "$timeout", function($scope, loadYoutubeApi, $attrs, $timeout) {
         $scope.isPlaying = false;
         $scope.isStarted = false;
+        $scope.isReady = false;
+        $scope.isPaused = false;
         loadYoutubeApi.then(function() {
           $scope.video = {
             id: $attrs.player,
@@ -44058,6 +44060,18 @@ module.exports = function() {
               return $scope.isPlaying = true;
             }, 0);
           });
+          $scope.$on('youtube.player.ready', function($event, player) {
+            return $timeout(function() {
+              return $scope.isReady = true;
+            }, 0);
+          });
+          $scope.playPause = function() {
+            if (player.getPlayerState() === 1) {
+              $scope.isPaused = false;
+            } else {
+              $scope.isPaused = true;
+            }
+          };
         });
       }
     ]

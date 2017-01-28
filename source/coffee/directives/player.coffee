@@ -4,6 +4,8 @@ module.exports = ->
 		controller : ['$scope', 'loadYoutubeApi', "$attrs", "$timeout", ($scope, loadYoutubeApi, $attrs, $timeout)->
 			$scope.isPlaying = off
 			$scope.isStarted = off
+			$scope.isReady = off
+			$scope.isPaused = off
 			loadYoutubeApi
 				.then ->
 					$scope.video =
@@ -17,7 +19,17 @@ module.exports = ->
 					$scope.$on 'youtube.player.playing', ($event, player)->
 						$timeout ->
 							$scope.isPlaying = on
-						, 0		
+						, 0
+					$scope.$on 'youtube.player.ready', ($event, player)->
+						$timeout ->
+							$scope.isReady = on
+						, 0
+					$scope.playPause = ()->
+						if player.getPlayerState() is 1
+							$scope.isPaused = off
+						else
+							$scope.isPaused = on
+						return
 					return
 			return
 		]
