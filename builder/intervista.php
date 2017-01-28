@@ -17,7 +17,7 @@
             <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
             <div class="controls">
                 <div class="buttons">
-                    <span class="play-pause" ng-click="playPause(video.player)"></span>
+                    <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
                     <span class="stop" ng-click="video.player.stopVideo()"></span>
                     <span class="fs"></span>
                 </div>
