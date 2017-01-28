@@ -44334,7 +44334,8 @@ bspkn.service('loadGoogleMapAPI', [
     var deferred, loadJs;
     deferred = $q.defer();
     loadJs = function() {
-      script.document.createElement('script');
+      var script;
+      script = document.createElement('script');
       script.id = 'ytApi';
       script.src = 'https://www.youtube.com/iframe_api';
       document.body.appendChild(script);
