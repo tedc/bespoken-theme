@@ -6,6 +6,13 @@ module.exports = ->
 			$scope.isStarted = off
 			$scope.isReady = off
 			$scope.isPaused = off
+			progressTimeout = null
+			onProgress = (player)->
+				console.log player.getCurrentTime()
+				progressTimeout = $timeout ->
+					onProgress(player)
+				, 20
+				return
 			loadYoutubeApi
 				.then ->
 					$scope.video =
@@ -19,8 +26,19 @@ module.exports = ->
 					$scope.$on 'youtube.player.playing', ($event, player)->
 						$timeout ->
 							$scope.isPlaying = on
+							$scope.isPaused = off
 						, 0
-						console.log player
+						onProgress(player)
+						return
+					$scope.$on 'youtube.player.paused', ($event, player)->
+						$timeout ->
+							$scope.isPaused = on
+						, 0
+						$timeout.cancel( progressTimeout )if progressTimeout isnt null
+
+						return
+					$scope.$on 'youtube.player.ended', ($event, player)->
+						$timeout.cancel( progressTimeout )if progressTimeout isnt null
 						return
 					$scope.$on 'youtube.player.ready', ($event, player)->
 						$timeout ->
@@ -29,9 +47,9 @@ module.exports = ->
 						return
 					$scope.playPause = (player)->
 						if player.getPlayerState() is 1
-							$scope.isPaused = off
+							player.pauseVideo()
 						else
-							$scope.isPaused = on
+							player.playVideo()
 						return
 					return
 			return

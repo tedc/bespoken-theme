@@ -44040,10 +44040,18 @@ module.exports = function() {
     scope: true,
     controller: [
       '$scope', 'loadYoutubeApi', "$attrs", "$timeout", function($scope, loadYoutubeApi, $attrs, $timeout) {
+        var onProgress, progressTimeout;
         $scope.isPlaying = false;
         $scope.isStarted = false;
         $scope.isReady = false;
         $scope.isPaused = false;
+        progressTimeout = null;
+        onProgress = function(player) {
+          console.log(player.getCurrentTime());
+          progressTimeout = $timeout(function() {
+            return onProgress(player);
+          }, 20);
+        };
         loadYoutubeApi.then(function() {
           $scope.video = {
             id: $attrs.player,
@@ -44057,9 +44065,23 @@ module.exports = function() {
           };
           $scope.$on('youtube.player.playing', function($event, player) {
             $timeout(function() {
-              return $scope.isPlaying = true;
+              $scope.isPlaying = true;
+              return $scope.isPaused = false;
             }, 0);
-            console.log(player);
+            onProgress(player);
+          });
+          $scope.$on('youtube.player.paused', function($event, player) {
+            $timeout(function() {
+              return $scope.isPaused = true;
+            }, 0);
+            if (progressTimeout !== null) {
+              $timeout.cancel(progressTimeout);
+            }
+          });
+          $scope.$on('youtube.player.ended', function($event, player) {
+            if (progressTimeout !== null) {
+              $timeout.cancel(progressTimeout);
+            }
           });
           $scope.$on('youtube.player.ready', function($event, player) {
             $timeout(function() {
@@ -44068,9 +44090,9 @@ module.exports = function() {
           });
           $scope.playPause = function(player) {
             if (player.getPlayerState() === 1) {
-              $scope.isPaused = false;
+              player.pauseVideo();
             } else {
-              $scope.isPaused = true;
+              player.playVideo();
             }
           };
         });
