@@ -13,7 +13,7 @@
         </div>
         <?php if (get_sub_field('video_embed') != "") { ?>       
         <div class="video-foreground" ng-player player="<?php echo $matches[1]; ?>">
-            <youtube-video video-id="player.id" video-vars="player.vars"></youtube-video>
+            <youtube-video video-id="video.id" video-vars="video.vars"></youtube-video>
             <?php close('isModal=false;isMenu=false'); ?>   
         </div> 
         <span class="play"></span>        
