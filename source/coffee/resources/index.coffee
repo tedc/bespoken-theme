@@ -14,6 +14,16 @@ bspkn
             loadScript()
             return deferred.promise
         ]
+    .service 'loadYoutubeApi', ['$window', '$q', ($window, $q)->
+        deferred = $q.defer()
+        loadJs = ->
+            script.document.createElement 'script'
+            script.id = 'ytApi'
+            script.src = 'https://www.youtube.com/iframe_api'
+            document.body.appendChild script
+            return
+        return
+    ]
     .factory 'storageService', ->
         storage =
             get : (key)->

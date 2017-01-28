@@ -1,6 +1,5 @@
 <div class="container-cornice">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 972 68" enable-background="new 0 0 972 68" xml:space="preserve">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" preserveAspectRatio="xMinYMin meet" viewBox="0 0 972 68" enable-background="new 0 0 972 68" xml:space="preserve">
 <g>
 	<rect y="32.7" fill="#FFFFFF" width="972" height="35.3"/>
 	<path fill="#E0E0E0" d="M972,33V11.3C972,5.1,966.9,0,960.7,0H11.3C5.1,0,0,5.1,0,11.3V33H972z"/>
