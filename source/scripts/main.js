@@ -44037,8 +44037,10 @@ exports.down = function() {
 module.exports = function() {
   var player;
   return player = {
+    scope: true,
     controller: [
       '$scope', 'loadYoutubeApi', "$attrs", function($scope, loadYoutubeApi, $attrs) {
+        $scope.isPlaying = false;
         loadYoutubeApi.then(function() {
           $scope.video = {
             id: $attrs.player,
@@ -44050,6 +44052,10 @@ module.exports = function() {
               showinfo: 0
             }
           };
+          $scope.$on('youtube.player.playing', function($event, player) {
+            $scope.isPlaying = true;
+            return console.log(player);
+          });
         });
       }
     ]
