@@ -150,6 +150,7 @@
         position: relative;
         z-index: 1;
         overflow: hidden;
+        box-shadow: 0 5px 10px transparentize($b, .75);
     }
     .play-pause, .stop, .fs {
         width: $f/3;
@@ -162,7 +163,7 @@
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate3d(0,-50%,0);
+            transform: translate3d(-50%,-50%,0);
         }
     }
     .play-pause {
@@ -204,6 +205,7 @@
         }
     }
     .stop {
+        border: 1px solid $violet;
         &:before {
             width: 10px;
             height: 10px;

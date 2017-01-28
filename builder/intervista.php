@@ -17,7 +17,7 @@
             <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
             <div class="controls">
                 <div class="buttons">
-                    <span class="play-pause" ng-click="playPause()"></span>
+                    <span class="play-pause" ng-click="playPause(video.player)"></span>
                     <span class="stop" ng-click="video.player.stopVideo()"></span>
                     <span class="fs"></span>
                 </div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </div> 
-        <span class="play" ng-click="isStarted=true;video.player.playVideo()"></span>        
+        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
         <?php } ?>
     </div>
 </div>
