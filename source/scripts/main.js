@@ -44040,7 +44040,16 @@ module.exports = function() {
     controller: [
       '$scope', 'loadYoutubeApi', "$attrs", function($scope, loadYoutubeApi, $attrs) {
         loadYoutubeApi.then(function() {
-          $scope.playerId = $attrs.player;
+          $scope.video = {
+            id: $attrs.player,
+            player: null,
+            modestbranding: 1,
+            showinfo: 0,
+            vars: {
+              controls: 0,
+              rel: 0
+            }
+          };
         });
       }
     ]

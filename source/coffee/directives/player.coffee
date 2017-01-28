@@ -3,7 +3,14 @@ module.exports = ->
 		controller : ['$scope', 'loadYoutubeApi', "$attrs", ($scope, loadYoutubeApi, $attrs)->
 			loadYoutubeApi
 				.then ->
-					$scope.playerId = $attrs.player
+					$scope.video =
+						id : $attrs.player
+						player : null
+						modestbranding : 1
+						showinfo : 0
+						vars :
+							controls : 0
+							rel : 0
 					return
 			return
 		]
