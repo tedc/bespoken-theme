@@ -12,7 +12,7 @@ module.exports = ->
 				TweenMax.to $element[0].querySelector('.progress-mask'), .5,
 					width: "#{100 - timeToPercentage(player)}%"
 				$scope.time = secondsToTime(player.getCurrentTime())
-				$scope.isHalf = if timeToPercentage(player.getCurrentTime()) then on else off
+				$scope.isHalf = if timeToPercentage(player) >= 50 then on else off
 				progressTimeout = $timeout ->
 					onProgress(player)
 				, 0
