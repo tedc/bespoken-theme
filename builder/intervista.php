@@ -3,7 +3,7 @@
         <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
         <div class="video-foreground">
             <?php
-            $pattern = '/embed\/(\w+)\?\d+/';
+            $pattern = '/embed\/(\w+)\?\w+/';
             $oembed = get_sub_field('video_embed');
             $iframe = preg_match($pattern, $oembed, $matches);
             print_r($iframe);
