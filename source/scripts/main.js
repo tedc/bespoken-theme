@@ -43971,10 +43971,10 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./video.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
+bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
 
 
-},{"./carousel.coffee":20,"./home.coffee":21,"./menu.coffee":23,"./mousewheel.coffee":24,"./slider.coffee":25,"./sm.coffee":26,"./split.coffee":27,"./video.coffee":28}],23:[function(require,module,exports){
+},{"./carousel.coffee":20,"./home.coffee":21,"./menu.coffee":23,"./mousewheel.coffee":24,"./player.coffee":25,"./slider.coffee":26,"./sm.coffee":27,"./split.coffee":28,"./video.coffee":29}],23:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -44035,6 +44035,21 @@ exports.down = function() {
 
 },{}],25:[function(require,module,exports){
 module.exports = function() {
+  var player;
+  return player = {
+    controller: [
+      '$scope', 'loadYoutubeApi', "$attrs", function($scope, loadYoutubeApi, $attrs) {
+        loadYoutubeApi.then(function() {
+          $scope.playerId = $attrs.player;
+        });
+      }
+    ]
+  };
+};
+
+
+},{}],26:[function(require,module,exports){
+module.exports = function() {
   var slider;
   return slider = {
     scope: true,
@@ -44084,7 +44099,7 @@ module.exports = function() {
 };
 
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -44162,7 +44177,7 @@ module.exports = function($rootScope, $timeout) {
 };
 
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -44187,7 +44202,7 @@ module.exports = function($timeout) {
 };
 
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 module.exports = function() {
   var video;
   return video = {
@@ -44225,7 +44240,7 @@ module.exports = function() {
 };
 
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -44255,7 +44270,7 @@ require('./resources/index.coffee');
 require('./animations/index.coffee');
 
 
-},{"./animations/index.coffee":18,"./directives/index.coffee":22,"./resources/index.coffee":31,"angular":15,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11,"angular-youtube-embed":12}],30:[function(require,module,exports){
+},{"./animations/index.coffee":18,"./directives/index.coffee":22,"./resources/index.coffee":32,"angular":15,"angular-animate":2,"angular-cookies":4,"angular-iscroll":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11,"angular-youtube-embed":12}],31:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -44292,7 +44307,7 @@ module.exports = function() {
 };
 
 
-},{"angular":15}],31:[function(require,module,exports){
+},{"angular":15}],32:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -44463,4 +44478,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":30}]},{},[29]);
+},{"./form.coffee":31}]},{},[30]);
