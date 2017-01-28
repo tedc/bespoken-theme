@@ -2,8 +2,11 @@
     <div class="container-player">
         <img class="screenshot" src="<?php echo get_sub_field('video') ?>">
         <div class="video-foreground">
-            <?php 
+            <?php
+            $pattern = 'embed\/(\w+)\?rel=\d+';
             $oembed = get_sub_field('video_embed');
+            $iframe = preg_match($pattern, $oembed, $matches);
+            print_r($iframe);
             $oembed = str_replace('src=', 'id="player_'.get_the_ID().'_'.$row.'" src=', $oembed);
             echo $oembed; ?>
         </div>

@@ -21,8 +21,13 @@ bspkn
             script.id = 'ytApi'
             script.src = 'https://www.youtube.com/iframe_api'
             document.body.appendChild script
+            deferred.resolve()
             return
-        return
+        if $window.attachEvent
+            $window.attachEvent 'onload', loadJs
+        else
+            $window.addEventListener 'load', loadJs, off
+        return deferred.promise
     ]
     .factory 'storageService', ->
         storage =
