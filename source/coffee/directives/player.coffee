@@ -6,11 +6,11 @@ module.exports = ->
 					$scope.video =
 						id : $attrs.player
 						player : null
-						modestbranding : 1
-						showinfo : 0
 						vars :
 							controls : 0
 							rel : 0
+							modestbranding : 1
+							showinfo : 0					
 					return
 			return
 		]
