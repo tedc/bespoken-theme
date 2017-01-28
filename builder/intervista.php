@@ -6,7 +6,7 @@
             $pattern = '/embed\/(\w+)\?\w+/';
             $oembed = get_sub_field('video_embed');
             $iframe = preg_match($pattern, $oembed, $matches);
-            print_r($iframe);
+            print_r($matches);
             $oembed = str_replace('src=', 'id="player_'.get_the_ID().'_'.$row.'" src=', $oembed);
             echo $oembed; ?>
         </div>
