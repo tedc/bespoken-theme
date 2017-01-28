@@ -44044,6 +44044,7 @@ module.exports = function() {
         $scope.isPlaying = false;
         $scope.isStarted = false;
         $scope.isReady = false;
+        $scope.isHalf = false;
         $scope.isPaused = false;
         progressTimeout = null;
         onProgress = function(player) {
@@ -44051,6 +44052,7 @@ module.exports = function() {
             width: (100 - timeToPercentage(player)) + "%"
           });
           $scope.time = secondsToTime(player.getCurrentTime());
+          $scope.isHalf = timeToPercentage(player.getCurrentTime()) ? true : false;
           progressTimeout = $timeout(function() {
             return onProgress(player);
           }, 0);

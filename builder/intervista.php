@@ -24,7 +24,7 @@
                 <div class="status-bar">
                     <div class="progress-bar"></div>
                     <div class="progress-mask">
-                        <span class="time" ng-bind-html="time"></span>
+                        <span class="time" ng-bind-html="time" ng-class="{invert: isHalf}"></span>
                     </div>
                 </div>
             </div>

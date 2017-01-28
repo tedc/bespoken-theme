@@ -263,12 +263,18 @@
     }
     .time {
         position: absolute;
-        top: $f*-1;
+        top: 0;
         left: 0;
         padding: 0 0 5px;
         font-size: 12px;
         color: $w;
         font-weight: 500;
         text-transform: uppercase;
+        transition: transform $speed;
+        transform: translate3d(0,$f*-1,0);
+        &.invert {
+            transform: translate3d($f*-1,$f*-1,0);
+
+        }
     }
 }
