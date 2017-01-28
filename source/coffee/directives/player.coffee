@@ -1,18 +1,24 @@
 module.exports = ->
 	player = 
 		scope : on
-		controller : ['$scope', 'loadYoutubeApi', "$attrs", "$timeout", ($scope, loadYoutubeApi, $attrs, $timeout)->
+		controller : ['$scope', 'loadYoutubeApi', "$attrs", "$timeout", "$element", ($scope, loadYoutubeApi, $attrs, $timeout, $element)->
 			$scope.isPlaying = off
 			$scope.isStarted = off
 			$scope.isReady = off
 			$scope.isPaused = off
 			progressTimeout = null
 			onProgress = (player)->
-				console.log player.getCurrentTime()
+				TweenMax.to $element[0].querySelector('.progres-mask'), .5,
+					width: "#{100 - timeToPercentage(player)}%"
 				progressTimeout = $timeout ->
 					onProgress(player)
 				, 20
 				return
+			timeToPercentage = (player)->
+				total = player.getDuration()
+				current = player.getCurrentTime()
+				value = Math.round ( current / total ) * 100
+				return value
 			loadYoutubeApi
 				.then ->
 					$scope.video =
