@@ -108,6 +108,7 @@ textarea {
 
 .form {
 	display: flex;
+	flex-wrap: wrap;
 	&-col {
 		@include breakpoint($bp) {
 			width: $f/2;
