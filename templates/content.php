@@ -1,5 +1,5 @@
 <?php $postClass = ($count%2 == 0) ? '' : 'alt'; ?>
-<article <?php post_class(); ?>>
+<article <?php post_class($postClass); ?>>
 	<figure class="entry-figure" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>)">
 		<?php the_post_thumbnail('large'); ?>
 	</figure>
