@@ -55,7 +55,8 @@ module.exports = ->
 						$timeout.cancel( progressTimeout )if progressTimeout isnt null
 						return
 					$scope.$on 'youtube.player.ended', ($event, player)->
-						$timeout.cancel( progressTimeout )if progressTimeout isnt null
+						$timeout.cancel( progressTimeout ) if progressTimeout isnt null
+						$scope.isPlaying = off
 						$scope.isPaused = on
 						TweenMax.to $element[0].querySelector('.progress-mask'), .5,
 							width: "100%"
