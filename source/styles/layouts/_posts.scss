@@ -1,0 +1,35 @@
+.blog, .category {
+	.entry {
+		&-figure, &-content {
+			flex: 0 0 auto;
+			width: $f;
+		}
+		&-figure {
+			@include breakpoint($bp) {
+				width: $f/3;
+				background: {
+					size: cover;
+					position: center;
+					repeat: no-repeat;
+				}
+				img {
+					display: none;
+				}
+			}
+		}
+		&-content {
+			@include breakpoint($bp) {
+				width: ( $f/3 ) * 2;
+			}
+		}
+	}
+	.type-post {
+		display: flex;
+		flex-wrap: wrap;
+		&.alt {
+			.entry-content {
+				order: 0;
+			}
+		}
+	}
+}
