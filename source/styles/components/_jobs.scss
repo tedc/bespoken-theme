@@ -75,7 +75,7 @@
     &-svg {
         width: em(164px);
         transition: $speed opacity, $speed visibility;
-        path, rect, circle {
+        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
             transition: $speed fill;
             fill: $purple !important;    
             .job.visible & {

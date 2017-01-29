@@ -223,7 +223,7 @@
         }
     }
     &-svg {
-        path, circle, rect {
+        path, circle, rect, polygon, [class^="st"], [class*=" st"]  {
             fill: $w !important;
         }
     }
