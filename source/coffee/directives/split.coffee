@@ -4,9 +4,8 @@ module.exports = ($timeout)->
 			words = $element[0].querySelectorAll('.word')
 			tl = new TimelineMax
 				repeat : -1
-			for i in [0..words.length]
+			for i in [0..words.length - 1]
 				next = if i < words.length - 1 then i + 1 else 0
-				console.log words[i], words[next]
 				tween1 = TweenMax.to words[i], .5,
 					autoAlpha : off
 				tween2 = TweenMax.to words[next], .5,
