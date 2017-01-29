@@ -43971,24 +43971,27 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngMenuText', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
+bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]);
 
 
 },{"./carousel.coffee":20,"./home.coffee":21,"./menu.coffee":23,"./mousewheel.coffee":24,"./player.coffee":25,"./slider.coffee":26,"./sm.coffee":27,"./split.coffee":28,"./video.coffee":29}],23:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
-    link: function(scope, element, attrs) {
-      var html, i, j, len, text;
-      text = element.text();
-      html = '<span class="btn-menu-text-content">';
-      for (j = 0, len = text.length; j < len; j++) {
-        i = text[j];
-        html += "<span class='letter'>" + i + "</span>";
+    controller: [
+      "$scope", "$rootScope", "$timeout", function($scope, $rootScope, $timeout) {
+        $rootScope.isModal = false;
+        $rootScope.isContact = false;
+        $rootScope.isMenu = false;
+        $scope.modal = function(kind, istance) {
+          $rootScope.isModal = true;
+          kind = true;
+          $timeout(function() {
+            return istance.refresh();
+          }, 500);
+        };
       }
-      html += '</span>';
-      element.empty().prepend(html).append(html);
-    }
+    ]
   };
 };
 
@@ -44222,8 +44225,6 @@ module.exports = function($rootScope, $timeout) {
     scope: true,
     link: function(scope, element, attrs) {
       var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;
-      $rootScope.isMenu = false;
-      $rootScope.isContact = false;
       if (isMobile) {
         return false;
       }

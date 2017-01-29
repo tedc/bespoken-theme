@@ -1,10 +1,15 @@
 module.exports = ->
 	menu = 
-		link : (scope, element, attrs)->
-			text = element.text()
-			html = '<span class="btn-menu-text-content">'
-			for i in text
-				html += "<span class='letter'>#{i}</span>"
-			html += '</span>'
-			element.empty().prepend(html).append(html)
+		controller : ["$scope", "$rootScope", "$timeout", ($scope, $rootScope, $timeout)->
+			$rootScope.isModal = off
+			$rootScope.isContact = off
+			$rootScope.isMenu = off
+			$scope.modal = (kind, istance)->
+				$rootScope.isModal = on
+				kind = on
+				$timeout ->
+					istance.refresh()
+				, 500
+				return
 			return
+		]

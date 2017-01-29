@@ -4,7 +4,7 @@
 </footer>
 <nav class="cat" ng-sm trigger-element="#header" trigger-hook="onLeave" to="{y : '0%'}" offset="70">
     <span class="cat-text"><?php the_field('frase_sub_footer', 'option'); ?></span>
-    <span class="btn" ng-click="isModal=true;isContact=true">
+    <span class="btn" ng-click="modal(isContact, contact)" ng-modal>
         <span class="btn-line">
             <span class="btn-arrow-up"></span>
             <span class="btn-arrow-down"></span>

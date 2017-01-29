@@ -4,8 +4,6 @@ module.exports = ($rootScope, $timeout)->
     sm =
         scope: on
         link: (scope, element, attrs)->
-            $rootScope.isMenu = off
-            $rootScope.isContact = off
             return off if isMobile
             ## EVAL DURATION
             duration = if attrs.duration and attrs.duration.indexOf('%') isnt -1 then attrs.duration else (if attrs.duration then scope.$eval attrs.duration else 0)

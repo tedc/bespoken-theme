@@ -1,4 +1,4 @@
-<div class="modal-container" ng-class="{visible : isContact}" iscroll="{scrollbars: true, mousewheel : true}">
+<div class="modal-container" ng-class="{visible : isContact}" iscroll="{scrollbars: true, mousewheel : true}" iscroll-instance="contact">
 	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
 		<?php close('isModal=false;isContact=false'); ?>
 		<div class="form-content row-lg">

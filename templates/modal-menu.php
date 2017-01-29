@@ -1,4 +1,4 @@
-<div class="modal-container" ng-class="{visible : isMenu}" iscroll="{scrollbars: true, mousewheel : true}">
+<div class="modal-container" ng-class="{visible : isMenu}" iscroll="{scrollbars: true, mousewheel : true}" iscroll-instance="menu">
 	<div class="menu">
 		<div class="gradient"></div>
 		<?php close('isModal=false;isMenu=false'); ?>
