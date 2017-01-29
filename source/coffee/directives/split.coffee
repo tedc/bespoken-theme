@@ -12,7 +12,7 @@ module.exports = ($timeout)->
 				tween2 = TweenMax.to words[next], .5,
 					autoAlpha : on
 				tl
-					.add tween1, tween2
+					.add [tween1, tween2]
 					, "+=#{s}s"
 			return
 		]

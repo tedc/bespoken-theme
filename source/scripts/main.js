@@ -40659,7 +40659,7 @@ module.exports = function($timeout) {
           tween2 = TweenMax.to(words[next], .5, {
             autoAlpha: true
           });
-          tl.add(tween1, tween2, "+=" + s + "s");
+          tl.add([tween1, tween2], "+=" + s + "s");
         }
       }
     ]
