@@ -3,6 +3,13 @@
     overflow: hidden;
     max-width: $max-width;
     margin: 0 auto;
+    width: calc(100% - #{em(200px)});
+    @include breakpoint(1000px) {
+        width: $f;
+    }
+    .full & {
+        width: $f;
+    }
     .mask {
         position: absolute;
         top: 0%;
@@ -209,21 +216,40 @@
             min-width: em(35px);
         }
         .btn-prev {
-            left: 10px;
-            @include breakpoint(640px){
-                left: em(25px);
-            }
-            @include breakpoint($bp){
-                left: em(50px);
-            }
+            left: em(50px)*-1;
         }
         .btn-next {
-            right: 10px;
-            @include breakpoint(640px){
-                right: em(25px);
+            left: em(50px)*-1;
+        }
+        .full & {
+            .btn-prev, .btn-next {
+                border-color: $w;
+                &:after, &:before {
+                    border-color: $w;
+                }
+                .btn{
+                    &-line, &-arrow-up, &-arrow-down {
+                        background-color: $w;
+                    }
+                }
             }
-            @include breakpoint($bp){
-                right: em(50px);
+            .btn-prev {
+                left: 10px;
+                @include breakpoint(640px){
+                    left: em(25px);
+                }
+                @include breakpoint($bp){
+                    left: em(50px);
+                }
+            }
+            .btn-next {
+                right: 10px;
+                @include breakpoint(640px){
+                    right: em(25px);
+                }
+                @include breakpoint($bp){
+                    right: em(50px);
+                }
             }
         }
     }

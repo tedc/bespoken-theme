@@ -115,6 +115,7 @@ textarea {
 	display: flex;
 	flex-wrap: wrap;
 	.btn.close {
+		border-color: $purple;
 		&:after, &:before {
 			border-color: $purple;
 		}
@@ -147,9 +148,11 @@ textarea {
 		flex: 0 0 auto;
 		flex-wrap: wrap;
 		padding: {
-			top: em(250px);
 	        left: 10px;
 	        right: 10px;
+	    }
+	    .modal-container & {
+	    	padding-top: em(250px) !important;
 	    }
 	    @include breakpoint(640px){
 	        padding: {

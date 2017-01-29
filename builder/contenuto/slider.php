@@ -17,9 +17,6 @@ endif;?>
 
     endif;
     
-    if (get_sub_field('cornice')== true) :
-        get_template_part('templates/cornice');
-    endif;
 
     if (get_sub_field('tipologia') == 'immagini') {
         $max = count(get_sub_field('galleria_immagini')) - 1; 
@@ -30,7 +27,12 @@ endif;?>
 ?>
 
     <div class="slider" ng-slider ng-swipe-left="dir(true, pos, <?php echo $max; ?>)" ng-swipe-right="dir(false, pos, <?php echo $max; ?>)">
-        <?php $itemClass = (get_sub_field('navigatore') == 'number') ? ' slider-wrapper-contain' : ''; ?>
+        <?php 
+            $itemClass = (get_sub_field('navigatore') == 'number') ? ' slider-wrapper-contain' : ''; 
+            if (get_sub_field('cornice')== true) :
+                get_template_part('templates/cornice');
+            endif; 
+        ?>
         <div class="slider-wrapper<?php echo $itemClass; ?>">
             <?php if (get_sub_field('tipologia') == 'immagini') : ?>
                 <?php $images = get_sub_field('galleria_immagini'); ?>
