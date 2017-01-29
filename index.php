@@ -8,7 +8,7 @@
 <?php endif; ?>
 
 <?php $count = 0; while (have_posts()) : the_post(); ?>
-  <?php include(locate_template('templates/content-'. get_post_type() != 'post' ? get_post_type() : get_post_format() .'.php', false, false)); ?>
+  <?php include(locate_template('templates/content.php', false, false)); ?>
 <?php $count++; endwhile; ?>
 
 <?php the_posts_navigation(); ?>
