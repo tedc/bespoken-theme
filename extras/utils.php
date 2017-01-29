@@ -3,7 +3,7 @@
 		echo '<span class="btn close" ng-click="'.$ngClick.'"><span class="btn-line"></span><span class="btn-line"></span></span>';
 	}
 
-	function carousel($q, $el, $mw, $l) { ?>
+	function carousel($q, $el, $mw, $l = false) { ?>
 		<?php
 			if($q->have_posts()) : 
 		?>
