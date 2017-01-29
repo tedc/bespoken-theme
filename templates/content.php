@@ -1,3 +1,4 @@
+<?php $postClass = ($count%2 == 0) ? '' : 'alt'; ?>
 <article <?php post_class(); ?>>
 	<figure class="entry-figure">
 		<?php the_post_thumbnail(); ?>
