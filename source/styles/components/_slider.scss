@@ -216,40 +216,21 @@
             min-width: em(35px);
         }
         .btn-prev {
-            left: em(50px)*-1;
+            left: 10px;
+            @include breakpoint(640px){
+                left: em(25px);
+            }
+            @include breakpoint($bp){
+                left: em(50px);
+            }
         }
         .btn-next {
-            left: em(50px)*-1;
-        }
-        .full & {
-            .btn-prev, .btn-next {
-                border-color: $w;
-                &:after, &:before {
-                    border-color: $w;
-                }
-                .btn{
-                    &-line, &-arrow-up, &-arrow-down {
-                        background-color: $w;
-                    }
-                }
+            right: 10px;
+            @include breakpoint(640px){
+                right: em(25px);
             }
-            .btn-prev {
-                left: 10px;
-                @include breakpoint(640px){
-                    left: em(25px);
-                }
-                @include breakpoint($bp){
-                    left: em(50px);
-                }
-            }
-            .btn-next {
-                right: 10px;
-                @include breakpoint(640px){
-                    right: em(25px);
-                }
-                @include breakpoint($bp){
-                    right: em(50px);
-                }
+            @include breakpoint($bp){
+                right: em(50px);
             }
         }
     }
