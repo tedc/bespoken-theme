@@ -1,4 +1,4 @@
-<div class="modal-container modal-container-menu" ng-class="{visible : isMenu}" iscroll="{scrollbars: true, mouseWheel : true, useTransform: false}" iscroll-element="menu">
+<div class="modal-container modal-container-menu" ng-class="{visible : isMenu}" ng-ps>
 	<div class="menu iscroll-scroller">
 		<?php close('isModal=false;isMenu=false'); ?>
 		<?php

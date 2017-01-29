@@ -40288,16 +40288,40 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('iscroll', ["$rootScope", require('./iscroll.coffee')]);
+bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]);
 
 
 },{"./carousel.coffee":17,"./home.coffee":18,"./iscroll.coffee":20,"./menu.coffee":21,"./mousewheel.coffee":22,"./player.coffee":23,"./slider.coffee":24,"./sm.coffee":25,"./split.coffee":26,"./video.coffee":27}],20:[function(require,module,exports){
-module.exports = function($rootScope) {
-  var scroll;
-  return scroll = {
+module.exports = function($window) {
+  var ps;
+  return ps = {
     link: function(scope, element, attrs) {
-      $rootScope.iScroll = [];
-      $rootScope.iScroll[attrs.iscrollElement] = new IScroll(element[0], scope.$eval(attrs.iscroll));
+      var jqWindow, update;
+      jqWindow = angular.element($window);
+      scope.$evalAsync(function() {
+        Ps.initialize(element[0], {
+          wheelPropagation: false,
+          suppressScrollX: true
+        });
+      });
+      update = function() {
+        scope.$evalAsync(function() {
+          Ps.update(element[0]);
+        });
+      };
+      element.bind('mouseenter', update);
+      if (attrs.refreshOnChange) {
+        scope.$watchCollection(attrs.refreshOnChange, function() {
+          update();
+        });
+      }
+      if (attrs.refreshOnResize) {
+        jqWindow.bind('resize', update);
+      }
+      element.bind('$destroy', function() {
+        jqWindow.unbind('resize', update);
+        Ps.destroy(element[0]);
+      });
     }
   };
 };
