@@ -98,6 +98,7 @@
         flex-wrap: nowrap;
         display: flex;
         width: $f;
+        flex: 0 0 auto;
     }
     &-item {
         background-color: $b;

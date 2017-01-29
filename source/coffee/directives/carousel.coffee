@@ -43,7 +43,6 @@ module.exports = ->
 					$scope.num = 2
 				else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 					$scope.num = items
-				console.log $scope.num
 				width = ( 100 / $scope.num ) * max
 				itemW = 100 / max
 				TweenMax.set wrapper,
