@@ -160,18 +160,21 @@
             position: relative;
             z-index: 1;
         }
-        .excerpt, .logo {
+        .excerpt, .logo-related {
             position: relative;
             overflow: hidden;
         }
         .logo-related {
             display: inline-block;
-            max-width: $f;
+            max-width: em(120px);
             img {
                 width: $f;
                 display: block;
                 transform: translate3d(0, -100%, 0);
                 transition: $speed transform;
+            }
+            svg {
+                width: $f;
             }
         }
         .excerpt {
