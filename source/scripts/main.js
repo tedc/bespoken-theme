@@ -43984,17 +43984,10 @@ module.exports = function() {
         $rootScope.isContact = false;
         $rootScope.isMenu = false;
         $scope.modal = function(kind) {
-          $rootScope.isModal = true;
           if (kind === 'contact') {
             $rootScope.isContact = true;
-            $timeout(function() {
-              return contact.refresh();
-            }, 500);
           } else {
             $rootScope.isMenu = true;
-            $timeout(function() {
-              return contact.refresh();
-            }, 500);
           }
         };
       }

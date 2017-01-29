@@ -1,11 +1,11 @@
-<div class="modal-container" ng-class="{visible : isContact}" iscroll="{scrollbars: true, mousewheel : true}" iscroll-instance="contact">
-	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
+<div class="modal-container iscroll-wrapper" ng-class="{visible : isContact}" iscroll="{scrollbars: true, mousewheel : true}">
+	<form class="form iscroll-scroller" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
 		<?php close('isModal=false;isContact=false'); ?>
 		<div class="form-content row-lg">
 			<div class="content">
 				<?php the_field('testo_contatti', 'options'); ?>
-				<a href="https://www.facebook.com/bspkn.studio/" class="icon-facebook"></a>
-				<a href="https://www.linkedin.com/company/10485978" class="icon-linkedin"></a>
+				<p><a href="https://www.facebook.com/bspkn.studio/" class="icon-facebook"></a>
+				<a href="https://www.linkedin.com/company/10485978" class="icon-linkedin"></a></p>
 			</div>
 		</div>
 		<div class="form-inputs row-lg">
