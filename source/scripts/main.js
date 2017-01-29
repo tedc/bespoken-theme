@@ -40653,7 +40653,7 @@ module.exports = function($timeout) {
         tween = TweenMax.staggerTo(words, 0.5, {
           autoAlpha: true,
           repeat: 1,
-          yoyo: 1.5
+          yoyo: 2
         }, 0.5 + 2);
         tl.append(tween);
       }
