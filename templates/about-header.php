@@ -9,6 +9,7 @@
                 <strong class="words">
                     <?php while(have_rows('words')) : the_row(); ?>
                     <span class="word"><?php the_sub_field('word'); ?></span>
+                    <?php endwhile; ?>
                 </strong>
             </h1>
         </div>

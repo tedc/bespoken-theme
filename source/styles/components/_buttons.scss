@@ -138,10 +138,8 @@
         cursor: pointer;
         border-color: $purple;
         transition: border $speed;
-        &:hover {
-            &:before, &:after {
-                border-color: $purple;
-            }
+        &:before, &:after {
+            border-color: $purple;
         }
         .btn-line, .btn-arrow-up, .btn-arrow-down {
             background-color: $purple;
