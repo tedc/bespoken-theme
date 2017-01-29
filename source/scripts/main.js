@@ -40190,8 +40190,7 @@ module.exports = function() {
         $rootScope.currentPosX = null;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
           $scope.num = 2;
-        }
-        if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+        } else if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
           $scope.num = items;
         }
         width = (100 / $scope.num) * max;
@@ -40226,16 +40225,13 @@ module.exports = function() {
         w.on('resize', function() {
           $scope.num = 1;
           if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-            console.log(true);
             $scope.num = 2;
-          }
-          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
-            console.log(false);
+          } else if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
             $scope.num = items;
           }
+          console.log($scope.num);
           width = (100 / $scope.num) * max;
           itemW = 100 / max;
-          console.log(itemW);
           TweenMax.set(wrapper, {
             width: width + "%"
           });

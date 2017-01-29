@@ -12,7 +12,7 @@ module.exports = ->
 			$rootScope.currentPosX = null
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 				$scope.num = 2
-			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+			else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
 			width = ( 100 / $scope.num ) * max
 			itemW = 100 / max
@@ -40,14 +40,12 @@ module.exports = ->
 			w.on 'resize', ->
 				$scope.num = 1
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-					console.log on
 					$scope.num = 2
-				if Modernizr.mq "screen and (min-width: #{em(900)}em)"
-					console.log off
+				else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 					$scope.num = items
+				console.log $scope.num
 				width = ( 100 / $scope.num ) * max
 				itemW = 100 / max
-				console.log itemW
 				TweenMax.set wrapper,
 					width : "#{width}%"
 				TweenMax.set wrapper.querySelectorAll('.carousel-item'),
