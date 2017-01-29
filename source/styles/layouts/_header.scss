@@ -5,6 +5,7 @@
     flex-direction: column;
     z-index: 1;
     background-color: $w;
+    overflow: hidden;
     .gradient {
         @include absfull;
         @include gradient;
@@ -50,8 +51,14 @@
     justify-content: center;
     min-height: 100vh;
     .text-header {
-        display: flex;
-        flex-direction: column;
+        text-align: center;
+        color: $w;
+        a {
+            color: $light;
+            &:hover {
+                color: $w;
+            }
+        }
     }
 }
 
