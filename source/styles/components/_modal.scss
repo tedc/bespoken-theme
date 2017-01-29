@@ -25,19 +25,20 @@
 		transition: visibility $speed, transform $speed;
 		visibility: hidden;
 		transform: translate3d(0, -20%, 0);
+		&.visible {
+			visibility: visible;
+			transition: visibility 0, transform $speed;
+			transform: translate3d(0, 0%, 0);
+		}
 		&-menu {
 			transition: $speed background-position, visibility $speed, transform $speed;
 			.gradient {
 				@include gradient;
 			}
 			&.visible {
+				transition: $speed background-position, visibility 0, transform $speed;
 				@include gradientAnim;
 			}
-		}
-		&.visible {
-			visibility: visible;
-			transition: visibility 0, transform $speed;
-			transform: translate3d(0, 0%, 0);
 		}
 	}
 	.menu, .form {
