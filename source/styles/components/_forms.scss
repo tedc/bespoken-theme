@@ -37,6 +37,7 @@ input {
 			align-items: center;
 			cursor: pointer;
 			.check {
+				flex: 0 0 auto;
 				border-radius: em(25px, 12px);
 				width: em(50px, 12px);
 				height: em(25px, 12px);
@@ -110,12 +111,14 @@ textarea {
 	display: flex;
 	flex-wrap: wrap;
 	&-col {
+		flex: 0 0 auto;
+		width: $f;
+		padding: {
+            left: em(25px);
+            right: em(25px);
+        }
 		@include breakpoint($bp) {
 			width: $f/2;
-			padding: {
-	            left: em(25px);
-	            right: em(25px);
-	        }
 		}
 	}
 	&-content, &-inputs {
