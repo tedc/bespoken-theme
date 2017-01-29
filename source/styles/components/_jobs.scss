@@ -96,6 +96,7 @@
         background-color: $light;
         text-align: left;
         @include normalize_padding;
+        padding-right: em(100px);
         > .row {
             opacity: 0;
             visibility: hidden;

@@ -121,12 +121,19 @@
 .title-video {
     font-style: italic;
     font-weight: normal;
-    top: 10%;
+    top: 0%;
     color: $w;
     left: 50%;
     font-size: em(32px);
     position: absolute;
-    transform: translateX(-50%);
+    transform: translate3d(-50%, -50%, 0);
+    text-shadow: 0 0 5px transparentize($b, .65);
+    padding-bottom: 0;
+    &[ng-sm] {
+        .desktop & {
+            transform: translate3d(-50%, 120%, 0);
+        }
+    }
 }
 
 .container-cornice {
