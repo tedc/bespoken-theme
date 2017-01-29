@@ -27,8 +27,13 @@
 		display: flex;
 		flex-wrap: wrap;
 		&.alt {
-			.entry-content {
-				order: 0;
+			@include breakpoint($bp) {
+				.entry-content {
+					order: 0;
+				}
+				.entry-figure {
+					order: 1;
+				}
 			}
 		}
 	}
