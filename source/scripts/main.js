@@ -44053,7 +44053,7 @@ module.exports = function() {
           });
           $scope.time = secondsToTime(player.getCurrentTime());
           $scope.isHalf = timeToPercentage(player) >= 50 ? true : false;
-          if ($scope.isPlaying = true || ($scope.isPaused = true)) {
+          if ($scope.isPlaying = false || ($scope.isPaused = false)) {
             return;
           }
           progressTimeout = $timeout(function() {
