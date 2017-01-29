@@ -44111,12 +44111,30 @@ module.exports = function() {
             if (progressTimeout !== null) {
               $timeout.cancel(progressTimeout);
             }
+            $scope.isPaused = true;
+            TweenMax.to($element[0].querySelector('.progress-mask'), .5, {
+              width: "100%"
+            });
+            $scope.time = "00:00:00";
           });
           $scope.$on('youtube.player.ready', function($event, player) {
             $timeout(function() {
               return $scope.isReady = true;
             }, 0);
           });
+          $scope.skipTo = function($event, player) {
+            var max, point, progress, val, w, x;
+            progress = $element[0].querySelector('.progress-mask');
+            max = player.getDuration();
+            w = $event.target.offsetWidth;
+            x = $event.offsetX;
+            point = x / w;
+            val = Math.round(max * point);
+            player.seekTo(val);
+            TweenMax.to(progress, .5, {
+              width: (point * 100) + "%"
+            });
+          };
           $scope.playPause = function(player) {
             if (player.getPlayerState() === 1) {
               player.pauseVideo();

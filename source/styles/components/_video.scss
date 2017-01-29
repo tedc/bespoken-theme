@@ -149,7 +149,7 @@
         width: 100px;
         border-radius: 25px;
         @include gradient;
-        margin: 0 auto em(20px);
+        margin: 0 auto em(35px);
         display: flex;
         position: relative;
         z-index: 1;
@@ -242,6 +242,11 @@
         height: 2px;
         transition: height $speed;
         position: relative;
+        &:after {
+            @include absfull;
+            content: '';
+            z-index: 3;
+        }
     }
     &:hover {
         .status-bar {
@@ -265,7 +270,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        padding: 0 0 5px;
+        padding: 0 10px 5px;
         font-size: 12px;
         color: $w;
         font-weight: 500;

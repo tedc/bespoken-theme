@@ -53,15 +53,29 @@ module.exports = ->
 							$scope.isPaused = on
 						, 0
 						$timeout.cancel( progressTimeout )if progressTimeout isnt null
-
 						return
 					$scope.$on 'youtube.player.ended', ($event, player)->
 						$timeout.cancel( progressTimeout )if progressTimeout isnt null
+						$scope.isPaused = on
+						TweenMax.to $element[0].querySelector('.progress-mask'), .5,
+							width: "100%"
+						$scope.time = "00:00:00"
 						return
 					$scope.$on 'youtube.player.ready', ($event, player)->
 						$timeout ->
 							$scope.isReady = on
 						, 0
+						return
+					$scope.skipTo = ($event, player)->
+						progress = $element[0].querySelector('.progress-mask')
+						max = player.getDuration()
+						w = $event.target.offsetWidth
+						x = $event.offsetX
+						point = x / w
+						val = Math.round ( max * point )
+						player.seekTo val
+						TweenMax.to progress, .5,
+							width : "#{(point * 100)}%"
 						return
 					$scope.playPause = (player)->
 						if player.getPlayerState() is 1
