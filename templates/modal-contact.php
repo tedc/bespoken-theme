@@ -49,7 +49,7 @@
 					</span>
 				</label>
 				<input type="checkbox" name="newsletter" id="newsletter">
-				<label for="privacy" class="form-label" ng-click="isNewsletter = !isNewsletter">
+				<label for="newsletter" class="form-label" ng-click="isNewsletter = !isNewsletter">
 					<span class="check">
 						<span class="check-text">
 							<?php _e('Sì', 'bspkn'); ?>
