@@ -97,3 +97,24 @@
 		}
 	}
 }
+
+.case {
+	&s {
+		.type-lavori {
+			transition: $speed background-color;
+			&:hover {
+				background-color: $anthracite;
+			}
+		}
+	}
+	&-svg {
+		max-width: em(320px);
+        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
+            transition: $speed fill;
+            fill: $gray !important;
+            .type-lavori:hover & {
+            	fill: $w !important;
+            }
+        }
+	}
+}
