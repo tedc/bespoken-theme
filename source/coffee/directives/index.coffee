@@ -10,3 +10,4 @@ bspkn
 	.directive 'ngVideo', [ require './video.coffee' ]
 	.directive 'ngPlayer', [ require './player.coffee' ]
 	.directive 'ngSm', ["$rootScope", "$timeout", require './sm.coffee' ]
+	.directive 'iscroll', ["$rootScope", require './iscroll.coffee']
