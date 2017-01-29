@@ -1,6 +1,5 @@
-<div class="modal-container iscroll-wrapper" ng-class="{visible : isMenu}" iscroll="{scrollbars: true, mouseWheel : true}" iscroll-element="menu">
+<div class="modal-container modal-container-menu" ng-class="{visible : isMenu}" iscroll="{scrollbars: true, mouseWheel : true}" iscroll-element="menu">
 	<div class="menu iscroll-scroller">
-		<div class="gradient"></div>
 		<?php close('isModal=false;isMenu=false'); ?>
 		<?php
 			wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav', 'menu_id' => 'main-menu']);
