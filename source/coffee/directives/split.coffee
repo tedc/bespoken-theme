@@ -8,8 +8,8 @@ module.exports = ($timeout)->
 					autoAlpha : on
 					repeat :  1
 					yoyo : on
-					repeatDelay:  1
-				, 0.5 + 1
+					repeatDelay:  2
+				, 0.5 + 2
 			tl.append tween
 			return
 		]

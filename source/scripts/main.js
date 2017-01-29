@@ -40654,8 +40654,8 @@ module.exports = function($timeout) {
           autoAlpha: true,
           repeat: 1,
           yoyo: true,
-          repeatDelay: 1
-        }, 0.5 + 1);
+          repeatDelay: 2
+        }, 0.5 + 2);
         tl.append(tween);
       }
     ]
