@@ -21,7 +21,7 @@
                     <span class="stop" ng-click="video.player.stopVideo()"></span>
                     <span class="fs"></span>
                 </div>
-                <div class="status-bar" ng-click="skitTo($event, video.player)">
+                <div class="status-bar" ng-click="skipTo($event, video.player)">
                     <div class="progress-bar"></div>
                     <div class="progress-mask">
                         <span class="time" ng-bind-html="time" ng-class="{invert: isHalf}"></span>
