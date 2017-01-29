@@ -33,12 +33,17 @@
             display: block;
             .word {
                 display: block;
-                position: relative;
+                position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate3d(-50%, 100%, 0);
+                transform: translate3d(-50%, -50%, 0);
+                opacity: 0;
+                visibility: hidden;
                 &:nth-child(1) {
                     position: static;
+                    transform: none;
+                    opacity: 1;
+                    visibility: visible;
                 }
             }
         }
@@ -95,6 +100,7 @@
     align-items: center;
     text-transform: uppercase;
     display: none;
+    z-index: 10;
     a {
         font-weight: bold;
         color: $w;

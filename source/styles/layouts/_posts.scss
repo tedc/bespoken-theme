@@ -69,6 +69,11 @@
 }
 
 .single {
+	.page-header {
+		.title {
+			padding-bottom: 0;
+		}
+	}
 	.entry-content {
 		max-width: $max-width;
 		margin: 0 auto;

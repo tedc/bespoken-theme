@@ -40286,7 +40286,7 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngSplitTitle', ["$timeout", require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]);
+bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngAbout', [require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]);
 
 
 },{"./carousel.coffee":17,"./home.coffee":18,"./iscroll.coffee":20,"./menu.coffee":21,"./mousewheel.coffee":22,"./player.coffee":23,"./slider.coffee":24,"./sm.coffee":25,"./split.coffee":26,"./video.coffee":27}],20:[function(require,module,exports){
@@ -40644,20 +40644,22 @@ module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
     controller: [
-      "$rootScope", "$element", "$attrs", function($rootScope, $element, $attrs) {
-        $rootScope.split = new SplitText($element, {
-          type: 'chars,words'
+      "$element", function($element) {
+        var i, j, next, ref, tl, tween1, tween2, words;
+        words = $element[0].querySelectorAll('.word');
+        tl = new TimelineMax({
+          repeat: -1
         });
-        $rootScope.spliTl = new TimelineMax({
-          paused: true,
-          delay: .5
-        });
-        if ($attrs.kind === 'home') {
-          $rootScope.spliTl.staggerFrom($rootScope.split.words, .5, {
-            y: "-100%"
-          }, .05);
+        for (i = j = 0, ref = words.length; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
+          next = i < words.length - 1 ? i + 1 : 0;
+          tween1 = TweenMax.to(words[i], .5, {
+            autoAlpha: false
+          });
+          tween2 = TweenMax.to(words[next], .5, {
+            autoAlpha: true
+          });
+          tl.add(tween1, tween2);
         }
-        $rootScope.spliTl.play();
       }
     ]
   };

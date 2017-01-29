@@ -6,7 +6,7 @@
         <div class="text-header">
             <h1 class="title">
                 <?php _e('Siamo', 'bspkn'); ?>
-                <strong class="words">
+                <strong class="words" ng-about>
                     <?php while(have_rows('words')) : the_row(); ?>
                     <span class="word"><?php the_sub_field('word'); ?></span>
                     <?php endwhile; ?>
