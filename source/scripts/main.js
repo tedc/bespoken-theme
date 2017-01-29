@@ -44115,9 +44115,9 @@ module.exports = function() {
               $timeout.cancel(progressTimeout);
             }
             progressTimeout = null;
-            console.log(progressTimeout);
             $scope.isPlaying = false;
             $scope.isPaused = true;
+            $scope.isHalf = false;
             TweenMax.to($element[0].querySelector('.progress-mask'), .5, {
               width: "100%"
             });

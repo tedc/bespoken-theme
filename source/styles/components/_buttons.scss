@@ -85,7 +85,7 @@
         z-index: 3;
         .btn-line {
             transition: transform $speed;
-            .modal-container.visible & {
+            .modal-container.visible &, .container-player.visible &, .job.visible & {
                 &:nth-child(1) {
                     transform: rotate(45deg);
                 }

@@ -34,11 +34,17 @@
         .name {
             font-weight: bold;
             text-transform: uppercase;
-            font-size: em(36px);
+            font-size: vmin(36px);
+            @include breakpoint(999px) {
+                font-size: em(36px);
+            }
         }
         .company {
-            font-size: em(24px);
             font-weight: normal;
+            font-size: vmin(24px);
+            @include breakpoint(999px) {
+                font-size: em(24px);
+            }
         }
     }
 
