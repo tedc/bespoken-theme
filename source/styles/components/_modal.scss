@@ -101,7 +101,7 @@
 	width: 8px;
 	border-radius: 8px;
 	left: 2px;
-	box-shadow: 0 5px 10px transparentize($b, 0.85);
+	box-shadow: 0 5px 10px transparentize($b, 0.65);
 	background: linear-gradient(to left, $w, $light);
 	position: relative;
 	&-rail {
@@ -109,7 +109,5 @@
 		top: 0;
 		right: 0;
 		width: 14px;
-		height: $f;
-		background-color: $anthracite;
 	}
 }
