@@ -310,7 +310,7 @@ gulp.task('Iconfont', function(done){
     async.parallel([
         function handleGlyphs (cb) {
             iconStream.on('glyphs', function(glyphs, options) {
-                gulp.src(path.source + 'fonts/template.css')
+                gulp.src(path.source + 'fonts/icons/template.css')
                     .pipe(consolidate('lodash', {
                         glyphs: glyphs,
                         fontName: 'bspkn-icons',
