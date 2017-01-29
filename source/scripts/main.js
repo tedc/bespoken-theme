@@ -44053,7 +44053,9 @@ module.exports = function() {
           });
           $scope.time = secondsToTime(player.getCurrentTime());
           $scope.isHalf = timeToPercentage(player) >= 50 ? true : false;
-          console.log('going');
+          if ($scope.isPlaying = false || ($scope.isPaused = true)) {
+            return;
+          }
           progressTimeout = $timeout(function() {
             return onProgress(player);
           }, 0);

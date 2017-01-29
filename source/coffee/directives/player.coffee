@@ -13,7 +13,7 @@ module.exports = ->
 					width: "#{100 - timeToPercentage(player)}%"
 				$scope.time = secondsToTime(player.getCurrentTime())
 				$scope.isHalf = if timeToPercentage(player) >= 50 then on else off
-				console.log 'going'
+				return if $scope.isPlaying = off or $scope.isPaused = on
 				progressTimeout = $timeout ->
 					onProgress(player)
 				, 0
