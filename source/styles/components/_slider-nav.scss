@@ -62,25 +62,37 @@
     }
 }
 
-.nav-arrow{
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    left: 0;
+.nav-arrow {
     display: flex;
     transform: translateY(-50%);
-    justify-content: space-between;
-    z-index: 2;
+    justify-content: center;
+    padding-top: em(25px);
     .btn {
         cursor: pointer;
     }
-    .btn-prev {
-        left: em(50px)*-1;
-    }
-    .btn-next {
-        right: em(50px)*-1;
+    @include breakpoint(1000px) {    
+        .btn-prev {
+            left: em(50px)*-1;
+        }
+        .btn-next {
+            right: em(50px)*-1;
+        }
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translate3d(0,-50%,0);
+        z-index: 2;
+        justify-content: space-between;
     }
     .full & {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        left: 0;
+        transform: translate3d(0,-50%,0);
+        z-index: 2;
+        justify-content: space-between;
         .btn-prev {
             left: 10px;
             @include breakpoint(640px){

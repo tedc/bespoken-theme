@@ -3,13 +3,7 @@
     overflow: hidden;
     max-width: $max-width;
     margin: 0 auto;
-    width: calc(100% - #{em(200px)});
-    @include breakpoint(1000px) {
-        width: $f;
-    }
-    .full & {
-        width: $f;
-    }
+    width: $f;
     .mask {
         position: absolute;
         top: 0%;
