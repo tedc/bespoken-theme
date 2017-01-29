@@ -40338,9 +40338,6 @@ module.exports = function() {
         $rootScope.isMenu = false;
         $scope.modal = function(kind) {
           $rootScope.isModal = true;
-          $timeout(function() {
-            return $rootScope[kind].refresh();
-          }, 500);
           if (kind === 'contact') {
             $rootScope.isContact = true;
           } else {

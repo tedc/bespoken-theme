@@ -114,7 +114,7 @@ textarea {
 .form {
 	display: flex;
 	flex-wrap: wrap;
-	.close {
+	.btn.close {
 		&:after, &:before {
 			border-color: $purple;
 		}
@@ -200,14 +200,8 @@ textarea {
 .acceptance {
 	padding-top: em(25px);
 	@include breakpoint($bp) {
-		padding-top: em(50px);
-	}
-	padding: {
-        left: 10px;
-        right: 10px;
-    }
-    @include breakpoint($bp){
-        padding: {
+		padding: {
+        	top: em(50px);
             left: em(25px);
             right: em(25px);
         }
