@@ -5,7 +5,7 @@
 <?php else : ?>
 	<a class="logo" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
 <?php endif; ?>
-<a class="btn-menu" href="#" ng-click="$event.preventDefault(); modal('menu')" ng-class="{hidden: isModal}">
+<a class="btn-menu" href="#" ng-click="$event.preventDefault(); modal('menu')" ng-class="{hidden: isModal}" ng-modal>
     <span class="btn-menu-text"><?php _e('Menu', 'bspkn'); ?></span>
 	<span class="toggle">
 		<span class="toggle-line"></span>
