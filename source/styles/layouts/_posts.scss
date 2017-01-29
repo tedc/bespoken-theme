@@ -23,6 +23,25 @@
 			@include breakpoint($bp) {
 				width: ( $f/3 ) * 2;
 			}
+			a {
+				color: $purple;
+				&:hover {
+					color: $violet;
+				}
+			}
+		}
+		&-summary {
+			padding-top: em(50px);
+		}
+		&-title {
+			font-size: em(36px);
+			padding-bottom: 0;
+			a {
+				color: $gray;
+				&:hover {
+					color: $purple;
+				}
+			}
 		}
 	}
 	.type-post {
