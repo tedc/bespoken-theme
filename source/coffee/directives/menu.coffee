@@ -4,12 +4,18 @@ module.exports = ->
 			$rootScope.isModal = off
 			$rootScope.isContact = off
 			$rootScope.isMenu = off
-			$scope.modal = (kind, istance)->
+			$scope.modal = (kind)->
 				$rootScope.isModal = on
-				kind = on
-				$timeout ->
-					istance.refresh()
-				, 500
+				if kind is 'contact'
+					$rootScope.isContact = on
+					$timeout ->
+						contact.refresh()
+					, 500
+				else
+					$rootScope.isMenu = on
+					$timeout ->
+						contact.refresh()
+					, 500
 				return
 			return
 		]

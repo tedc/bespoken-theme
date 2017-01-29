@@ -43983,12 +43983,19 @@ module.exports = function() {
         $rootScope.isModal = false;
         $rootScope.isContact = false;
         $rootScope.isMenu = false;
-        $scope.modal = function(kind, istance) {
+        $scope.modal = function(kind) {
           $rootScope.isModal = true;
-          kind = true;
-          $timeout(function() {
-            return istance.refresh();
-          }, 500);
+          if (kind === 'contact') {
+            $rootScope.isContact = true;
+            $timeout(function() {
+              return contact.refresh();
+            }, 500);
+          } else {
+            $rootScope.isMenu = true;
+            $timeout(function() {
+              return contact.refresh();
+            }, 500);
+          }
         };
       }
     ]
