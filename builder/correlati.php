@@ -1,6 +1,6 @@
 <?php
-	echo $row . ', ' . $count_row;
 	$last = ($row === $count_row) ? true : false;
+	var_dump($last);
 	if(get_post_type() == 'servizi') :
 		$array_query = array(
 			'post_type' => 'servizi',
