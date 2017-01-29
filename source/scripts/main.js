@@ -44219,7 +44219,6 @@ em = function(val) {
 module.exports = function($rootScope, $timeout) {
   var sm;
   return sm = {
-    restrict: 'AE',
     scope: true,
     link: function(scope, element, attrs) {
       var classToggle, duration, el, from, hook, offset, pin, scene, speed, to, trigger, tween, winPer;

@@ -2,7 +2,6 @@ em = (val)->
     val/16
 module.exports = ($rootScope, $timeout)->
     sm =
-        restrict : 'AE'
         scope: on
         link: (scope, element, attrs)->
             $rootScope.isMenu = off

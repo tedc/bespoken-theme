@@ -10,11 +10,11 @@ $query = new WP_Query(
 		);
 if(get_sub_field('case_kind') == 0) : ?>
 	<?php $colClass = get_sub_field('cols'); ?>
-	<div class="grid-12 row-lg alternate cases">
+	<div class="grid-12 alternate cases">
 		<?php 
 		
 		while($query->have_posts()) : $query->the_post(); ?>
-		<div <?php post_class('col-'.$colClass . ' content'); ?>">
+		<div <?php post_class('col-'.$colClass . ' content row-lg'); ?>">
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
 			<a href="<?php the_permalink(); ?>">
 			<?php 
