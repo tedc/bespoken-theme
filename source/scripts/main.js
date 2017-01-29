@@ -44053,6 +44053,7 @@ module.exports = function() {
           });
           $scope.time = secondsToTime(player.getCurrentTime());
           $scope.isHalf = timeToPercentage(player) >= 50 ? true : false;
+          console.log('going');
           progressTimeout = $timeout(function() {
             return onProgress(player);
           }, 0);
@@ -44111,6 +44112,8 @@ module.exports = function() {
             if (progressTimeout !== null) {
               $timeout.cancel(progressTimeout);
             }
+            progressTimeout = null;
+            console.log(progressTimeout);
             $scope.isPlaying = false;
             $scope.isPaused = true;
             TweenMax.to($element[0].querySelector('.progress-mask'), .5, {

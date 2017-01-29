@@ -13,6 +13,7 @@ module.exports = ->
 					width: "#{100 - timeToPercentage(player)}%"
 				$scope.time = secondsToTime(player.getCurrentTime())
 				$scope.isHalf = if timeToPercentage(player) >= 50 then on else off
+				console.log 'going'
 				progressTimeout = $timeout ->
 					onProgress(player)
 				, 0
@@ -52,10 +53,12 @@ module.exports = ->
 						$timeout ->
 							$scope.isPaused = on
 						, 0
-						$timeout.cancel( progressTimeout )if progressTimeout isnt null
+						$timeout.cancel( progressTimeout ) if progressTimeout isnt null
 						return
 					$scope.$on 'youtube.player.ended', ($event, player)->
 						$timeout.cancel( progressTimeout ) if progressTimeout isnt null
+						progressTimeout = null
+						console.log progressTimeout
 						$scope.isPlaying = off
 						$scope.isPaused = on
 						TweenMax.to $element[0].querySelector('.progress-mask'), .5,
