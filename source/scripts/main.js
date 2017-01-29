@@ -40652,7 +40652,7 @@ module.exports = function($timeout) {
         });
         for (i = j = 0, ref = words.length; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
           next = i < words.length - 1 ? i + 1 : 0;
-          console.log(next);
+          console.log(words[i], words[next]);
           tween1 = TweenMax.to(words[i], .5, {
             autoAlpha: false
           });
