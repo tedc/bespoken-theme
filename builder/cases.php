@@ -14,7 +14,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<?php 
 		
 		while($query->have_posts()) : $query->the_post(); ?>
-		<li <?php post_class('col-'.$colClass . ' content'); ?>">
+		<div <?php post_class('col-'.$colClass . ' content'); ?>">
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
 			<a href="<?php the_permalink(); ?>">
 			<?php 
@@ -31,7 +31,7 @@ if(get_sub_field('case_kind') == 0) : ?>
                 </a>
              </figure>
             <?php endif; ?>
-		</li>
+		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
 <?php endif ; ?>
