@@ -7,8 +7,7 @@ module.exports = ($timeout)->
 			tween = TweenMax.staggerTo words, 0.5, 
 					autoAlpha : on
 					repeat :  1
-					yoyo : on
-					repeatDelay:  2
+					yoyo : 1.5
 				, 0.5 + 2
 			tl.append tween
 			return
