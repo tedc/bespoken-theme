@@ -96,3 +96,17 @@
 		transition-delay: $speed*1.5;
 	}
 }
+
+.ps-scrollbar-y {
+	width: 10px;
+	border-radius: 10px;
+	box-shadow: 0 5px 10px transparentize($b, 0.85);
+	background: linear-gradient(to left, $w, $light);
+	position: relative;
+	&-rail {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 10px;
+	}
+}
