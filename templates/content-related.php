@@ -8,7 +8,7 @@ $pattern = '/[\w\-]+\.(svg)/'; ?>
 			<?php 
 			if(preg_match($pattern, get_field('icon', get_the_ID()))) : 
                     $svg = file_get_contents(get_field('icon'));
-                    $svg = str_replace('id', 'class="logo-related-svg" id', $svg);
+                    $svg = str_replace('id', 'class="carousel-svg" id', $svg);
                     echo $svg;
             else : ?>
 			<img src="<?php the_field('icon_white'); ?>" />

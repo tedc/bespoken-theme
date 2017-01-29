@@ -164,7 +164,7 @@
             position: relative;
             overflow: hidden;
         }
-        .logo {
+        .logo-related {
             display: inline-block;
             max-width: $f;
             img {
@@ -220,6 +220,11 @@
             @include breakpoint($bp){
                 right: em(50px);
             }
+        }
+    }
+    &-svg {
+        path, circle, rect {
+            fill: $w !important;
         }
     }
 }
