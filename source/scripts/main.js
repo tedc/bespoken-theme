@@ -43984,6 +43984,7 @@ module.exports = function() {
         $rootScope.isContact = false;
         $rootScope.isMenu = false;
         $scope.modal = function(kind) {
+          $rootScope.isModal = true;
           if (kind === 'contact') {
             $rootScope.isContact = true;
           } else {
