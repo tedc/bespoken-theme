@@ -43,6 +43,10 @@
 				}
 			}
 		}
+		&-time {
+			font-size: em(14px);
+			padding-top: em(10px, 14px);
+		}
 	}
 	.type-post {
 		display: flex;
@@ -51,6 +55,7 @@
 			@include breakpoint($bp) {
 				.entry-content {
 					order: 0;
+					background-color: $light;
 				}
 				.entry-figure {
 					order: 1;

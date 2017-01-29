@@ -28,6 +28,6 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
  * Clean up the_excerpt()
  */
 function excerpt_more() {
-  return ' &hellip;<br/><a class="btn-complete" href="' . get_permalink() . '"><span class="label emphasis">' . __('Leggi tutto', 'bspkn') . '</label><span class="btn"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></a>';
+  return ' &hellip;<br/><a class="btn-complete" href="' . get_permalink() . '"><span class="label emphasis">' . __('Leggi tutto', 'bspkn') . '</span><span class="btn"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></a>';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
