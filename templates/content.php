@@ -3,7 +3,7 @@
 	<figure class="entry-figure" style="background-image: url(<?php the_post_thumbnail_url('large'); ?>)">
 		<?php the_post_thumbnail('large'); ?>
 	</figure>
-	<div class="entry-content">
+	<div class="entry-content row-lg">
 		<header>
 			<?php the_category(', '); ?>
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>

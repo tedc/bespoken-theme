@@ -5,6 +5,7 @@
 			width: $f;
 		}
 		&-figure {
+			margin: 0;
 			@include breakpoint($bp) {
 				width: $f/3;
 				background: {
@@ -18,6 +19,7 @@
 			}
 		}
 		&-content {
+			@include normalize_padding;
 			@include breakpoint($bp) {
 				width: ( $f/3 ) * 2;
 			}
