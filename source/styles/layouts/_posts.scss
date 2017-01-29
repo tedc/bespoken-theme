@@ -45,7 +45,7 @@
 		}
 		&-time {
 			font-size: em(14px);
-			padding-top: em(10px, 14px);
+			padding-top: em(20px, 14px);
 		}
 	}
 	.type-post {
@@ -62,5 +62,16 @@
 				}
 			}
 		}
+		.btn-complete {
+			margin-top: em(25px);
+		}
+	}
+}
+
+.single {
+	.entry-content {
+		max-width: $max-width;
+		margin: 0 auto;
+		@include normalize_padding;
 	}
 }

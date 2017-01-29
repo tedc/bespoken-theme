@@ -1,10 +1,27 @@
 <?php while (have_posts()) : the_post(); ?>
   <article <?php post_class(); ?>>
-    <header>
-      <h1 class="entry-title"><?php the_title(); ?></h1>
+    <header class="page-header" id="header">
+      <style>
+        #page-header-cover {
+            background-image:url(<?php the_post_thumbnail_url('medium') ?>);
+        }
+        @media screen and (min-width: <?php echo 640/16 ?>em) {
+            #page-header-cover {
+                background-image: url(<?php the_post_thumbnail_url('large') ?>);
+            }
+        }
+        @media screen and (min-width: <?php echo 850/16 ?>em) {
+            #page-header-cover {
+                background-image: url(<?php the_post_thumbnail_url('full') ?>);
+            }
+        }
+    </style>
+    <div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '10%'}" offset="100"></div>
+      <?php the_category(); ?>
+      <h1 class="entry-title title"><?php the_title(); ?></h1>
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
-    <div class="entry-content">
+    <div class="entry-content content row-lg">
       <?php the_content(); ?>
     </div>
     <footer>
