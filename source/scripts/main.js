@@ -40233,6 +40233,7 @@ module.exports = function() {
           }
           width = (100 / $scope.num) * max;
           itemW = 100 / max;
+          console.log(itemW);
           TweenMax.set(wrapper, {
             width: width + "%"
           });
