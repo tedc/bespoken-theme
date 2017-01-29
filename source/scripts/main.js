@@ -40226,9 +40226,11 @@ module.exports = function() {
         w.on('resize', function() {
           $scope.num = 1;
           if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+            console.log(true);
             $scope.num = 2;
           }
           if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+            console.log(false);
             $scope.num = items;
           }
           width = (100 / $scope.num) * max;
