@@ -26,14 +26,18 @@
 		visibility: hidden;
 		transform: translate3d(0, -20%, 0);
 		&-menu {
-			@include gradient;
 			transition: $speed background-position;
+			.gradient {
+				@include gradient;
+			}
+			&.visible {
+				@include gradientAnim;
+			}
 		}
 		&.visible {
 			visibility: visible;
 			transition: visibility 0, transform $speed;
 			transform: translate3d(0, 0%, 0);
-			@include gradientAnim;
 		}
 	}
 	.menu, .form {
