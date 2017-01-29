@@ -40645,22 +40645,18 @@ module.exports = function($timeout) {
   return splitTitle = {
     controller: [
       "$element", function($element) {
-        var i, j, next, ref, s, tl, tween1, tween2, words;
+        var tl, tween, words;
         words = $element[0].querySelectorAll('.word');
         tl = new TimelineMax({
           repeat: -1
         });
-        for (i = j = 0, ref = words.length - 1; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
-          next = i < words.length - 1 ? i + 1 : 0;
-          s = i === 0 ? 0 : 0.5 * i;
-          tween1 = TweenMax.to(words[i], .5, {
-            autoAlpha: false
-          });
-          tween2 = TweenMax.to(words[next], .5, {
-            autoAlpha: true
-          });
-          tl.add([tween1, tween2], "+=" + s + "s");
-        }
+        tween = TweenMax.staggerTo(words, 0.5, {
+          autoAlpha: true,
+          repeat: 1,
+          yoyo: true,
+          repeatDelay: 1
+        }, 0.5 + 1);
+        tl.append(tween);
       }
     ]
   };
