@@ -81,6 +81,7 @@
         }
         ul, ol {
             li {
+            	list-style-type: none;
                 padding:{ 
                     top: em(10px);
                 };
