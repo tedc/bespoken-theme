@@ -11,6 +11,12 @@
     &.full {
         padding: 0;
         margin: 0;
+        &[ng-sm] {
+            height: 0;
+            img {
+                @include absfull;
+            }
+        }
     }
 }
 
