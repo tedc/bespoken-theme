@@ -19,7 +19,7 @@ if(preg_match($pattern, get_sub_field('immagine')['url'])) : ?>
 </figure>
 
 <?php else : ?>
-<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>"<?php if(get_sub_field('full')): ?> style="background-image:url(<?php echo get_sub_field('immagine')['url']; ?>);" ng-sm from="{'background-position' : '50% -100px'}" to="{'background-position' : '50% 100px'}" duration="400%" trigger-hook="onEnter"<?php endif; ?>>
+<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>"<?php if(get_sub_field('full') && !get_sub_field('not_animated')): ?> style="background-image:url(<?php echo get_sub_field('immagine')['url']; ?>);" ng-sm from="{'background-position' : '50% -100px'}" to="{'background-position' : '50% 100px'}" duration="400%" trigger-hook="onEnter"<?php endif; ?>>
 	<img src="<?php echo get_sub_field('immagine')['url']; ?>">
 </figure>
 
