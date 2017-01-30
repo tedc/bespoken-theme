@@ -105,12 +105,8 @@ function builder_acf_flexible_content_layout_title( $title, $field, $layout, $i 
 add_filter('acf/fields/flexible_content/layout_title/name=builder', 'builder_acf_flexible_content_layout_title', 10, 4);
 
 
-
-
-
 function cc_mime_types($mimes) {
-	$mime_types['xml'] = 'application/xml';
-  $mimes_types['svg'] = 'image/svg+xml';
-  return $mimes_types;
+  $mimes['svg'] = 'image/svg+xml';
+  return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');
