@@ -239,14 +239,23 @@
         }
     }
     .fs {
-        &:before {
-            width: 10px;
-            height: 10px;
-            border: 2px solid $w;
+        &:before, &:after {
+            width: 5px;
+            height: 5px;
             content: '';
         }
+        &:before {
+            border-top: 2px solid $w;
+            border-left: 2px solid $w;
+            margin: 0 5px 5px 0;
+        }
+        &:after {
+            border-bottom: 2px solid $w;
+            border-right: 2px solid $w;
+            margin: 5px 0 0 5px;
+        }
         &:hover {
-            &:before {
+            &:before, &:after {
                 border-color: $purple;
             }
         }
