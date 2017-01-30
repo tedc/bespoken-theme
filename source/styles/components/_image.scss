@@ -13,7 +13,7 @@
         margin: 0;
         &[ng-sm] {
             background-repeat: no-repeat;
-            background-size: cover;
+            background-size: 110% auto;
             img {
                 visibility: hidden
             }
