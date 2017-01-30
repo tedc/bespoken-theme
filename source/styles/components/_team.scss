@@ -32,7 +32,9 @@
         background-color: $anthracite;
         color: $w;
         transition: transform $speed;
-        flex-wrap: nowrap;
+        flex-wrap: wrap;
+        align-content: center;
+        text-align: center;
         &-name {
             font-size: em(18px);
             font-style: italic;

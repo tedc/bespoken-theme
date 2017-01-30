@@ -56,6 +56,7 @@
     justify-content: center;
     min-height: 100vh;
     position: relative;
+    @include normalize_padding;
     .text-header {
         text-align: center;
         color: $w;

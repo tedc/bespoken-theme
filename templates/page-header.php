@@ -2,7 +2,7 @@
 <?php get_template_part('templates/breadcrumbs'); ?>
 <header class="page-header" id="header">
     <?php get_template_part('templates/header', get_field('kind')) ?>
-    <div class="container-text-header">
+    <div class="container-text-header row-lg" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '-10%'}" offset="100">
         <div class="text-header">
             <?php if(get_field('titolo_alternativo')) :?>
             <?php if (get_field('titolo_testata')) : ?>

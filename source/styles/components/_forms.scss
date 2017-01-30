@@ -123,6 +123,7 @@ textarea {
 			background-color: $purple;
 		}
 		@include breakpoint($bp) {
+			border-color: $w;
 			&:after, &:before {
 				border-color: $w;
 			}
@@ -152,7 +153,8 @@ textarea {
 	        right: 10px;
 	    }
 	    .modal-container & {
-	    	padding-top: em(250px) !important;
+	    	padding-top: em(150px) !important;
+	    	padding-bottom: em(150px) !important;
 	    }
 	    @include breakpoint(640px){
 	        padding: {
