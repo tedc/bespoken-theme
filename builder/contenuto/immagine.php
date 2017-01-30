@@ -1,4 +1,6 @@
-<?php if (get_sub_field('spaziatura')== '') :
+<?php 
+$pattern = '/[\w\-]+\.(svg)/';
+if (get_sub_field('spaziatura')== '') :
     $padding = 'row-lg';
 elseif (get_sub_field('spaziatura') == '0'):
     $padding = get_sub_field('grandezza_spaziatura');
@@ -6,14 +8,19 @@ elseif (get_sub_field('spaziatura') == '1'):
     $padding = get_sub_field('grandezza_spaziatura_sopra');
 elseif (get_sub_field('spaziatura') == '2'):
     $padding = get_sub_field('grandezza_spaziatura_sotto');
-endif;?>
+endif;
+?>
 
+<?php 
+if(preg_match($pattern, get_sub_field('immagine')['url'])) : ?>
 
 <figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>">
 	<img src="<?php echo get_sub_field('immagine')['url']; ?>">
 </figure>
-<!--
-<?php /*$src = get_sub_field('immagine'); */?>
-<figure class="figure <?php /*echo get_sub_field('full')? 'full' : 'content'*/?> <?php /*echo $padding */?>" style="background-image:url('<?php /*echo $src */?>')";>
-    <img src="<?php /*echo $src */?>">
-</figure>-->
+
+<?php else : ?>
+<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>"<?php if(get_sub_field('full') && !get_sub_field('not_animated')): ?> style="background-image:url(<?php echo get_sub_field('immagine')['url']; ?>);" ng-sm from="{'background-position' : '50% -100px'}" to="{'background-position' : '50% 100px'}" duration="400%" trigger-hook="onEnter"<?php endif; ?>>
+	<img src="<?php echo get_sub_field('immagine')['url']; ?>">
+</figure>
+
+<?php endif; ?>
