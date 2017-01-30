@@ -172,7 +172,6 @@
         .logo-related {
             display: inline-block;
             max-width: em(120px);
-            top: $f*-1;
             img {
                 width: $f;
                 display: block;
@@ -184,7 +183,6 @@
             }
         }
         .excerpt {
-            top: $f;
             > p {
                 transition: $speed transform;
                 transform: translate3d(0, 100%, 0);
