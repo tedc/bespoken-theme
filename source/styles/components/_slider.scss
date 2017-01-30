@@ -164,12 +164,15 @@
             z-index: 1;
         }
         .excerpt, .logo-related {
-            position: relative;
+            position: absolute;
             overflow: hidden;
+            left: 50%;
+            transform: translate3d(-50%, 0, 0);
         }
         .logo-related {
             display: inline-block;
             max-width: em(120px);
+            top: $f*-1;
             img {
                 width: $f;
                 display: block;
@@ -181,6 +184,7 @@
             }
         }
         .excerpt {
+            top: $f;
             > p {
                 transition: $speed transform;
                 transform: translate3d(0, 100%, 0);

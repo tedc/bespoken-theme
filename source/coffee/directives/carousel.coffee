@@ -14,7 +14,7 @@ module.exports = ->
 				$scope.num = 2
 			else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
-			width = ( 100 / $scope.num ) * max
+			width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
 			itemW = 100 / max
 			TweenMax.set wrapper,
 				width : "#{width}%"
@@ -43,7 +43,7 @@ module.exports = ->
 					$scope.num = 2
 				else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 					$scope.num = items
-				width = ( 100 / $scope.num ) * max
+				width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
 				itemW = 100 / max
 				TweenMax.set wrapper,
 					width : "#{width}%"
