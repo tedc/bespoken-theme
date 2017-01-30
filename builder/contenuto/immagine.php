@@ -20,7 +20,7 @@ if(preg_match($pattern, get_sub_field('immagine')['url'])) : ?>
 
 <?php else : ?>
 <?php $size = (get_sub_field('immagine')['height'] * 100) / get_sub_field('immagine')['width']; ?>
-<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>"<?php get_sub_field('full'): ?> style="background-image:url(<?php get_sub_field('immagine')['url']; ?>; padding-top: <?php echo $size; ?>%" ng-sm from="{'background-position' : '50% -100%'}" to="{'background-position' : '50% 100%'}" duration="200%" trigger-hook="onEnter"<?php endif; ?>>
+<figure class="figure <?php echo get_sub_field('full')? 'full' : 'content'?> <?php echo $padding ?>"<?php if(get_sub_field('full')): ?> style="background-image:url(<?php get_sub_field('immagine')['url']; ?>; padding-top: <?php echo $size; ?>%" ng-sm from="{'background-position' : '50% -100%'}" to="{'background-position' : '50% 100%'}" duration="200%" trigger-hook="onEnter"<?php endif; ?>>
 	<img src="<?php echo get_sub_field('immagine')['url']; ?>">
 </figure>
 
