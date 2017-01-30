@@ -164,10 +164,8 @@
             z-index: 1;
         }
         .excerpt, .logo-related {
-            position: absolute;
+            position: relative;
             overflow: hidden;
-            left: 50%;
-            transform: translate3d(-50%, 0, 0);
         }
         .logo-related {
             display: inline-block;
