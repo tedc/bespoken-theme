@@ -12,7 +12,7 @@ module.exports = ->
 			$rootScope.currentPosX = null
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 				$scope.num = 2
-			else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
 			console.log $scope.num
 			width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
@@ -42,7 +42,7 @@ module.exports = ->
 				$scope.num = 1
 				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
 					$scope.num = 2
-				else if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+				if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 					$scope.num = items
 				width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
 				itemW = 100 / max

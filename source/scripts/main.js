@@ -40190,7 +40190,8 @@ module.exports = function() {
         $rootScope.currentPosX = null;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
           $scope.num = 2;
-        } else if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+        }
+        if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
           $scope.num = items;
         }
         console.log($scope.num);
@@ -40227,7 +40228,8 @@ module.exports = function() {
           $scope.num = 1;
           if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
             $scope.num = 2;
-          } else if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+          }
+          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
             $scope.num = items;
           }
           width = max > $scope.num ? (100 / $scope.num) * max : 100;
