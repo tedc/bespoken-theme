@@ -12,6 +12,7 @@
         padding: 0;
         margin: 0;
         &[ng-sm] {
+            background-repeat: no-repeat;
             img {
                 visibility: hidden
             }
