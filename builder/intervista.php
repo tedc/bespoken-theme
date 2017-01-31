@@ -18,7 +18,7 @@
             <div class="controls">
                 <div class="buttons">
                     <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
-                    <span class="stop" ng-click="video.player.stopVideo()"></span>
+                    <span class="volume" ng-click="video.player.stopVideo()"></span>
                     <span class="fs"></span>
                 </div>
                 <div class="status-bar" ng-click="skipTo($event, video.player)">
