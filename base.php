@@ -8,6 +8,7 @@ use Roots\Sage\Wrapper;
 <!doctype html>
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
+  <?php var_dump(get_allowed_mime_types()); ?>
   <body <?php body_class(); ?>>
     <!--[if IE]>
       <div class="alert alert-warning">
