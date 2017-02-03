@@ -106,7 +106,11 @@ add_filter('acf/fields/flexible_content/layout_title/name=builder', 'builder_acf
 
 
 function cc_mime_types($mimes) {
-  $mimes['svg'] = 'image/svg+xml';
+  	$mimes['svg'] = 'image/svg+xml';
+  	$mimes['mp4|m4v'] = 'video/mp4';
+	$mimes['ogv'] = 'video/ogg';
+	$mimes['webm'] ='video/webm';
+	
   return $mimes;
 }
 add_filter('upload_mimes', 'cc_mime_types');

@@ -169,15 +169,12 @@
         }
         .logo-related {
             display: inline-block;
-            max-width: em(120px);
-            img {
-                width: $f;
+            max-height: em(80px);
+            img, svg {
+                height: $f;
                 display: block;
                 transform: translate3d(0, -100%, 0);
                 transition: $speed transform;
-            }
-            svg {
-                width: $f;
             }
         }
         .excerpt {
@@ -188,7 +185,7 @@
             }
         }
         &:hover {
-            .excerpt > p, .logo img {
+            .excerpt > p, .logo img, .logo svg {
                 transform: translate3d(0, 0%, 0); 
             }
             .btn {
