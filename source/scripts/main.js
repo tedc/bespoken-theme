@@ -40215,17 +40215,8 @@ module.exports = function() {
             bindToWrapper: true
           });
           if (mw) {
-            $scope.carousel.on('scrollEnd', function() {
+            $scope.carousel.on('scroll', function() {
               console.log(this);
-              if (this.x >= 0) {
-                $element.removeClass('inview');
-              }
-            });
-            $scope.carousel.on('scrollStart', function() {
-              console.log(this);
-              if (this.x >= 0) {
-                $element.removeClass('inview');
-              }
             });
           }
         }, 20);

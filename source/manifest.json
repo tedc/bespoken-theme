@@ -12,7 +12,7 @@
         "../bower_components/gsap/src/uncompressed/TweenMax.js",
         "../bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
         "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
-        "scripts/st.js"
+        "../node_modules/iscroll/build/iscroll-probe.js"
       ],
       "bower" : ["scrollmagic", "iscroll", "perfect-scrollbar"]
     },
