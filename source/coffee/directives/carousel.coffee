@@ -59,7 +59,7 @@ module.exports = ->
 				.on 'leave enter start end', (evt)->
 					console.log evt
 					if evt.type is 'start' and evt.scrollDirection is 'FORWARD' and evt.state is 'DURING'
-						$scope.carousel.mouseWheel = on
+						$scope.carousel.options.mouseWheel = on
 						$scope.carousel.refresh()
 						console.log $scope.carousel
 					return
