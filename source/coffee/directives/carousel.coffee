@@ -32,11 +32,14 @@ module.exports = ->
 					mouseWheel : mw
 					bindToWrapper : on
 				if mw
-					$scope.carousel.on 'scroll', ->
+					$scope.carousel.on 'scrollEnd', ->
 						console.log @
-						#$element.removeClass('inview') if @x >= 0
+						$element.removeClass('inview') if @x == -0
 						return
-
+					$scope.carousel.on 'scrollStart', ->
+						console.log @
+						$element.removeClass('inview') if @x == -0
+						return
 				return
 			, 20
 			$scope.move = (cond)->
