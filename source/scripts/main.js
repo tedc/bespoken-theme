@@ -40229,16 +40229,13 @@ module.exports = function() {
             var move;
             offset = cond ? offset + 10 : offset - 10;
             move = cond ? offset * -1 : offset;
-            $scope.carousel.scrollBy(move, 0, 0);
-            console.log($scope.carousel);
+            $scope.carousel.scrollTo(move, 0, 500);
             if (!cond) {
               if (offset < 10) {
-                TweenMax.set(window, scrollTo({
+                TweenMax.set(window, .5, scrollTo({
                   y: '#home',
                   offsetY: offset - 1
                 }));
-              } else {
-                $scope.carousel.scrollBy(+10, 0);
               }
             }
           };
