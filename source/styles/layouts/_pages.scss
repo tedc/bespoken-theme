@@ -96,18 +96,18 @@
 			}
 		}
 	}
-	[mousewheel="true"] {
-		&:after {
-			@include absfull();
-			content: '';
-			z-index: 500;
-		}
-		&.inview {
-			&:after {
-				display: none;
-			}
-		}
-	}
+	// [mousewheel="true"] {
+	// 	&:after {
+	// 		@include absfull();
+	// 		content: '';
+	// 		z-index: 500;
+	// 	}
+	// 	&.inview {
+	// 		&:after {
+	// 			display: none;
+	// 		}
+	// 	}
+	// }
 }
 
 .case {
