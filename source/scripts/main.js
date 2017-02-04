@@ -40204,7 +40204,7 @@ module.exports = function() {
         });
         mw = $scope.$eval($attrs.mousewheel);
         $timeout(function() {
-          var newX, oldX, opts;
+          var newX, offset, oldX, opts;
           if (!mw) {
             opts = {
               preventDefault: false,
@@ -40224,15 +40224,16 @@ module.exports = function() {
           }
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
+          offset = 0;
           $scope.scrollMove = function(event, cond) {
-            console.log(event);
+            console.log($scope.carousel.x);
             if (cond) {
               return $scope.carousel.scrollBy(-10, 0);
             } else {
               if (Math.abs($scope.carousel.x) - 1 < 0) {
                 return TweenMax.set(window, scrollTo({
                   y: '#home',
-                  offsetY: "-=1px"
+                  offsetY: offset - 1
                 }));
               } else {
                 return $scope.carousel.scrollBy(+10, 0);
