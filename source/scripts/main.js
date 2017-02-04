@@ -40281,6 +40281,7 @@ module.exports = function() {
           offset = 0;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
             console.log(event, delta, deltaX, deltaY);
+            event.preventDefault();
           };
           if (mw) {
             oldX = 0;
