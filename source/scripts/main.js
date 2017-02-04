@@ -40206,7 +40206,7 @@ module.exports = function() {
         $timeout(function() {
           $scope.carousel = new IScroll(container, {
             preventDefault: false,
-            eventPassthrough: true,
+            eventPassthrough: "horizontal",
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',

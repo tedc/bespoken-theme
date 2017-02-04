@@ -24,7 +24,7 @@ module.exports = ->
 			$timeout ->
 				$scope.carousel = new IScroll container,
 					preventDefault: off
-					eventPassthrough: on
+					eventPassthrough: "horizontal"
 					scrollX: on
 					scrollY: off
 					snap: '.carousel-item'
