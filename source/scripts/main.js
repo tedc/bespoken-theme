@@ -40216,13 +40216,13 @@ module.exports = function() {
           });
           if (mw) {
             $scope.carousel.on('scrollEnd', function() {
-              if (this.x === -0) {
+              if (this.pageX === 0) {
                 $element.removeClass('inview');
               }
             });
             $scope.carousel.on('scrollStart', function() {
               console.log(this);
-              if (this.x === -0) {
+              if (this.pageX === 0) {
                 $element.removeClass('inview');
               }
             });

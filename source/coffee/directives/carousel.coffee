@@ -34,11 +34,11 @@ module.exports = ->
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
 						#console.log @
-						$element.removeClass('inview') if @x == -0
+						$element.removeClass('inview') if @pageX is 0
 						return
 					$scope.carousel.on 'scrollStart', ->
 						console.log @
-						$element.removeClass('inview') if @x == -0
+						$element.removeClass('inview') if @pageX is 0
 						return
 				return
 			, 20
