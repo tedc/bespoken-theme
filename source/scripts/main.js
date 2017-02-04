@@ -40180,7 +40180,7 @@ module.exports = function() {
   return carousel = {
     controller: [
       "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
-        var container, itemW, items, max, w, width, wrapper;
+        var container, itemW, items, max, mw, mwScene, w, width, wrapper;
         w = angular.element($window);
         container = $element[0].querySelector('.carousel-container');
         wrapper = container.querySelector('.carousel-wrapper');
@@ -40194,7 +40194,6 @@ module.exports = function() {
         if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
           $scope.num = items;
         }
-        console.log($scope.num);
         width = max > $scope.num ? (100 / $scope.num) * max : 100;
         itemW = 100 / max;
         TweenMax.set(wrapper, {
@@ -40203,6 +40202,7 @@ module.exports = function() {
         TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
           width: itemW + "%"
         });
+        mw = $scope.$eval($attrs.mousewheel);
         $timeout(function() {
           $scope.carousel = new IScroll(container, {
             preventDefault: false,
@@ -40210,7 +40210,6 @@ module.exports = function() {
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',
-            mouseWheel: $scope.$eval($attrs.mousewheel),
             mouseWheelSpeed: 200
           });
           $scope.carousel.on('scrollEnd', function() {
@@ -40242,6 +40241,14 @@ module.exports = function() {
           });
           $scope.carousel.refresh();
         });
+        if (mw) {
+          mwScene = new ScrollMagic.Scene({
+            triggerElement: $element[0],
+            triggerHook: 0
+          }).addTo(controller).on('leave', function(evt) {
+            console.log(evt);
+          });
+        }
       }
     ]
   };

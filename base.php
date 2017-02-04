@@ -8,7 +8,6 @@ use Roots\Sage\Wrapper;
 <!doctype html>
 <html <?php language_attributes(); ?>>
   <?php get_template_part('templates/head'); ?>
-  <?php var_dump(get_allowed_mime_types()); ?>
   <body <?php body_class(); ?>>
     <!--[if IE]>
       <div class="alert alert-warning">
@@ -22,11 +21,6 @@ use Roots\Sage\Wrapper;
         <main class="main" role="document">
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
-        <?php if (Setup\display_sidebar()) : ?>
-          <aside class="sidebar">
-            <?php include Wrapper\sidebar_path(); ?>
-          </aside><!-- /.sidebar -->
-        <?php endif; ?>
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');

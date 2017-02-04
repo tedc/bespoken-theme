@@ -20,6 +20,7 @@ module.exports = ->
 				width : "#{width}%"
 			TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 				width : "#{itemW}%"
+			mw = $scope.$eval $attrs.mousewheel
 			$timeout ->
 				$scope.carousel = new IScroll container,
 					preventDefault: off
@@ -27,7 +28,6 @@ module.exports = ->
 					scrollX: on
 					scrollY: off
 					snap: '.carousel-item'
-					mouseWheel: $scope.$eval $attrs.mousewheel
 					mouseWheelSpeed: 200	
 				$scope.carousel.on 'scrollEnd', ->
 					$scope.currentPosX = @
@@ -51,6 +51,13 @@ module.exports = ->
 					width : "#{itemW}%"
 				$scope.carousel.refresh()
 				return
-
+			if mw
+				mwScene = new ScrollMagic.Scene 
+					triggerElement : $element[0]
+					triggerHook : 0
+				.addTo controller
+				.on 'leave', (evt)->
+					console.log evt
+					return
 			return
 		]
