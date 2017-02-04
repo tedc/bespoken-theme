@@ -40235,6 +40235,7 @@ module.exports = function() {
               x = Math.abs(this.x);
               area = (this.wrapperWidth / $scope.num) / 2;
               $scope.isScrolled = false;
+              console.log(area);
               if (x < area && this.directionX === -1) {
                 $scope.isScrolled = true;
                 TweenMax(window, .25, {
@@ -40245,34 +40246,7 @@ module.exports = function() {
                 });
               }
             });
-            $scope.carousel.on('scrollEnd', function() {
-              var direction, moveX, x;
-              newX = this.x;
-              moveX = oldX + newX;
-              direction = this.directionX;
-              x = Math.abs(this.x);
-              if (x < 10 && direction === -1) {
-                if ($scope.isScrolled) {
-                  return;
-                }
-                $scope.isScrolled = true;
-                controller.scrollTo(function(newpos) {
-                  TweenMax.to(window, .25, {
-                    scrollTo: {
-                      y: newpos,
-                      offsetY: 50
-                    },
-                    onComplete: function() {
-                      return $timeout(function() {
-                        $scope.isScrolled = false;
-                        console.log($scope.isScrolled);
-                      }, 0);
-                    }
-                  });
-                });
-                controller.scrollTo("#home");
-              }
-            });
+            $scope.carousel.on('scrollEnd', function() {});
           }
         }, 20);
         $scope.move = function(cond) {
