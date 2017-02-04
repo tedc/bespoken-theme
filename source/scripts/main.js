@@ -40247,15 +40247,11 @@ module.exports = function() {
           mwScene = new ScrollMagic.Scene({
             triggerElement: $element[0],
             triggerHook: 0
-          }).addTo(controller).on('leave enter start end', function(evt) {
-            console.log(evt);
-            if (evt.type === 'start' && evt.scrollDirection === 'FORWARD' && evt.state === 'DURING') {
-              $scope.carousel.options.mouseWheel = true;
-              $scope.carousel.refresh();
-              console.log($scope.carousel);
-            }
-          });
+          }).addTo(controller).setClassToggle($element[0], 'inview');
         }
+        $scope.carousel.on('scrollEnd', function(e) {
+          return console.log(e);
+        });
       }
     ]
   };

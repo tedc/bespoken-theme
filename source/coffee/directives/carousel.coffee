@@ -58,12 +58,8 @@ module.exports = ->
 					triggerElement : $element[0]
 					triggerHook : 0
 				.addTo controller
-				.on 'leave enter start end', (evt)->
-					console.log evt
-					if evt.type is 'start' and evt.scrollDirection is 'FORWARD' and evt.state is 'DURING'
-						$scope.carousel.options.mouseWheel = on
-						$scope.carousel.refresh()
-						console.log $scope.carousel
-					return
+				.setClassToggle $element[0], 'inview'
+			$scope.carousel.on 'scrollEnd', (e)->
+				console.log e
 			return
 		]
