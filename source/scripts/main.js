@@ -40216,7 +40216,6 @@ module.exports = function() {
           });
           if (mw) {
             $scope.carousel.on('scrollEnd', function() {
-              console.log(this);
               if (this.x === -0) {
                 $element.removeClass('inview');
               }

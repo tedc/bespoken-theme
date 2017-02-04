@@ -33,7 +33,7 @@ module.exports = ->
 					bindToWrapper : on
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
-						console.log @
+						#console.log @
 						$element.removeClass('inview') if @x == -0
 						return
 					$scope.carousel.on 'scrollStart', ->
