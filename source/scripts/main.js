@@ -40203,6 +40203,12 @@ module.exports = function() {
           width: itemW + "%"
         });
         mw = $scope.$eval($attrs.mousewheel);
+        TweenMax.to(window, 1, {
+          scrollTo: {
+            y: "#home"
+          },
+          offsetY: -50
+        });
         $timeout(function() {
           var newX, oldX, opts;
           if (!mw) {
