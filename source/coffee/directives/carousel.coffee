@@ -22,15 +22,22 @@ module.exports = ->
 				width : "#{itemW}%"
 			mw = $scope.$eval $attrs.mousewheel
 			$timeout ->
-				$scope.carousel = new IScroll container,
+				if not mw
+					opts =
+						preventDefault: off
+						scrollX: on
+						scrollY: off
+						snap: '.carousel-item'
+				else
 					preventDefault: off
 					eventPassthrough: on
 					scrollX: on
 					scrollY: off
-					snap: true
 					mouseWheelSpeed: 800
 					mouseWheel : mw
 					bindToWrapper : on
+				$scope.carousel = new IScroll container,
+					opts
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
 						console.log @currentPage.pageX

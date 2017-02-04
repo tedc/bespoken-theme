@@ -40204,16 +40204,26 @@ module.exports = function() {
         });
         mw = $scope.$eval($attrs.mousewheel);
         $timeout(function() {
-          $scope.carousel = new IScroll(container, {
-            preventDefault: false,
-            eventPassthrough: true,
-            scrollX: true,
-            scrollY: false,
-            snap: true,
-            mouseWheelSpeed: 800,
-            mouseWheel: mw,
-            bindToWrapper: true
-          });
+          var opts;
+          if (!mw) {
+            opts = {
+              preventDefault: false,
+              scrollX: true,
+              scrollY: false,
+              snap: '.carousel-item'
+            };
+          } else {
+            ({
+              preventDefault: false,
+              eventPassthrough: true,
+              scrollX: true,
+              scrollY: false,
+              mouseWheelSpeed: 800,
+              mouseWheel: mw,
+              bindToWrapper: true
+            });
+          }
+          $scope.carousel = new IScroll(container, opts);
           if (mw) {
             $scope.carousel.on('scrollEnd', function() {
               console.log(this.currentPage.pageX);
