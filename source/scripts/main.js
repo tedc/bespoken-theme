@@ -40233,22 +40233,27 @@ module.exports = function() {
             $scope.carousel.on('scrollEnd', function() {
               var direction, moveX, x;
               newX = this.x;
-              moveX = oldX + moveX;
+              moveX = oldX + newX;
               direction = this.directionX;
               x = Math.abs(this.x);
               if (x < 10 && direction === -1) {
                 console.log(x, direction, moveX);
                 $scope.isScrolled = true;
-                TweenMax.to(window, .5, {
-                  scrollTo: "#home",
-                  offsetY: -50,
-                  onComplete: function() {
-                    $timeout(function() {
-                      $scope.isScrolled = false;
-                      console.log($scope.isScrolled);
-                    }, 0);
-                  }
+                controller.scrollTo(function(newpos) {
+                  TweenMax.to(window, 1, {
+                    scrollTo: {
+                      y: newpos
+                    },
+                    offsetY: -50,
+                    onComplete: function() {
+                      return $timeout(function() {
+                        $scope.isScrolled = false;
+                        console.log($scope.isScrolled);
+                      }, 0);
+                    }
+                  });
                 });
+                controller.scrollTo("#home");
               }
             });
           }
