@@ -40280,9 +40280,12 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           offset = 0;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
-            console.log(event, delta, deltaX, deltaY);
-            event.preventDefault();
+            offset += delta;
+            if (offset > 0) {
+              return;
+            }
             $scope.carousel.scrollBy(delta, 0);
+            event.preventDefault();
           };
           if (mw) {
             oldX = 0;
