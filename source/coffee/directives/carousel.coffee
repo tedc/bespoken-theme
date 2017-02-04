@@ -56,7 +56,7 @@ module.exports = ->
 					triggerElement : $element[0]
 					triggerHook : 0
 				.addTo controller
-				.on 'leave', (evt)->
+				.on 'leave enter start end', (evt)->
 					console.log evt
 					return
 			return

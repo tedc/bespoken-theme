@@ -40245,7 +40245,7 @@ module.exports = function() {
           mwScene = new ScrollMagic.Scene({
             triggerElement: $element[0],
             triggerHook: 0
-          }).addTo(controller).on('leave', function(evt) {
+          }).addTo(controller).on('leave enter start end', function(evt) {
             console.log(evt);
           });
         }
