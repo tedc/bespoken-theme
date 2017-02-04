@@ -33,12 +33,12 @@ module.exports = ->
 					bindToWrapper : on
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
-						console.log @pageX
-						$element.removeClass('inview') if @pageX is 0
+						console.log @currentPage.pageX
+						$element.removeClass('inview') if @currentPage.pageX is 0
 						return
 					$scope.carousel.on 'scrollStart', ->
-						console.log @pageX
-						$element.removeClass('inview') if @pageX is 0
+						console.log @currentPage.pageX
+						$element.removeClass('inview') if @currentPage.pageX is 0
 						return
 				return
 			, 20
