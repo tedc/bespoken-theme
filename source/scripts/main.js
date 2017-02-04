@@ -40203,12 +40203,6 @@ module.exports = function() {
           width: itemW + "%"
         });
         mw = $scope.$eval($attrs.mousewheel);
-        TweenMax.to(window, 1, {
-          scrollTo: {
-            y: "#home"
-          },
-          offsetY: -50
-        });
         $timeout(function() {
           var newX, oldX, opts;
           if (!mw) {
@@ -40234,7 +40228,7 @@ module.exports = function() {
             oldX = 0;
             newX = 0;
             $scope.carousel.on('scrollStart', function() {
-              oldX = this.x;
+              oldX = newX > 0 ? this.x : 0;
             });
             $scope.carousel.on('scrollEnd', function() {
               var direction, moveX, x;
@@ -40250,7 +40244,7 @@ module.exports = function() {
                     scrollTo: {
                       y: newpos
                     },
-                    offsetY: -50,
+                    offsetY: 50,
                     onComplete: function() {
                       return $timeout(function() {
                         $scope.isScrolled = false;
