@@ -40225,7 +40225,7 @@ module.exports = function() {
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
           $scope.scrollMove = function(event, cond) {
-            console.log(eventevent);
+            console.log(event);
             if (cond) {
               return $scope.carousel.scrollBy(-10, 0);
             } else {
