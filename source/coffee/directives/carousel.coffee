@@ -29,7 +29,7 @@ module.exports = ->
 					scrollY: off
 					snap: '.carousel-item'
 					mouseWheelSpeed: 200
-					mouseWheel : mv
+					mouseWheel : mw
 					bindToWrapper : on
 				$scope.carousel.on 'scrollEnd', ->
 					$scope.currentPosX = @
