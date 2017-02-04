@@ -40250,6 +40250,7 @@ module.exports = function() {
             if (evt.type === 'start' && evt.scrollDirection === 'FORWARD' && evt.state === 'DURING') {
               $scope.carousel.mouseWheel = true;
               $scope.carousel.refresh();
+              console.log($scope.carousel);
             }
           });
         }
