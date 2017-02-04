@@ -38,8 +38,7 @@ module.exports = ->
 						bindToWrapper : on
 				$scope.carousel = new IScroll container, opts
 				if mw
-					$scope.carousel.on 'scroll', ->
-						console.log @
+					$scope.carousel.on 'scrollEnd', ->
 						$element.removeClass('inview') if @currentPage.pageX is 0
 						return
 				return

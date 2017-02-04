@@ -40224,8 +40224,7 @@ module.exports = function() {
           }
           $scope.carousel = new IScroll(container, opts);
           if (mw) {
-            $scope.carousel.on('scroll', function() {
-              console.log(this);
+            $scope.carousel.on('scrollEnd', function() {
               if (this.currentPage.pageX === 0) {
                 $element.removeClass('inview');
               }
