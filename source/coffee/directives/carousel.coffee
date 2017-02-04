@@ -27,7 +27,7 @@ module.exports = ->
 					eventPassthrough: on
 					scrollX: on
 					scrollY: off
-					snap: '.carousel-item'
+					snap: true
 					mouseWheelSpeed: 800
 					mouseWheel : mw
 					bindToWrapper : on

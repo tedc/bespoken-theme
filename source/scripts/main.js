@@ -40209,7 +40209,7 @@ module.exports = function() {
             eventPassthrough: true,
             scrollX: true,
             scrollY: false,
-            snap: '.carousel-item',
+            snap: true,
             mouseWheelSpeed: 800,
             mouseWheel: mw,
             bindToWrapper: true
