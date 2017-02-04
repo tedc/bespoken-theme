@@ -40230,7 +40230,7 @@ module.exports = function() {
             $scope.carousel.on('scrollEnd', function() {
               var direction, x;
               direction = this.directionX;
-              x = this.x;
+              x = Math.abs(this.x);
               if (x < 10 && direction === -1) {
                 console.log(x, direction);
                 $scope.isScrolled = true;
