@@ -40213,7 +40213,7 @@ module.exports = function() {
               snap: '.carousel-item'
             };
           } else {
-            ({
+            opts = {
               preventDefault: false,
               eventPassthrough: true,
               scrollX: true,
@@ -40221,7 +40221,7 @@ module.exports = function() {
               mouseWheelSpeed: 800,
               mouseWheel: mw,
               bindToWrapper: true
-            });
+            };
           }
           $scope.carousel = new IScroll(container, opts);
           if (mw) {

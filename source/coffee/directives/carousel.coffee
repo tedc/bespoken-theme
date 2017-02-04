@@ -29,15 +29,15 @@ module.exports = ->
 						scrollY: off
 						snap: '.carousel-item'
 				else
-					preventDefault: off
-					eventPassthrough: on
-					scrollX: on
-					scrollY: off
-					mouseWheelSpeed: 800
-					mouseWheel : mw
-					bindToWrapper : on
-				$scope.carousel = new IScroll container,
-					opts
+					opts = 
+						preventDefault: off
+						eventPassthrough: on
+						scrollX: on
+						scrollY: off
+						mouseWheelSpeed: 800
+						mouseWheel : mw
+						bindToWrapper : on
+				$scope.carousel = new IScroll container, opts
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
 						console.log @
