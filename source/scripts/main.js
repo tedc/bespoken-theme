@@ -40229,8 +40229,21 @@ module.exports = function() {
             oldX = 0;
             newX = 0;
             $scope.carousel.on('scrollStart', function() {
+              var area, moveX, x;
               oldX = newX > 0 ? this.x : 0;
-              console.log(this);
+              moveX = oldX + newX;
+              x = this.x;
+              area = (this.wrapperWidth / $scope.num) / 2;
+              $scope.isScrolled = false;
+              if (x < area && this.directionX === -1) {
+                $scope.isScrolled = true;
+                TweenMax(window, .25, scrollTo({
+                  y: '#home',
+                  offsetY: moveX > 0 ? moveX : 50
+                }), {
+                  delay: .35
+                });
+              }
             });
             $scope.carousel.on('scrollEnd', function() {
               var direction, moveX, x;
@@ -40239,10 +40252,12 @@ module.exports = function() {
               direction = this.directionX;
               x = Math.abs(this.x);
               if (x < 10 && direction === -1) {
-                console.log(x, direction, moveX);
+                if ($scope.isScrolled) {
+                  return;
+                }
                 $scope.isScrolled = true;
                 controller.scrollTo(function(newpos) {
-                  TweenMax.to(window, 1, {
+                  TweenMax.to(window, .25, {
                     scrollTo: {
                       y: newpos,
                       offsetY: 50
