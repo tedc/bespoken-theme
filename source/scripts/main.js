@@ -40241,8 +40241,7 @@ module.exports = function() {
                   scrollTo: {
                     y: '#home',
                     offsetY: moveX > 0 ? moveX : -50
-                  },
-                  delay: .35
+                  }
                 });
               }
             });
