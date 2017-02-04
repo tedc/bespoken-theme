@@ -13,7 +13,7 @@
         "../bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
         "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"
       ],
-      "bower" : ["scrollmagic", "iscroll", "perfect-scrollbar", "hammerjs"]
+      "bower" : ["scrollmagic", "iscroll", "perfect-scrollbar", "hamsterjs"]
     },
     "main.css": {
       "files": [
