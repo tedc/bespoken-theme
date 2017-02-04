@@ -40229,6 +40229,7 @@ module.exports = function() {
             newX = 0;
             $scope.carousel.on('scrollStart', function() {
               oldX = newX > 0 ? this.x : 0;
+              console.log(this);
             });
             $scope.carousel.on('scrollEnd', function() {
               var direction, moveX, x;
