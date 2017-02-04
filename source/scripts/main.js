@@ -40226,17 +40226,19 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           offset = 0;
           $scope.scrollMove = function(event, cond) {
-            console.log($scope.carousel.x);
-            if (cond) {
-              return $scope.carousel.scrollBy(-10, 0);
-            } else {
-              if (Math.abs($scope.carousel.x) - 1 < 0) {
-                return TweenMax.set(window, scrollTo({
+            var move;
+            offset = cond ? offset + 10 : offset - 10;
+            move = cond ? offset * -1 : offset;
+            $scope.carousel.scrollBy(move, 0, 0);
+            console.log($scope.carousel);
+            if (!cond) {
+              if (offset < 10) {
+                TweenMax.set(window, scrollTo({
                   y: '#home',
                   offsetY: offset - 1
                 }));
               } else {
-                return $scope.carousel.scrollBy(+10, 0);
+                $scope.carousel.scrollBy(+10, 0);
               }
             }
           };
