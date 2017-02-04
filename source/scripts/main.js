@@ -40249,7 +40249,7 @@ module.exports = function() {
             console.log(evt);
             if (evt.type === 'start' && evt.scrollDirection === 'FORWARD' && evt.state === 'DURING') {
               $scope.carousel.mouseWheel = true;
-              $scope.carousel.refres();
+              $scope.carousel.refresh();
             }
           });
         }
