@@ -14,7 +14,7 @@
         "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
         "../node_modules/iscroll/build/iscroll-probe.js"
       ],
-      "bower" : ["scrollmagic", "iscroll", "perfect-scrollbar"]
+      "bower" : ["scrollmagic", "perfect-scrollbar"]
     },
     "main.css": {
       "files": [
