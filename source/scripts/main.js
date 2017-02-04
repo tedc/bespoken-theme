@@ -40820,7 +40820,7 @@ require('angular-youtube-embed');
 
 require('angular-mousewheel');
 
-bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'youtube-embed', 'angular-mousewheel']);
+bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'youtube-embed', 'monospaced.mousewheel']);
 
 require('./directives/index.coffee');
 
