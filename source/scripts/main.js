@@ -40282,6 +40282,7 @@ module.exports = function() {
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
             console.log(event, delta, deltaX, deltaY);
             event.preventDefault();
+            $scope.carousel.scrollBy(deltaX, 0);
           };
           if (mw) {
             oldX = 0;
