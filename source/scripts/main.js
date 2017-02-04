@@ -40206,9 +40206,9 @@ module.exports = function() {
         $timeout(function() {
           return TweenMax.to(window, 1, {
             scrollTo: {
-              y: '#home'
-            },
-            offsetY: 50
+              y: '#home',
+              offsetY: 50
+            }
           });
         }, 50);
         $timeout(function() {
