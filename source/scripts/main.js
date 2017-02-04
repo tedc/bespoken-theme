@@ -40232,15 +40232,16 @@ module.exports = function() {
               var area, moveX, x;
               oldX = newX > 0 ? this.x : 0;
               moveX = oldX + newX;
-              x = this.x;
+              x = Math.abs(this.x);
               area = (this.wrapperWidth / $scope.num) / 2;
               $scope.isScrolled = false;
               if (x < area && this.directionX === -1) {
                 $scope.isScrolled = true;
-                TweenMax(window, .25, scrollTo({
-                  y: '#home',
-                  offsetY: moveX > 0 ? moveX : 50
-                }), {
+                TweenMax(window, .25, {
+                  scrollTo: {
+                    y: '#home',
+                    offsetY: moveX > 0 ? moveX : -50
+                  },
                   delay: .35
                 });
               }
