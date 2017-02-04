@@ -40227,15 +40227,21 @@ module.exports = function() {
           if (mw) {
             oldX = 0;
             newX = 0;
+            $scope.carousel.on('scrollStart', function() {
+              oldX = this.x;
+            });
             $scope.carousel.on('scrollEnd', function() {
-              var direction, x;
+              var direction, moveX, x;
+              newX = this.x;
+              moveX = oldX + moveX;
               direction = this.directionX;
               x = Math.abs(this.x);
               if (x < 10 && direction === -1) {
-                console.log(x, direction);
+                console.log(x, direction, moveX);
                 $scope.isScrolled = true;
                 TweenMax.to(window, .5, {
-                  scrollTo: "-=50",
+                  scrollTo: "#home",
+                  offsetY: -50,
                   onComplete: function() {
                     $timeout(function() {
                       $scope.isScrolled = false;
