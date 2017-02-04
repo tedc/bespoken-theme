@@ -34,7 +34,7 @@ module.exports = ->
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
 						$scope.currentPosX = @
-						console.log @
+						$element.removeClass('inview') if @x <= 0
 						return
 				return
 			, 20
