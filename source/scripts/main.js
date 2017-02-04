@@ -40221,12 +40221,6 @@ module.exports = function() {
                 $element.removeClass('inview');
               }
             });
-            $scope.carousel.on('scrollStart', function() {
-              console.log(this.currentPage.pageX);
-              if (this.currentPage.pageX === 0) {
-                $element.removeClass('inview');
-              }
-            });
           }
         }, 20);
         $scope.move = function(cond) {

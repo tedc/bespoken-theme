@@ -36,10 +36,6 @@ module.exports = ->
 						console.log @currentPage.pageX
 						$element.removeClass('inview') if @currentPage.pageX is 0
 						return
-					$scope.carousel.on 'scrollStart', ->
-						console.log @currentPage.pageX
-						$element.removeClass('inview') if @currentPage.pageX is 0
-						return
 				return
 			, 20
 			$scope.move = (cond)->
