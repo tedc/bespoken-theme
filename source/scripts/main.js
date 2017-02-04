@@ -40204,7 +40204,7 @@ module.exports = function() {
         });
         mw = $scope.$eval($attrs.mousewheel);
         $timeout(function() {
-          var opts;
+          var newX, oldX, opts;
           if (!mw) {
             opts = {
               preventDefault: false,
@@ -40222,11 +40222,27 @@ module.exports = function() {
               bindToWrapper: true
             };
           }
+          $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
           if (mw) {
+            oldX = 0;
+            newX = 0;
             $scope.carousel.on('scrollEnd', function() {
-              if (this.currentPage.pageX === 0) {
-                $element.removeClass('inview');
+              var direction, x;
+              direction = this.directionX;
+              x = this.x;
+              if (x < 10 && direction === -1) {
+                console.log(x, direction);
+                $scope.isScrolled = true;
+                TweenMax.to(window, .5, {
+                  scrollTo: "-=50",
+                  onComplete: function() {
+                    $timeout(function() {
+                      $scope.isScrolled = false;
+                      console.log($scope.isScrolled);
+                    }, 0);
+                  }
+                });
               }
             });
           }
