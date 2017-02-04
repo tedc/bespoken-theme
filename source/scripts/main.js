@@ -4495,6 +4495,60 @@ require('./angular-cookies');
 module.exports = 'ngCookies';
 
 },{"./angular-cookies":3}],5:[function(require,module,exports){
+/*
+ * angular-mousewheel v1.0.5
+ * (c) 2013 Monospaced http://monospaced.com
+ * License: MIT
+ */
+
+angular.module('monospaced.mousewheel', [])
+  .directive('msdWheel', ['$parse', function($parse){
+    return {
+      restrict: 'A, C',
+        link: function(scope, element, attr) {
+        var expr = $parse(attr['msdWheel']),
+            fn = function(event, delta, deltaX, deltaY){
+              scope.$apply(function(){
+                expr(scope, {
+                  $event: event,
+                  $delta: delta,
+                  $deltaX: deltaX,
+                  $deltaY: deltaY
+                });
+              });
+            },
+            hamster;
+
+        if (typeof Hamster === 'undefined') {
+          // fallback to standard wheel event
+          element.bind('wheel', function(event){
+            scope.$apply(function() {
+              expr(scope, {
+                $event: event
+              });
+            });
+          });
+          return;
+        }
+
+        // don't create multiple Hamster instances per element
+        if (!(hamster = element.data('hamster'))) {
+          hamster = Hamster(element[0]);
+          element.data('hamster', hamster);
+        }
+
+        // bind Hamster wheel event
+        hamster.wheel(fn);
+
+        // unbind Hamster wheel event
+        scope.$on('$destroy', function(){
+          hamster.unwheel(fn);
+        });
+      }
+    };
+  }]);
+
+},{}],6:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -5343,11 +5397,11 @@ angular.module('ngResource', ['ng']).
 
 })(window, window.angular);
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 require('./angular-resource');
 module.exports = 'ngResource';
 
-},{"./angular-resource":5}],7:[function(require,module,exports){
+},{"./angular-resource":6}],8:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -6088,11 +6142,11 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 require('./angular-sanitize');
 module.exports = 'ngSanitize';
 
-},{"./angular-sanitize":7}],9:[function(require,module,exports){
+},{"./angular-sanitize":8}],10:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -6841,15 +6895,15 @@ makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
 
 })(window, window.angular);
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 require('./angular-touch');
 module.exports = 'ngTouch';
 
-},{"./angular-touch":9}],11:[function(require,module,exports){
+},{"./angular-touch":10}],12:[function(require,module,exports){
 require('./src/angular-youtube-embed');
 module.exports = 'youtube-embed';
 
-},{"./src/angular-youtube-embed":12}],12:[function(require,module,exports){
+},{"./src/angular-youtube-embed":13}],13:[function(require,module,exports){
 /* global YT */
 angular.module('youtube-embed', [])
 .service ('youtubeEmbedUtils', ['$window', '$rootScope', function ($window, $rootScope) {
@@ -7103,7 +7157,7 @@ angular.module('youtube-embed', [])
     };
 }]);
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 /**
  * @license AngularJS v1.6.1
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -40086,11 +40140,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":13}],15:[function(require,module,exports){
+},{"./angular":14}],16:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -40098,7 +40152,7 @@ bspkn = angular.module('bspkn');
 bspkn.animation('.job', ["$window", require('./job.coffee')]);
 
 
-},{"./job.coffee":16}],16:[function(require,module,exports){
+},{"./job.coffee":17}],17:[function(require,module,exports){
 module.exports = function($window) {
   var job;
   return job = {
@@ -40168,7 +40222,7 @@ module.exports = function($window) {
 };
 
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -40225,19 +40279,8 @@ module.exports = function() {
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
           offset = 0;
-          $scope.scrollMove = function(event, cond) {
-            var move;
-            offset = cond ? offset + 10 : offset - 10;
-            move = cond ? offset * -1 : offset;
-            $scope.carousel.scrollTo(move, 0, 500);
-            if (!cond) {
-              if (offset < 10) {
-                TweenMax.set(window, .5, scrollTo({
-                  y: '#home',
-                  offsetY: offset - 1
-                }));
-              }
-            }
+          $scope.scrollMove = function(event, delta, x, y) {
+            console.log(event, delta, x, y);
           };
           if (mw) {
             oldX = 0;
@@ -40300,7 +40343,7 @@ module.exports = function() {
 };
 
 
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 module.exports = function() {
   var home;
   return home = {
@@ -40336,7 +40379,7 @@ module.exports = function() {
 };
 
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -40344,7 +40387,7 @@ bspkn = angular.module('bspkn');
 bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngAbout', [require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]);
 
 
-},{"./carousel.coffee":17,"./home.coffee":18,"./iscroll.coffee":20,"./menu.coffee":21,"./mousewheel.coffee":22,"./player.coffee":23,"./slider.coffee":24,"./sm.coffee":25,"./split.coffee":26,"./video.coffee":27}],20:[function(require,module,exports){
+},{"./carousel.coffee":18,"./home.coffee":19,"./iscroll.coffee":21,"./menu.coffee":22,"./mousewheel.coffee":23,"./player.coffee":24,"./slider.coffee":25,"./sm.coffee":26,"./split.coffee":27,"./video.coffee":28}],21:[function(require,module,exports){
 module.exports = function($window) {
   var ps;
   return ps = {
@@ -40380,7 +40423,7 @@ module.exports = function($window) {
 };
 
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 module.exports = function() {
   var menu;
   return menu = {
@@ -40403,7 +40446,7 @@ module.exports = function() {
 };
 
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 exports.up = function() {
   return function(scope, element, attrs) {
     return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
@@ -40443,7 +40486,7 @@ exports.down = function() {
 };
 
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 module.exports = function() {
   var player;
   return player = {
@@ -40568,7 +40611,7 @@ module.exports = function() {
 };
 
 
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 module.exports = function() {
   var slider;
   return slider = {
@@ -40619,7 +40662,7 @@ module.exports = function() {
 };
 
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -40694,7 +40737,7 @@ module.exports = function($rootScope, $timeout) {
 };
 
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = function($timeout) {
   var splitTitle;
   return splitTitle = {
@@ -40718,7 +40761,7 @@ module.exports = function($timeout) {
 };
 
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 module.exports = function() {
   var video;
   return video = {
@@ -40756,7 +40799,7 @@ module.exports = function() {
 };
 
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
@@ -40775,7 +40818,9 @@ require('angular-animate');
 
 require('angular-youtube-embed');
 
-bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'youtube-embed']);
+require('angular-mousewheel');
+
+bspkn = angular.module('bspkn', ['ngTouch', 'ngAnimate', 'ngSanitize', 'ngResource', 'ngCookies', 'youtube-embed', 'angular-mousewheel']);
 
 require('./directives/index.coffee');
 
@@ -40784,7 +40829,7 @@ require('./resources/index.coffee');
 require('./animations/index.coffee');
 
 
-},{"./animations/index.coffee":15,"./directives/index.coffee":19,"./resources/index.coffee":30,"angular":14,"angular-animate":2,"angular-cookies":4,"angular-resource":6,"angular-sanitize":8,"angular-touch":10,"angular-youtube-embed":11}],29:[function(require,module,exports){
+},{"./animations/index.coffee":16,"./directives/index.coffee":20,"./resources/index.coffee":31,"angular":15,"angular-animate":2,"angular-cookies":4,"angular-mousewheel":5,"angular-resource":7,"angular-sanitize":9,"angular-touch":11,"angular-youtube-embed":12}],30:[function(require,module,exports){
 module.exports = function() {
   var serializeData, transformRequest;
   serializeData = function(data) {
@@ -40821,7 +40866,7 @@ module.exports = function() {
 };
 
 
-},{"angular":14}],30:[function(require,module,exports){
+},{"angular":15}],31:[function(require,module,exports){
 var bspkn;
 
 bspkn = angular.module('bspkn');
@@ -40993,4 +41038,4 @@ bspkn.service('loadGoogleMapAPI', [
 ]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
-},{"./form.coffee":29}]},{},[28]);
+},{"./form.coffee":30}]},{},[29]);

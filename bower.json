@@ -11,6 +11,7 @@
     "gsap": "~1.19.1",
     "scrollmagic": "~2.0.5",
     "iscroll": "~5.2.0",
-    "perfect-scrollbar": "~0.6.16"
+    "perfect-scrollbar": "~0.6.16",
+    "hammerjs": "~2.0.8"
   }
 }
