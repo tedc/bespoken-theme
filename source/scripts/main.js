@@ -40279,7 +40279,7 @@ module.exports = function() {
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
           offset = 0;
-          $scope.scrollMove = function(event, delta, x, y) {
+          $scope.scrollMove = function(event, delta, deltaX, deltaY) {
             console.log(event, delta, x, y);
           };
           if (mw) {
