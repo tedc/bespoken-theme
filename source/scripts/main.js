@@ -40226,7 +40226,7 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           $scope.scrollMove = function(cond) {
             if (cond) {
-              return $scope.carousel.scrollBy(+1, 0);
+              return $scope.carousel.scrollBy(-10, 0);
             } else {
               if (Math.abs($scope.carousel.x) - 1 < 0) {
                 return TweenMax.set(window, scrollTo({
@@ -40234,7 +40234,7 @@ module.exports = function() {
                   offsetY: "-=1px"
                 }));
               } else {
-                return $scope.carousel.scrollBy(-1, 0);
+                return $scope.carousel.scrollBy(+10, 0);
               }
             }
           };
