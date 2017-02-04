@@ -40238,7 +40238,7 @@ module.exports = function() {
               console.log(area);
               if (x < area && this.directionX === -1) {
                 $scope.isScrolled = true;
-                TweenMax(window, .25, {
+                TweenMax.to(window, .25, {
                   scrollTo: {
                     y: '#home',
                     offsetY: moveX > 0 ? moveX : -50
