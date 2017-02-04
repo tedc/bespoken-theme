@@ -40219,7 +40219,8 @@ module.exports = function() {
               scrollX: true,
               scrollY: false,
               mouseWheel: mw,
-              bindToWrapper: true
+              bindToWrapper: true,
+              bounce: false
             };
           }
           $scope.isScrolled = false;
