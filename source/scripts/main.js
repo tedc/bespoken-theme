@@ -40210,7 +40210,8 @@ module.exports = function() {
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',
-            mouseWheelSpeed: 200
+            mouseWheelSpeed: 200,
+            bindToWrapper: true
           });
           $scope.carousel.on('scrollEnd', function() {
             $scope.currentPosX = this;
