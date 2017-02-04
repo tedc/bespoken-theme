@@ -31,9 +31,11 @@ module.exports = ->
 					mouseWheelSpeed: 200
 					mouseWheel : mw
 					bindToWrapper : on
-				$scope.carousel.on 'scrollEnd', ->
-					$scope.currentPosX = @
-					return
+				if mw
+					$scope.carousel.on 'scrollEnd', ->
+						$scope.currentPosX = @
+						console.log @
+						return
 				return
 			, 20
 			$scope.move = (cond)->
@@ -56,10 +58,8 @@ module.exports = ->
 			if mw
 				mwScene = new ScrollMagic.Scene 
 					triggerElement : $element[0]
-					triggerHook : 0
-				.addTo controller
+					triggerHook : 0	
 				.setClassToggle $element[0], 'inview'
-			$scope.carousel.on 'scrollEnd', (e)->
-				console.log e
+				.addTo controller
 			return
 		]

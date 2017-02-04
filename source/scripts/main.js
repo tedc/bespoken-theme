@@ -40214,9 +40214,12 @@ module.exports = function() {
             mouseWheel: mw,
             bindToWrapper: true
           });
-          $scope.carousel.on('scrollEnd', function() {
-            $scope.currentPosX = this;
-          });
+          if (mw) {
+            $scope.carousel.on('scrollEnd', function() {
+              $scope.currentPosX = this;
+              console.log(this);
+            });
+          }
         }, 20);
         $scope.move = function(cond) {
           if (cond) {
@@ -40247,11 +40250,8 @@ module.exports = function() {
           mwScene = new ScrollMagic.Scene({
             triggerElement: $element[0],
             triggerHook: 0
-          }).addTo(controller).setClassToggle($element[0], 'inview');
+          }).setClassToggle($element[0], 'inview').addTo(controller);
         }
-        $scope.carousel.on('scrollEnd', function(e) {
-          return console.log(e);
-        });
       }
     ]
   };
