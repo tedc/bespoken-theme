@@ -1,5 +1,5 @@
 <section class="home-page" ng-home ng-class="{scrolled:isScrolled}">
-	<header class="page-header" id="header" ng-mouse-wheel-down="scrollWheel()">
+	<header class="page-header" id="header">
 		<div class="gradient"></div>
 		<h2 class="home-title">
 			<span class="home-title-row">
