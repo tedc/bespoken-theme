@@ -34,7 +34,6 @@ module.exports = ->
 						eventPassthrough: on
 						scrollX: on
 						scrollY: off
-						mouseWheelSpeed: 200
 						mouseWheel : mw
 						bindToWrapper : on
 				$scope.carousel = new IScroll container, opts

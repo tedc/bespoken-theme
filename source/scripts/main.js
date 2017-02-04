@@ -40218,7 +40218,6 @@ module.exports = function() {
               eventPassthrough: true,
               scrollX: true,
               scrollY: false,
-              mouseWheelSpeed: 800,
               mouseWheel: mw,
               bindToWrapper: true
             };
