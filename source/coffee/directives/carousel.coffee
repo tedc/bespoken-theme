@@ -40,8 +40,8 @@ module.exports = ->
 					opts
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
-						console.log @currentPage.pageX
-						$element.removeClass('inview') if @currentPage.pageX is 0
+						console.log @
+						#$element.removeClass('inview') if @currentPage.pageX is 0
 						return
 				return
 			, 20

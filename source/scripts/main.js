@@ -40226,10 +40226,7 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           if (mw) {
             $scope.carousel.on('scrollEnd', function() {
-              console.log(this.currentPage.pageX);
-              if (this.currentPage.pageX === 0) {
-                $element.removeClass('inview');
-              }
+              console.log(this);
             });
           }
         }, 20);
