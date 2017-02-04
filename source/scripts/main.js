@@ -40218,24 +40218,37 @@ module.exports = function() {
               eventPassthrough: true,
               scrollX: true,
               scrollY: false,
-              mouseWheel: mw,
               bindToWrapper: true,
               bounce: false
             };
           }
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
+          $scope.scrollMove = function(cond) {
+            if (cond) {
+              return $scope.carousel.scrollBy(+1, 0);
+            } else {
+              if (Math.abs($scope.carousel.x) - 1 < 0) {
+                return TweenMax.set(window, scrollTo({
+                  y: '#home',
+                  offsetY: "-=1px"
+                }));
+              } else {
+                return $scope.carousel.scrollBy(-1, 0);
+              }
+            }
+          };
           if (mw) {
             oldX = 0;
             newX = 0;
             $scope.carousel.on('scrollStart', function() {
               var area, moveX, x;
+              $scope.isScrolled = true;
               oldX = newX > 0 ? this.x : 0;
               moveX = oldX + newX;
               x = Math.abs(this.x);
-              area = (this.wrapperWidth / $scope.num) / 2;
+              area = this.wrapperWidth / $scope.num;
               $scope.isScrolled = false;
-              console.log(area);
               if (x < area && this.directionX === -1) {
                 $scope.isScrolled = true;
                 TweenMax.to(window, .25, {
