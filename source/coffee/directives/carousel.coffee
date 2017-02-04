@@ -28,13 +28,13 @@ module.exports = ->
 					scrollX: on
 					scrollY: off
 					snap: '.carousel-item'
-					mouseWheelSpeed: 200
+					mouseWheelSpeed: 800
 					mouseWheel : mw
 					bindToWrapper : on
 				if mw
 					$scope.carousel.on 'scrollEnd', ->
 						console.log @
-						$element.removeClass('inview') if @x <= 0
+						$element.removeClass('inview') if @x >= 0
 						return
 				return
 			, 20

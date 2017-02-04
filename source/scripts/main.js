@@ -40210,14 +40210,14 @@ module.exports = function() {
             scrollX: true,
             scrollY: false,
             snap: '.carousel-item',
-            mouseWheelSpeed: 200,
+            mouseWheelSpeed: 800,
             mouseWheel: mw,
             bindToWrapper: true
           });
           if (mw) {
             $scope.carousel.on('scrollEnd', function() {
               console.log(this);
-              if (this.x <= 0) {
+              if (this.x >= 0) {
                 $element.removeClass('inview');
               }
             });
