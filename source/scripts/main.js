@@ -40204,14 +40204,6 @@ module.exports = function() {
         });
         mw = $scope.$eval($attrs.mousewheel);
         $timeout(function() {
-          return TweenMax.to(window, 1, {
-            scrollTo: {
-              y: '#home',
-              offsetY: 50
-            }
-          });
-        }, 50);
-        $timeout(function() {
           var newX, oldX, opts;
           if (!mw) {
             opts = {
@@ -40250,9 +40242,9 @@ module.exports = function() {
                 controller.scrollTo(function(newpos) {
                   TweenMax.to(window, 1, {
                     scrollTo: {
-                      y: newpos
+                      y: newpos,
+                      offsetY: 50
                     },
-                    offsetY: 50,
                     onComplete: function() {
                       return $timeout(function() {
                         $scope.isScrolled = false;
