@@ -40247,6 +40247,10 @@ module.exports = function() {
             triggerHook: 0
           }).addTo(controller).on('leave enter start end', function(evt) {
             console.log(evt);
+            if (evt.type === 'start' && evt.scrollDirection === 'FORWARD' && evt.state === 'DURING') {
+              $scope.carousel.mouseWheel = true;
+              $scope.carousel.refres();
+            }
           });
         }
       }
