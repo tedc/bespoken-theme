@@ -40281,11 +40281,10 @@ module.exports = function() {
           offset = 0;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
             offset += delta;
-            if (offset > 0) {
-              return;
+            if (offset < 0) {
+              $scope.carousel.scrollBy(delta, 0);
+              event.preventDefault();
             }
-            $scope.carousel.scrollBy(delta, 0);
-            event.preventDefault();
           };
           if (mw) {
             oldX = 0;
