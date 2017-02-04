@@ -36,6 +36,10 @@ module.exports = ->
 						console.log @
 						$element.removeClass('inview') if @x >= 0
 						return
+					$scope.carousel.on 'scrollStart', ->
+						console.log @
+						$element.removeClass('inview') if @x >= 0
+						return
 				return
 			, 20
 			$scope.move = (cond)->
