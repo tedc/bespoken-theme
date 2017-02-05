@@ -37,6 +37,7 @@
 				    <circle r="28" fill="#fff" <?php echo $center; ?>></circle>
 				  	<circle r="19" fill="#c5168c" <?php echo $center; ?>></circle>
 			    </g>
+			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
 			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
 			</g>
 			<?php $step++; endwhile; ?>
