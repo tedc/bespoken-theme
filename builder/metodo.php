@@ -25,6 +25,7 @@
 			</defs>
 			<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
 			<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
+			<?php $prev_step = ($step - 1 < 0) ? $total : $step - 1; ?>
 			<path id="arc_<?php echo $step; ?>" d="M<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?> A280,280,0 0 1 <?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>" stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" class="arc"></path>
 			<?php $step++; endwhile; ?>
 			<path id="arc_<?php echo $total + 1; ?>" d="M<?php echo $points[$total][0]; ?>,<?php echo $points[$total][1]; ?> A280,280,0 0 1 <?php echo $points[0][0]; ?>,<?php echo $points[0][1]; ?>" stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" class="arc"></path>
