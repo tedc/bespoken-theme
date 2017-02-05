@@ -10,7 +10,7 @@
 ?>
 <div class="method">
 	<div class="method-container">
-		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method base-path="A280,280,0 0 1" method-steps="<?php echo $total; ?>">
+		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method method-steps="<?php echo $total; ?>">
 			<defs>
 				<?php while(have_rows('metodo')) : the_row(); ?>
 				<?php if(get_sub_field('method_icon')) : ?>
@@ -26,7 +26,7 @@
 			<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
 			<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
 			<?php $prev_step = ($step - 1 < 0) ? $total : $step - 1; ?>
-			<g class="button" ng-click="goToStep('<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?>', '<?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>', <?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{current : isStep==<?php echo $step; ?>}">
+			<g class="button" ng-click="goToStep(<?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{current : isStep==<?php echo $step; ?>}">
 				<?php $center = 'cx="'.$points[$step][0].'" cy="'.$points[$step][1].'"'; ?>
 				<g class="button-small">
 					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey"></circle>
@@ -40,8 +40,8 @@
 			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
 			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
 			</g>
+			<path id="arc_<?php echo $step; ?>" d="M<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?> A280,280,0 0 1 <?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>" stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" class="arc"></path>
 			<?php $step++; endwhile; ?>
-			<path stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" id="arc"></path>
 		</svg>
 	</div>
 </div>
