@@ -13,7 +13,7 @@
 			</span>
 		</h2>
 		<span class="btn" ng-click="goToAnchor('#home')" ng-anchors>
-			<span class="btn-text"><i class="icon-scroll-mouse"></i></span>
+			<i class="icon-scroll-mouse"></i>
 		</span>
 	</header>
 	<div id="home" class="home-container">
