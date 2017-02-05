@@ -20,7 +20,7 @@
 	            $svg = preg_replace('/(<[^>]+) xmlns=".*?"/', '$1', $svg);
 	            $svg = str_replace('<symbol', '<symbol id="'.sanitize_title(get_sub_field('method_label')).'"', $svg);
 	            echo $svg; ?>
-			<?php endwhile; endif; ?>
+			<?php  endif; endwhile;?>
 		</defs>
 		<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
 		<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
