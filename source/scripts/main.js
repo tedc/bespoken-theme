@@ -40223,6 +40223,28 @@ module.exports = function($window) {
 
 
 },{}],18:[function(require,module,exports){
+module.exports = function() {
+  var anchors;
+  return anchors = {
+    controller: [
+      "$element", '$scope', "$document", function($element, $scope, $document) {
+        $scope.goToAnchor = function(val) {
+          controller.scrollTo(function(newpos) {
+            TweenMax.to(window, 1, {
+              scrollTo: {
+                y: newpos
+              }
+            });
+          });
+          controller.scrollTo(val);
+        };
+      }
+    ]
+  };
+};
+
+
+},{}],19:[function(require,module,exports){
 var em;
 
 em = function(val) {
@@ -40257,8 +40279,9 @@ module.exports = function() {
           width: itemW + "%"
         });
         mw = $scope.$eval($attrs.mousewheel);
+        $scope.isScrollable = false;
         $timeout(function() {
-          var newX, offset, oldX, opts;
+          var opts;
           if (!mw) {
             opts = {
               preventDefault: false,
@@ -40278,43 +40301,37 @@ module.exports = function() {
           }
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
-          offset = 0;
+          $scope.offset = 0;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
-            offset += delta;
-            if (offset < 0) {
-              $scope.carousel.scrollBy(delta, 0);
+            if (!$scope.isScrollable) {
+              return;
+            }
+            if ($scope.offset + delta < 0) {
+              if ($scope.offset + delta > $scope.carousel.maxScrollX) {
+                $scope.offset += delta;
+                $scope.carousel.scrollBy(delta, 0);
+              }
               event.preventDefault();
             }
           };
-          if (mw) {
-            oldX = 0;
-            newX = 0;
-            $scope.carousel.on('scrollStart', function() {
-              var area, moveX, x;
-              $scope.isScrolled = true;
-              oldX = newX > 0 ? this.x : 0;
-              moveX = oldX + newX;
-              x = Math.abs(this.x);
-              area = this.wrapperWidth / $scope.num;
-              $scope.isScrolled = false;
-              if (x < area && this.directionX === -1) {
-                $scope.isScrolled = true;
-                TweenMax.to(window, .25, {
-                  scrollTo: {
-                    y: '#home',
-                    offsetY: moveX > 0 ? moveX : -50
-                  }
-                });
-              }
-            });
-            $scope.carousel.on('scrollEnd', function() {});
-          }
         }, 20);
         $scope.move = function(cond) {
-          if (cond) {
-            $scope.carousel.next();
+          var mover, mv, resto;
+          if (!mw) {
+            if (cond) {
+              $scope.carousel.next();
+            } else {
+              $scope.carousel.prev();
+            }
           } else {
-            $scope.carousel.prev();
+            mover = $scope.carousel.wrapperWidth / $scope.num;
+            resto = cond ? mover - Math.abs($scope.carousel.x) % mover : Math.abs($scope.carousel.x) % mover;
+            mover = resto < mover / 2 ? resto + mover : resto;
+            mv = cond ? -mover : mover;
+            if ($scope.carousel.x + mv < 0 || $scope.carousel.x + mv > $scope.carousel.maxScrollX) {
+              $scope.carousel.scrollBy(mv, 0, 500);
+              $scope.offset = $scope.carousel.x;
+            }
           }
         };
         w.on('resize', function() {
@@ -40334,49 +40351,19 @@ module.exports = function() {
             width: itemW + "%"
           });
           $scope.carousel.refresh();
+          $scope.offset = $scope.carousel.x;
         });
         if (mw) {
           mwScene = new ScrollMagic.Scene({
             triggerElement: $element[0],
-            triggerHook: 0
-          }).setClassToggle($element[0], 'inview').addTo(controller);
+            triggerHook: 0,
+            offset: -1
+          }).addTo(controller).on('enter leave', function(evt) {
+            $timeout(function() {
+              return $scope.isScrollable = evt.type === 'enter' ? true : false;
+            }, 0);
+          });
         }
-      }
-    ]
-  };
-};
-
-
-},{}],19:[function(require,module,exports){
-module.exports = function() {
-  var home;
-  return home = {
-    controller: [
-      "$scope", "$rootScope", function($scope, $rootScope) {
-        var prevTime;
-        $scope.scroll = function() {
-          $rootScope.isScrolled = !$rootScope.isScrolled;
-        };
-        prevTime = new Date().getTime();
-        $scope.scrollWheel = function() {
-          var curTime, timeDiff;
-          curTime = new Date().getTime();
-          if (typeof prevTime !== 'undefined') {
-            timeDiff = curTime - prevTime;
-            if (timeDiff > 200) {
-              $scope.scroll();
-            }
-          }
-          prevTime = curTime;
-        };
-        $scope.scrollBack = function() {
-          if ($rootScope.currentPosX === null) {
-            return;
-          }
-          if ($rootScope.currentPosX.absStartX === $rootScope.currentPosX.x) {
-            $rootScope.isScrolled = false;
-          }
-        };
       }
     ]
   };
@@ -40388,10 +40375,10 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngMouseWheelUp', require('./mousewheel.coffee').up).directive('ngMouseWheelDown', require('./mousewheel.coffee').down).directive('ngAbout', [require('./split.coffee')]).directive('ngHome', [require('./home.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]);
+bspkn.directive('ngModal', require('./menu.coffee')).directive('ngCarousel', require('./carousel.coffee')).directive('ngAbout', [require('./split.coffee')]).directive('ngAnchors', [require('./anchors.coffee')]).directive('ngSlider', [require('./slider.coffee')]).directive('ngVideo', [require('./video.coffee')]).directive('ngPlayer', [require('./player.coffee')]).directive('ngSm', ["$rootScope", "$timeout", require('./sm.coffee')]).directive('ngPs', ["$timeout", require('./iscroll.coffee')]).directive('ngMethod', [require('./method.coffee')]);
 
 
-},{"./carousel.coffee":18,"./home.coffee":19,"./iscroll.coffee":21,"./menu.coffee":22,"./mousewheel.coffee":23,"./player.coffee":24,"./slider.coffee":25,"./sm.coffee":26,"./split.coffee":27,"./video.coffee":28}],21:[function(require,module,exports){
+},{"./anchors.coffee":18,"./carousel.coffee":19,"./iscroll.coffee":21,"./menu.coffee":22,"./method.coffee":23,"./player.coffee":24,"./slider.coffee":25,"./sm.coffee":26,"./split.coffee":27,"./video.coffee":28}],21:[function(require,module,exports){
 module.exports = function($window) {
   var ps;
   return ps = {
@@ -40451,41 +40438,100 @@ module.exports = function() {
 
 
 },{}],23:[function(require,module,exports){
-exports.up = function() {
-  return function(scope, element, attrs) {
-    return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
-      var delta;
-      event = window.event || event;
-      delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
-      if (delta > 0) {
-        scope.$apply(function() {
-          scope.$eval(attrs.ngMouseWheelUp);
-        });
-        event.returnValue = false;
-        if (event.preventDefault) {
-          event.preventDefault();
-        }
-      }
-    });
-  };
+var arcAnim;
+
+arcAnim = function(arc, delay, lengths) {
+  TweenMax.fromTo("#arc_" + arc, .5, {
+    strokeDashoffset: lengths[arc]
+  }, {
+    strokeDashoffset: 0,
+    delay: delay
+  });
+  TweenMax.fromTo("#arc_" + arc, .5, {
+    strokeDashoffset: 0,
+    strokeDasharray: lengths[arc] + " " + lengths[arc]
+  }, {
+    strokeDashoffset: lengths[arc] * -1,
+    strokeDasharray: "0 " + (lengths[arc] * 2),
+    delay: 0.5 + delay
+  });
 };
 
-exports.down = function() {
-  return function(scope, element, attrs) {
-    return element.bind("DOMMouseScroll mousewheel onmousewheel", function(event) {
-      var delta;
-      event = window.event || event;
-      delta = Math.max(-1, Math.min(1, event.wheelDelta || -event.detail));
-      if (delta < 0) {
-        scope.$apply(function() {
-          scope.$eval(attrs.ngMouseWheelDown);
+module.exports = function() {
+  var method;
+  return method = {
+    controller: [
+      '$scope', '$attrs', '$element', function($scope, $attrs, $element) {
+        var arcs, length, path, steps, tl;
+        path = $attrs.basePath;
+        steps = $attrs.methodSteps;
+        arcs = $element[0].querySelectorAll('.arc');
+        $scope.isStep = 0;
+        $scope.isStarted = false;
+        length = 0;
+        tl = new TimelineMax({
+          paused: true
         });
-        event.returnValue = false;
-        if (event.preventDefault) {
-          event.preventDefault();
-        }
+        angular.forEach(arcs, function(el, i) {
+          var close1, close2, tween1, tween2;
+          length = el.getTotalLength();
+          TweenMax.set(el, {
+            strokeDasharray: length + " " + length,
+            strokeDashoffset: length,
+            visibility: 'hidden'
+          });
+          tween1 = TweenMax.fromTo(el, .5, {
+            strokeDashoffset: length,
+            visibility: 'visible'
+          }, {
+            strokeDashoffset: 0
+          });
+          tween2 = TweenMax.fromTo(el, .5, {
+            strokeDashoffset: 0,
+            strokeDasharray: length + " " + length
+          }, {
+            strokeDashoffset: length * -1,
+            strokeDasharray: "0 " + (length * 2),
+            onComplete: function() {
+              TweenMax.set(el, {
+                visibility: 'hidden'
+              });
+            },
+            delay: .5
+          });
+          tl.add([tween1, tween2], "tween_" + i);
+          if (i === steps) {
+            console.log(i + 1, steps);
+            close1 = TweenMax.fromTo('#arc_0', .5, {
+              strokeDashoffset: length
+            }, {
+              strokeDashoffset: 0
+            });
+            close2 = TweenMax.fromTo('#arc_0', .5, {
+              strokeDashoffset: 0,
+              strokeDasharray: length + " " + length
+            }, {
+              strokeDashoffset: length * -1,
+              strokeDasharray: "0 " + (length * 2),
+              delay: .5
+            });
+            tl.add([close1, close2], "tween_" + (i + 1));
+          }
+        });
+        $scope.goToStep = function(step) {
+          var stepTo;
+          if (step !== $scope.isStep) {
+            stepTo = step + 1;
+            if (step - $scope.isStep === 1) {
+              tl.tweenFromTo("tween_" + step, "tween_" + stepTo);
+            } else {
+              tl.tweenFromTo("tween_" + ($scope.isStep + 1), "tween_" + stepTo);
+            }
+          }
+          $scope.isStep = step;
+        };
       }
-    });
+    ]
   };
 };
 
@@ -40717,6 +40763,7 @@ module.exports = function($rootScope, $timeout) {
       });
       if (scene) {
         scene.destroy();
+        $rootScope.$broadcast('sceneDestroy');
       }
       scene = new ScrollMagic.Scene({
         triggerElement: trigger,
@@ -40734,7 +40781,8 @@ module.exports = function($rootScope, $timeout) {
         if (pin !== false) {
           scene.setPin(pin);
         }
-        return scene.addTo(controller);
+        scene.addTo(controller);
+        return window.scrollTo(0, 0);
       }, 0);
     }
   };
