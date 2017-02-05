@@ -1,6 +1,6 @@
 <section class="home-page">
 	<header class="page-header" id="header" ng-sm to="{y : 120}" duration="100%" trigger-hook="onLeave" offset="50" trigger-element=".home-page">
-		<div class="gradient" ng-sm to="{y : -1200}" duration="100%" trigger-hook="onLeave" offset="50" trigger-element=".home-page"></div>
+		<div class="gradient" ng-sm to="{y : -120}" duration="100%" trigger-hook="onLeave" offset="50" trigger-element=".home-page"></div>
 		<h2 class="home-title">
 			<span class="home-title-row">
 				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
