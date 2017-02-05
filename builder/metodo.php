@@ -10,7 +10,7 @@
 ?>
 <div class="method">
 	<div class="method-container">
-		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method base-path="A280,280,0 0 1">
+		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method base-path="A280,280,0 0 1" method-steps="<?php echo $total; ?>">
 			<defs>
 				<?php while(have_rows('metodo')) : the_row(); ?>
 				<?php if(get_sub_field('method_icon')) : ?>
