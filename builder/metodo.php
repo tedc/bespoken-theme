@@ -42,6 +42,7 @@
 			</g>
 			<path id="arc_<?php echo $step; ?>" d="M<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?> A280,280,0 0 1 <?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>" stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" class="arc"></path>
 			<?php $step++; endwhile; ?>
+			<path id="arc_<?php echo $total + 1; ?>" d="M<?php echo $points[$total][0]; ?>,<?php echo $points[$total][1]; ?> A280,280,0 0 1 <?php echo $points[0][0]; ?>,<?php echo $points[0][1]; ?>" stroke-width="5" stroke="#c5168c" fill="transparent" stroke-linecap="round" class="arc"></path>
 		</svg>
 	</div>
 </div>
