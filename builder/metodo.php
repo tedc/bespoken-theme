@@ -11,7 +11,7 @@
 <div class="method">
 	<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method base-path="A280,280,0 0 1">
 		<defs>
-			<?php while(have_rows('steps')) : the_row(); ?>
+			<?php while(have_rows('metodo')) : the_row(); ?>
 			<?php $svg = file_get_contents(get_sub_field('method_icon'));
 	            $svg = str_replace('svg', 'symbol', $svg);
 	            $svg = preg_replace('/(<[^>]+) id=".*?"/', '$1', $svg);
@@ -22,7 +22,7 @@
 			<?php endwhile; ?>
 		</defs>
 		<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
-		<?php $step = 0; while(have_rows('steps')) : the_row(); ?>
+		<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
 		<?php $prev_step = ($step - 1 < 0) ? $total : $step - 1; ?>
 		<g class="button" ng-click="goToStep('<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?>', '<?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>', <?php echo $step; ?>); ?>" id="step_<?php echo $step; ?>" ng-class="{current : isStep==<?php echo $step; ?>}">
 			<?php $center = 'cx="'.$points[$step][0].'" cy="'.$points[$step][1].'"'; ?>
