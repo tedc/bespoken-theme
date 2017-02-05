@@ -31,7 +31,7 @@
 				<g class="button-small">
 					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey" stroke-width="4"></circle>
 				    <circle r="10" fill="#fff" <?php echo $center; ?> class="white"></circle>
-				  	<circle r="10" fill="#c5168c" <?php echo $center; ?> class="purple"></circle>
+				  	<circle r="10" fill="#e5e5e5" <?php echo $center; ?> class="purple"></circle>
 				</g>
 			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
 			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
