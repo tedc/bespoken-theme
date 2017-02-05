@@ -26,7 +26,7 @@
 			<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
 			<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
 			<?php $prev_step = ($step - 1 < 0) ? $total : $step - 1; ?>
-			<g class="button" ng-click="goToStep(<?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{current : isStep==<?php echo $step; ?>}">
+			<g class="button" ng-click="goToStep(<?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{active : isStep==<?php echo $step; ?>}">
 				<?php $center = 'cx="'.$points[$step][0].'" cy="'.$points[$step][1].'"'; ?>
 				<g class="button-small">
 					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey"></circle>
