@@ -40463,7 +40463,7 @@ module.exports = function() {
     controller: [
       '$scope', '$attrs', '$element', function($scope, $attrs, $element) {
         var arcs, length, path, steps, tl;
-        path = $attrs.basePath;
+        path = $scope.$eval($attrs.basePath);
         steps = $attrs.methodSteps;
         arcs = $element[0].querySelectorAll('.arc');
         $scope.isStep = 0;
