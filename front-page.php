@@ -1,7 +1,7 @@
 <section class="home-page">
 	<header class="page-header" id="header">
 		<div class="gradient"></div>
-		<h2 class="home-title" ng-sm to="{y : 120, opacity : 0}" duration="100%" trigger-hook="onLeave" offset="50" trigger-element="#header">
+		<h2 class="home-title" ng-sm to="{y : 120, opacity : 0}" duration="100%" trigger-hook="onLeave" offset="50" trigger-element=".home-page">
 			<span class="home-title-row">
 				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
 			</span><br />
