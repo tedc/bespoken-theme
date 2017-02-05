@@ -12,8 +12,8 @@
 				<?php echo strip_tags(get_field('third_row'), '<a>'); ?>
 			</span>
 		</h2>
-		<span class="btn" ng-click="scroll()">
-			<span class="btn-text"><?php _e('Scorri', 'bspkn'); ?></span>
+		<span class="btn" ng-click="goToAnchor('#home')" ng-anchors>
+			<span class="btn-text"><i class="icon-scroll-mouse"></i></span>
 		</span>
 	</header>
 	<div id="home" class="home-container">
