@@ -157,7 +157,7 @@
             &:after {
                 @include absfull;
                 content: '';
-                opacity: .15;
+                opacity: 0;
                 background-color: $b;
                 transition: opacity $speed;
             }
