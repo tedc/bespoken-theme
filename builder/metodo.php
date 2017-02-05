@@ -29,7 +29,7 @@
 			<g class="button" ng-click="goToStep('<?php echo $points[$prev_step][0]; ?>,<?php echo $points[$prev_step][1]; ?>', '<?php echo $points[$step][0]; ?>,<?php echo $points[$step][1]; ?>', <?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{current : isStep==<?php echo $step; ?>}">
 				<?php $center = 'cx="'.$points[$step][0].'" cy="'.$points[$step][1].'"'; ?>
 				<g class="button-small">
-					<circle r="15" fill="#e5e5e5" <?php echo $center; ?>></circle>
+					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey"></circle>
 			  		<circle r="10" fill="#c5168c" <?php echo $center; ?> class="purple"></circle>
 				</g>
 				<g class="button-large">
