@@ -40500,8 +40500,8 @@ module.exports = function() {
             delay: .5
           });
           tl.add([tween1, tween2], "tween_" + i);
+          console.log(i, steps);
           if (i === steps) {
-            console.log(i + 1, steps);
             close1 = TweenMax.fromTo('#arc_0', .5, {
               strokeDashoffset: length
             }, {
