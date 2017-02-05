@@ -29,14 +29,10 @@
 			<g class="button" ng-click="goToStep(<?php echo $step; ?>)" id="step_<?php echo $step; ?>" ng-class="{active : isStep==<?php echo $step; ?>}">
 				<?php $center = 'cx="'.$points[$step][0].'" cy="'.$points[$step][1].'"'; ?>
 				<g class="button-small">
-					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey"></circle>
-			  		<circle r="10" fill="#c5168c" <?php echo $center; ?> class="purple"></circle>
+					<circle r="15" fill="#e5e5e5" <?php echo $center; ?> class="grey" stroke-width="4"></circle>
+				    <circle r="10" fill="#fff" <?php echo $center; ?> class="white"></circle>
+				  	<circle r="10" fill="#c5168c" <?php echo $center; ?> class="purple"></circle>
 				</g>
-				<g class="button-large">
-				    <circle r="34" fill="#e5e5e5" <?php echo $center; ?> stroke="#fff" stroke-width="4"></circle>
-				    <circle r="28" fill="#fff" <?php echo $center; ?>></circle>
-				  	<circle r="19" fill="#c5168c" <?php echo $center; ?>></circle>
-			    </g>
 			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
 			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
 			</g>
