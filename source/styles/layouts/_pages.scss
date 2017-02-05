@@ -48,6 +48,7 @@
 		position: relative;
 		z-index: 10;
 		transition: $speed transform, box-shadow $speed/2;
+		box-shadow: 0px -5px 30px 0px transparentize($b, .6);
 		.scrolled & {
 			transform: translate3d(0, -100%, 0);
 			box-shadow: 0 -5px 10px transparentize($b, .65);

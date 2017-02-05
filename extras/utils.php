@@ -9,7 +9,7 @@
 		?>
 		<div<?php if($q->found_posts > 1) : ?> ng-carousel items="<?php echo $el; ?>" max="<?php echo $q->found_posts; ?>" mousewheel="<?php echo $mw; ?>"<?php endif; ?>class="carousel<?php echo ($l) ? ' closing' : ''; ?>"<?php echo ($l) ? ' id="last-related"' : ''; ?>>
 			<?php $sm = ($l) ? ' ng-sm trigger-element="#last-related" class-toggle="pinned" trigger-hook="onLeave"' : ''; ?>
-			<div class="carousel-container"<?php echo $sm; ?>  msd-wheel="scrollMove($event, $delta, $deltaX, $deltaY)"  ng-mouse-wheel-up="scrollMove($event, false)" >
+			<div class="carousel-container"<?php echo $sm; ?><?php if($mw == 'true') : ?> msd-wheel="scrollMove($event, $delta, $deltaX, $deltaY)" ng-mouse-wheel-up="scrollMove($event, false)"<?php endif; ?>>
 				<div class="carousel-wrapper">
 					<?php while($q->have_posts()) : $q->the_post(); ?>
 					<?php get_template_part( 'templates/content', 'related' ); ?>
