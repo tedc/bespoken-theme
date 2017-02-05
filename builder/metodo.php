@@ -12,6 +12,7 @@
 	<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method base-path="A280,280,0 0 1">
 		<defs>
 			<?php while(have_rows('metodo')) : the_row(); ?>
+			<?php if(get_sub_field('method_icon')) : ?>
 			<?php $svg = file_get_contents(get_sub_field('method_icon'));
 	            $svg = str_replace('svg', 'symbol', $svg);
 	            $svg = preg_replace('/(<[^>]+) id=".*?"/', '$1', $svg);
@@ -19,7 +20,7 @@
 	            $svg = preg_replace('/(<[^>]+) xmlns=".*?"/', '$1', $svg);
 	            $svg = str_replace('<symbol', '<symbol id="'.sanitize_title(get_sub_field('method_label')).'"', $svg);
 	            echo $svg; ?>
-			<?php endwhile; ?>
+			<?php endwhile; endif; ?>
 		</defs>
 		<circle r="280" cx="300" cy="300" stroke="#e5e5e5" stroke-width="5" fill="white"></circle>
 		<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
