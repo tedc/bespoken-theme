@@ -156,7 +156,7 @@ var jsTasks = function(filename) {
             }
         })
         .pipe(function() {
-            return gzip({ append: false });
+            return gzip();
         })
         .pipe(function() {
             return gulpif(enabled.rev, rev());
