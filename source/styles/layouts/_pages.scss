@@ -115,12 +115,21 @@
 	}
 	&-svg {
 		max-width: em(320px);
-        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
-            transition: $speed fill;
-            fill: $gray !important;
-            .type-lavori:hover & {
-            	fill: $w !important;
-            }
+		transition: $speed visibility, $speed opacity;
+        .type-lavori:hover & {
+        	visibility: hidden;
+        	opacity: 0;
+        }
+	}
+	.btn {
+		position: absolute;
+		left: 50%;
+		height: 50%;
+		transform: translate3d(-50%, -50%, 0);
+		transition: $speed visibility, $speed opacity;
+		.type-lavori:hover & {
+        	visibility: hidden;
+        	opacity: 0;
         }
 	}
 }

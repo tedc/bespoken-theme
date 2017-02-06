@@ -22,6 +22,9 @@ if(get_sub_field('case_kind') == 0) : ?>
                     $svg = str_replace('id', 'class="case-svg" id', $svg);
                     echo $svg;
                 ?>
+                <span class="btn">
+                    <span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
+                </span>
             </a>
             <?php else : ?>
             <figure class="case-figure">
