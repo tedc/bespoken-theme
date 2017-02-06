@@ -108,9 +108,20 @@
 	&s {
 		.type-lavori {
 			transition: $speed background-color;
-			position: relative;
+			position: relative;	
+			.btn {
+				position: absolute;
+				left: 50%;
+				height: 50%;
+				transform: translate3d(-50%, -50%, 0);
+				transition: $speed visibility, $speed opacity;
+			}
 			&:hover {
 				background-color: $anthracite;
+				.btn {
+					visibility: hidden;
+		        	opacity: 0;
+				}
 			}
 		}
 	}
@@ -122,17 +133,6 @@
         }
 		transition: $speed visibility, $speed opacity;
         .type-lavori:hover & {
-        	visibility: hidden;
-        	opacity: 0;
-        }
-	}
-	.btn {
-		position: absolute;
-		left: 50%;
-		height: 50%;
-		transform: translate3d(-50%, -50%, 0);
-		transition: $speed visibility, $speed opacity;
-		.type-lavori:hover & {
         	visibility: hidden;
         	opacity: 0;
         }
