@@ -108,19 +108,24 @@
 	&s {
 		.type-lavori {
 			transition: $speed background-color;
-			position: relative;	
+			position: relative;
+			.cover {
+				@include absfull;
+			}
 			.btn {
 				position: absolute;
 				left: 50%;
 				top: 50%;
 				transform: translate3d(-50%, -50%, 0);
+			}
+			.cover, .btn {
 				transition: $speed visibility, $speed opacity;
 				visibility: hidden;
 		        opacity: 0;
 			}
 			&:hover {
 				background-color: $anthracite;
-				.btn {
+				.btn, .cover {
 					visibility: visible;
 		        	opacity: 1;
 				}
@@ -132,6 +137,7 @@
 	}
 	&-svg {
 		max-width: em(320px);
+		position: relative;
         path, rect, circle, polygon, [class^="st"], [class*=" st"] {
             transition: $speed fill;
             fill: $gray !important;
