@@ -1,6 +1,6 @@
 <?php get_template_part( 'templates/form', 'header' ); ?>
-<div class="modal-container" ng-class="{visible : isContact}" ng-ps>
-	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid)" ng-form>
+<div class="modal-container" ng-class="{visible : isContact}" ng-ps ng-form>
+	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
 		<?php close('isModal=false;isContact=false'); ?>
 		<div class="form-content row-lg">
 			<div class="content">
