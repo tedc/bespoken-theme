@@ -13,12 +13,12 @@
         </div>
         <?php if (get_sub_field('video_embed') != "") { ?>       
         <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)" ng-class="{visible:isStarted}">
-            <youtube-video video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
+            <youtube-video id="player_<?php echo $row; ?>" video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
             <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
             <div class="controls">
                 <div class="buttons">
                     <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
-                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen()"></span>
+                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen('player_<?php echo $row; ?>')"></span>
                 </div>
                 <div class="status-bar" ng-click="skipTo($event, video.player)">
                     <div class="progress-bar"></div>
