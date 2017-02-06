@@ -58,6 +58,14 @@ module.exports = ->
 						.add [close1, close2], "tween_#{i + 1}"
 				return
 			tl.pause()
+			stepLoop = (i, s)->
+				d = i * 500
+				$timeout ->
+					$scope.isStep = s
+					$scope.isAnim = off if s is steps
+					return
+				, d
+				return
 			$scope.goToStep = (step)->
 				return if step is $scope.isStep
 				return if $scope.inAnim
@@ -71,8 +79,9 @@ module.exports = ->
 							tl.tweenFromTo "tween_0", "tween_#{step + 1}"
 					tl.tweenFromTo "tween_#{$scope.isStep + 1}", "tween_#{steps + 1}", toStart
 				c = 0
-				$scope.isStep = step
-				$scope.inAnim = off
+				for i in [$scope.isStep..step]
+					stepLoop(i, c)
+					c += 1
 				return
 			return
 		]
