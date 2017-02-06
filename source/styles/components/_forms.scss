@@ -106,16 +106,21 @@ input {
 		& + label {
 			display: flex;
 			.file-text {
-				 @extend %inputs;
-				 width: percentage(( 321px - 126px )/321px);
-				 flex: 0 0 auto;
-				 white-space: nowrap;
-				 overflow: hidden;
-				 text-overflow: ellipsis;
+				@extend %inputs;
+				height: em(50px, $font-size);
+				line-height: em(50px, $font-size);
+			 	width: percentage(( 321px - 126px )/321px);
+			 	flex: 0 0 auto;
+			 	white-space: nowrap;
+			 	overflow: hidden;
+			 	text-overflow: ellipsis;
 			}
 			.send-btn {
 				flex: 0 0 auto;
 				width: percentage(162px/321px);
+				border-top-left-radius: 0;
+				border-bottom-left-radius: 0;
+				padding-right: em(60px, $font-size);
 			}
 		}
 	}
