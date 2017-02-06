@@ -18,7 +18,7 @@
             <div class="controls">
                 <div class="buttons">
                     <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
-                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>"></span>
+                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen()"></span>
                 </div>
                 <div class="status-bar" ng-click="skipTo($event, video.player)">
                     <div class="progress-bar"></div>

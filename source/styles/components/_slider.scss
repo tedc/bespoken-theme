@@ -67,8 +67,17 @@
     }
 }
 .slider-only-text {
-    font-size: em(62px);
+    font-size: em(36px);
     line-height: percentage(72px/62px);
+    @include breakpoint(640px) {
+        font-size: em(42px);
+    }
+    @include breakpoint(640px) {
+        font-size: em(52px);
+    }
+    @include breakpoint(1024px) {
+        font-size: em(62px);
+    }
 }
 
 // CAROUSEL
