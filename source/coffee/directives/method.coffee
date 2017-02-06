@@ -23,6 +23,12 @@ module.exports = ->
 							}
 							{
 								strokeDashoffset : 0
+								onComplete : ->
+									$timeout ->
+										$scope.isStep = i
+										return
+									, 0
+									return
 							}
 				tween2 = TweenMax.fromTo el, .5,
 							{
@@ -33,12 +39,6 @@ module.exports = ->
 								strokeDashoffset : length * -1
 								strokeDasharray : "0 #{length*2}"
 								delay : .5
-								onComplete : ->
-									$timeout ->
-										$scope.isStep = i
-										return
-									, 0
-									return
 							}
 				tl
 					.add [tween1, tween2], "tween_#{i}"
