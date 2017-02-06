@@ -86,7 +86,7 @@ module.exports = ->
 					tl.tweenFromTo "tween_#{$scope.isStep + 1}", "tween_#{steps + 1}", toStart
 				c = 0
 				for i in [$scope.isStep..step]
-					stepLoop(c, i)
+					$scope.isAnim = off if s is steps
 					c += 1
 				return
 			return
