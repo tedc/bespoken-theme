@@ -17,7 +17,7 @@
 					<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>" ng-model="formData.tel">
 				</div>
 				<div class="form-uload">
-					<input type="file" ng-model="formData.filecv" id="file" ng-change="upload(file)" />
+					<input type="file" ng-model="formData.filecv" id="file" ngf-select="upload(file)" />
 					<label for="file">
 						<span class="file-text" ng-bind-html="(formData.filecv) ? formData.filecv : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
 						<span class="btn-send">
