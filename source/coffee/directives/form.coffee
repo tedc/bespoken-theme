@@ -9,15 +9,8 @@ module.exports = ->
             }
             $scope.isJobSent = off
             $scope.isContactSent = off
-            $scope.upload = (file)->
-                reader = new FileReader()
-                reader.onload = (loadEvent)->
-                    $scope.$apply ()->
-                        $scope.fileread = loadEvent.target.result
-                        return
-                    return
-                reader.readAsDataURL(changeEvent.target.files[0])
-                console.log 'triggered'
+            $scope.selectFile = (file)->
+                console.log file
                 return
             $scope.onSubmit = (isValid, url)->
                 frmdata = $scope.formData
