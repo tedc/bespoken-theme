@@ -1,4 +1,4 @@
-<div class="row-md" ng-form jobs-form>
+<div class="jobs-form" ng-form jobs-form>
 	<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid, '<?php the_permalink(); ?>')">
 		<div class="form-content row-lg">
 			<div class="content">
@@ -17,7 +17,19 @@
 					<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>" ng-model="formData.tel">
 				</div>
 				<div class="form-uload">
-					<inpu type="file" ng-model="formData.filecv" />
+					<inpu type="file" ng-model="formData.filecv" id="file" />
+					<label for="file">
+						<span class="file-text" ng-bind-html="(formData.filecv) ? formData.filecv : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
+						<button class="btn-send">
+							<?php _e('Carica', 'bspkn'); ?>
+							<span class="btn">
+								<span class="btn-line">
+									<span class="btn-arrow-up"></span>
+									<span class="btn-arrow-down"></span>
+								</span>
+							</span>
+						</button>
+					</label>
 				</div>
 			</div>
 			<div class="form-col">
