@@ -15,16 +15,16 @@ $current_url = home_url(add_query_arg(array(),$wp->request)); ?>
 		<div class="form-inputs row-lg">
 			<div class="form-col">
 				<div class="form-row">
-					<input type="text" name="sender" placeholder="<?php _e('Nome e cognome', 'bspkn'); ?>" ng-model="sender">
+					<input type="text" name="sender" placeholder="<?php _e('Nome e cognome', 'bspkn'); ?>" ng-model="formData.sender">
 				</div>
 				<div class="form-row">
-					<input type="email" name="email" required placeholder="<?php _e('Indirizzo email (richiesto)', 'bspkn'); ?>" ng-model="email">
+					<input type="email" name="email" required placeholder="<?php _e('Indirizzo email (richiesto)', 'bspkn'); ?>" ng-model="formData.email">
 				</div>			
-				<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>" ng-model="tel">
+				<input type="tel" name="tel" required placeholder="<?php _e('Telefono (richiesto)', 'bspkn'); ?>" ng-model="formData.tel">
 			</div>
 			<div class="form-col">
 				<div class="form-row">
-					<textarea name="message" placeholder="<?php _e('Messaggio', 'bspkn'); ?>" ng-model="message"></textarea>
+					<textarea name="message" placeholder="<?php _e('Messaggio', 'bspkn'); ?>" ng-model="formData.message"></textarea>
 				</div>
 				<button class="btn-send" ng-disabled="contactForm.$invalid && !isPrivacyCheckd">
 					<?php _e('Invia', 'bspkn'); ?>
