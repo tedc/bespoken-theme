@@ -59,9 +59,9 @@ module.exports = ->
 					resto = if cond then mover - Math.abs($scope.carousel.x)%mover else Math.abs($scope.carousel.x)%mover 
 					mover = if resto < mover / 2 then resto + mover else resto
 					mv = if cond then -mover else mover
-					if $scope.carousel.x + mv < 0
+					if $scope.carousel.x + mv > 0
 						$scope.carousel.scrollTo 0, 0, 500 if not cond
-					else if $scope.carousel.x + mv > $scope.carousel.maxScrollX
+					else if $scope.carousel.x + mv < $scope.carousel.maxScrollX
 						$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 500 if cond
 					else
 						$scope.carousel.scrollTo mv, 0, 500
