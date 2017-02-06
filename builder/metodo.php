@@ -8,9 +8,9 @@
 	);
 	$total = count($points) - 1;
 ?>
-<div class="method row-lg">
+<div class="method row-lg" ng-method method-steps="<?php echo $total; ?>">
 	<div class="method-container">
-		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method method-steps="<?php echo $total; ?>">
+		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600">
 			<defs>
 				<?php while(have_rows('metodo')) : the_row(); ?>
 				<?php if(get_sub_field('method_icon')) : ?>
