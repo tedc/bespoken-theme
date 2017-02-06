@@ -133,6 +133,7 @@
     transform: translate3d(-50%, -50%, 0);
     text-shadow: 0 0 5px transparentize($b, .65);
     padding-bottom: 0;
+    z-index: 20;
     &[ng-sm] {
         .desktop & {
             transform: translate3d(-50%, 120%, 0);
