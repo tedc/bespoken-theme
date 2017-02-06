@@ -15,9 +15,9 @@
     .container-player {
         position: relative;
         margin: 0 auto;
-        box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
         max-width: $f;
         display: inline-block;
+        box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
         @include breakpoint(1000px) {
             max-width: $max-width;
         }
@@ -30,6 +30,7 @@
             left: 0;
             bottom: 0;
             color: $w;
+            text-align: left;
             @include normalize_padding;
         }
         .name, .company {
@@ -52,8 +53,7 @@
             }
         }
     }
-
-    &.full {
+    &.full, &.video-carousel {
         margin: 0;
         .container-player {
             box-shadow: none;

@@ -109,6 +109,12 @@
         display: flex;
         width: $f;
         flex: 0 0 auto;
+        .video-carousel & {
+            max-width: $max-width;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
+        }
     }
     &-item {
         background-color: $b;
