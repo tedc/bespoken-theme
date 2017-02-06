@@ -109,7 +109,7 @@ input {
 				@extend %inputs;
 				height: em(50px, $font-size);
 				line-height: em(50px, $font-size);
-			 	width: percentage(( 380px - 162px )/321px);
+			 	width: percentage(( 380px - 162px )/380px);
 			 	flex: 0 0 auto;
 			 	white-space: nowrap;
 			 	overflow: hidden;
