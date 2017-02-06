@@ -37,6 +37,6 @@ if(get_sub_field('case_kind') == 0) : ?>
 		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
-<?php else ; ?>
+<?php else : ?>
 
 <?php endif; ?>
