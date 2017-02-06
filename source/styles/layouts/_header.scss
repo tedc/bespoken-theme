@@ -10,6 +10,9 @@
         @include absfull;
         @include gradient;
         @include gradientAnim;
+        &.paused {
+            animation-play-state: paused;
+        }
     }
     .cover {
         background-size: cover;
