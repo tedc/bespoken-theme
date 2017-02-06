@@ -47,15 +47,15 @@
 				  			$anchor = 'start';
 				  		}
 				  		if($step == 0) {
-				  			$coords = 'x="'. ($points[$step][0] - 24) . '" y="'. ($points[$step][1] - 24) . '"';
+				  			$coords = 'x="'. ($points[$step][0] - 32) . '" y="'. ($points[$step][1] - 32) . '"';
 				  		} elseif($step == 1) {
-				  			$coords = 'x="'. ($points[$step][0] + 24) . '" y="'. ($points[$step][1] - 24) . '"';
+				  			$coords = 'x="'. ($points[$step][0] + 32) . '" y="'. ($points[$step][1] - 32) . '"';
 				  		} elseif($step == $total/2) {
-				  			$coords = 'x="'. ($points[$step][0] + 24) . '" y="'. ($points[$step][1] + 24) . '"';
+				  			$coords = 'x="'. ($points[$step][0] + 32) . '" y="'. ($points[$step][1] + 32) . '"';
 				  		} elseif($step == $total - 1) {
-				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 46) . '"';
+				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 54) . '"';
 				  		} elseif($step == $total) {
-				  			$coords = 'x="'. ($points[$step][0] - 24). '" y="'. ($points[$step][1] + 24) . '"';
+				  			$coords = 'x="'. ($points[$step][0] - 32). '" y="'. ($points[$step][1] + 32) . '"';
 				  		}
 				  	?>
 				  	<text <?php echo $coords; ?> text-anchor="<?php echo $anchor; ?>"><?php the_sub_field('method_label'); ?></text>
