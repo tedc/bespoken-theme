@@ -1,5 +1,6 @@
+<?php get_template_part( 'templates/form', 'header' ); ?>
 <div class="modal-container" ng-class="{visible : isContact}" ng-ps>
-	<form class="form iscroll-scroller" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
+	<form class="form iscroll-scroller" name="contactForm" ng-submit="onSubmit(contactForm.$valid)" ng-form>
 		<?php close('isModal=false;isContact=false'); ?>
 		<div class="form-content row-lg">
 			<div class="content">

@@ -1,9 +1,7 @@
-<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid)">
+<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid, '<?php the_permalink(); ?>')" ng-form jobs-form>
 	<div class="form-content row-lg">
 		<div class="content">
 			<?php the_sub_field('testo'); ?>
-			<a href="https://www.facebook.com/bspkn.studio/" class="icon-facebook"></a>
-			<a href="https://www.linkedin.com/company/10485978" class="icon-linkedin"></a>
 		</div>
 	</div>
 	<div class="form-inputs row-lg">
