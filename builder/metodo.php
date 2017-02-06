@@ -38,6 +38,23 @@
 				    <circle r="0" fill="#fff" <?php echo $center; ?> class="white"></circle>
 				  	<circle r="0" fill="#c5168c" <?php echo $center; ?> class="purple-small"></circle>
 				  	<circle r="0" fill="#c5168c" <?php echo $center; ?> class="purple-large"></circle>
+				  	<?php
+				  		if($step == 0 || $step == $total) {
+				  			$anchor = 'end'
+				  		} elseif($step == $total - 1) {
+				  			$anchor = 'middle'
+				  		} else {
+				  			$anchor = 'start'
+				  		}
+				  		if($step == 0 || $step == 1) {
+				  			$coords = 'x="'. $points[$step][0] - 40 . '" y="'. $points[$step][1] - 40 . '"';
+				  		} elseif($step == $total || $step == $total/2) {
+				  			$coords = 'x="'. $points[$step][0] + 40 . '" y="'. $points[$step][1] + 40 . '"';
+				  		} else {
+				  			$coords = 'x="'. $points[$step][0] . '" y="'. $points[$step][1] + 40 . '"';
+				  		}
+				  	?>
+				  	<text <?php echo $coords; ?> text-anchor="<?php echo $anchor; ?>"><?php the_sub_field('method_label'); ?></text>
 				</g>
 			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
 			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
