@@ -192,3 +192,13 @@
 .content {
     @include normalize_padding;
 }
+
+[class^="col"], [class*="col"] {
+    .grid-inverted & {
+        @include breakpoint($bp, false) {
+            &:nth-child(2) {
+                order: 4;
+            }
+        }
+    }
+}
