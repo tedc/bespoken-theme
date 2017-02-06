@@ -46,8 +46,9 @@ module.exports = ($rootScope, $timeout)->
             $rootScope.$on 'sceneDestroy', ->
                 scene.destroy() if scene
                 return
-                
-            scene.destroy() if scene
+            if scene 
+                scene.destroy()
+                $rootScope.$broadcast 'sceneDestroy'
             scene = new ScrollMagic.Scene
                             triggerElement : trigger
                             triggerHook : hook
@@ -61,5 +62,6 @@ module.exports = ($rootScope, $timeout)->
                 scene.setClassToggle element[0], classToggle if classToggle isnt off
                 scene.setPin pin if pin isnt off
                 scene.addTo controller
+                window.scrollTo 0, 0
             , 0
             return

@@ -21,6 +21,7 @@ module.exports = ->
 			TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 				width : "#{itemW}%"
 			mw = $scope.$eval $attrs.mousewheel
+			$scope.isScrollable = off
 			$timeout ->
 				if not mw
 					opts =
@@ -34,17 +35,33 @@ module.exports = ->
 						eventPassthrough: on
 						scrollX: on
 						scrollY: off
-						mouseWheel : mw
+						#mouseWheel : mw
 						bindToWrapper : on
+						bounce : off
+				$scope.isScrolled = off
 				$scope.carousel = new IScroll container, opts
-				if mw
-					$scope.carousel.on 'scrollEnd', ->
-						$element.removeClass('inview') if @currentPage.pageX is 0
-						return
+				$scope.offset = 0
+				$scope.scrollMove = (event, delta, deltaX, deltaY)->
+					return if not $scope.isScrollable
+					if $scope.offset + delta < 0
+						if $scope.offset + delta > $scope.carousel.maxScrollX
+							$scope.offset += delta
+							$scope.carousel.scrollBy delta, 0
+						event.preventDefault()
+					return
 				return
 			, 20
 			$scope.move = (cond)->
-				if cond then $scope.carousel.next() else $scope.carousel.prev()
+				if not mw
+					if cond then $scope.carousel.next() else $scope.carousel.prev()
+				else
+					mover = $scope.carousel.wrapperWidth / $scope.num
+					resto = if cond then mover - Math.abs($scope.carousel.x)%mover else Math.abs($scope.carousel.x)%mover 
+					mover = if resto < mover / 2 then resto + mover else resto
+					mv = if cond then -mover else mover
+					if $scope.carousel.x + mv < 0 or $scope.carousel.x + mv > $scope.carousel.maxScrollX
+						$scope.carousel.scrollBy mv, 0, 500
+						$scope.offset = $scope.carousel.x
 				return
 			w.on 'resize', ->
 				$scope.num = 1
@@ -59,12 +76,18 @@ module.exports = ->
 				TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 					width : "#{itemW}%"
 				$scope.carousel.refresh()
+				$scope.offset = $scope.carousel.x
 				return
 			if mw
 				mwScene = new ScrollMagic.Scene 
 					triggerElement : $element[0]
 					triggerHook : 0	
-				.setClassToggle $element[0], 'inview'
+					offset : -1
 				.addTo controller
+				.on 'enter leave', (evt)->
+					$timeout ->
+						$scope.isScrollable = if evt.type is 'enter' then on else off
+					, 0
+					return 
 			return
 		]

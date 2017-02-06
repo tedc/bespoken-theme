@@ -40438,51 +40438,33 @@ module.exports = function() {
 
 
 },{}],23:[function(require,module,exports){
-var arcAnim;
-
-arcAnim = function(arc, delay, lengths) {
-  TweenMax.fromTo("#arc_" + arc, .5, {
-    strokeDashoffset: lengths[arc]
-  }, {
-    strokeDashoffset: 0,
-    delay: delay
-  });
-  TweenMax.fromTo("#arc_" + arc, .5, {
-    strokeDashoffset: 0,
-    strokeDasharray: lengths[arc] + " " + lengths[arc]
-  }, {
-    strokeDashoffset: lengths[arc] * -1,
-    strokeDasharray: "0 " + (lengths[arc] * 2),
-    delay: 0.5 + delay
-  });
-};
-
 module.exports = function() {
   var method;
   return method = {
+    scope: true,
     controller: [
-      '$scope', '$attrs', '$element', function($scope, $attrs, $element) {
+      '$scope', '$attrs', '$element', '$timeout', function($scope, $attrs, $element, $timeout) {
         var arcs, length, path, steps, tl;
-        path = $scope.$eval($attrs.basePath);
-        steps = $attrs.methodSteps;
+        path = $attrs.basePath;
+        steps = $scope.$eval($attrs.methodSteps);
         arcs = $element[0].querySelectorAll('.arc');
         $scope.isStep = 0;
         $scope.isStarted = false;
         length = 0;
         tl = new TimelineMax({
-          paused: true
+          paused: true,
+          repeat: -1
         });
+        $scope.inAnim = false;
         angular.forEach(arcs, function(el, i) {
           var close1, close2, tween1, tween2;
           length = el.getTotalLength();
           TweenMax.set(el, {
             strokeDasharray: length + " " + length,
-            strokeDashoffset: length,
-            visibility: 'hidden'
+            strokeDashoffset: length
           });
           tween1 = TweenMax.fromTo(el, .5, {
-            strokeDashoffset: length,
-            visibility: 'visible'
+            strokeDashoffset: length
           }, {
             strokeDashoffset: 0
           });
@@ -40492,22 +40474,16 @@ module.exports = function() {
           }, {
             strokeDashoffset: length * -1,
             strokeDasharray: "0 " + (length * 2),
-            onComplete: function() {
-              TweenMax.set(el, {
-                visibility: 'hidden'
-              });
-            },
             delay: .5
           });
           tl.add([tween1, tween2], "tween_" + i);
-          console.log(i, steps);
           if (i === steps) {
-            close1 = TweenMax.fromTo('#arc_0', .5, {
+            close1 = TweenMax.fromTo("#arc_" + (i + 1), .5, {
               strokeDashoffset: length
             }, {
               strokeDashoffset: 0
             });
-            close2 = TweenMax.fromTo('#arc_0', .5, {
+            close2 = TweenMax.fromTo("#arc_" + (i + 1), .5, {
               strokeDashoffset: 0,
               strokeDasharray: length + " " + length
             }, {
@@ -40518,17 +40494,40 @@ module.exports = function() {
             tl.add([close1, close2], "tween_" + (i + 1));
           }
         });
+        tl.pause();
         $scope.goToStep = function(step) {
-          var stepTo;
-          if (step !== $scope.isStep) {
-            stepTo = step + 1;
-            if (step - $scope.isStep === 1) {
-              tl.tweenFromTo("tween_" + step, "tween_" + stepTo);
-            } else {
-              tl.tweenFromTo("tween_" + ($scope.isStep + 1), "tween_" + stepTo);
-            }
+          var c, delay, i, j, newStep, ref, ref1, stepTo, toStart;
+          if (step === $scope.isStep) {
+            return;
           }
-          $scope.isStep = step;
+          if ($scope.inAnim) {
+            return;
+          }
+          $scope.isAnim = false;
+          if (step > $scope.isStep) {
+            stepTo = step + 1;
+            tl.tweenFromTo("tween_" + ($scope.isStep + 1), "tween_" + stepTo);
+          } else {
+            toStart = {
+              onComplete: function() {
+                return tl.tweenFromTo("tween_0", "tween_" + (step + 1));
+              }
+            };
+            tl.tweenFromTo("tween_" + ($scope.isStep + 1), "tween_" + (steps + 1), toStart);
+          }
+          c = 0;
+          for (i = j = ref = $scope.isStep, ref1 = step; ref <= ref1 ? j <= ref1 : j >= ref1; i = ref <= ref1 ? ++j : --j) {
+            newStep = i;
+            delay = c * 500;
+            console.log(delay);
+            c += 1;
+            $timeout(function() {
+              $scope.isStep = newStep;
+              if (i === step) {
+                $scope.inAnim = false;
+              }
+            }, 1000);
+          }
         };
       }
     ]

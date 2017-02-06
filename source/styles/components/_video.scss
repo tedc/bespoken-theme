@@ -169,8 +169,8 @@
         overflow: hidden;
         box-shadow: 0 5px 10px transparentize($b, .75);
     }
-    .play-pause, .stop, .fs {
-        width: $f/3;
+    .play-pause, .fs {
+        width: $f/2;
         transition: background-color $speed;
         position: relative;
         &:hover {

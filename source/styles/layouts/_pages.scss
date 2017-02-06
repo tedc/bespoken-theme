@@ -10,7 +10,7 @@
 	&-title {
 		font-size: vmin(72px);
 		color: $w;
-		line-height: percentage(86px/72px);
+		line-height: percentage(78px/72px);
 		text-align: center;
 		font-weight: normal;
 		margin: auto;
@@ -49,10 +49,6 @@
 		z-index: 10;
 		transition: $speed transform, box-shadow $speed/2;
 		box-shadow: 0px -5px 30px 0px transparentize($b, .6);
-		.scrolled & {
-			transform: translate3d(0, -100%, 0);
-			box-shadow: 0 -5px 10px transparentize($b, .65);
-		}
 		.carousel {
 			flex: 20;
 			display: flex;
@@ -92,8 +88,14 @@
 			bottom: 10px;
 			left: 50%;
 			transform: translate3d(-50%, 0, 0);
-			&-text {
-				font-size: vmin(20px);
+			width: em(80px);
+			height: em(80px);
+			line-height: em(80px);
+			.icon-scroll-mouse {
+				vertical-align: middle;
+				font-size: em(40px);
+				position: relative;
+				top: em(2px, 40px)*-1;
 			}
 		}
 	}
@@ -117,5 +119,102 @@
             	fill: $w !important;
             }
         }
+	}
+}
+
+.method {
+	@include normalize_padding;
+	&-container {
+		height: 100vh;
+		position: relative;
+	}
+	&-svg {
+		@include absfull;
+		overflow: visible !important;
+		.button {
+			circle {
+				transition: $speed;
+			}
+			.grey {
+				stroke: transparent;
+			}
+			text {
+				font-family: $main-font;
+				font-size: em(22px);
+				text-transform: uppercase;
+				fill: #999;
+				transition: $speed fill;
+				font-weight: bold;
+			}
+			&:hover {
+				.grey, .purple-small {
+					fill: #a6a6a6 !important;
+				}
+				text {
+					fill: $violet;
+				}
+			}
+		}
+		.active {
+			.grey {
+				r: 34px !important;
+				stroke: #fff;
+				transition-delay: $speed;
+			}
+			.white {
+				r: 28px !important;
+				transition-delay: $speed;
+			}
+			.purple-small {
+				transition: $speed r;
+				r: 10px !important;
+			}
+			.purple-large {
+				transition: $speed r $speed;
+				r: 19px !important;
+			}
+			text {
+				fill: $violet;
+			}
+		}
+	}
+	&-list {
+		&-item {
+			list-style-type: none;
+		}
+	}
+	&-title {
+		font-size: em(30px);
+		color: $purple;
+		@include breakpoint($bp) {
+			display: none;
+		}
+	}
+	&-description {
+		p {
+			font-size: em(18px);
+			line-height: percentage(36px/22px);
+			@include breakpoint($bp) {
+				font-size: vmin(22px);
+			}
+		}
+		@include breakpoint($bp) {
+			visibility: hidden;
+			opacity: 0;
+			transition: $speed visibility, $speed opacity;
+			color: #a6a6a6;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate3d(-50%,-50%, 0);
+			width: vmin(560px);
+			text-align: center;
+			@include normalize_padding;
+			&.visible {
+				visibility: visible;
+				opacity: 1;
+				transition-delay: $speed;
+			}
+		}
 	}
 }
