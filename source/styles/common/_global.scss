@@ -152,5 +152,11 @@
 @mixin gradientAnim() { 
     background-image: linear-gradient(141deg, $violet, $purple, #df00d2, $purple);
     animation: gradientAnim 15s ease infinite;
-    background-size: 300% 300%;
+    background-size: 800% 800%;
+}
+
+@mixin fullGradientAnim() {
+    background-image: linear-gradient(141deg, #C5168C, #90278E, #356EFF, #0C95ED, #92D321, #FFCD02, #FFA811, #FF4C05, #FF395E, #C5168C);
+    animation: gradientAnim 40s ease infinite;
+    background-size: 2000% 2000%;
 }

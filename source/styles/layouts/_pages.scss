@@ -98,6 +98,9 @@
 				top: em(2px, 40px)*-1;
 			}
 		}
+		.gradient {
+			@include fullGradientAnim();
+		}
 	}
 }
 
