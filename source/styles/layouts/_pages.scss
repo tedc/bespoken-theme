@@ -108,6 +108,7 @@
 	&s {
 		.type-lavori {
 			transition: $speed background-color;
+			position: relative;
 			&:hover {
 				background-color: $anthracite;
 			}
@@ -115,6 +116,10 @@
 	}
 	&-svg {
 		max-width: em(320px);
+        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
+            transition: $speed fill;
+            fill: $gray !important;
+        }
 		transition: $speed visibility, $speed opacity;
         .type-lavori:hover & {
         	visibility: hidden;
