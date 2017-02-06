@@ -47,13 +47,13 @@
 				  			$anchor = 'start';
 				  		}
 				  		if($step == 0) {
-				  			$coords = 'x="'. ($points[$step][0] + 40) . '" y="'. ($points[$step][1] - 40) . '"';
+				  			$coords = 'x="'. ($points[$step][0] - 40) . '" y="'. ($points[$step][1] - 40) . '"';
 				  		} elseif($step == 1) {
 				  			$coords = 'x="'. ($points[$step][0] + 40) . '" y="'. ($points[$step][1] - 40) . '"';
 				  		} elseif($step == $total/2) {
 				  			$coords = 'x="'. ($points[$step][0] + 40) . '" y="'. ($points[$step][1] + 40) . '"';
 				  		} elseif($step == $total - 1) {
-				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 40) . '"';
+				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 62) . '"';
 				  		} elseif($step == $total) {
 				  			$coords = 'x="'. ($points[$step][0] - 40). '" y="'. ($points[$step][1] + 40) . '"';
 				  		}
