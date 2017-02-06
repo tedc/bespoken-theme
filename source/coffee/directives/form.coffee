@@ -18,8 +18,12 @@ module.exports = ->
                 $scope.isSubmitted = on
                 $scope.formData = {}
                 $scope.isPrivacyChecked = off
-                $scope.contactForm.$setUntouched()
-                $scope.contactForm.$setPristine()
+                if $attrs.jobForm
+                    $scope.jobForm.$setUntouched()
+                    $scope.jobForm.$setPristine()
+                else
+                    $scope.contactForm.$setUntouched()
+                    $scope.contactForm.$setPristine()
                 if isValid
                     if $attrs.jobForm
                         Upload.upload
