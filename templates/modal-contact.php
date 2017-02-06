@@ -2,12 +2,9 @@
 global $wp;
 get_template_part( 'templates/form', 'header' );
 $current_url = home_url(add_query_arg(array(),$wp->request)); ?>
+<?php close('ng-click="modal('contact')"'); ?>
 <div class="modal-container" ng-class="{visible : isContact}" ng-ps ng-form>
 	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid, '<?php echo $current_url; ?>')">
-		<span class="btn close" ng-click="modal('contact')" ng-modal>
-			<span class="arrow-line"></span>
-			<span class="arrow-line"></span>
-		</span>
 		<div class="form-content row-lg">
 			<div class="content">
 				<?php the_field('testo_contatti', 'options'); ?>
