@@ -38,7 +38,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 <?php else : ?>
 <div class="video-carousel video bg-dark" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
 	<div class="carousel-wrapper">
-	<?php while($query->have_posts()) : $query->the_post(); ?>
+	<?php $slide = 0; while($query->have_posts()) : $query->the_post(); ?>
 		<div class="carouse-item">
 		<?php while(have_rows('builder')) : the_row(); ?>
 		<?php if(get_row_layout() == 'intervista') : ?>
@@ -49,19 +49,18 @@ if(get_sub_field('case_kind') == 0) : ?>
 		?>	
 		<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
         <img class="screenshot" src="<?php the_sub_field('video'); ?>">
-        <?php echo $row; ?>"><?php _e('La parola del cliente', 'bspkn') ?></h3>
         <div class="clients row">
             <h4 class="name"><?php the_sub_field('titolo') ?></h4>
             <h5 class="company"><?php the_sub_field('sottotitolo') ?></h5>
         </div>
         <?php if (get_sub_field('video_embed') != "") { ?>       
         <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)" ng-class="{visible:isStarted}">
-            <youtube-video id="player_<?php echo $row; ?>" video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
+            <youtube-video id="player_<?php echo $slide; ?>" video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
             <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
             <div class="controls">
                 <div class="buttons">
                     <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
-                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen('player_<?php echo $row; ?>')"></span>
+                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen('player_<?php echo $slide; ?>')"></span>
                 </div>
                 <div class="status-bar" ng-click="skipTo($event, video.player)">
                     <div class="progress-bar"></div>
@@ -77,7 +76,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<?php endif; ?>
 		<?php endwhile;?>
 		</div>
-		<?php endwhile; wp_reset_query();  ?>
+		<?php $slide++; endwhile; wp_reset_query();  ?>
 		<?php if($query->found_posts > 1) : ?>
 		<nav class="carousel-nav">
 			<span class="btn btn-prev" ng-click="move(false)">
