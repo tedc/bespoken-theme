@@ -109,7 +109,7 @@ input {
 				@extend %inputs;
 				height: em(50px, $font-size);
 				line-height: em(50px, $font-size);
-			 	width: percentage(( 321px - 126px )/321px);
+			 	width: percentage(( 380px - 162px )/321px);
 			 	flex: 0 0 auto;
 			 	white-space: nowrap;
 			 	overflow: hidden;
@@ -117,10 +117,11 @@ input {
 			}
 			.btn-send {
 				flex: 0 0 auto;
-				width: percentage(162px/321px);
+				width: percentage(162px/380px);
 				border-top-left-radius: 0;
 				border-bottom-left-radius: 0;
 				padding-right: em(60px, $font-size);
+				padding-left: em(30px, $font-size);
 			}
 		}
 	}
@@ -132,6 +133,9 @@ textarea {
 	line-height: 1.2;
 	.modal-container & {
 		height: em(125px, $font-size);
+	}
+	.job-form & {
+		height: em(200px, $font-size);
 	}
 	margin-top: em(25px);
 	@include breakpoint($bp) {
