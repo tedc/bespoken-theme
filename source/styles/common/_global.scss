@@ -158,5 +158,5 @@
 @mixin fullGradientAnim() {
     background: linear-gradient(135deg, #c5168c, #c5168c, #90278e, #356eff, #0c95ed, #92d321, #ffcd02, #ffa811, #ff4c05, #ff395e, #c5168c, #c5168c);
     background-size: 2400% 2400%;
-    animation: fullFradientAnim 60s ease infinite;
+    animation: fullFradientAnim 30s ease infinite;
 }
