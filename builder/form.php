@@ -22,7 +22,7 @@
 						<span class="file-text" ng-bind-html="(file) ? file : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
 						<span class="btn-send">
 							<?php _e('Carica', 'bspkn'); ?>
-							<span class="btn">
+							<span class="btn up">
 								<span class="btn-line">
 									<span class="btn-arrow-up"></span>
 									<span class="btn-arrow-down"></span>
