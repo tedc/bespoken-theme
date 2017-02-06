@@ -16,8 +16,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		while($query->have_posts()) : $query->the_post(); ?>
 		<div <?php post_class('col-'.$colClass . ' content row-lg'); ?>">
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
-			<a href="<?php the_permalink(); ?>">
-			<?php 
+<?php 
                     $svg = file_get_contents(get_field('icon'));
                     $svg = str_replace('id', 'class="case-svg" id', $svg);
                     echo $svg;
@@ -25,15 +24,13 @@ if(get_sub_field('case_kind') == 0) : ?>
                 <span class="btn">
                     <span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
                 </span>
-            </a>
             <?php else : ?>
             <figure class="case-figure">
-	          	<a href="<?php the_permalink(); ?>">
-		            <img src="<?php the_field('icon', $post->ID) ?>" class="case-image">
-	                <img src="<?php the_field('icon_white', $post->ID) ?>" class="case-image-overlay">
-                </a>
-             </figure>
+	          	<img src="<?php the_field('icon', $post->ID) ?>" class="case-image">
+	            <img src="<?php the_field('icon_white', $post->ID) ?>" class="case-image-overlay">
+            </figure>
             <?php endif; ?>
+            <a href="<?php the_permalink(); ?>"></a>	
 		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>

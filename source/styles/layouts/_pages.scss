@@ -112,10 +112,9 @@
 			.btn {
 				position: absolute;
 				left: 50%;
-				height: 50%;
+				top: 50%;
 				transform: translate3d(-50%, -50%, 0);
 				transition: $speed visibility, $speed opacity;
-				display: inline-block;
 				visibility: hidden;
 		        opacity: 0;
 			}
@@ -125,6 +124,9 @@
 					visibility: visible;
 		        	opacity: 1;
 				}
+			}
+			a {
+				@include absfull;;
 			}
 		}
 	}
