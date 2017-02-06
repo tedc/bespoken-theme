@@ -140,8 +140,8 @@
         .video-slider & {
             width: $f !important;
             padding: {
-                left: 0;
-                right: 0;
+                left: 0 !important;
+                right: 0 !important;
             }
         }
         .title {
