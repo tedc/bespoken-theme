@@ -57,7 +57,7 @@
 				  	<text <?php echo $coords; ?> text-anchor="<?php echo $anchor; ?>"><?php the_sub_field('method_label'); ?></text>
 				</g>
 			    <circle r="34" fill="transparent" <?php echo $center; ?>></circle>
-			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label'); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
+			    <use xlink:href="#<php echo sanitize_title(get_sub_field('method_label')); ?>" x="<?php echo $points[$step][0]; ?>" x="<?php echo $points[$step][0]; ?>"></use>
 			</g>	
 			<?php $step++; endwhile; ?>
 		</svg>
