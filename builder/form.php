@@ -19,7 +19,7 @@
 				<div class="form-uload">
 					<input type="file" ng-model="formData.filecv" id="file" ngf-select="selectFile($file)" />
 					<label for="file">
-						<span class="file-text" ng-bind-html="(formData.filecv) ? formData.filecv : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
+						<span class="file-text" ng-bind-html="(file) ? file : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
 						<span class="btn-send">
 							<?php _e('Carica', 'bspkn'); ?>
 							<span class="btn">
