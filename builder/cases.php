@@ -15,7 +15,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		
 		while($query->have_posts()) : $query->the_post(); ?>
 		<div <?php post_class('col-'.$colClass . ' content row-lg'); ?>">
-			<div class="cover" style="background: url(<?php the_post_thumbnail_url('large'); ?>)">
+			<div class="cover" style="background: url(<?php the_post_thumbnail_url('large'); ?>)"></div>
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
 <?php 
                     $svg = file_get_contents(get_field('icon'));
