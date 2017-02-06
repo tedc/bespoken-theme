@@ -10,3 +10,4 @@ bspkn
 	.directive 'ngSm', ["$rootScope", "$timeout", require './sm.coffee' ]
 	.directive 'ngPs', ["$timeout", require './iscroll.coffee']
 	.directive 'ngMethod', [ require './method.coffee']
+	.directive 'ngForm', [ require './form.coffee']
