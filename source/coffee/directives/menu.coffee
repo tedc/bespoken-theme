@@ -4,9 +4,9 @@ module.exports = ->
 			$rootScope.isModal = off
 			$rootScope.isContact = off
 			$rootScope.isMenu = off
-			$scope.modal = (kind)->
-				$rootScope.isModal = on
-				if kind is 'contact' then $rootScope.isContact = on else $rootScope.isMenu = on
+			$scope.modal = (kind, open)->
+				$rootScope.isModal = open
+				if kind is 'contact' then $rootScope.isContact = open else $rootScope.isMenu = open
 				return
 			return
 		]

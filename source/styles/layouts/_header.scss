@@ -15,9 +15,6 @@
         }
     }
     .cover {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
         @include absfull;
         &:before {
             @include absfull;

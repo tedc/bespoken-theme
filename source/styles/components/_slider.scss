@@ -159,11 +159,6 @@
         align-items: center;
         .cover {
             @include absfull;
-            background: {
-                size: cover;
-                position: center;
-                repeat: no-repeat;
-            }
             &:after {
                 @include absfull;
                 content: '';
