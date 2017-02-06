@@ -92,15 +92,19 @@
     padding-top: em(25px);
     .btn {
         cursor: pointer;
+        &-prev { 
+            margin-right: em(10px);
+        }
+        &-next {     
+            margin-left: em(10px);
+        }
     }
     @include breakpoint(1000px) {    
         .btn-prev {
             left: em(50px)*-1;
-            margin-right: em(10px);
         }
         .btn-next {
             right: em(50px)*-1;
-            margin-left: em(10px);
         }
         position: absolute;
         width: 100%;
