@@ -55,7 +55,7 @@
 				  		} elseif($step == $total - 1) {
 				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 40) . '"';
 				  		} elseif($step == $total) {
-				  			$coords = 'x="'. ($points[$step][0]) - 40). '" y="'. ($points[$step][1] + 40) . '"';
+				  			$coords = 'x="'. ($points[$step][0] - 40). '" y="'. ($points[$step][1] + 40) . '"';
 				  		}
 				  	?>
 				  	<text <?php echo $coords; ?> text-anchor="<?php echo $anchor; ?>"><?php the_sub_field('method_label'); ?></text>
