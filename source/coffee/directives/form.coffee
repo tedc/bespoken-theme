@@ -59,4 +59,19 @@ module.exports = ->
                                     return
                                 , 5000
                                 return
+                        if $scope.isNewsChecked
+                            $http({
+                                method: 'POST'
+                                url: "/assets/lib/mc/mc.php"
+                                data: $scope.formData
+                                headers :
+                                    "Content-type" : "application/x-www-form-urlencoded; charset=utf-8"
+                                transformRequest: transformRequestAsFormPost
+                            }).then (data)->
+                                now = new Date()
+                                exp = new Date now.getFullYear(), now.getMonth()+1, now.getDate()
+                                $cookies.put 'mc_sub', 'subscribed',
+                                    path : "/"
+                                    expires : exp
+                                return
                 return]

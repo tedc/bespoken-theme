@@ -147,11 +147,12 @@
 .method {
 	@include normalize_padding;
 	&-container {
-		height: 100vh;
+		height: calc(100vh - #{em(150px)});
 		position: relative;
 	}
 	&-svg {
 		@include absfull;
+		display: none;
 		overflow: visible !important;
 		.button {
 			circle {
@@ -199,6 +200,9 @@
 				fill: $violet;
 			}
 		}
+		@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
+			display: block;	
+		}
 	}
 	&-list {
 		&-item {
@@ -208,7 +212,7 @@
 	&-title {
 		font-size: em(30px);
 		color: $purple;
-		@include breakpoint($bp) {
+		@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
 			display: none;
 		}
 	}
@@ -220,7 +224,7 @@
 				font-size: vmin(22px);
 			}
 		}
-		@include breakpoint($bp) {
+		@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
 			visibility: hidden;
 			opacity: 0;
 			transition: $speed visibility, $speed opacity;

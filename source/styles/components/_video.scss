@@ -6,6 +6,7 @@
     margin: 0 auto;
     position: relative;
     z-index: 1;
+    text-align: center;
     .screenshot {
         width: 100%;
         height: auto;
@@ -13,9 +14,13 @@
     }
     .container-player {
         position: relative;
-        max-width: $max-width;
         margin: 0 auto;
         box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
+        max-width: $f;
+        display: inline-block;
+        @include breakpoint(1000px) {
+            max-width: $max-width;
+        }
         .player {
             display: block;
             width: 100%;

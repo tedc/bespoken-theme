@@ -34,6 +34,7 @@ var source       = require('vinyl-source-stream');
 var browserify   = require('browserify');
 var coffeeify    = require('coffeeify');
 var modernizr    = require('gulp-modernizr');
+var gzip         = require('gulp-gzip');
 
 
 // See https://github.com/austinpray/asset-builder
@@ -153,6 +154,9 @@ var jsTasks = function(filename) {
             compress: {
                 'drop_debugger': enabled.stripJSDebug
             }
+        })
+        .pipe(function() {
+            return gzip({ append: false });
         })
         .pipe(function() {
             return gulpif(enabled.rev, rev());
