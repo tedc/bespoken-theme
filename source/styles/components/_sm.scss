@@ -2,5 +2,6 @@
 	@include breakpoint($bp, false) {
 		transform: none !important;
 		opacity: 1 !important;
+		background-position: center !important;
 	}
 }
