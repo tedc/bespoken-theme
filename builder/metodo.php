@@ -8,7 +8,7 @@
 	);
 	$total = count($points) - 1;
 ?>
-<div class="method">
+<div class="method row-lg">
 	<div class="method-container">
 		<svg id="metodo" class="method-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" ng-method method-steps="<?php echo $total; ?>">
 			<defs>
