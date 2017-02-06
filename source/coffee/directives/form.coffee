@@ -10,6 +10,7 @@ module.exports = ->
             $scope.isJobSent = off
             $scope.isContactSent = off
             $scope.file = off
+            job = $scope.$eval $attrs.jobForm
             $scope.selectFile = (file)->
                 $scope.file = file.name
                 return
@@ -18,15 +19,14 @@ module.exports = ->
                 $scope.isSubmitted = on
                 $scope.formData = {}
                 $scope.isPrivacyChecked = off
-                console.log $attrs.jobForm
-                if $attrs.jobForm
+                if job
                     $scope.jobForm.$setUntouched()
                     $scope.jobForm.$setPristine()
                 else
                     $scope.contactForm.$setUntouched()
                     $scope.contactForm.$setPristine()
                 if isValid
-                    if $attrs.jobForm
+                    if job
                         Upload.upload
                             url : url
                             data : frmdata

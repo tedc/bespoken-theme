@@ -1,4 +1,4 @@
-<div class="jobs-form" ng-form job-form>
+<div class="jobs-form" ng-form job-form="true">
 	<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid, '<?php the_permalink(); ?>')">
 		<div class="form-content row-lg">
 			<div class="content">
