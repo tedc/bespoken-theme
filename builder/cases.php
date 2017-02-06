@@ -76,7 +76,7 @@ if(get_sub_field('case_kind') == 0) : ?>
         <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
         <?php } ?>
     </div>
-		<?php break; endif; ?>
+		<?php endif; ?>
 		<?php endwhile; ?>
 		</div>
 		<?php endwhile; ?>
