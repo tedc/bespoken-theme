@@ -139,6 +139,10 @@
         }   
         .video-slider & {
             width: $f !important;
+            padding: {
+                left: 0;
+                right: 0;
+            }
         }
         .title {
             font-size: em(24px);
@@ -156,12 +160,14 @@
                 font-size: em(12px);
                 padding: 0 em(20px, 12px);
             }
-            opacity: 0;
-            transition: opacity $speed;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate3d(-50%, -50%, 0);
+            &:not(.close) {
+                opacity: 0;
+                transition: opacity $speed;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 0);
+            }
         }
         display: flex;
         align-items: center;
