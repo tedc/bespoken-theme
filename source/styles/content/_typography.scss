@@ -47,6 +47,9 @@ p {
         &:nth-last-child(1), &:nth-last-of-type(1), &:last-child {
             padding-bottom: 0;
         }
+        .bg-dark & {
+            color: $light;
+        }
     }
 }
 
