@@ -65,5 +65,13 @@
 			</g>	
 			<?php $step++; endwhile; ?>
 		</svg>
+		<ul class="method-list">
+			<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
+			<li class="method-list-item">
+				<h2 class="title emphasis method-title"><strong><?php the_sub_field('method_label'); ?></strong></h2>
+				<div class="row method-description" ng-class="{visible : isStep==<?php echo $step; ?>}"><?php the_sub_field('method_description'); ?></div>
+			</li>
+			<?php $step++ endwhile; ?>
+		</ul>
 	</div>
 </div>
