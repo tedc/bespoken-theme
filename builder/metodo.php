@@ -47,11 +47,11 @@
 				  			$anchor = 'start';
 				  		}
 				  		if($step == 0 || $step == 1) {
-				  			$coords = 'x="'. $points[$step][0] - 40 . '" y="'. $points[$step][1] - 40 . '"';
+				  			$coords = 'x="'. ($points[$step][0] - 40) . '" y="'. ($points[$step][1] - 40) . '"';
 				  		} elseif($step == $total || $step == $total/2) {
-				  			$coords = 'x="'. $points[$step][0] + 40 . '" y="'. $points[$step][1] + 40 . '"';
+				  			$coords = 'x="'. ($points[$step][0] + 40) . '" y="'. ($points[$step][1] + 40) . '"';
 				  		} else {
-				  			$coords = 'x="'. $points[$step][0] . '" y="'. $points[$step][1] + 40 . '"';
+				  			$coords = 'x="'. ($points[$step][0]) . '" y="'. ($points[$step][1] + 40) . '"';
 				  		}
 				  	?>
 				  	<text <?php echo $coords; ?> text-anchor="<?php echo $anchor; ?>"><?php the_sub_field('method_label'); ?></text>
