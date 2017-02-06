@@ -1,7 +1,7 @@
 <section class="home-page">
-	<header class="page-header" id="header" ng-sm from="{y: 0, overflow: 'visible'}" to="{y : 60, overflow: 'visible'}" duration="100%" trigger-hook="onEnter" trigger-element="#home">
-		<div class="gradient" ng-sm to="{y : -60, boxShadow : 'inset 0px -35px 27px -32px rgba(0,0,0,0.52)'}" duration="100%" trigger-hook="onLeave" trigger-element="#home"></div>
-		<h2 class="home-title" ng-sm from="{y: 0, overflow: 'visible'}" to="{opacity: 0}" duration="100%" trigger-hook="onEnter" trigger-element="#home">
+	<header class="page-header" id="header" ng-sm from="{y: 0, overflow: 'visible'}" to="{y : 60, overflow: 'visible'}" duration="100%" trigger-hook="onEnter" trigger-element="#home" offset="50">
+		<div class="gradient" ng-sm to="{y : -60, boxShadow : 'inset 0px -35px 27px -32px rgba(0,0,0,0.52)'}" duration="100%" trigger-hook="onLeave" trigger-element="#home" offset="50"></div>
+		<h2 class="home-title" ng-sm from="{y: 0, overflow: 'visible'}" to="{opacity: 0}" duration="100%" trigger-hook="onEnter" trigger-element="#home" offset="50">
 			<span class="home-title-row">
 				<?php echo strip_tags(get_field('first_row'), '<a>'); ?>
 			</span><br />
