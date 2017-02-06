@@ -80,7 +80,7 @@ module.exports = ->
 					tl.tweenFromTo "tween_#{$scope.isStep + 1}", "tween_#{steps + 1}", toStart
 				c = 0
 				for i in [$scope.isStep..step]
-					stepLoop(i, c)
+					stepLoop(c, i)
 					c += 1
 				return
 			return
