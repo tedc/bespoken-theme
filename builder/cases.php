@@ -42,7 +42,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		
 		while($query->have_posts()) : $query->the_post(); ?>
 		<div class="carouse-item">
-		<?php var_dump(get_field('builder'))); ?>
+		<?php var_dump(get_field('builder')); ?>
 		</div>
 		<?php endwhile; wp_reset_query();  ?>
 		<?php if($query->found_posts > 1) : ?>
