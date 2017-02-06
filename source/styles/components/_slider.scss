@@ -137,6 +137,9 @@
             [items="4"] & {
                 width: $f/4;
             }
+        }   
+        .video-slider & {
+            width: $f !important;
         }
         .title {
             font-size: em(24px);

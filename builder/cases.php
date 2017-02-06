@@ -44,6 +44,11 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<div class="carouse-item">
 		<?php while(have_rows('builder')) : the_row(); ?>
 		<?php if(get_row_layout() == 'intervista') : ?>
+		<?php
+            $pattern = '/embed\/(\w+)\?\w+/';
+            $oembed = get_sub_field('video_embed');
+            $iframe = preg_match($pattern, $oembed, $matches);
+		?>	
 		<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
         <img class="screenshot" src="<?php the_sub_field('video'); ?>">
         <?php echo $row; ?>"><?php _e('La parola del cliente', 'bspkn') ?></h3>
