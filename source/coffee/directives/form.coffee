@@ -9,7 +9,7 @@ module.exports = ->
             }
             $scope.isJobSent = off
             $scope.isContactSent = off
-            $scope.upload = (file)->
+            $scope.upload = ($event)->
                 console.log file
                 return
             $scope.onSubmit = (isValid, url)->
