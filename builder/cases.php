@@ -40,7 +40,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 	<div class="carousel-container">
 		<div class="carousel-wrapper">
 		<?php $slide = 0; while($query->have_posts()) : $query->the_post(); ?>
-			<div class="carouse-item">
+			<div class="carousel-item">
 			<?php while(have_rows('builder')) : the_row(); ?>
 			<?php if(get_row_layout() == 'intervista') : ?>
 			<?php
