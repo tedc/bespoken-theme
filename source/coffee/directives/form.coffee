@@ -22,7 +22,8 @@ module.exports = ->
                             url : url
                             data : frmdata
                         .then (data)->
-                            window.ga 'send', 'event', 'invio curriculum', 'submit form'
+                            #window.ga 'send', 'event', 'invio curriculum', 'submit form'
+                            console.log data
                             $scope.isJobSent = on
                             $timeout ->
                                 $scope.isSubmitted = off
@@ -40,7 +41,8 @@ module.exports = ->
                                     "Content-type" : "application/x-www-form-urlencoded; charset=utf-8"
                                 transformRequest: transformRequestAsFormPost
                             }).then (data)->
-                                window.ga 'send', 'event', 'richiesta info', 'submit form'
+                                #window.ga 'send', 'event', 'richiesta info', 'submit form'
+                                console.log data
                                 $scope.isContactSent = on
                                 $timeout ->
                                     $scope.isSubmitted = off
