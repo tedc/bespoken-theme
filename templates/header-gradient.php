@@ -1,1 +1,1 @@
-<div class="gradient" ng-sm trigger-element=".main" trigger-hook="onLeave" to="{y : '10%'}" duration="120%"></div>
+<div class="gradient" ng-sm trigger-element=".main" trigger-hook="onLeave" to="{y : '20%'}" duration="120%"></div>
