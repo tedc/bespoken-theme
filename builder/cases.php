@@ -38,6 +38,9 @@ if(get_sub_field('case_kind') == 0) : ?>
 <?php else : ?>
 <div class="video-slider" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
 	<div class="carousel-wrapper">
+	<?php 
+		
+		while($query->have_posts()) : $query->the_post(); ?>
 		<div class="carouse-item">
 		<?php while(have_rows('builder')) : the_row(); ?>
 		<?php if(get_row_layout() == 'intervista') : ?>
@@ -45,6 +48,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<?php break; endif; ?>
 		<?php endwhile; ?>
 		</div>
+		<?php endwhile; ?>
 		<?php if($query->found_posts > 1) : ?>
 		<nav class="carousel-nav">
 			<span class="btn btn-prev" ng-click="move(false)">
