@@ -77,9 +77,9 @@ if(get_sub_field('case_kind') == 0) : ?>
         <?php } ?>
     </div>
 		<?php break; endif; ?>
-		<?php endwhile; wp_reset_query(); ?>
+		<?php endwhile;?>
 		</div>
-		<?php endwhile; ?>
+		<?php endwhile; wp_reset_query();  ?>
 		<?php if($query->found_posts > 1) : ?>
 		<nav class="carousel-nav">
 			<span class="btn btn-prev" ng-click="move(false)">
