@@ -1,6 +1,9 @@
-<?php get_template_part( 'templates/form', 'header' ); ?>
+<?php 
+global $wp;
+get_template_part( 'templates/form', 'header' );
+$current_url = home_url(add_query_arg(array(),$wp->request)); ?>
 <div class="modal-container" ng-class="{visible : isContact}" ng-ps ng-form>
-	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid)">
+	<form class="form" name="contactForm" ng-submit="onSubmit(contactForm.$valid, '<?php echo $current_url; ?>')">
 		<?php close('isModal=false;isContact=false'); ?>
 		<div class="form-content row-lg">
 			<div class="content">
