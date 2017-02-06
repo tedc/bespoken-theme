@@ -70,7 +70,7 @@
     &-btm {
         padding: {
             top: em(75px/2);
-            bottom: em(75px/2);
+            bottom: em(75px/4);
         }
         @include breakpoint(640px) {
             padding: {
@@ -87,8 +87,8 @@
     }
     &-top {
         padding: {
-            top: em(75px/2);
-            bottom: em(75px/2);
+            top: em(50px/4);
+            bottom: em(50px/2);
         }
         @include breakpoint(640px) {
             padding: {
@@ -104,10 +104,9 @@
         }
     }
     &-md {
-
         padding: {
-            top: em(75px/2);
-            bottom: em(75px/2);
+            top: em(50px/2);
+            bottom: em(50px/2);
         }
         @include breakpoint($bp) {
             padding: {
@@ -117,8 +116,8 @@
         }
         &-btm {
             padding: {
-                bottom: em(75px/2);
-                top: em(75px/2);
+                bottom: em(50px/2);
+                top: em(50px/4);
             }
             @include breakpoint($bp) {
                 padding: {
@@ -129,8 +128,8 @@
         }
         &-top {
             padding: {
-                top: em(75px/2);
-                bottom: em(75px/2);
+                top: em(50px/4);
+                bottom: em(50px/2);
             }
             @include breakpoint($bp) {
                 padding: {
@@ -159,7 +158,7 @@
         }
         &-btm {
             padding: {
-                bottom: em(75px/2);
+                bottom: em(50px/2);
             }
             @include breakpoint(640px) {
                 padding: {
@@ -174,7 +173,7 @@
         }
         &-top {
             padding: {
-                top: em(75px/2);
+                top: em(50px/2);
             }
             @include breakpoint(640px) {
                 padding: {
