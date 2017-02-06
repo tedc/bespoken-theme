@@ -43,7 +43,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<?php if(get_row_layout() == 'intervista') : ?>
 		<?php include(locate_template( 'builder/intervista.php', false, true )); ?>
 		<?php break; endif; ?>
-		<?php endif; ?>
+		<?php endwhile; ?>
 		</div>
 		<?php if($query->found_posts > 1) : ?>
 		<nav class="carousel-nav">
