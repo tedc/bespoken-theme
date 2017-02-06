@@ -40,11 +40,11 @@
 				  	<circle r="0" fill="#c5168c" <?php echo $center; ?> class="purple-large"></circle>
 				  	<?php
 				  		if($step == 0 || $step == $total) {
-				  			$anchor = 'end'
+				  			$anchor = 'end';
 				  		} elseif($step == $total - 1) {
-				  			$anchor = 'middle'
+				  			$anchor = 'middle';
 				  		} else {
-				  			$anchor = 'start'
+				  			$anchor = 'start';
 				  		}
 				  		if($step == 0 || $step == 1) {
 				  			$coords = 'x="'. $points[$step][0] - 40 . '" y="'. $points[$step][1] - 40 . '"';
