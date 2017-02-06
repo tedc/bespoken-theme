@@ -62,8 +62,12 @@
         transform: translate3d(-50%, -50%, 0);
         opacity: 1;
         color: #fff;
-        width: em(100px);
-        height: em(100px);
+        width: vmin(100px);
+        height: vmin(100px);
+        @include breakpoint(999px) {
+            width: em(100px);
+            height: em(100px);
+        }
         border-radius: 50%;
         border: 2px solid white;
         display: flex;
@@ -168,6 +172,8 @@
         z-index: 1;
         overflow: hidden;
         box-shadow: 0 5px 10px transparentize($b, .75);
+        transition: $speed opacity;
+        opacity: .2;
     }
     .play-pause, .fs {
         width: $f/2;
@@ -274,6 +280,9 @@
     &:hover {
         .status-bar {
             height: 10px;
+        }
+        .buttons {
+            opacity: 1;
         }
     }
     .progress {
