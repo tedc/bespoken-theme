@@ -20,7 +20,7 @@
 					<input type="file" ng-model="formData.filecv" id="file" />
 					<label for="file">
 						<span class="file-text" ng-bind-html="(formData.filecv) ? formData.filecv : '<?php _e('Allega il tuo cv', 'bspkn'); ?>'"></span>
-						<button class="btn-send">
+						<span class="btn-send">
 							<?php _e('Carica', 'bspkn'); ?>
 							<span class="btn">
 								<span class="btn-line">
@@ -28,7 +28,7 @@
 									<span class="btn-arrow-down"></span>
 								</span>
 							</span>
-						</button>
+						</span>
 					</label>
 				</div>
 			</div>
