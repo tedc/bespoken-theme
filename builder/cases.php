@@ -22,19 +22,45 @@ if(get_sub_field('case_kind') == 0) : ?>
                     $svg = str_replace('id', 'class="case-svg" id', $svg);
                     echo $svg;
                 ?>
-                <span class="btn">
-                    <span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
-                </span>
             <?php else : ?>
             <figure class="case-figure">
 	          	<img src="<?php the_field('icon', $post->ID) ?>" class="case-image">
 	            <img src="<?php the_field('icon_white', $post->ID) ?>" class="case-image-overlay">
             </figure>
             <?php endif; ?>
+            <span class="btn">
+                <span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span>
+            </span>
             <a href="<?php the_permalink(); ?>"></a>	
 		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
 <?php else : ?>
-
+<div class="video-slider" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
+	<div class="carousel-wrapper">
+		<div class="carouse-item">
+		<?php while(have_rows('builder')) : the_row(); ?>
+		<?php if(get_row_layout() == 'intervista') : ?>
+		<?php include(locate_template( 'builder/intervista.php', false, true )); ?>
+		<?php break; endif; ?>
+		<?php endif; ?>
+		</div>
+		<?php if($query->found_posts > 1) : ?>
+		<nav class="carousel-nav">
+			<span class="btn btn-prev" ng-click="move(false)">
+				<span class="btn-line">
+		            <span class="btn-arrow-up"></span>
+		            <span class="btn-arrow-down"></span>
+		        </span>
+			</span>
+			<span class="btn btn-next" ng-click="move(true)">
+				<span class="btn-line">
+		            <span class="btn-arrow-up"></span>
+		            <span class="btn-arrow-down"></span>
+		        </span>
+			</span>
+		</nav>
+		<?php endif; ?>
+	</div>
+</div>
 <?php endif; ?>

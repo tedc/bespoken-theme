@@ -238,6 +238,16 @@
                 right: em(50px);
             }
         }
+        @include breakpoint(640px) {
+            [items="2"][max="2"] & {
+                display: none;
+            }
+        }
+        @include breakpoint($bp) {
+            [items="3"][max="3"] & {
+                display: none;
+            }
+        }
     }
     &-svg {
         path, circle, rect, polygon, [class^="st"], [class*=" st"]  {
