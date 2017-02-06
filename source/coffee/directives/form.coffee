@@ -18,6 +18,7 @@ module.exports = ->
                 $scope.isSubmitted = on
                 $scope.formData = {}
                 $scope.isPrivacyChecked = off
+                console.log $attrs.jobForm
                 if $attrs.jobForm
                     $scope.jobForm.$setUntouched()
                     $scope.jobForm.$setPristine()
