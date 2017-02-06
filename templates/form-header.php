@@ -37,7 +37,7 @@ if(empty($fields_not_set)) {
         $rEmail->setBody(template($resp), 'text/html');
 
         if(!empty($_FILES['filecv'])) {
-            $attachment = Swift_Attachment::fromPath($_FILES['filecv']['tmp_name'])->setFilename($_FILES['filecv']['name'])
+            $attachment = Swift_Attachment::fromPath($_FILES['filecv']['tmp_name'])->setFilename($_FILES['filecv']['name']);
             $mEmail->attach( $attachment );
         }
         if( $mMailer->send($mEmail) && $mMailer->send($rEmail)){
