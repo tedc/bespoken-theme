@@ -43215,6 +43215,8 @@ module.exports = function() {
               if ($scope.offset + delta > $scope.carousel.maxScrollX) {
                 $scope.offset += delta;
                 $scope.carousel.scrollBy(delta, 0);
+                $scope.isPrev = $scope.carousel.x >= 0 ? false : true;
+                $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
               }
               event.preventDefault();
             }
@@ -43223,7 +43225,6 @@ module.exports = function() {
             $timeout(function() {
               $scope.isPrev = $scope.carousel.x >= 0 ? false : true;
               $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
-              console.log(this);
             }, 0);
           });
         }, 20);
