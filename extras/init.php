@@ -3,7 +3,6 @@
         'extras/setup.php',
         'extras/utils.php',
         'extras/scripts.php',
-        'extras/styles.php',
     ];
 
 foreach ($extra_includes as $file) {
