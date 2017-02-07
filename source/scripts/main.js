@@ -43220,8 +43220,10 @@ module.exports = function() {
             }
           };
           $scope.carousel.on('scrollEnd', function() {
-            $scope.isPrev = this.x >= 0 ? false : true;
-            $scope.isNext = this.x <= this.maxScrollX ? false : true;
+            $timeout(function() {
+              $scope.isPrev = this.x >= 0 ? false : true;
+              $scope.isNext = this.x <= this.maxScrollX ? false : true;
+            }, 0);
           });
         }, 20);
         $scope.move = function(cond) {

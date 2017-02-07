@@ -51,10 +51,13 @@ module.exports = ->
 							$scope.carousel.scrollBy delta, 0
 						event.preventDefault()
 					return
-				
+
 				$scope.carousel.on 'scrollEnd', ->
-					$scope.isPrev = if @x >= 0 then off else on
-					$scope.isNext = if @x <= @maxScrollX then off else on
+					$timeout ->
+						$scope.isPrev = if @x >= 0 then off else on
+						$scope.isNext = if @x <= @maxScrollX then off else on
+						return
+					, 0
 					return
 				return
 			, 20
