@@ -176,3 +176,35 @@
         }
 	}
 }
+
+.post-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include normalize_padding;
+    text-transform: uppercase;
+    a {
+        display: flex;
+        align-items: center;
+    }
+    .btn {
+        border-color: $purple;
+        transition: border $speed;
+        &:hover {
+            border-color: $gray-dark;
+            .btn-line, .btn-arrow-up, .btn-arrow-down {
+                background-color: $gray-dark;
+            }
+            &:before, &:after {
+                border-color: $purple;
+            }
+        }
+        .btn-line, .btn-arrow-up, .btn-arrow-down {
+            background-color: $purple;
+            transition: background-color $speed;
+        }
+        &.btn-prev {
+            transform: scaleX(-1);
+        }
+    }
+}
