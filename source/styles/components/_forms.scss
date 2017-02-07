@@ -290,6 +290,7 @@ textarea {
 	visibility: hidden;
 	opacity: 0;
 	transition: $speed visibility, $speed opacity;
+	z-index: 20;
 	.message {
 		text-align: center;
 		line-height: 1.2;
