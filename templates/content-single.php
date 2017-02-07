@@ -48,4 +48,4 @@
             'post__in' => $ids
         )
     );
-    carousel($query, 3, 'false', true); ?>
+    carousel($q, 3, 'false', true); ?>
