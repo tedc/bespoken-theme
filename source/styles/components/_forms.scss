@@ -278,3 +278,30 @@ textarea {
 		background-position: 50% 100%;
 	}
 }
+
+.alert {
+	@include absfull;
+	background-color: $anthracite;
+	color: $w;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	visibility: hidden;
+	opacity: 0;
+	transition: $speed visibility, $speed opacity;
+	.message {
+		text-align: center;
+		line-height: 1.2;
+		font-size: em(20px);
+		visibility: hidden;
+		opacity: 0;
+		&.visible {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+	&.visible {
+		visibility: visible;
+		opacity: 1;
+	}
+}

@@ -43331,7 +43331,6 @@ module.exports = function() {
                 url: url,
                 data: frmdata
               }).then(function(data) {
-                console.log(data);
                 $scope.isJobSent = true;
                 $timeout(function() {
                   $scope.isSubmitted = false;
@@ -43348,7 +43347,6 @@ module.exports = function() {
                 },
                 transformRequest: transformRequestAsFormPost
               }).then(function(data) {
-                console.log(data);
                 $scope.isContactSent = true;
                 $timeout(function() {
                   $scope.isSubmitted = false;

@@ -32,7 +32,6 @@ module.exports = ->
                             data : frmdata
                         .then (data)->
                             #window.ga 'send', 'event', 'invio curriculum', 'submit form'
-                            console.log data
                             $scope.isJobSent = on
                             $timeout ->
                                 $scope.isSubmitted = off
@@ -51,7 +50,6 @@ module.exports = ->
                                 transformRequest: transformRequestAsFormPost
                             }).then (data)->
                                 #window.ga 'send', 'event', 'richiesta info', 'submit form'
-                                console.log data
                                 $scope.isContactSent = on
                                 $timeout ->
                                     $scope.isSubmitted = off

@@ -63,6 +63,11 @@
 					</span>
 				</label>
 			</div>
+			<div class="alert" ng-click="isSubmitted=false;isJobSent=true" ng-class="{visibile: isSubmitted}">
+				<div class="message" ng-class="{visible:isJobSent}">
+					<p><?php _e('Grazie per averci contattato.<br/>Ti risponderemo il prima possibile.', 'bspkn'); ?></p>
+				</div>
+			</div>
 		</div>
 	</form>
 </inpu>
