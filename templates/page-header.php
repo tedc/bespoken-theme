@@ -39,7 +39,7 @@
     <div class="cover" id="page-header-cover" ng-sm trigger-element=".main" trigger-hook="onLeave" duration="120%" to="{y : '20%'}"></div>
     <div class="container-text-header row-lg" ng-sm trigger-element=".main" trigger-hook="onLeave" duration="120%" to="{y : '-20%'}">
         <div class="text-header">
-            <h1 class="title"><?php Titles\title(); ?></h1>
+            <h1 class="title"><?php echo Titles\title(); ?></h1>
         </div>
     </div>
 </header>
