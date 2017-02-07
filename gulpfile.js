@@ -155,9 +155,9 @@ var jsTasks = function(filename) {
                 'drop_debugger': enabled.stripJSDebug
             }
         })
-        .pipe(function() {
-            return gzip();
-        })
+        // .pipe(function() {
+        //     return gzip();
+        // })
         .pipe(function() {
             return gulpif(enabled.rev, rev());
         })
