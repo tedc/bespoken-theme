@@ -43219,11 +43219,11 @@ module.exports = function() {
               event.preventDefault();
             }
           };
+          $scope.carousel.on('scrollEnd', function() {
+            $scope.isPrev = this.x >= 0 ? false : true;
+            $scope.isNext = this.x <= this.maxScrollX ? false : true;
+          });
         }, 20);
-        $scope.carousel.on('scrollEnd', function() {
-          $scope.isPrev = this.x >= 0 ? false : true;
-          $scope.isNext = this.x <= this.maxScrollX ? false : true;
-        });
         $scope.move = function(cond) {
           var mover, mv, resto;
           if (!mw) {
