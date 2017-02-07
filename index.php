@@ -1,4 +1,5 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<?php $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+	if($paged == 1) : get_template_part('templates/page', 'header'); endiif; ?>
 
 <?php if (!have_posts()) : ?>
   <div class="alert alert-warning">
