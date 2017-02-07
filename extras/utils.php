@@ -35,3 +35,18 @@
 		</div>
 		<?php endif; ?>
 	<?php }
+	function get_category_header_image($term = false, $size = 'full') {
+		if($term) : 
+			$array = array(
+				'cat' => get_queried_object()->term_id,
+	        	'posts_per_page' => 1
+			);
+		else :
+			array(
+	        	'posts_per_page' => 1
+	    	);
+	    endif;		
+	    $post = get_posts($array);
+	    $img_id = get_post_thumbnail_id( $post[0]->ID );
+	    return wp_get_attachment_image_src( $img_id, $size)[0];
+	}
