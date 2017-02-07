@@ -54,8 +54,8 @@ module.exports = ->
 
 				$scope.carousel.on 'scrollEnd', ->
 					$timeout ->
-						$scope.isPrev = if @x >= 0 then off else on
-						$scope.isNext = if @x <= @maxScrollX then off else on
+						$scope.isPrev = if $scope.carousel.x >= 0 then off else on
+						$scope.isNext = if $scope.carousel.x <= $scope.carousel.maxScrollX then off else on
 						console.log @
 						return
 					, 0

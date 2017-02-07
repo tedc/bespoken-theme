@@ -43221,8 +43221,8 @@ module.exports = function() {
           };
           $scope.carousel.on('scrollEnd', function() {
             $timeout(function() {
-              $scope.isPrev = this.x >= 0 ? false : true;
-              $scope.isNext = this.x <= this.maxScrollX ? false : true;
+              $scope.isPrev = $scope.carousel.x >= 0 ? false : true;
+              $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
               console.log(this);
             }, 0);
           });
