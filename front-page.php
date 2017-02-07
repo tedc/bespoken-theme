@@ -28,7 +28,7 @@
 				array(
 					'post_type' => 'servizi',
 					'posts_per_page' => -1,
-					'order_by' => 'menu_order',
+					'order_by' => 'rand',
 					'post_parent' => 0
 				)
 			); ?>

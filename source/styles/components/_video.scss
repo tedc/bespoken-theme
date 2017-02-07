@@ -59,6 +59,9 @@
             box-shadow: none;
         }
     }
+    &.full {
+        line-height: 0;
+    }
     .play {
         cursor: pointer;
         position: absolute;
