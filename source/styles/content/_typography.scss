@@ -8,6 +8,7 @@ html {
 }
 
 body {
+    visibility: visible;
     font-size: $base-font-size - 4px;
     color: $gray-dark;
     margin: 0;
