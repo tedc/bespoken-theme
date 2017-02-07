@@ -12,5 +12,5 @@
   <?php include(locate_template('templates/content.php', false, false)); ?>
 <?php $count++; endwhile; ?>
 <nav class="post-navigation">
-<?php posts_nav_link( '', '<span class="btn btn-prev"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></span>'.__('Articoli precedenti', 'bspkn') . , __('Articoli successivi', 'bspkn') . '<span class="btn"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></span>' ); ?>
+<?php posts_nav_link( '', '<span class="btn btn-prev"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></span>'.__('Articoli precedenti', 'bspkn'), __('Articoli successivi', 'bspkn') . '<span class="btn"><span class="btn-line"><span class="btn-arrow-up"></span><span class="btn-arrow-down"></span></span></span>' ); ?>
 </nav>
