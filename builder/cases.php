@@ -18,8 +18,11 @@ if(get_sub_field('case_kind') == 0) : ?>
 			<div class="cover" style="background: url(<?php the_post_thumbnail_url('large'); ?>)"></div>
 			<?php if(preg_match($pattern, get_field('icon', get_the_ID()))) : ?>
 <?php 
-                    $svg = file_get_contents(get_field('icon'));
-                    $svg = str_replace('id', 'class="case-svg" id', $svg);
+                    $svg = file_get_contents(get_field('icon')); 
+                    $svg = preg_replace('/(<[^>]+) id=".*?"/', '$1', $svg);
+                    $svg = preg_replace('/(<[^>]+) data-name=".*?"/', '$1', $svg);
+                    $svg = preg_replace('/(w*)?<title>[^>]+<\/title>(w*)?/i', '', $svg);
+                    $svg = str_replace('<svg', '<svg class="case-svg" id', $svg);
                     echo $svg;
                 ?>
             <?php else : ?>
@@ -69,8 +72,9 @@ if(get_sub_field('case_kind') == 0) : ?>
 		                        <span class="time" ng-bind-html="time" ng-class="{invert: isHalf}"></span>
 		                    </div>
 		                </div>
-		            </div>
-		        </div> 
+		            </div> 
+		            <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEndend}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
+		        </div>
 		        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
 		        <?php } ?>
 		    	</div>

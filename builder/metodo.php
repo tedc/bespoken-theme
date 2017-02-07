@@ -68,6 +68,13 @@
 		<ul class="method-list">
 			<?php $step = 0; while(have_rows('metodo')) : the_row(); ?>
 			<li class="method-list-item row-md">
+				<?php $svg = file_get_contents(get_sub_field('method_icon'));
+		            $svg = preg_replace('/(<[^>]+) id=".*?"/', '$1', $svg);
+		            $svg = preg_replace('/(<[^>]+) data-name=".*?"/', '$1', $svg);
+		            $svg = preg_replace('/(w*)?<title>[^>]+<\/title>(w*)?/i', '', $svg);
+		            $svg = str_replace('<svg', '<svg class="method-icon" id="svg-'.sanitize_title(get_sub_field('method_label')).'"', $svg);
+		            echo $svg; ?>
+		        <div 
 				<h2 class="title emphasis method-title"><strong><?php the_sub_field('method_label'); ?></strong></h2>
 				<div class="row method-description" ng-class="{visible : isStep==<?php echo $step; ?>}"><?php the_sub_field('method_description'); ?></div>
 			</li>

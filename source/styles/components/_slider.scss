@@ -232,7 +232,17 @@
             position: absolute;
             bottom: em(35px);
             min-height: em(35px);
-            min-width: em(35px);
+            min-width: em(35px);   
+            transition: $speed opacity; 
+            .video-carousel & {
+                bottom: auto;
+                top: 50%;
+                transform: translate3d(0, -50%, 0);
+            }
+            &.inactive {
+                opacity: .25;
+                cursor: auto;
+            }
         }
         .btn-prev {
             left: 10px;
@@ -253,12 +263,12 @@
             }
         }
         @include breakpoint(640px) {
-            [items="2"][max="2"] & {
+            [max="2"] & {
                 display: none;
             }
         }
         @include breakpoint($bp) {
-            [items="3"][max="3"] & {
+            [max="3"] & {
                 display: none;
             }
         }

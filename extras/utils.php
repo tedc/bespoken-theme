@@ -18,13 +18,13 @@
 			</div>
 			<?php if($q->found_posts > 1) : ?>
 			<nav class="carousel-nav">
-				<span class="btn btn-prev" ng-click="move(false)">
+				<span class="btn btn-prev" ng-click="move(false)" ng-claass="{inactive : !isPrev}">
 					<span class="btn-line">
 			            <span class="btn-arrow-up"></span>
 			            <span class="btn-arrow-down"></span>
 			        </span>
 				</span>
-				<span class="btn btn-next" ng-click="move(true)">
+				<span class="btn btn-next" ng-click="move(true)" ng-claass="{inactive : !isNext}">
 					<span class="btn-line">
 			            <span class="btn-arrow-up"></span>
 			            <span class="btn-arrow-down"></span>

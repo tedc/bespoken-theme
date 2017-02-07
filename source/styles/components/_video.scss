@@ -120,7 +120,12 @@
                 visibility: visible;
             }
         }
-        &.visible {
+        .btn.more {
+            opacity: 0;
+            visibility: visible;
+            transition: opacity $speed, visibility $speed;
+        }
+        &.visible, .btn.visible {
             opacity: 1;
             visibility: visible;
         }

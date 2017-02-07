@@ -22,6 +22,8 @@ module.exports = ->
 				width : "#{itemW}%"
 			mw = $scope.$eval $attrs.mousewheel
 			$scope.isScrollable = off
+			$scope.isPrev = off
+			$scope.isNext = on
 			$timeout ->
 				if not mw
 					opts =
@@ -51,6 +53,10 @@ module.exports = ->
 					return
 				return
 			, 20
+			$scope.carousel.on 'scrollEnd', ->
+				$scope.isPrev = if @x >= 0 then off else on
+				$scope.isNext = if @x <= @maxScrollX then off else on
+				return
 			$scope.move = (cond)->
 				if not mw
 					if cond then $scope.carousel.next() else $scope.carousel.prev()
@@ -80,6 +86,8 @@ module.exports = ->
 				TweenMax.set wrapper.querySelectorAll('.carousel-item'),
 					width : "#{itemW}%"
 				$scope.carousel.refresh()
+				$scope.isPrev = if $scope.carousel.x >= 0 then off else on
+				$scope.isNext = if $scope.carousel.x <= $scope.carousel.maxScrollX then off else on
 				$scope.offset = $scope.carousel.x
 				return
 			if mw

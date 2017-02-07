@@ -11,8 +11,11 @@ if ($jobs): ?>
             <figure class="job-icon">
             <?php if(preg_match($pattern, get_field('icon', $post->ID))) : ?>
                 <?php 
-                    $svg = file_get_contents(get_field('icon'));
-                    $svg = str_replace('id', 'class="job-svg" id', $svg);
+                    $svg = file_get_contents(get_field('icon')); 
+                    $svg = preg_replace('/(<[^>]+) id=".*?"/', '$1', $svg);
+                    $svg = preg_replace('/(<[^>]+) data-name=".*?"/', '$1', $svg);
+                    $svg = preg_replace('/(w*)?<title>[^>]+<\/title>(w*)?/i', '', $svg);
+                    $svg = str_replace('<svg', '<svg class="job-svg" id', $svg);
                     echo $svg;
                 ?>
             <?php else : ?>
