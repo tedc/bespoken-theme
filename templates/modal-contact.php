@@ -71,7 +71,7 @@ $current_url = home_url(add_query_arg(array(),$wp->request)); ?>
 					</span>
 				</label>
 			</div>
-			<div class="alert" ng-click="isSubmitted=false;isContactSent=true" ng-class="{visibile: isSubmitted}">
+			<div class="alert" ng-click="isSubmitted=false;isContactSent=true" ng-class="{visible: isSubmitted}">
 				<div class="message" ng-class="{visible:isContactSent}">
 					<p><?php _e('Grazie per averci contattato.<br/>Ti risponderemo il prima possibile.', 'bspkn'); ?></p>
 				</div>

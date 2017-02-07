@@ -220,6 +220,7 @@ textarea {
 		background-color: $anthracite;
 		color: $light;
 		align-content: flex-start;
+		position: relative;
 		@include breakpoint($bp) {
 			width: ($f/3) * 2;
 		}
