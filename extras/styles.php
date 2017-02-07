@@ -1,4 +1,5 @@
 <?php
+use Roots\Sage\Assets;
 function footer_css() {
 	wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
 }
