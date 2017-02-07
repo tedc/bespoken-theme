@@ -43214,7 +43214,7 @@ module.exports = function() {
             if ($scope.offset + delta < 0) {
               if ($scope.offset + delta > $scope.carousel.maxScrollX) {
                 $scope.offset += delta;
-                $scope.isPrev = $$scope.offset + delta >= 0 ? false : true;
+                $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
                 $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
                 $scope.carousel.scrollBy(delta, 0);
               }
