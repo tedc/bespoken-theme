@@ -43223,6 +43223,7 @@ module.exports = function() {
             $timeout(function() {
               $scope.isPrev = this.x >= 0 ? false : true;
               $scope.isNext = this.x <= this.maxScrollX ? false : true;
+              console.log(this.x, this.maxScrollX, $scope.isPrev, $scope.isNext);
             }, 0);
           });
         }, 20);

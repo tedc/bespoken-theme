@@ -56,6 +56,7 @@ module.exports = ->
 					$timeout ->
 						$scope.isPrev = if @x >= 0 then off else on
 						$scope.isNext = if @x <= @maxScrollX then off else on
+						console.log @x, @maxScrollX, $scope.isPrev, $scope.isNext
 						return
 					, 0
 					return
