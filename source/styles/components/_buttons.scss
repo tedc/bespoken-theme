@@ -57,7 +57,7 @@
         opacity: 0;
         transform-style: preserve-3d;
     }
-    &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover &, .type-lavori:hover &, .post-navigation a:hover {
+    &:hover,  .btn-send:hover &, .btn-complete:hover &, .carousel-item:hover &, .job:not(.visible):hover &, .type-lavori:hover &, .post-navigation a:hover & {
         &:before,  &:after {
             animation: pulse 2s infinite linear forwards;
         }

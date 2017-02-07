@@ -190,6 +190,7 @@
     .btn {
         border-color: $purple;
         transition: border $speed;
+        margin-left: em(20px);
         &:hover {
             border-color: $gray-dark;
             .btn-line, .btn-arrow-up, .btn-arrow-down {
