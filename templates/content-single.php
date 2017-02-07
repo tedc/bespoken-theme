@@ -35,3 +35,17 @@
     <?php comments_template('/templates/comments.php'); ?>
 </article>
 <?php endwhile; ?>
+<?php 
+    $ids = array();
+    $prev_post = get_previous_post();
+    $next_post = get_next_post();
+    if(!empty($prev_post))
+        array_push($ids, $prev_post->ID);
+    if(!empty($next_post))
+        array_push($ids, $next_post->ID);
+    $q = new WP_Query(
+        array(
+            'post__in' => $ids
+        )
+    );
+    carousel($query, 3, 'false', true); ?>
