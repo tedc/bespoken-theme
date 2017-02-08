@@ -109,6 +109,14 @@
 		.type-lavori {
 			transition: $speed background-color;
 			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			min-height: 100vw;
+			@include breakpoint($bp) {
+				min-height: #{100/3}vw;
+			}
 			.cover {
 				@include absfull;
 			}
@@ -138,6 +146,7 @@
 	&-svg {
 		max-width: em(320px);
 		position: relative;
+		margin: 0 auto;
         path, rect, circle, polygon, [class^="st"], [class*=" st"] {
             transition: $speed fill;
             fill: $gray !important;
