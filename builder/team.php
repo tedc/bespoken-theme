@@ -6,8 +6,10 @@
 <?php endif; ?>
         <div class="grid-12<?php if(is_mobile()) : ?> carousel-wrapper<?php endif; ?>">
         <?php $i = 0;
-        foreach ($users as $user): ?>
-            <div class="col-<?php the_sub_field("n_cols") ?> user-col" data-position="<?php echo $i ?>">
+        $colClass.= (is_mobile()) ? ' carosuel-item' : '';
+        foreach ($users as $user):
+         ?>
+            <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">
                 <figure class="user-image">
                     <?php
                     echo get_avatar($user["user_email"], $size = '800');
