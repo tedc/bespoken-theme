@@ -115,7 +115,8 @@
 			text-align: center;
 			min-height: 100vw;
 			@include breakpoint($bp) {
-				min-height: 100vw/3;
+				$h: 100/3;
+				min-height: #{$h}vw;
 			}
 			.cover {
 				@include absfull;
