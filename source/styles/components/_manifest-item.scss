@@ -30,4 +30,9 @@
             font-style: italic;
         }
     }
+    .description & {
+        &:nth-last-child(1) {
+            padding-bottom: 0;
+        }
+    }
 }
