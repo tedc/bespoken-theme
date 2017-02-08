@@ -193,7 +193,7 @@
     @include normalize_padding;
 }
 
-[class^="col"], [class*="col"] {
+[class^="col"], [class*=" col"] {
     .grid-inverted & {
         @include breakpoint($bp, false) {
             &:nth-child(2) {
@@ -201,4 +201,13 @@
             }
         }
     }
+    & + [class^="col"], & + [class*=" col"] {
+        .row-md-btm, .row-btm, .row-lg-btm, .row-lg {
+            @include breakpoint($bp, false) {
+                padding-top: 0;
+            }
+        }
+    }
 }
+
+
