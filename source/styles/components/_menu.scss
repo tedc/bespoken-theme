@@ -1,15 +1,10 @@
 .logo {
     position: absolute;
     font-size: em($base_font_size);
-    width: calc(10px + #{em(40px)});
-    background-position: 10px center;
+    width: calc(#{em(40px)});
+    background-position: left center;
     @include breakpoint(640px){
-        width: em(175px);
-        background-position: em(25px) center;
-    }
-    @include breakpoint($bp){
-        width: em(200px);
-        background-position: em(50px) center;
+        width: em(150px);
     }
     top: em(40px);
     height: em(40px);
@@ -20,6 +15,13 @@
     overflow: hidden;
     text-indent: 120%;
     z-index: 9999;
+    left: 10px;
+    @include breakpoint(640px){
+        left: em(25px);
+    }
+    @include breakpoint($bp){
+        left: em(50px);
+    }
     a {
         @include absfull;
     }

@@ -17,6 +17,12 @@
             img {
                 visibility: hidden
             }
+            .handheld & {
+                background-image: none !important;
+                img {
+                    visibility: visible;
+                }
+            }
         }
     }
 }
