@@ -1,3 +1,14 @@
+launchIntoFullscreen = (element)->
+	if element.requestFullscreen
+		element.requestFullscreen() 
+	else if element.mozRequestFullScreen 
+		element.mozRequestFullScreen()
+	else if element.webkitRequestFullscreen
+		element.webkitRequestFullscreen()
+	else if element.msRequestFullscreen
+		element.msRequestFullscreen()
+	return
+
 module.exports = ->
 	player = 
 		scope : on
@@ -8,6 +19,7 @@ module.exports = ->
 			$scope.isHalf = off
 			$scope.isPaused = off
 			progressTimeout = null
+			$scope.isEnded = off
 			onProgress = (player)->
 				TweenMax.to $element[0].querySelector('.progress-mask'), .5,
 					width: "#{100 - timeToPercentage(player)}%"
@@ -47,6 +59,7 @@ module.exports = ->
 						$timeout ->
 							$scope.isPlaying = on
 							$scope.isPaused = off
+							$scope.isEnded = off
 						, 0
 						onProgress(player)
 						return
@@ -62,6 +75,7 @@ module.exports = ->
 						$scope.isPlaying = off
 						$scope.isPaused = on
 						$scope.isHalf = off
+						$scope.isEnded = on
 						TweenMax.to $element[0].querySelector('.progress-mask'), .5,
 							width: "100%"
 						$scope.time = "00:00:00"
@@ -87,6 +101,9 @@ module.exports = ->
 							player.pauseVideo()
 						else
 							player.playVideo()
+						return
+					$scope.fulScreen = (id)->
+						launchIntoFullscreen document.getElementById id
 						return
 					return
 			return

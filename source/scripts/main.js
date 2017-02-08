@@ -43964,7 +43964,26 @@ var bspkn;
 
 bspkn = angular.module('bspkn');
 
-bspkn.factory('transformRequestAsFormPost', [require('./form.coffee')]);
+bspkn.service('loadYoutubeApi', [
+  '$window', '$q', function($window, $q) {
+    var deferred, loadJs;
+    deferred = $q.defer();
+    loadJs = function() {
+      var script;
+      script = document.createElement('script');
+      script.id = 'ytApi';
+      script.src = 'https://www.youtube.com/iframe_api';
+      document.body.appendChild(script);
+      deferred.resolve();
+    };
+    if ($window.attachEvent) {
+      $window.attachEvent('onload', loadJs);
+    } else {
+      $window.addEventListener('load', loadJs, false);
+    }
+    return deferred.promise;
+  }
+]).factory('transformRequestAsFormPost', [require('./form.coffee')]);
 
 
 },{"./form.coffee":33}]},{},[32]);
