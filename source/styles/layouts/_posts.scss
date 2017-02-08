@@ -6,6 +6,10 @@
 		}
 		&-figure {
 			margin: 0;
+            img {
+                width: $f !important;
+                height: auto !important;
+            }
 			@include breakpoint($bp) {
 				width: $f/3;
 				background: {

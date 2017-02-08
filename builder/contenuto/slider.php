@@ -12,7 +12,7 @@ endif;?>
 
 <div class="<?php echo (get_sub_field('full') && get_sub_field('navigatore') != 'number') ? ' full' : 'content '.$padding ?> ">
     <?php if ((get_sub_field('titolo') != '')) : ?>
-        <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
+        <h3 class="title<?php echo(get_sub_field('enfasi_titolo') ? ' emphasis ' : '') ?><?php echo $align ?>"><?php echo get_sub_field('titolo') ?></h3>
     <?php 
 
     endif;
