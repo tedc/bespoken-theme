@@ -6,7 +6,7 @@
 <?php endif; ?>
         <div class="grid-12<?php if(is_mobile()) : ?> carousel-wrapper<?php endif; ?>">
         <?php $i = 0;
-        $colClass.= (is_mobile()) ? ' carosuel-item' : '';
+        $colClass.= (is_mobile()) ? ' carousel-item' : '';
         foreach ($users as $user):
          ?>
             <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">

@@ -16,7 +16,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 <?php endif; ?>
 	<div class="grid-12 alternate cases<?php if(is_mobile()) : ?> carousel-wrapper<?php endif; ?>">
 		<?php 
-		$colClass .= (is_mobile()) ? ' carosuel-item' : '';
+		$colClass .= (is_mobile()) ? ' carousel-item' : '';
 		while($query->have_posts()) : $query->the_post();
 		 ?>
 		<div <?php post_class('col-'.$colClass . ' content row-lg'); ?>">
