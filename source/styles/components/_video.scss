@@ -128,10 +128,10 @@
         }
         .btn.more {
             opacity: 0;
-            visibility: visible;
+            visibility: hidden;
             transition: opacity $speed, visibility $speed;
         }
-        &.visible, .btn.visible {
+        &.visible, .btn.more.visible {
             opacity: 1;
             visibility: visible;
         }

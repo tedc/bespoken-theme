@@ -10,7 +10,11 @@ $query = new WP_Query(
 		);
 if(get_sub_field('case_kind') == 0) : ?>
 	<?php $colClass = get_sub_field('cols'); ?>
-	<div class="grid-12 alternate cases">
+<?php if(is_mobile()) : ?>
+	<div class="carousel" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
+	<div class="carousel-container">
+<?php endif; ?>
+	<div class="grid-12 alternate cases<?php if(is_mobile()) : ?> carousel-wrapper<?php endif; ?>">
 		<?php 
 		
 		while($query->have_posts()) : $query->the_post(); ?>
@@ -38,6 +42,26 @@ if(get_sub_field('case_kind') == 0) : ?>
 		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
+<?php if(is_mobile()) : ?>
+</div>
+<?php if($query->found_posts > 1) : ?>
+<nav class="carousel-nav">
+	<span class="btn btn-prev" ng-click="move(false)">
+		<span class="btn-line">
+            <span class="btn-arrow-up"></span>
+            <span class="btn-arrow-down"></span>
+        </span>
+	</span>
+	<span class="btn btn-next" ng-click="move(true)">
+		<span class="btn-line">
+            <span class="btn-arrow-up"></span>
+            <span class="btn-arrow-down"></span>
+        </span>
+	</span>
+</nav>
+<?php endif; ?>
+</div>
+<?php endif; ?>
 <?php else : ?>
 <div class="video-carousel video bg-dark row-lg" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
 	<div class="carousel-container">
@@ -73,7 +97,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		                    </div>
 		                </div>
 		            </div> 
-		            <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEndend}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
+		            <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEnded}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
 		        </div>
 		        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
 		        <?php } ?>
