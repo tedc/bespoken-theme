@@ -61,9 +61,18 @@
 	color: $w;
 	a {
 		@extend %subline;
-		font-size: em(48px);
+		font-size: em(24px);
 		line-height: percentage(57px/48px);
 		text-transform: lowercase;
+		@include breakpoint(640px) {
+			font-size: em(30px);
+		}
+		@include breakpoint($bp) {
+			font-size: em(36px);
+		}
+		@include breakpoint(1100px) {
+			font-size: em(48px);
+		}
 	}
 	&-item {
 		list-style-type: none;

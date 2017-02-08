@@ -45,13 +45,13 @@
 <?php if(is_mobile()) : ?>
     </div>
     <nav class="carousel-nav">
-        <span class="btn btn-prev" ng-click="move(false)">
+        <span class="btn btn-prev" ng-click="move(false)" ng-class="{inactive : !isPrev}">
             <span class="btn-line">
                 <span class="btn-arrow-up"></span>
                 <span class="btn-arrow-down"></span>
             </span>
         </span>
-        <span class="btn btn-next" ng-click="move(true)">
+        <span class="btn btn-next" ng-click="move(true)" ng-class="{inactive : !isNext}">
             <span class="btn-line">
                 <span class="btn-arrow-up"></span>
                 <span class="btn-arrow-down"></span>

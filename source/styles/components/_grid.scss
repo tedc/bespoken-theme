@@ -201,10 +201,25 @@
             }
         }
     }
-    & + [class^="col"], & + [class*=" col"] {
-        .row-md-btm, .row-btm, .row-lg-btm, .row-lg {
-            @include breakpoint($bp, false) {
-                padding-top: 0;
+    &:not(.alternate) {
+        & + [class^="col"], & + [class*=" col"] {
+            &:not(.alternate) {
+                .row-md-btm, .row-btm, .row-lg-btm, .row-lg {
+                    @include breakpoint($bp, false) {
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+    }
+    &.alternate {
+        & + [class^="col"], & + [class*=" col"] {
+            &.alternate {
+                .row-md-btm, .row-btm, .row-lg-btm, .row-lg {
+                    @include breakpoint($bp, false) {
+                        padding-top: 0;
+                    }
+                }
             }
         }
     }
