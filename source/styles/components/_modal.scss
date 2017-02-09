@@ -21,7 +21,7 @@
 		height: 100vh;
 		overflow: hidden;
 		display: flex;
-		align-items: center;
+		// align-items: center;
 		transition: visibility $speed, transform $speed;
 		visibility: hidden;
 		transform: translate3d(0, -20%, 0);
@@ -74,9 +74,6 @@
 		}
 		@include breakpoint($bp) {
 			font-size: em(36px);
-		}
-		@include breakpoint(1100px) {
-			font-size: em(48px);
 		}
 	}
 	&-item {
