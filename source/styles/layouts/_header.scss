@@ -102,6 +102,9 @@
         left: 50%;
         width: auto !important;
         height: auto !important;
+        .handheld & {
+            display: none;
+        }
     }
     .page-header:not(.scrolled) {
         transform: none !important;

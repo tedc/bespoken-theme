@@ -21,6 +21,7 @@
         max-width: $f;
         display: inline-block;
         box-shadow: 0px 0px em(45px) 0px rgba(0, 0, 0, 0.7);
+        background-size: cover;
         @include breakpoint(1000px) {
             max-width: $max-width;
         }
@@ -336,5 +337,6 @@
 [ng-video] {
     .handheld & {
         visibility: hidden;
+        opacity: 0;
     }
 }
