@@ -1,11 +1,13 @@
 .page-header {
     position: relative;
-    min-height: 110vh;
     display: flex;
     flex-direction: column;
     z-index: 1;
     background-color: $w;
     overflow: hidden;
+    @include breakpoint($bp) {
+        min-height: 100vh;
+    }
     .gradient {
         @include absfull;
         @include gradient;
@@ -54,10 +56,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
     position: relative;
     @include normalize_padding;
+    padding {
+        top: em(100px);
+        bottom: em(100px);
+    }
+    @include breakpoint($bp) {
+        min-height: 100vh;
+    }
     .text-header {
+        margin: auto;
         text-align: center;
         color: $w;
         a {
