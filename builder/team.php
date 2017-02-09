@@ -42,7 +42,6 @@
                     </div>
                 </div>
             </div>
-            <?php  endif ?>
             <?php $i++; endforeach; ?>
         </div>
 <?php if(is_mobile()) : ?>
