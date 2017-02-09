@@ -8,4 +8,4 @@
         }
     }
 </style>
-<div class="cover" id="page-header-cover" ng-sm trigger-element=".main" trigger-hook="0" duration="120%" to="{y : '20%'}"></div>
+<div class="cover" id="page-header-cover" ng-sm trigger-element=".main" trigger-hook="0" duration="120%" to="{y : '20%'}" offset="110"></div>
