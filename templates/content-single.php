@@ -17,8 +17,8 @@
         }
         </style>
         <?php get_template_part('templates/breadcrumbs'); ?>
-        <div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="0" duration="120%" to="{y : '10%'}" ></div>
-        <div class="container-text-header" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '-10%'}" offset="100">
+        <div class="cover" id="page-header-cover" ng-sm trigger-element="#entry-content" trigger-hook="1" duration="120%" to="{y : '10%'}" offset="100"></div>
+        <div class="container-text-header" ng-sm trigger-element="#entry-content" trigger-hook="1" duration="120%" to="{y : '-10%'}" offset="100">
             <div class="text-header">
                 <?php the_category(', '); ?>
                 <h1 class="entry-title title"><?php the_title(); ?></h1>
@@ -26,7 +26,7 @@
             </div>
         </div>
     </header>
-    <div class="entry-content content row-lg">
+    <div class="entry-content content row-lg" id="entry-content">
         <?php the_content(); ?>
     </div>
     <?php comments_template('/templates/comments.php'); ?>
