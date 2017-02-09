@@ -64,6 +64,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	color: $w;
+	min-height: 100vh;
 	a {
 		@extend %subline;
 		font-size: em(24px);
@@ -80,6 +81,9 @@
 		list-style-type: none;
 		width: $f;
 		flex: 0 0 auto;
+		@include breakpoint($bp) {
+			@include normalize_padding;
+		}
 	}
 	.nav {
 		transform: translate3d(20px, 0, 0);
@@ -91,13 +95,15 @@
 		width: $f;
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
+		align-content: center;
 		@include breakpoint($bp) {
 			width: $f/2;
 		}
 		.title {
 			text-transform: uppercase;
 			font-weight: bold;
-			font-size: em(24px);
+			font-size: em(20px);
 			line-height: percentage(57px/48px);
 			padding-bottom: em(10px, 24px);
 		}
