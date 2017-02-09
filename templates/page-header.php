@@ -23,16 +23,16 @@
     <?php $cat = is_category() ? true : false; ?>
     <style>
         #page-header-cover {
-            background-image:url(<?php get_category_header_image($cat, 'medium') ?>);
+            background-image:url(<?php echo get_category_header_image($cat, 'medium') ?>);
         }
         @media screen and (min-width: <?php echo 640/16 ?>em) {
             #page-header-cover {
-                background-image: url(<?php get_category_header_image($cat, 'large') ?>);
+                background-image: url(<?php echo get_category_header_image($cat, 'large') ?>);
             }
         }
         @media screen and (min-width: <?php echo 850/16 ?>em) {
             #page-header-cover {
-                background-image: url(<?php get_category_header_image($cat, 'full') ?>);
+                background-image: url(<?php echo get_category_header_image($cat, 'full') ?>);
             }
         }
     </style>

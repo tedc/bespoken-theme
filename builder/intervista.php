@@ -6,7 +6,7 @@
 <div class="video row-lg bg-dark" id="video_<?php echo $row; ?>">
     <div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
         <img class="screenshot" src="<?php the_sub_field('video'); ?>">
-        <h3 class="title-video" ng-sm from="{y: '120%', x : '-50%'}" to="{y : '-120%', x : '-50%'}" duration="200%" trigger-hook="onEnter" trigger-element="#video_<?php echo $row; ?>"><?php _e('La parola del cliente', 'bspkn') ?></h3>
+        <h3 class="title-video"<?php if(!is_handheld()) :?> ng-sm from="{y: '120%', x : '-50%'}" to="{y : '-120%', x : '-50%'}" duration="200%" trigger-hook="onEnter" trigger-element="#video_<?php echo $row; ?>"<?php endif; ?>><?php _e('La parola del cliente', 'bspkn') ?></h3>
         <div class="clients row">
             <h4 class="name"><?php the_sub_field('titolo') ?></h4>
             <h5 class="company"><?php the_sub_field('sottotitolo') ?></h5>
