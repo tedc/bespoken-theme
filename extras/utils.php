@@ -39,11 +39,13 @@
 		if($term) : 
 			$array = array(
 				'cat' => get_queried_object()->term_id,
-	        	'posts_per_page' => 1
+	        	'posts_per_page' => 1,
+	        	'orderby' => 'rand'
 			);
 		else :
 			$array = array(
-	        	'posts_per_page' => 1
+	        	'posts_per_page' => 1,
+	        	'orderby' => 'rand'
 	    	);
 	    endif;		
 	    $post = get_posts($array);
