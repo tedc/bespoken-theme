@@ -66,7 +66,9 @@ module.exports = ($rootScope, $timeout)->
                 return
             , 0
             $timeout ->
-                window.scrollTo 0, 0
+                TweenMax.to window, .5,
+                    scrollTo :
+                        y : 0
                 return
             , 200
             return
