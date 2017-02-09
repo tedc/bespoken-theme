@@ -17,11 +17,11 @@
         }
     }
     </style>
-    <div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '10%'}" offset="110"></div>
+    <div class="cover" id="page-header-cover" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '10%'}" offset="150"></div>
     <?php else : ?>
     <div class="gradient" ng-sm trigger-element="#header" trigger-hook="onLeave" to="{y : '10%'}" duration="120%"></div>
     <?php endif; ?>
-    <div class="container-text-header" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '-10%'}" offset="110">
+    <div class="container-text-header" ng-sm trigger-element="#header" trigger-hook="onLeave" duration="120%" to="{y : '-10%'}" offset="150">
         <div class="text-header">
             <h1 class="title">
                 <?php _e('Siamo', 'bspkn'); ?>
