@@ -42,7 +42,7 @@
 	        	'posts_per_page' => 1
 			);
 		else :
-			array(
+			$array = array(
 	        	'posts_per_page' => 1
 	    	);
 	    endif;		
