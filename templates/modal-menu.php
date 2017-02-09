@@ -1,6 +1,5 @@
+<div class="gradient" ng-class="{visible : isMenu}"></div>
 <div class="modal-container modal-container-menu" ng-class="{visible : isMenu}" ng-ps>
-	<div class="gradient"></div>
-		
 	<div class="menu iscroll-scroller">
 		<?php close('isModal=false;isMenu=false'); ?>
 		<?php
