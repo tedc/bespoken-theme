@@ -62,7 +62,11 @@ module.exports = ($rootScope, $timeout)->
                 scene.setClassToggle element[0], classToggle if classToggle isnt off
                 scene.setPin pin if pin isnt off
                 scene.addTo controller
-                window.scrollTo 0, 0
                 controller.update(on)
+                return
             , 0
+            $timeout ->
+                window.scrollTo 0, 0
+                return
+            , 200
             return
