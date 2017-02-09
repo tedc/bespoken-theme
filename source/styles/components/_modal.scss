@@ -82,7 +82,10 @@
 		width: $f;
 		flex: 0 0 auto;
 		@include breakpoint($bp) {
-			@include normalize_padding;
+			padding: {
+	            left: em(50px);
+	            right: em(50px);
+	        }
 		}
 	}
 	.nav {
@@ -106,6 +109,12 @@
 			font-size: em(20px);
 			line-height: percentage(57px/48px);
 			padding-bottom: em(10px, 24px);
+			@include breakpoint($bp) {
+				padding: {
+		            left: em(50px, 20px);
+		            right: em(50px, 20px);
+		        }
+			}
 		}
 		.modal-container.visible & {
 			opacity: 1;
@@ -120,6 +129,9 @@
 	padding-top: em(38px);
 	.modal-container.visible & {
 		transition-delay: $speed*1.5;
+	}
+	@include breakpoint($bp) {
+		text-align: right;
 	}
 }
 
