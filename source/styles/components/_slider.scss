@@ -73,10 +73,10 @@
         font-size: em(42px);
     }
     @include breakpoint(640px) {
-        font-size: em(52px);
+        font-size: em(48px);
     }
     @include breakpoint(1024px) {
-        font-size: em(62px);
+        font-size: em(52px);
     }
 }
 
