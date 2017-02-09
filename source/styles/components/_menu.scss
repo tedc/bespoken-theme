@@ -1,13 +1,13 @@
-.logo {
+.icon-logo {
     position: absolute;
-    font-size: em($base_font_size);
-    width: calc(#{em(40px)});
+    font-size: em(40px);
+    width: 1em;
     background-position: left center;
     @include breakpoint(640px){
-        width: em(150px);
+        width: em(150px, 40px);
     }
-    top: em(40px);
-    height: em(40px);
+    top: em(40px, 40px);
+    height: 1em;
     background-image: url(../images/logo-white.svg);
     background-repeat: no-repeat;
     background-size: auto 100%;
@@ -17,10 +17,10 @@
     z-index: 9999;
     left: 10px;
     @include breakpoint(640px){
-        left: em(25px);
+        left: em(25px, 40px);
     }
     @include breakpoint($bp){
-        left: em(50px);
+        left: em(50px, 40px);
     }
     a {
         @include absfull;
