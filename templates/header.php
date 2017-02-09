@@ -1,4 +1,10 @@
-<a class="icon-logo-white" href="<?= esc_url(home_url('/')); ?>"></a>
+<?php if(is_front_page()) : ?>
+	<h1 class="logo">
+		<a  href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+	</h1>
+<?php else : ?>
+	<a class="logo" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
+<?php endif; ?>
 <a class="btn-menu" href="#" ng-click="$event.preventDefault(); modal('menu', true)" ng-class="{hidden: isModal}" ng-modal>
     <span class="btn-menu-text"><?php _e('Menu', 'bspkn'); ?></span>
 	<span class="toggle">

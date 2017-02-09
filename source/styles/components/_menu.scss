@@ -1,23 +1,26 @@
-.icon-logo-white {
+.logo {
     position: absolute;
-    font-size: em(40px);
-    width: 1em;
+    font-size: em($base_font_size);
+    width: calc(#{em(40px)});
     background-position: left center;
     @include breakpoint(640px){
-        width: em(150px, 40px);
+        width: em(150px);
     }
-    top: em(40px, 40px);
-    height: 1em;
+    top: em(40px);
+    height: em(40px);
+    background-image: url(../images/logo-white.png);
+    background-repeat: no-repeat;
+    background-size: auto 100%;
     white-space: nowrap;
     overflow: hidden;
+    text-indent: 120%;
     z-index: 9999;
     left: 10px;
-    color: $w;
     @include breakpoint(640px){
-        left: em(25px, 40px);
+        left: em(25px);
     }
     @include breakpoint($bp){
-        left: em(50px, 40px);
+        left: em(50px);
     }
     a {
         @include absfull;
