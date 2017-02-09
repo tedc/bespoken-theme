@@ -5,6 +5,7 @@
     z-index: 1;
     background-color: $w;
     overflow: hidden;
+    min-height: 100vw;
     @include breakpoint($bp) {
         min-height: 100vh;
     }
@@ -58,10 +59,7 @@
     justify-content: center;
     position: relative;
     @include normalize_padding;
-    padding {
-        top: em(100px);
-        bottom: em(100px);
-    }
+    min-height: 100vw;
     @include breakpoint($bp) {
         min-height: 100vh;
     }
