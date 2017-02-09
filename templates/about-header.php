@@ -1,6 +1,6 @@
 <?php use Roots\Sage\Titles; ?>
 <?php get_template_part('templates/breadcrumbs'); ?>
-<header class="page-header about-header" id="header">
+<header class="page-header about-header" id="header" ng-sm class-toggle="scrolled" trigger-element=".main" trigger-hook="0" offset="100">
     <?php if(has_post_thumbnail()) : ?>
     <style>
     #page-header-cover {

@@ -1,9 +1,9 @@
 <?php use Roots\Sage\Titles; ?>
 <?php get_template_part('templates/breadcrumbs'); ?>
 <?php if(!is_home() && !is_category()) : ?>
-<header class="page-header" id="header">
+<header class="page-header" id="header" ng-sm class-toggle="scrolled" trigger-element=".main" trigger-hook="0" offset="100">
     <?php get_template_part('templates/header', get_field('kind')) ?>
-    <div class="container-text-header row-lg" ng-sm trigger-element=".main" trigger-hook="onLeave" duration="120%" to="{y : '-20%'}">
+    <div class="container-text-header row-lg" ng-sm trigger-element=".main" trigger-hook="onLeave" duration="120%" to="{y : '-20%'}" offset="100">
         <div class="text-header">
             <?php if(get_field('titolo_alternativo')) :?>
             <?php if (get_field('titolo_testata')) : ?>

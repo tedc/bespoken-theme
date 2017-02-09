@@ -3,6 +3,11 @@
 	// height: 100vh;
 	&-page {
 		padding-top: 100vh;
+		&:not(.scrolled) {
+			.gradient, .page-header {
+				transform: none !important;
+			}
+		}
 	}
 	.logo, .btn-menu {
 		position: fixed;
@@ -15,10 +20,10 @@
 		font-weight: normal;
 		margin: auto;
 		transition: $speed transform, $speed opacity;
-		.scrolled & {
-			transform: translate3d(0, 0%, 0);
-			opacity: 0;
-		}
+		.home-page:not(.scrolled) {
+        	transform: none !important;
+        	opacity: 1;
+    	}
 		&-row {
 			display: inline-block;
 			overflow: hidden;
