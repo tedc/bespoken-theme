@@ -63,5 +63,6 @@ module.exports = ($rootScope, $timeout)->
                 scene.setPin pin if pin isnt off
                 scene.addTo controller
                 window.scrollTo 0, 0
+                controller.update(on)
             , 0
             return
