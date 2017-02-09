@@ -8,14 +8,11 @@
     }
     top: em(40px, 40px);
     height: 1em;
-    background-image: url(../images/logo-white.svg);
-    background-repeat: no-repeat;
-    background-size: auto 100%;
     white-space: nowrap;
     overflow: hidden;
-    text-indent: 120%;
     z-index: 9999;
     left: 10px;
+    color: $w;
     @include breakpoint(640px){
         left: em(25px, 40px);
     }
