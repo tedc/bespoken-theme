@@ -8,6 +8,7 @@
         <?php $i = 0;
         $colClass = (is_mobile()) ? ' carousel-item' : '';
         foreach ($users as $user):
+            $i = 0 && ($i == 4);
          ?>
             <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">
                 <figure class="user-image">
@@ -41,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <?php if ($i = 4): $i = 0; endif ?>
+            <?php  endif ?>
             <?php $i++; endforeach; ?>
         </div>
 <?php if(is_mobile()) : ?>
