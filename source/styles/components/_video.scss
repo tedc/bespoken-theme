@@ -332,3 +332,9 @@
         }
     }
 }
+
+[ng-video] {
+    .handheld & {
+        visibility: hidden;
+    }
+}
