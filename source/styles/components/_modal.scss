@@ -62,7 +62,6 @@
 
 .menu {
 	display: flex;
-	justify-content: center;
 	flex-wrap: wrap;
 	color: $w;
 	a {
@@ -82,6 +81,8 @@
 	}
 	&-item {
 		list-style-type: none;
+		width: $f;
+		flex: 0 0 auto;
 	}
 	.nav {
 		transform: translate3d(20px, 0, 0);
@@ -89,6 +90,13 @@
 		transition: 0 opacity, 0 transform;
 		@include normalize_padding;
 		padding-bottom: em(38px);
+		flex: 0 0 auto;
+		width: $f;
+		display: flex;
+		align-items: center;
+		@include breakpoint($bp) {
+			width: $f/2;
+		}
 		.title {
 			text-transform: uppercase;
 			font-weight: bold;
@@ -110,6 +118,10 @@
 	.modal-container.visible & {
 		transition-delay: $speed*1.5;
 	}
+}
+
+#service-menu {
+	background: $anthracite;
 }
 
 .ps-scrollbar-y {
