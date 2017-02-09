@@ -1,6 +1,6 @@
 <?php while (have_posts()) : the_post(); ?>
 <article <?php post_class(); ?>>
-    <header class="page-header" id="header">
+    <header class="page-header" id="header" ng-sm class-toggle="scrolled" trigger-element="#entry-content" trigger-hook="1" offset="100">
         <style>
         #page-header-cover {
             background-image:url(<?php the_post_thumbnail_url('medium') ?>);
