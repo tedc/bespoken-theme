@@ -63,6 +63,9 @@ module.exports = ($rootScope, $timeout)->
                 scene.setPin pin if pin isnt off
                 scene.addTo controller
                 controller.update(on)
+                scene.on 'enter leave', (evt)->
+                    console.log evt
+                    return
                 return
             , 0
             $timeout ->
