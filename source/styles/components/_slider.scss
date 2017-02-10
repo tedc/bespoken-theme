@@ -114,6 +114,11 @@
         display: flex;
         width: $f;
         flex: 0 0 auto;
+        .inline & {
+            @include breakpoint(640px, false) {
+                width: $f !important;
+            }
+        }
     }
     &-item {
         background-color: $b;
@@ -128,6 +133,9 @@
         }
         @include breakpoint(640px) {
             width: $f/2;
+            @include breakpoint(640px, false) {
+                width: $f !important;
+            }
         }
         @include breakpoint($bp) {
             [items="3"] & {
@@ -161,16 +169,26 @@
                 padding: 0 em(20px, 12px);
             }
             &:not(.close) {
-                opacity: 0;
-                transition: opacity $speed;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate3d(-50%, -50%, 0);
-                .handheld & {
+                .inline & {
+                    left: auto;
+                    position: relative;
+                    transform: none;
                     opacity: 1;
                     transform: translate3d(-50%, 0%, 0);
-                    margin-bottom: $f*-1;
+                    top: auto;
+                }
+                .closing &, .home & {
+                    opacity: 0;
+                    transition: opacity $speed;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate3d(-50%, -50%, 0);
+                }
+                .handheld & {         
+                    opacity: 1;
+                    transform: translate3d(-50%, 0%, 0);
+                    top: auto;
                 }
             }
         }
