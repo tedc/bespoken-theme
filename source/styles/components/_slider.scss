@@ -174,10 +174,9 @@
                     position: relative;
                     transform: none;
                     opacity: 1;
-                    transform: translate3d(-50%, 0%, 0);
                     top: auto;
                 }
-                .closing &, .home & {
+                .desktop .closing &, .home.desktop & {
                     opacity: 0;
                     transition: opacity $speed;
                     position: absolute;
@@ -236,15 +235,17 @@
                 transform: translate3d(0, 0%, 0); 
             }
             .title {
-                .desktop & {
+                .home.desktop &, .desktop .closing & {
                     opacity: 0;
                     visibility: hidden;
                 }
             }
             .btn {
-                opacity: 1;
-                &:after, &:before {
-                    animation-iteration-count: 3;
+                .closing &, .home & {
+                    opacity: 1;
+                    &:after, &:before {
+                        animation-iteration-count: 3;
+                    }
                 }
             }
             .cover:after {
