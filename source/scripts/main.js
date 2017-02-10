@@ -43217,7 +43217,7 @@ module.exports = function() {
                 $scope.offset += delta;
                 $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
                 $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
-                $scope.carousel.scrollBy(delta, 0, 500);
+                $scope.carousel.scrollBy(delta, 0, 200);
               }
               event.preventDefault();
             }
@@ -43231,6 +43231,7 @@ module.exports = function() {
         }, 20);
         $scope.move = function(cond) {
           var mover, mv, resto;
+          console.log(mw);
           if (!mw) {
             if (cond) {
               $scope.carousel.next();
@@ -43823,9 +43824,6 @@ module.exports = function($rootScope, $timeout) {
         }
         scene.addTo(controller);
         controller.update(true);
-        scene.on('enter leave', function(evt) {
-          console.log(evt);
-        });
       }, 0);
       $timeout(function() {
         TweenMax.to(window, .5, {
