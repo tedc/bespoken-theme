@@ -43228,56 +43228,57 @@ module.exports = function() {
               $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
             }, 0);
           });
-        }, 20);
-        $scope.move = function(cond) {
-          var mover, mv, resto;
-          console.log(mw);
-          if (!mw) {
-            if (cond) {
-              $scope.carousel.next();
-            } else {
-              $scope.carousel.prev();
-            }
-          } else {
-            mover = $scope.carousel.wrapperWidth / $scope.num;
-            resto = cond ? mover - Math.abs($scope.carousel.x) % mover : Math.abs($scope.carousel.x) % mover;
-            mover = resto < mover / 2 ? resto + mover : resto;
-            mv = cond ? -mover : mover;
-            if ($scope.carousel.x + mv > 0) {
-              if (!cond) {
-                $scope.carousel.scrollTo(0, 0, 500);
-              }
-            } else if ($scope.carousel.x + mv < $scope.carousel.maxScrollX) {
+          $scope.move = function(cond) {
+            var mover, mv, resto;
+            console.log(mw);
+            if (!mw) {
               if (cond) {
-                $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 500);
+                $scope.carousel.next();
+              } else {
+                $scope.carousel.prev();
               }
             } else {
-              $scope.carousel.scrollBy(mv, 0, 500);
+              mover = $scope.carousel.wrapperWidth / $scope.num;
+              resto = cond ? mover - Math.abs($scope.carousel.x) % mover : Math.abs($scope.carousel.x) % mover;
+              mover = resto < mover / 2 ? resto + mover : resto;
+              mv = cond ? -mover : mover;
+              if ($scope.carousel.x + mv > 0) {
+                if (!cond) {
+                  $scope.carousel.scrollTo(0, 0, 500);
+                }
+              } else if ($scope.carousel.x + mv < $scope.carousel.maxScrollX) {
+                if (cond) {
+                  $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 500);
+                }
+              } else {
+                $scope.carousel.scrollBy(mv, 0, 500);
+              }
+              $scope.offset = $scope.carousel.x;
+              console.log(mover);
             }
+          };
+          w.on('resize', function() {
+            $scope.num = 1;
+            if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+              $scope.num = 2;
+            }
+            if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+              $scope.num = items;
+            }
+            width = max > $scope.num ? (100 / $scope.num) * max : 100;
+            itemW = 100 / max;
+            TweenMax.set(wrapper, {
+              width: width + "%"
+            });
+            TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
+              width: itemW + "%"
+            });
+            $scope.carousel.refresh();
+            $scope.isPrev = $scope.carousel.x >= 0 ? false : true;
+            $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
             $scope.offset = $scope.carousel.x;
-          }
-        };
-        w.on('resize', function() {
-          $scope.num = 1;
-          if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-            $scope.num = 2;
-          }
-          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
-            $scope.num = items;
-          }
-          width = max > $scope.num ? (100 / $scope.num) * max : 100;
-          itemW = 100 / max;
-          TweenMax.set(wrapper, {
-            width: width + "%"
           });
-          TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
-            width: itemW + "%"
-          });
-          $scope.carousel.refresh();
-          $scope.isPrev = $scope.carousel.x >= 0 ? false : true;
-          $scope.isNext = $scope.carousel.x <= $scope.carousel.maxScrollX ? false : true;
-          $scope.offset = $scope.carousel.x;
-        });
+        }, 20);
         if (mw) {
           mwScene = new ScrollMagic.Scene({
             triggerElement: $element[0],
