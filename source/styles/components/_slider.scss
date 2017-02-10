@@ -117,6 +117,8 @@
         .inline & {
             @include breakpoint(640px, false) {
                 width: $f !important;
+                flex-wrap: wrap;
+                transform: none !important;
             }
         }
     }
@@ -133,6 +135,8 @@
         }
         @include breakpoint(640px) {
             width: $f/2;
+        }
+        .inline & {
             @include breakpoint(640px, false) {
                 width: $f !important;
             }
