@@ -167,6 +167,11 @@
                 top: 50%;
                 left: 50%;
                 transform: translate3d(-50%, -50%, 0);
+                .handheld & {
+                    opacity: 1;
+                    transform: translate3d(-50%, 0%, 0);
+                    margin-bottom: $f*-1;
+                }
             }
         }
         display: flex;
@@ -213,8 +218,10 @@
                 transform: translate3d(0, 0%, 0); 
             }
             .title {
-                opacity: 0;
-                visibility: hidden;
+                .desktop & {
+                    opacity: 0;
+                    visibility: hidden;
+                }
             }
             .btn {
                 opacity: 1;

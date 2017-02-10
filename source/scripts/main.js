@@ -43211,12 +43211,13 @@ module.exports = function() {
             if (!$scope.isScrollable) {
               return;
             }
+            delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
             if ($scope.offset + delta < 0) {
               if ($scope.offset + delta > $scope.carousel.maxScrollX) {
                 $scope.offset += delta;
                 $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
                 $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
-                $scope.carousel.scrollBy(delta, 0);
+                $scope.carousel.scrollBy(delta, 0, 500);
               }
               event.preventDefault();
             }
@@ -43821,8 +43822,18 @@ module.exports = function($rootScope, $timeout) {
           scene.setPin(pin);
         }
         scene.addTo(controller);
-        return window.scrollTo(0, 0);
+        controller.update(true);
+        scene.on('enter leave', function(evt) {
+          console.log(evt);
+        });
       }, 0);
+      $timeout(function() {
+        TweenMax.to(window, .5, {
+          scrollTo: {
+            y: 0
+          }
+        });
+      }, 200);
     }
   };
 };
