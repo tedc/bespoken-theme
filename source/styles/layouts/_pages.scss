@@ -168,7 +168,9 @@
 .method {
 	@include normalize_padding;
 	&-container {
-		height: calc(100vh - #{em(150px)});
+		@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
+			height: calc(100vh - #{em(150px)});
+		}
 		position: relative;
 	}
 	&-svg {
@@ -226,6 +228,8 @@
 		}
 	}
 	&-list {
+		margin: 0;
+		padding: 0;
 		&-item {
 			list-style-type: none;
 		}
@@ -244,8 +248,8 @@
             fill: $violet !important;    
         }
         @media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
-			width: vmin(164px);
-	    	height: vmin(164px);
+			width: vmin(100px);
+	    	height: vmin(100px);
 		}
 	}
 	&-description {
