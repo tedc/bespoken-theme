@@ -269,9 +269,8 @@
 			top: 50%;
 			left: 50%;
 			transform: translate3d(-50%,-50%, 0);
-			width: vmin(560px);
+			width: vmin(350px);
 			text-align: center;
-			@include normalize_padding;
 			&.visible {
 				visibility: visible;
 				opacity: 1;
