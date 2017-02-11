@@ -89,7 +89,6 @@
 		}
 	}
 	.nav {
-		opacity: 0;
 		transition: $speed transform;
 		@include normalize_padding;
 		padding-bottom: em(38px);
