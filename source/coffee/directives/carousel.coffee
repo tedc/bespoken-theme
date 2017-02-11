@@ -9,10 +9,10 @@ module.exports = ->
 			wrapper = container.querySelector '.carousel-wrapper'
 			items = $scope.$eval $attrs.items
 			max = $scope.$eval $attrs.max
-			$scope.num = 0.8
+			$scope.num = 1.2
 			$rootScope.currentPosX = null
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-				$scope.num = 1.8
+				$scope.num = 2.2
 			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
 			width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
