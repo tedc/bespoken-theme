@@ -237,20 +237,24 @@
 			display: none;
 		}
 	}
+	&-icon {
+		width: em(164px);
+	    height: em(164px);
+        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
+            fill: $violet !important;    
+        }
+        @media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
+			width: vmin(164px);
+	    	height: vmin(164px);
+		}
+	}
 	&-description {
 		p {
 			font-size: em(18px);
 			line-height: percentage(36px/22px);
-			@include breakpoint($bp) {
+			@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
 				font-size: vmin(22px);
 			}
-		}
-		svg {
-			width: em(164px);
-	        max-height: em(120px);
-	        path, rect, circle, polygon, [class^="st"], [class*=" st"] {
-	            fill: $violet !important;    
-	        }
 		}
 		@media screen and (min-width: #{em($bp)}) and (min-height: #{em(400px)}) {
 			visibility: hidden;
@@ -264,10 +268,6 @@
 			width: vmin(560px);
 			text-align: center;
 			@include normalize_padding;
-			svg {
-				width: vmin(164px);
-	        	max-height: vmin(120px);
-			}
 			&.visible {
 				visibility: visible;
 				opacity: 1;
