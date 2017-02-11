@@ -74,6 +74,7 @@
     }
     &-svg {
         width: em(164px);
+        max-height: em(120px);
         transition: $speed opacity, $speed visibility;
         path, rect, circle, polygon, [class^="st"], [class*=" st"] {
             transition: $speed fill;
