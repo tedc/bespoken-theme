@@ -54,6 +54,56 @@ p {
     }
 }
 
+ul, ol {
+    .content &, .job-content & {
+        font-size: em(18px);
+        list-style-type: none;
+        li {
+            padding:{ 
+                top: em(10px, 18px);
+            };
+            &:nth-child(1) {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+ul {
+    .content &, .job-content & {
+        li {
+            position: relative;
+            padding-left: em(25px, 18px);
+            &:before {
+                position: absolute;
+                left: 0;
+                background-color: $violet;
+                content: '';
+                border-radius: $f;
+                top: 0.8em;
+                width: em(8px, 18px);
+                height: em(8px, 18px);
+            }
+            &:nth-child(1) {
+                &:before {
+                    top: em(6px, 18px);
+                }
+            }
+        }
+    }
+}
+
+ol {
+    .content &, .job-content &{
+        margin-left: em(25px + (10px/2), 18px);
+        counter: section;
+        li {
+            counter-increment: section;
+            content: counter(section) ".";
+        }
+    }
+}
+
 h1 {
     font-size: em(36px);
     padding-bottom: em(30px, 36px);
