@@ -89,9 +89,8 @@
 		}
 	}
 	.nav {
-		transform: translate3d(20px, 0, 0);
 		opacity: 0;
-		transition: 0 opacity, 0 transform;
+		transition: $speed transform;
 		@include normalize_padding;
 		padding-bottom: em(38px);
 		flex: 0 0 auto;
@@ -117,19 +116,15 @@
 			}
 		}
 		.modal-container.visible & {
-			opacity: 1;
-			transform: translate3d(0%, 0, 0);
+			transform: translate3d(0, 0%, 0);
 			transition-delay: $speed;
-			transition-duration: $speed;
 		}
 	}
 }
 
 #main-menu {
 	padding-top: em(38px);
-	.modal-container.visible & {
-		transition-delay: $speed*1.5;
-	}
+	transform: translate3d(0, -50%, 0);
 	@include breakpoint($bp) {
 		text-align: right;
 	}
@@ -137,6 +132,7 @@
 
 #service-menu {
 	background: $anthracite;
+	transform: translate3d(0, 50%, 0);
 }
 
 .ps-scrollbar-y {
