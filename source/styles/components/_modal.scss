@@ -66,11 +66,17 @@
 	@include breakpoint($bp) {
 		text-align: right;
 	}
+	.modal-container.visible & {
+		transform: translate3d(0, 0%, 0);
+	}
 }
 
 #service-menu {
 	background: $anthracite;
 	transform: translate3d(0, 100%, 0);
+	.modal-container.visible & {
+		transform: translate3d(0, 0%, 0);
+	}
 }
 
 .menu {
