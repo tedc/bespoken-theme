@@ -43157,6 +43157,7 @@ em = function(val) {
 module.exports = function() {
   var carousel;
   return carousel = {
+    scope: true,
     controller: [
       "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
         var container, itemW, items, max, mw, mwScene, w, width, wrapper;
@@ -43165,10 +43166,10 @@ module.exports = function() {
         wrapper = container.querySelector('.carousel-wrapper');
         items = $scope.$eval($attrs.items);
         max = $scope.$eval($attrs.max);
-        $scope.num = 1;
+        $scope.num = 0.8;
         $rootScope.currentPosX = null;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-          $scope.num = 2;
+          $scope.num = 1.8;
         }
         if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
           $scope.num = items;
@@ -43254,7 +43255,6 @@ module.exports = function() {
                 $scope.carousel.scrollBy(mv, 0, 500);
               }
               $scope.offset = $scope.carousel.x;
-              console.log(mover);
             }
           };
           w.on('resize', function() {

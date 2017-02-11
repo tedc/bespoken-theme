@@ -2,16 +2,17 @@ em = (val)->
 	val/16
 module.exports = ->
 	carousel =
+		scope : on
 		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", ($scope, $window, $attrs, $element, $timeout, $rootScope)->		
 			w = angular.element $window
 			container = $element[0].querySelector '.carousel-container'
 			wrapper = container.querySelector '.carousel-wrapper'
 			items = $scope.$eval $attrs.items
 			max = $scope.$eval $attrs.max
-			$scope.num = 1
+			$scope.num = 0.8
 			$rootScope.currentPosX = null
 			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-				$scope.num = 2
+				$scope.num = 1.8
 			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 				$scope.num = items
 			width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
@@ -78,7 +79,6 @@ module.exports = ->
 						else
 							$scope.carousel.scrollBy mv, 0, 500
 						$scope.offset = $scope.carousel.x
-						console.log mover
 					return
 				w.on 'resize', ->
 					$scope.num = 1
