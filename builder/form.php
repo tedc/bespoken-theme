@@ -64,6 +64,7 @@
 				</label>
 			</div>
 			<div class="alert" ng-click="isSubmitted=false;isJobSent=true" ng-class="{visible: isSubmitted}">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bespoken-logo-gif-dark.gif" class="loader" ng-class="{hidden:isJobSent}" />
 				<div class="message" ng-class="{visible:isJobSent}">
 					<p><?php _e('Grazie per averci contattato.<br/>Ti risponderemo il prima possibile.', 'bspkn'); ?></p>
 				</div>

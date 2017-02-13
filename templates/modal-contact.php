@@ -72,6 +72,7 @@ $current_url = home_url(add_query_arg(array(),$wp->request)); ?>
 				</label>
 			</div>
 			<div class="alert" ng-click="isSubmitted=false;isContactSent=true" ng-class="{visible: isSubmitted}">
+				<img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/bespoken-logo-gif-dark.gif" class="loader" ng-class="{hidden:isContactSent}" />
 				<div class="message" ng-class="{visible:isContactSent}">
 					<p><?php _e('Grazie per averci contattato.<br/>Ti risponderemo il prima possibile.', 'bspkn'); ?></p>
 				</div>

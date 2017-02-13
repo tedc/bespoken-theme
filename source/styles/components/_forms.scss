@@ -304,12 +304,27 @@ textarea {
 	opacity: 0;
 	transition: $speed visibility, $speed opacity;
 	z-index: 20;
+	.loader {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		height: 75px;
+		width: 75px;
+		transform: translate3d(-50%,-50%,0);
+		transition: $speed opacity;
+		z-index: 0;
+		&.hidden {
+			opacity: 0;
+		}
+	}
 	.message {
 		text-align: center;
 		line-height: 1.2;
 		font-size: em(20px);
 		visibility: hidden;
 		opacity: 0;
+		z-index: 1;
+		position: relative;
 		&.visible {
 			visibility: visible;
 			opacity: 1;
