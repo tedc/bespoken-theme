@@ -196,6 +196,7 @@ textarea {
 		background-color: $light;
 		.modal-container & { 
 			padding-top: em(100px);
+	    	padding-bottom: em(50px);
 		}
 		@include breakpoint($bp) {
 			width: $f/3;
@@ -226,6 +227,7 @@ textarea {
 		align-content: flex-start;
 		position: relative;
 		.modal-container & {
+			padding-top: em(50px);
 	    	padding-bottom: em(50px);
 	    }
 		@include breakpoint($bp) {
