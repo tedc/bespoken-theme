@@ -62,21 +62,13 @@
 
 #main-menu {
 	padding-top: em(38px);
-	transform: translate3d(-100%, 0, 0);
 	@include breakpoint($bp) {
 		text-align: right;
-	}
-	.modal-container.visible & {
-		transform: translate3d(0%, 0%, 0);
 	}
 }
 
 #service-menu {
 	background: $anthracite;
-	transform: translate3d(100%, 0, 0);
-	.modal-container.visible & {
-		transform: translate3d(0%, 0, 0);
-	}
 }
 
 .menu {
@@ -108,8 +100,6 @@
 		}
 	}
 	.nav {
-		opacity: 0;
-		transition: $speed transform, opacity $speed;
 		@include normalize_padding;
 		padding-bottom: em(38px);
 		flex: 0 0 auto;
@@ -133,9 +123,6 @@
 		            right: em(50px, 20px);
 		        }
 			}
-		}
-		.modal-container.visible & {
-			opacity: 1;
 		}
 	}
 }
