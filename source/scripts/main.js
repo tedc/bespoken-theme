@@ -43258,9 +43258,9 @@ module.exports = function() {
             }
           };
           w.on('resize', function() {
-            $scope.num = 1;
+            $scope.num = 1.2;
             if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-              $scope.num = 2;
+              $scope.num = 2.2;
             }
             if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
               $scope.num = items;
@@ -43301,7 +43301,7 @@ module.exports = function() {
   return form = {
     scope: true,
     controller: [
-      "$scope", "$rootScope", "transformRequestAsFormPost", "$http", "$timeout", "Upload", "$attrs", function($scope, $rootScope, transformRequestAsFormPost, $http, $timeout, Upload, $attrs) {
+      "$scope", "$rootScope", "transformRequestAsFormPost", "$http", "$timeout", "Upload", "$attrs", "$q", function($scope, $rootScope, transformRequestAsFormPost, $http, $timeout, Upload, $attrs, $q) {
         var job;
         $scope.isSubmitted = false;
         $scope.isPrivacyChecked = false;
@@ -43316,7 +43316,7 @@ module.exports = function() {
           $scope.file = file.name;
         };
         return $scope.onSubmit = function(isValid, url) {
-          var frmdata;
+          var data, frmdata, i, j, lname, name, ref, sender, subscribe;
           frmdata = $scope.formData;
           $scope.isSubmitted = true;
           $scope.formData = {};
@@ -43357,23 +43357,49 @@ module.exports = function() {
                 }, 5000);
               });
               if ($scope.isNewsChecked) {
-                $http({
-                  method: 'POST',
-                  url: "/assets/lib/mc/mc.php",
-                  data: $scope.formData,
-                  headers: {
-                    "Content-type": "application/x-www-form-urlencoded; charset=utf-8"
-                  },
-                  transformRequest: transformRequestAsFormPost
-                }).then(function(data) {
-                  var exp, now;
-                  now = new Date();
-                  exp = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
-                  $cookies.put('mc_sub', 'subscribed', {
-                    path: "/",
-                    expires: exp
+                subscribe = function(data) {
+                  var defer, params;
+                  defer = $q.defer();
+                  params = angular.extend(data, {
+                    u: "bb274c7bb0c77bc3ff1d61e9c",
+                    d: "357200da1e",
+                    c: 'JSON_CALLBACK'
                   });
-                });
+                  url = "https://bspkn.us8.list-manage.com/subscribe/post-json";
+                  $http({
+                    params: params,
+                    url: url,
+                    method: 'JSONP'
+                  }).then(function(data) {
+                    if (data.data.result === 'success') {
+                      defer.resolve(data.data);
+                    } else {
+                      defer.reject(data.data);
+                    }
+                  }, function(err) {
+                    defer.reject(err);
+                  });
+                  return defer.promise;
+                };
+                sender = frmdata.sender.split(' ');
+                name = sender[0];
+                lname = '';
+                if (sender.length > 1) {
+                  for (i = j = 1, ref = sender.length - 1; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+                    if (i === 1) {
+                      lname += sender[i];
+                    } else {
+                      lname += " " + sender[i];
+                    }
+                  }
+                }
+                data = {
+                  EMAIL: frmdata.email,
+                  FNAME: name,
+                  LNAME: lname,
+                  MMERGE3: frmdata.tel
+                };
+                subscribe(data);
               }
             }
           }

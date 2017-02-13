@@ -81,9 +81,9 @@ module.exports = ->
 						$scope.offset = $scope.carousel.x
 					return
 				w.on 'resize', ->
-					$scope.num = 1
+					$scope.num = 1.2
 					if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-						$scope.num = 2
+						$scope.num = 2.2
 					if Modernizr.mq "screen and (min-width: #{em(900)}em)"
 						$scope.num = items
 					width = if max > $scope.num then ( 100 / $scope.num ) * max else 100

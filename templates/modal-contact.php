@@ -8,14 +8,14 @@ $current_url = home_url(add_query_arg(array(),$wp->request)); ?>
 			<span class="btn-line"></span>
 			<span class="btn-line"></span>
 		</span>
-		<div class="form-content row-lg">
+		<div class="form-content">
 			<div class="content">
 				<?php the_field('testo_contatti', 'options'); ?>
 				<p><a href="https://www.facebook.com/bspkn.studio/" class="icon-facebook"></a>
 				<a href="https://www.linkedin.com/company/10485978" class="icon-linkedin"></a></p>
 			</div>
 		</div>
-		<div class="form-inputs row-lg">
+		<div class="form-inputs">
 			<div class="form-col">
 				<div class="form-row">
 					<input type="text" name="sender" placeholder="<?php _e('Nome e cognome', 'bspkn'); ?>" ng-model="formData.sender">

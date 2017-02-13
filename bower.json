@@ -12,6 +12,10 @@
     "scrollmagic": "~2.0.5",
     "iscroll": "~5.2.0",
     "perfect-scrollbar": "~0.6.16",
-    "hamsterjs": "~1.1.2"
+    "hamsterjs": "~1.1.2",
+    "angular-mailchimp-subscribe": "~0.1.1"
+  },
+  "devDependencies": {
+    "angular-mailchimp": "~0.0.4"
   }
 }

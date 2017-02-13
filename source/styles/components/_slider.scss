@@ -301,6 +301,11 @@
                 display: none;
             }
         }
+        .inline & {
+            @include breakpoint(640px, false) {
+                display: none;
+            }
+        }
     }
     &-svg {
         path, circle, rect, polygon, [class^="st"], [class*=" st"]  {

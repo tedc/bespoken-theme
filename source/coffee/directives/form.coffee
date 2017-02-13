@@ -1,7 +1,7 @@
 module.exports = ->
     form =
         scope: on
-        controller: [ "$scope", "$rootScope", "transformRequestAsFormPost", "$http", "$timeout", "Upload", "$attrs", ($scope, $rootScope, transformRequestAsFormPost, $http, $timeout, Upload, $attrs)->
+        controller: [ "$scope", "$rootScope", "transformRequestAsFormPost", "$http", "$timeout", "Upload", "$attrs", "$q", ($scope, $rootScope, transformRequestAsFormPost, $http, $timeout, Upload, $attrs, $q)->
             $scope.isSubmitted = off
             $scope.isPrivacyChecked = off
             $scope.formData = { 
@@ -58,18 +58,46 @@ module.exports = ->
                                 , 5000
                                 return
                         if $scope.isNewsChecked
-                            $http({
-                                method: 'POST'
-                                url: "/assets/lib/mc/mc.php"
-                                data: $scope.formData
-                                headers :
-                                    "Content-type" : "application/x-www-form-urlencoded; charset=utf-8"
-                                transformRequest: transformRequestAsFormPost
-                            }).then (data)->
-                                now = new Date()
-                                exp = new Date now.getFullYear(), now.getMonth()+1, now.getDate()
-                                $cookies.put 'mc_sub', 'subscribed',
-                                    path : "/"
-                                    expires : exp
-                                return
+                            subscribe = (data)->
+                                defer = $q.defer()
+                                params = angular.extend data,
+                                    u: "bb274c7bb0c77bc3ff1d61e9c"
+                                    d: "357200da1e"
+                                    c: 'JSON_CALLBACK'
+                                url = "https://bspkn.us8.list-manage.com/subscribe/post-json"
+                                $http({
+                                    params : params
+                                    url: url
+                                    method: 'JSONP'
+                                }).then (data)->
+                                    if data.data.result is 'success'
+                                        #now = new Date()
+                                        #exp = new Date now.getFullYear(), now.getMonth()+1, now.getDate()
+                                        #$cookies.put 'mc_sub', 'subscribed',
+                                        #    path : "/"
+                                        #    expires : exp
+                                        #window.ga 'send', 'event', 'iscrizione alla newsletter', 'submit form'
+                                        defer.resolve data.data
+                                    else
+                                        defer.reject data.data
+                                    return
+                                , (err)->
+                                    defer.reject err
+                                    return
+                                return defer.promise
+                            sender = frmdata.sender.split ' '
+                            name = sender[0]
+                            lname = ''
+                            if sender.length > 1
+                                for i in [1..sender.length - 1]
+                                    if i is 1
+                                        lname += sender[i]
+                                    else
+                                        lname += " #{sender[i]}"
+                            data = 
+                                EMAIL : frmdata.email 
+                                FNAME : name
+                                LNAME : lname
+                                MMERGE3 : frmdata.tel
+                            subscribe data
                 return]

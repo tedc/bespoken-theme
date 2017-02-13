@@ -186,18 +186,27 @@ textarea {
 	        right: 10px;
 	    }
 	    .modal-container & {
-	    	padding-top: em(150px) !important;
-	    	padding-bottom: em(150px) !important;
+	    	padding-bottom: em(25px);
 	    }
 	    @include breakpoint(640px){
 	        padding: {
 	            left: em(25px);
 	            right: em(25px);
 	        }
+	        .modal-container & {
+		    	padding-bottom: em(50px);
+		    }
 	    }
+	    @include breakpoint($bp) {
+			padding-top: em(150px);
+	    	padding-bottom: em(150px);
+		}
 	}
 	&-content {
 		background-color: $light;
+		.modal-container & { 
+			padding-top: em(150px);
+		}
 		@include breakpoint($bp) {
 			width: $f/3;
 		}
@@ -222,6 +231,14 @@ textarea {
 		color: $light;
 		align-content: flex-start;
 		position: relative;
+		.modal-container & {
+	    	padding-top: em(25px);
+	    }
+	    @include breakpoint(640px){
+	        .modal-container & {
+		    	padding-top: em(50px);
+		    }
+	    }
 		@include breakpoint($bp) {
 			width: ($f/3) * 2;
 		}
