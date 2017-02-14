@@ -13,11 +13,12 @@
             <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">
                 <figure class="user-image">
                     <?php
-                    $imgId = get_field('avatar', 'user_'.$user->ID);
-                    if($imgId) {
-                        $img = wp_get_attachment_image($imgId, 'large', false, array('class' => 'avatar')); 
-                        echo $img;
-                    }
+                    var_dump($user);
+                    // $imgId = get_field('avatar', 'user_'.$user->ID);
+                    // if($imgId) {
+                    //     $img = wp_get_attachment_image($imgId, 'large', false, array('class' => 'avatar')); 
+                    //     echo $img;
+                    // }
                     ?>
                 </figure>
                 <div class="mask">
