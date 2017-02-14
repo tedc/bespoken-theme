@@ -62,3 +62,25 @@
 	    $img_id = get_post_thumbnail_id( $post[0]->ID );
 	    return wp_get_attachment_image_src( $img_id, $size)[0];
 	}
+
+	function shortcode_empty_paragraph_fix( $content ) {
+
+	    // define your shortcodes to filter, '' filters all shortcodes
+	    $shortcodes = array( '' );
+	    
+	    foreach ( $shortcodes as $shortcode ) {
+	        
+	        $array = array (
+	            '<p>[' . $shortcode => '[' .$shortcode,
+	            '<p>[/' . $shortcode => '[/' .$shortcode,
+	            $shortcode . ']</p>' => $shortcode . ']',
+	            $shortcode . ']<br />' => $shortcode . ']'
+	        );
+
+	        $content = strtr( $content, $array );
+	    }
+
+	    return $content;
+	}
+
+	add_filter( 'acf_the_content', 'shortcode_empty_paragraph_fix' );
