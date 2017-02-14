@@ -1,4 +1,5 @@
 window.controller = new ScrollMagic.Controller()
+FastClick.attach document.body
 angular = require 'angular'
 require 'angular-resource'
 require 'angular-cookies'

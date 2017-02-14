@@ -12,7 +12,8 @@
     "scrollmagic": "~2.0.5",
     "iscroll": "~5.2.0",
     "perfect-scrollbar": "~0.6.16",
-    "hamsterjs": "~1.1.2"
+    "hamsterjs": "~1.1.2",
+    "fastclick": "~1.0.6"
   },
   "devDependencies": {}
 }

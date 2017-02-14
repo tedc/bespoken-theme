@@ -9,6 +9,8 @@
         $colClass = (is_mobile()) ? ' carousel-item' : '';
         foreach ($users as $user):
             if($i==4) {$i = 0;}
+        
+                    var_dump($user);
          ?>
             <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">
                 <figure class="user-image">
