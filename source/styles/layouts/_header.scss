@@ -123,6 +123,17 @@
     text-transform: uppercase;
     display: none;
     z-index: 10;
+    transition: transform $speed, opacity $speed;
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+    .wf-active &, .wf-inactive & {
+        transform: translate3d(0, 0%, 0);
+        opacity: 1;
+    }
+    .wf-loading & {
+        opacity: 0;
+        transform: translate3d(0, -100%, 0);
+    }
     a {
         font-weight: bold;
         color: $w;
