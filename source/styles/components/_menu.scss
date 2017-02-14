@@ -10,7 +10,6 @@
         opacity: 1;
     }
     .wf-loading & {
-        transform: translate3d(-100%, 0, 0);
         opacity: 0;
     }
 }
@@ -40,6 +39,9 @@
         @include absfull;
     }
     transform: translate3d(-100%, 0, 0);
+    .wf-loading & {
+        transform: translate3d(-100%, 0, 0);
+    }
 }
 
 .btn-menu {
@@ -49,6 +51,9 @@
     color: $w;
     right: 0;
     transform: translate3d(100%, 0, 0);
+    .wf-loading & {
+        transform: translate3d(100%, 0, 0);
+    }
     &-text {
         font-size: em(18px);
         padding-right: em(20px, 18px);
