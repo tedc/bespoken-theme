@@ -40,7 +40,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
 <?php else : ?>
-<div class="video-carousel video bg-dark row-lg" ng-carousel items="1" max="<?php echo $query->found_posts; ?>">
+<div class="video-carousel video bg-dark row-lg" ng-carousel items="1" max="<?php echo $query->found_posts; ?>" mousewheel="false">
 	<div class="carousel-container">
 		<div class="carousel-wrapper">
 		<?php $slide = 0; while($query->have_posts()) : $query->the_post(); ?>

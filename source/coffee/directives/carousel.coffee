@@ -64,7 +64,6 @@ module.exports = ->
 					, 0
 					return
 				$scope.move = (cond)->
-					console.log mw
 					if not mw
 						if cond then $scope.carousel.next() else $scope.carousel.prev()
 					else

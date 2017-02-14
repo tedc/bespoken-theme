@@ -43231,7 +43231,6 @@ module.exports = function() {
           });
           $scope.move = function(cond) {
             var mover, mv, resto;
-            console.log(mw);
             if (!mw) {
               if (cond) {
                 $scope.carousel.next();
@@ -43930,6 +43929,8 @@ module.exports = function() {
 var angular, bspkn;
 
 window.controller = new ScrollMagic.Controller();
+
+FastClick.attach(document.body);
 
 angular = require('angular');
 
