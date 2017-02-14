@@ -9,13 +9,15 @@
         $colClass = (is_mobile()) ? ' carousel-item' : '';
         foreach ($users as $user):
             if($i==4) {$i = 0;}
-        
-                    var_dump($user);
          ?>
             <div class="col-<?php the_sub_field("n_cols") ?> user-col<?php echo $colClass; ?>" data-position="<?php echo $i ?>">
                 <figure class="user-image">
                     <?php
-                    echo get_avatar($user["user_email"], $size = '800');
+                    $imgId = get_field('avatar', 'user_'.$user->ID);
+                    if($imgId) {
+                        $img = wp_get_attachment_image($imgId, 'large', false, array('class' => 'avatar')); 
+                        echo $img;
+                    }
                     ?>
                 </figure>
                 <div class="mask">
