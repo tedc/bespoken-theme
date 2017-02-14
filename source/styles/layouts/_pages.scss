@@ -20,7 +20,7 @@
 		font-weight: normal;
 		margin: auto;
 		transition: $speed transform, $speed opacity;
-		.home-page:not(.scrolled) {
+		.home-page:not(.scrolled) & {
         	transform: none !important;
         	opacity: 1;
     	}

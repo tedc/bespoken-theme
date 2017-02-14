@@ -79,7 +79,7 @@
             }
         }
     }
-    .page-header:not(.scrolled) {
+    .page-header:not(.scrolled) & {
         transform: none !important;
     }
 }
