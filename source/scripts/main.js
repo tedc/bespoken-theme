@@ -43166,10 +43166,11 @@ module.exports = function() {
         wrapper = container.querySelector('.carousel-wrapper');
         items = $scope.$eval($attrs.items);
         max = $scope.$eval($attrs.max);
-        $scope.num = 1.2;
+        mw = $scope.$eval($attrs.mousewheel);
+        $scope.num = mw ? 1.2 : 1;
         $rootScope.currentPosX = null;
         if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-          $scope.num = 2.2;
+          $scope.num = mw ? 2.2 : 2;
         }
         if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
           $scope.num = items;
@@ -43182,7 +43183,6 @@ module.exports = function() {
         TweenMax.set(wrapper.querySelectorAll('.carousel-item'), {
           width: itemW + "%"
         });
-        mw = $scope.$eval($attrs.mousewheel);
         $scope.isScrollable = false;
         $scope.isPrev = false;
         $scope.isNext = true;
@@ -43209,6 +43209,9 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           $scope.offset = 0;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
+            if (isMobile) {
+              return;
+            }
             if (!$scope.isScrollable) {
               return;
             }
@@ -43262,9 +43265,9 @@ module.exports = function() {
             }
           };
           w.on('resize', function() {
-            $scope.num = 1.2;
+            $scope.num = mw ? 1.2 : 1;
             if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-              $scope.num = 2.2;
+              $scope.num = mw ? 2.2 : 2;
             }
             if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
               $scope.num = items;
