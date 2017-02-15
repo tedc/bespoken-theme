@@ -134,7 +134,7 @@
 }
 
 [data-position] {
-    .mobile & {
+    .handheld & {
         .mask, .mask .user-details {
             top: 0 !important;
             left: 0 !important;
