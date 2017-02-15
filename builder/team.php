@@ -35,9 +35,9 @@
                                 <a class="icon-facebook" href="<?php echo $user_info['facebook'][0]; ?>"
                                    target="_blank"></a>
                             <?php endif ?>
-                            <?php if ($user_info['twitter'] != '') : ?>
+                            <?php if ($user_info['twitter'][0] != '') : ?>
                                 <a class="icon-twitter"
-                                   href="https://twitter.com/<?php echo $user_info['twitter']; ?>"
+                                   href="https://twitter.com/<?php echo $user_info['twitter'][0]; ?>"
                                    target="_blank"></a>
                             <?php endif ?>
                             <?php if ($user_info['googleplus'][0] != '') : ?>
