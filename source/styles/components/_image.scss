@@ -29,7 +29,10 @@
 
 .image-grid {
     margin: 0;
-    @include normalize_padding;
+    padding: {
+        left: em(25px);
+        right: em(25px);
+    }
     img {
         display: block;
         width: 100%;
