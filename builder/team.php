@@ -35,10 +35,9 @@
                                 <a class="icon-facebook" href="<?php echo $user_info['facebook'][0]; ?>"
                                    target="_blank"></a>
                             <?php endif ?>
-                            <?php var_dump($user_info); ?>
-                            <?php if ($user["ID"] != '') : ?>
+                            <?php if ($user_info['twitter'] != '') : ?>
                                 <a class="icon-twitter"
-                                   href="https://twitter.com/<?php echo get_user_meta('twitter', $user["ID"]); ?>"
+                                   href="https://twitter.com/<?php echo $user_info['twitter']; ?>"
                                    target="_blank"></a>
                             <?php endif ?>
                             <?php if ($user_info['googleplus'][0] != '') : ?>
