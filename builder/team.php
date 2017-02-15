@@ -17,6 +17,8 @@
                     if($imgId) {
                         $img = wp_get_attachment_image($imgId, 'large', false, array('class' => 'avatar')); 
                         echo $img;
+                    } else {
+                        echo get_gravatar($user['ID'], 800);
                     }
                     ?>
                 </figure>
