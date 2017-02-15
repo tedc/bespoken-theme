@@ -45,6 +45,7 @@ module.exports = ->
 				$scope.carousel = new IScroll container, opts
 				$scope.offset = 0
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
+					return if isMobile
 					return if not $scope.isScrollable
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
@@ -53,6 +54,11 @@ module.exports = ->
 							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
 							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on	
 							$scope.carousel.scrollBy delta, 0, 200
+						else
+							$scope.offset = $scope.carousel.maxScrollX
+							$scope.carousel.scrollBy $scope.offset , 0, 200
+							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
+							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on	
 						event.preventDefault()
 					return
 

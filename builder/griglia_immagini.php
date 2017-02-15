@@ -1,7 +1,7 @@
 <?php $images = get_sub_field('immagini'); ?>
 <?php if(is_mobile()) : ?>
 <div class="carousel <?php the_sub_field('grid_bg'); ?> row-top" ng-carousel items="2" max="<?php echo count($images) - 1; ?>">
-	<div class="carouse-container">
+	<div class="carousel-container">
 		<div class="carousel-wrapper">
 		<?php foreach( $images as $image ): ?>
 			<div class="carousel-item">
