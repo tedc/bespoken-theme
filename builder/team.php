@@ -18,7 +18,7 @@
                         $img = wp_get_attachment_image($imgId, 'large', false, array('class' => 'avatar')); 
                         echo $img;
                     } else {
-                        echo get_gravatar($user['user_email'], $size = 800);
+                        echo get_avatar($user['user_email'], $size = 800);
                     }
                     ?>
                 </figure>
