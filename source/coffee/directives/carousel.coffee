@@ -82,7 +82,7 @@ module.exports = ->
 						else if $scope.carousel.x + mv < $scope.carousel.maxScrollX
 							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 500 if cond
 						else
-							$scope.carousel.scrollBy mv, 0, 500
+							$scope.carousel.scrollTo mv, 0, 500
 						$scope.offset = $scope.carousel.x
 					return
 				w.on 'resize', ->

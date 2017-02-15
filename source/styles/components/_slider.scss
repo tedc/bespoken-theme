@@ -124,6 +124,9 @@
     }
     &-item {
         background-color: $b;
+        .alternate & {
+            background-color: transparent;
+        }
         flex: 0 0 auto;
         width: $f;
         color: $w;
@@ -304,6 +307,25 @@
         .inline & {
             @include breakpoint(640px, false) {
                 display: none;
+            }
+        }
+        .alternate & {
+            .btn {
+                border-color: $purple;
+                transition: border $speed;
+                &:hover {
+                    border-color: $gray-dark;
+                    .btn-line, .btn-arrow-up, .btn-arrow-down {
+                        background-color: $gray-dark;
+                    }
+                    &:before, &:after {
+                        border-color: $purple;
+                    }
+                }
+                .btn-line, .btn-arrow-up, .btn-arrow-down {
+                    background-color: $purple;
+                    transition: background-color $speed;
+                }
             }
         }
     }

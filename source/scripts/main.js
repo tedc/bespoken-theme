@@ -43259,7 +43259,7 @@ module.exports = function() {
                   $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 500);
                 }
               } else {
-                $scope.carousel.scrollBy(mv, 0, 500);
+                $scope.carousel.scrollTo(mv, 0, 500);
               }
               $scope.offset = $scope.carousel.x;
             }
