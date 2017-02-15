@@ -265,7 +265,8 @@
             bottom: em(35px);
             min-height: em(35px);
             min-width: em(35px);   
-            transition: $speed opacity; 
+            transition: $speed opacity;
+            z-index: 50;
             .video-carousel & {
                 bottom: auto;
                 top: 50%;

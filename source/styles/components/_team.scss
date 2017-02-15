@@ -132,3 +132,16 @@
         }
     }
 }
+
+[data-position] {
+    .mobile & {
+        .mask, .mask .user-details {
+                top: 0 !important;
+                left: 0 !important;
+        }
+        .mask .user-details {
+            background-color: transparent;
+            text-shadow: 0 0 5px transparentize($b, .2);
+        }
+    }
+}
