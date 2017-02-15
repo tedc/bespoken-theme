@@ -47,8 +47,8 @@ module.exports = ->
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if not $scope.isScrollable
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
-					if $scope.offset + delta < 0
-						if $scope.offset + delta > $scope.carousel.maxScrollX
+					if $scope.offset + delta <= 0
+						if $scope.offset + delta >= $scope.carousel.maxScrollX
 							$scope.offset += delta
 							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
 							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on	

@@ -1,5 +1,5 @@
 <?php $images = get_sub_field('immagini'); ?>
-<div class="grid-12">
+<div class="grid-12 <?php the_sub_field('grid_bg'); ?>">
 <?php foreach( $images as $image ): ?>
 	<div class="col-<?php the_sub_field("n_cols") ?>">
 	    <figure class="image-grid">
