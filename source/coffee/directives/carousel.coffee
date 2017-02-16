@@ -52,7 +52,8 @@ module.exports = ->
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
 							$scope.carousel.scrollBy delta, 0, 200
 						else
-							delta = $scope.offset + delta - $scope.carousel.maxScrollX
+							delta = ( $scope.offset + delta )- $scope.carousel.maxScrollX
+							console.log delta, $scope.carousel.maxScrollX, $scope.offset + delta
 							$scope.carousel.scrollBy delta, 0, 200
 						$scope.offset += delta
 						$scope.isPrev = if $scope.offset + delta >= 0 then off else on
