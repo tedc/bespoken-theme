@@ -26,8 +26,8 @@
             </div>
         </div>
     </header>
-    <div class="entry-content content row-lg" id="entry-content">
-        <figure>
+    <div class="entry-content content" id="entry-content">
+        <figure class="post-author">
             <?php $imgId = get_field('avatar', 'user_'.$post->post_author);
                     if($imgId) {
                         $img = wp_get_attachment_image($imgId, 'medium', false, array('class' => 'avatar')); 

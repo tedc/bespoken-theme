@@ -87,6 +87,19 @@
 		max-width: $max-width;
 		margin: 0 auto;
 		@include normalize_padding;
+        padding: {
+            bottom: em(75px/2);
+        }
+        @include breakpoint(640px) {
+            padding: {
+                bottom: em(75px);
+            }
+        }
+        @include breakpoint($bp) {
+            padding: {
+                bottom: em(100px);
+            }
+        }
 		p, ul, ol {
             padding-bottom: em(25px);
         }
@@ -172,10 +185,29 @@
                 size: em(25px);
             }
         }
-        .gravatar {
-            .avatar {
-                margin-right: 0;
-                margin-left: em(25px);
+        .post-author {
+            margin: 0 auto;
+            text-align: center;
+            padding: {
+                bottom: em(75px/2);
+            }
+            text-transform: uppercase;
+            color: $purple;
+            @include breakpoint(640px) {
+                padding: {
+                    bottom: em(75px);
+                }
+            }
+            @include breakpoint($bp) {
+                padding: {
+                    bottom: em(100px);
+                }
+            }
+            img {
+                border-radius: $f;
+                width: 120px;
+                height: 120px;
+                margin-top: -60px;
             }
         }
 	}
