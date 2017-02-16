@@ -144,7 +144,6 @@ function favicon() {
 	<link rel="manifest" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon/manifest.json">
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
-	<meta name="theme-color" content="#ffffff"
 <?php }
 
 add_action( 'wp_head', 'favicon' );
