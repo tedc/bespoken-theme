@@ -161,14 +161,20 @@ function na_remove_slug( $post_link, $post, $leavename ) {
 add_filter( 'post_type_link', 'na_remove_slug', 10, 3 );
 
 
-function na_parse_request( $query ) {
-
-    if ( ! $query->is_main_query() || 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
+function gp_parse_request_trick( $query ) {
+ 
+    // Only noop the main query
+    if ( ! $query->is_main_query() )
+        return;
+ 
+    // Only noop our very specific rewrite rule match
+    if ( 2 != count( $query->query ) || ! isset( $query->query['page'] ) ) {
         return;
     }
-
+ 
+    // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
     if ( ! empty( $query->query['name'] ) ) {
-        $query->set( 'post_type', array( 'post', 'servizi', 'page', 'lavori' ) );
+        $query->set( 'post_type', array( 'post', 'page', 'servizi' ) );
     }
 }
-add_action( 'pre_get_posts', 'na_parse_request' );
+add_action( 'pre_get_posts', 'gp_parse_request_trick' );
