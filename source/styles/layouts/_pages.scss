@@ -22,7 +22,7 @@
 		transition: $speed transform, $speed opacity;
 		.home-page:not(.scrolled) & {
         	transform: none !important;
-        	opacity: 1;
+        	opacity: 1 !important;
     	}
 		&-row {
 			display: inline-block;
