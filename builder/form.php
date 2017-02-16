@@ -1,3 +1,6 @@
+<?php if(get_sub_field('is_contact')) :
+	get_template_part( 'builder/'. get_row_layout(), 'contact' );
+	else : ?>
 <div class="jobs-form" ng-form job-form="true">
 	<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid, '<?php the_permalink(); ?>')">
 		<div class="form-content row-lg">
@@ -71,4 +74,5 @@
 			</div>
 		</div>
 	</form>
-</inpu>
+</div>
+<?php endif; ?>
