@@ -43220,7 +43220,7 @@ module.exports = function() {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
                 $scope.carousel.scrollBy(delta, 0, 200);
               } else {
-                delta = scope.offset + delta - $scope.carousel.maxScrollX;
+                delta = $scope.offset + delta - $scope.carousel.maxScrollX;
                 $scope.carousel.scrollBy(delta, 0, 200);
               }
               $scope.offset += delta;
