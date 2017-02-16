@@ -1,11 +1,11 @@
-<div class="form-content">
+<div class="form-content<?php if( get_sub_field('is_contact') ): ?> row-lg<?php endif; ?>">
 	<div class="content">
 		<?php the_field('testo_contatti', 'options'); ?>
 		<p><a href="https://www.facebook.com/bspkn.studio/" class="icon-facebook"></a>
 		<a href="https://www.linkedin.com/company/10485978" class="icon-linkedin"></a></p>
 	</div>
 </div>
-<div class="form-inputs">
+<div class="form-inputs<?php if( get_sub_field('is_contact') ): ?> row-lg<?php endif; ?>">
 	<div class="form-col">
 		<div class="form-row">
 			<input type="text" name="sender" placeholder="<?php _e('Nome e cognome', 'bspkn'); ?>" ng-model="formData.sender">
