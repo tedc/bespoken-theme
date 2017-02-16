@@ -6,6 +6,14 @@
                 text-transform: uppercase;
                 color: $purple;
             }
+            .content {
+                @include breakpoint($bp) {
+                    padding: {
+                        left: em(25px);
+                        right: em(25px);
+                    }
+                }
+            }
         }
     }
     position: static !important;
