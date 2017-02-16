@@ -153,7 +153,12 @@ function na_remove_slug( $post_link, $post, $leavename ) {
     if ( 'servizi' != $post->post_type || 'publish' != $post->post_status ) {
         return $post_link;
     }
+    $uri = '';
+    foreach ( $post->ancestors as $parent ) {
+        $uri = get_post( $parent )->post_name . "/" . $uri;
+    }
 
+    $post_link = str_replace( $uri, '', $post_link );
     $post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
 
     return $post_link;
