@@ -4,9 +4,7 @@
 	else : ?>
 	<form class="form" name="jobForm" ng-submit="onSubmit(jobForm.$valid, '<?php the_permalink(); ?>')">
 		<div class="form-content row-lg">
-			<div class="content">
-				<?php the_sub_field('Testo'); ?>
-			</div>
+			<?php the_sub_field('Testo'); ?>
 		</div>
 		<div class="form-inputs row-lg">
 			<div class="form-col">

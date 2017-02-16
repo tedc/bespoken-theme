@@ -1,6 +1,12 @@
 .job {
     &s {
         position: relative;
+        &-form {
+            h2, h3, h4 {
+                text-transform: uppercase;
+                color: $purple;
+            }
+        }
     }
     position: static !important;
     @include normalize_padding;
