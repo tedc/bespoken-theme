@@ -146,3 +146,5 @@ function favicon() {
 	<meta name="msapplication-TileImage" content="/assets/img/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff"
 <?php }
+
+add_action( 'wp_head', 'favicon' );
