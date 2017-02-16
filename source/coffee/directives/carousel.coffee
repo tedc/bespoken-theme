@@ -50,15 +50,13 @@ module.exports = ->
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
-							$scope.offset += delta
-							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
-							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on	
 							$scope.carousel.scrollBy delta, 0, 200
 						else
-							$scope.offset = $scope.carousel.maxScrollX
-							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 200
-							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
-							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on	
+							delta = scope.offset + delta - $scope.carousel.maxScrollX
+							$scope.carousel.scrollBy delta, 0, 200
+						$scope.offset += delta
+						$scope.isPrev = if $scope.offset + delta >= 0 then off else on
+						$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on		
 						event.preventDefault()
 					return
 
@@ -82,7 +80,7 @@ module.exports = ->
 						else if $scope.carousel.x + mv < $scope.carousel.maxScrollX
 							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 500 if cond
 						else
-							$scope.carousel.scrollTo mv, 0, 500
+							$scope.carousel.scrollBy mv, 0, 500
 						$scope.offset = $scope.carousel.x
 					return
 				w.on 'resize', ->

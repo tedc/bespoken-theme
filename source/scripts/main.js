@@ -43218,16 +43218,14 @@ module.exports = function() {
             delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
             if ($scope.offset + delta <= 0) {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
-                $scope.offset += delta;
-                $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
-                $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
                 $scope.carousel.scrollBy(delta, 0, 200);
               } else {
-                $scope.offset = $scope.carousel.maxScrollX;
-                $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 200);
-                $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
-                $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
+                delta = scope.offset + delta - $scope.carousel.maxScrollX;
+                $scope.carousel.scrollBy(delta, 0, 200);
               }
+              $scope.offset += delta;
+              $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
+              $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
               event.preventDefault();
             }
           };
@@ -43259,7 +43257,7 @@ module.exports = function() {
                   $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 500);
                 }
               } else {
-                $scope.carousel.scrollTo(mv, 0, 500);
+                $scope.carousel.scrollBy(mv, 0, 500);
               }
               $scope.offset = $scope.carousel.x;
             }
