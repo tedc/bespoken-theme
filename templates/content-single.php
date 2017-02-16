@@ -27,6 +27,16 @@
         </div>
     </header>
     <div class="entry-content content row-lg" id="entry-content">
+        <figure>
+            <?php $imgId = get_field('avatar', 'user_'.$post->post_author);
+                    if($imgId) {
+                        $img = wp_get_attachment_image($imgId, 'medium', false, array('class' => 'avatar')); 
+                        echo $img;
+                    } else {
+                        echo get_avatar(get_the_author_meta('user_email', $post->post_author), $size = 240);
+                    } ?>
+            <figcaption><?php the_author_meta( 'user_firstname', $post->post_author); ?> <?php the_author_meta( 'user_lastname', $post->post_author); ?></figcaption>
+        </figure>
         <?php the_content(); ?>
     </div>
     <?php comments_template('/templates/comments.php'); ?>
