@@ -148,12 +148,13 @@
         }
         ol {
             counter: section;
+            margin-left: 0;
             li {
                 counter-increment: section;
                 &:before {
                     content: counter(section) ".";
                     display: inline-block;
-                    padding-right: em(25px);
+                    padding-right: em(10px);
                     font-style: italic;
                 }
             }
