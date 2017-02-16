@@ -87,6 +87,7 @@
 		max-width: $max-width;
 		margin: 0 auto;
         position: relative;
+        z-index: 1;
 		@include normalize_padding;
         padding: {
             bottom: em(75px/2);
@@ -146,12 +147,14 @@
             }
         }
         ol {
-            margin-left: em(25px + (10px/2));
             counter: section;
             li {
                 counter-increment: section;
                 &:before {
                     content: counter(section) ".";
+                    display: inline-block;
+                    padding-right: em(25px);
+                    font-style: italic;
                 }
             }
         }
