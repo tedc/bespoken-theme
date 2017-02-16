@@ -11,6 +11,8 @@
         $padding = get_sub_field('grandezza_spaziatura_sotto');
     endif; ?>
 
+    <?php if(trim(get_sub_field('contenuto')) != '' || trim(get_sub_field('titolo')) != '' || get_sub_field('titolo_precompilato')) : ?>
+
     <div class="content <?php echo $padding ?>"<?php if(!$anim):?> ng-sm from="{y : 100}" to="{y : -200}" duration="400%" trigger-hook="onEnter" trigger-element="#content_row_<?php echo $row; ?>"<?php endif;?>>
         <?php $align = ((get_sub_field('allineamento_testo'))); ?>
         <?php if (!get_sub_field('titolo_precompilato') && trim(get_sub_field('titolo')) != '') : ?>
@@ -23,4 +25,5 @@
             <div class="description <?php echo $align ?>"><?php the_sub_field('contenuto') ?></div>
         <?php endif ?>
     </div>
+<?php endif; ?>
 <?php endwhile ?>
