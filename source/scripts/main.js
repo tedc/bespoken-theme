@@ -43223,6 +43223,7 @@ module.exports = function() {
             if (typeof $scope.prevTime !== 'undefined') {
               timeDiff = curTime - $scope.prevTime;
               if (timeDiff > 200) {
+                console.log($scope.carousel);
                 if (delta < 0) {
                   $scope.carousel.next();
                 }

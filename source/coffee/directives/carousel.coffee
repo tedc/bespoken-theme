@@ -53,11 +53,13 @@ module.exports = ->
 					if typeof $scope.prevTime isnt 'undefined'
 						timeDiff = curTime - $scope.prevTime
 						if timeDiff > 200
+							console.log $scope.carousel
 							$scope.carousel.next() if delta < 0 
 							$scope.carousel.prev() if delta > 0
 							console.log $scope.carousel.x, delta
 					$scope.prevTime = curTime
-					event.preventDefault() if delta < 0 or (delta > 0 and $scope.carousel.x < 0)		
+					event.preventDefault() if delta < 0 or (delta > 0 and $scope.carousel.x < 0)
+					return	
 #            		delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 		#            if $scope.offset + delta <= 0
 		#                if $scope.offset + delta >= $scope.carousel.maxScrollX
@@ -69,7 +71,7 @@ module.exports = ->
 		#                $scope.isPrev = if $scope.offset + delta >= 0 then off else on
 		#                $scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on
 		#                event.preventDefault()
-					return
+		#			return
 
 				$scope.carousel.on 'scrollEnd', ->
 					$timeout ->
