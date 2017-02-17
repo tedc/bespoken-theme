@@ -5,8 +5,8 @@ module.exports = ->
 		scope : on
 		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", ($scope, $window, $attrs, $element, $timeout, $rootScope)->		
 			w = angular.element $window
-			mouseMultiplier: 1
-			firefoxMultiplier: 15
+			mouseMultiplier = 1
+			firefoxMultiplier = 15
 			container = $element[0].querySelector '.carousel-container'
 			wrapper = container.querySelector '.carousel-wrapper'
 			items = $scope.$eval $attrs.items
