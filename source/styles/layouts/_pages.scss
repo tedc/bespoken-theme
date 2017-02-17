@@ -86,11 +86,11 @@
 		flex-direction: row;
 		justify-content: center;
 		padding-top: em(100px);
-		padding-bottom: em(100px);
+		padding-bottom: em(150px);
 		@include normalize_padding;
 		.btn {
 			position: absolute;
-			bottom: 10px;
+			bottom: em(50px);
 			left: 50%;
 			transform: translate3d(-50%, 0, 0);
 			width: em(80px);
