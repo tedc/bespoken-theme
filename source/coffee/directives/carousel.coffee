@@ -55,7 +55,8 @@ module.exports = ->
 						if timeDiff > 200
 							#$scope.carousel.next() if delta < 0 
 							#$scope.carousel.prev() if delta > 0
-							console.log $scope.carousel.x
+							console.log $scope.carousel.x, delta
+
 					$scope.prevTime = curTime
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
