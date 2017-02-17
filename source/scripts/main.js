@@ -43223,21 +43223,17 @@ module.exports = function() {
             if (typeof $scope.prevTime !== 'undefined') {
               timeDiff = curTime - $scope.prevTime;
               if (timeDiff > 200) {
+                if (delta < 0) {
+                  $scope.carousel.next();
+                }
+                if (delta > 0) {
+                  $scope.carousel.prev();
+                }
                 console.log($scope.carousel.x, delta);
               }
             }
             $scope.prevTime = curTime;
-            delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
-            if ($scope.offset + delta <= 0) {
-              if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
-                $scope.carousel.scrollBy(delta, 0, 200);
-                $scope.offset += delta;
-              } else {
-                $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 0);
-                $scope.offset = $scope.carousel.maxScrollX;
-              }
-              $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
-              $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
+            if (delta < 0 || (delta > 0 && $scope.carousel.x < 0)) {
               event.preventDefault();
             }
           };
