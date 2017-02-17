@@ -152,6 +152,7 @@
 	&-svg {
 		max-width: em(320px);
 		position: relative;
+		width: $f;
 		margin: 0 auto;
         path, rect, circle, polygon, [class^="st"], [class*=" st"] {
             transition: $speed fill;

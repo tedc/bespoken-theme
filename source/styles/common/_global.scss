@@ -160,3 +160,9 @@
     background-size: 2400% 2400%;
     animation: fullGradientAnim 45s ease infinite;
 }
+
+@mixin catGradientAnim() {
+    background: linear-gradient(135deg, #c5168c, #c5168c, #356eff, #ff395e, #0c95ed, #92d321, #ffcd02, #90278e, #ffa811, #ff4c05, #c5168c, #c5168c);
+    background-size: 2400% 2400%;
+    animation: fullGradientAnim 45s ease infinite;
+}

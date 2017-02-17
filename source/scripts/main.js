@@ -43169,11 +43169,13 @@ module.exports = function() {
         mw = $scope.$eval($attrs.mousewheel);
         $scope.num = mw ? 1.2 : 1;
         $rootScope.currentPosX = null;
-        if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-          $scope.num = mw ? 2.2 : 2;
-        }
-        if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
-          $scope.num = items;
+        if (items > 1) {
+          if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+            $scope.num = mw ? 2.2 : 2;
+          }
+          if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+            $scope.num = items;
+          }
         }
         width = max > $scope.num ? (100 / $scope.num) * max : 100;
         itemW = 100 / max;
@@ -43208,13 +43210,23 @@ module.exports = function() {
           $scope.isScrolled = false;
           $scope.carousel = new IScroll(container, opts);
           $scope.offset = 0;
+          $scope.prevTime = new Date().getTime();
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
+            var curTime, timeDiff;
             if (isMobile) {
               return;
             }
             if (!$scope.isScrollable) {
               return;
             }
+            curTime = new Date().getTime();
+            if (typeof $scope.prevTime !== 'undefined') {
+              timeDiff = curTime - prevTime;
+              if (timeDiff > 200) {
+                console.log(delta);
+              }
+            }
+            $scope.prevTime = curTime;
             delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
             if ($scope.offset + delta <= 0) {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
@@ -43264,11 +43276,13 @@ module.exports = function() {
           };
           w.on('resize', function() {
             $scope.num = mw ? 1.2 : 1;
-            if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
-              $scope.num = mw ? 2.2 : 2;
-            }
-            if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
-              $scope.num = items;
+            if (items > 1) {
+              if (Modernizr.mq("screen and (min-width: " + (em(640)) + "em)")) {
+                $scope.num = mw ? 2.2 : 2;
+              }
+              if (Modernizr.mq("screen and (min-width: " + (em(900)) + "em)")) {
+                $scope.num = items;
+              }
             }
             width = max > $scope.num ? (100 / $scope.num) * max : 100;
             itemW = 100 / max;

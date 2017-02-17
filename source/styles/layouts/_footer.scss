@@ -42,6 +42,7 @@
         color: $w;
     }
     @include gradient;
+    @include catGradientAnim;
     &-text {
         padding-right: em(15px);
     }

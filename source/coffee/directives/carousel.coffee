@@ -12,10 +12,11 @@ module.exports = ->
 			mw = $scope.$eval $attrs.mousewheel
 			$scope.num = if mw then 1.2 else 1
 			$rootScope.currentPosX = null
-			if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-				$scope.num = if mw then 2.2 else 2
-			if Modernizr.mq "screen and (min-width: #{em(900)}em)"
-				$scope.num = items
+			if items > 1
+				if Modernizr.mq "screen and (min-width: #{em(640)}em)"
+					$scope.num = if mw then 2.2 else 2
+				if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+					$scope.num = items
 			width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
 			itemW = 100 / max
 			TweenMax.set wrapper,
@@ -44,9 +45,16 @@ module.exports = ->
 				$scope.isScrolled = off
 				$scope.carousel = new IScroll container, opts
 				$scope.offset = 0
+				$scope.prevTime = new Date().getTime()
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
+					curTime = new Date().getTime()
+					if typeof $scope.prevTime isnt 'undefined'
+						timeDiff = curTime - prevTime
+						if timeDiff > 200
+							console.log delta
+					$scope.prevTime = curTime
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
@@ -85,10 +93,11 @@ module.exports = ->
 					return
 				w.on 'resize', ->
 					$scope.num = if mw then 1.2 else 1
-					if Modernizr.mq "screen and (min-width: #{em(640)}em)"
-						$scope.num = if mw then 2.2 else 2
-					if Modernizr.mq "screen and (min-width: #{em(900)}em)"
-						$scope.num = items
+					if items > 1
+						if Modernizr.mq "screen and (min-width: #{em(640)}em)"
+							$scope.num = if mw then 2.2 else 2
+						if Modernizr.mq "screen and (min-width: #{em(900)}em)"
+							$scope.num = items
 					width = if max > $scope.num then ( 100 / $scope.num ) * max else 100
 					itemW = 100 / max
 					TweenMax.set wrapper,
