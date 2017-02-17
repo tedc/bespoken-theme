@@ -48,6 +48,12 @@ module.exports = ->
 				$scope.carousel = new IScroll container, opts
 				$scope.offset = 0
 				$scope.prevTime = new Date().getTime()
+				$scope.prev = ->
+					prevBtn.triggerHandler 'click'
+					return
+				$scope.next = ->
+					prevBtn.triggerHandler 'click' if delta > 0
+					return
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
