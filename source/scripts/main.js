@@ -43225,7 +43225,7 @@ module.exports = function() {
               return;
             }
             delta = event.originalEvent.wheelDeltaY || event.originalEvent.deltaY * -1;
-            delta *= e.mouseMultiplier;
+            delta *= mouseMultiplier;
             if ($scope.offset + delta <= 0) {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
                 $scope.carousel.scrollBy(delta, 0);

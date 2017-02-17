@@ -54,7 +54,7 @@ module.exports = ->
 					return if isMobile
 					return if not $scope.isScrollable
 					delta = event.originalEvent.wheelDeltaY or event.originalEvent.deltaY * -1
-					delta *= e.mouseMultiplier
+					delta *= mouseMultiplier
 					#delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
