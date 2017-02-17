@@ -51,27 +51,18 @@ module.exports = ->
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
-					curTime = new Date().getTime()
-					if typeof $scope.prevTime isnt 'undefined'
-						timeDiff = curTime - $scope.prevTime
-						if timeDiff > 200
-							$scope.move(on) if delta < 0 
-							$scope.move(off) if delta > 0
-					$scope.prevTime = curTime
-					event.preventDefault() if delta < 0 or (delta > 0 and $scope.carousel.x < 0)
-					return	
-#            		delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
-		#            if $scope.offset + delta <= 0
-		#                if $scope.offset + delta >= $scope.carousel.maxScrollX
-		#                    $scope.carousel.scrollBy delta, 0, 200
-		#                    $scope.offset += delta
-		#                else 
-		#                    $scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 0
-		#                    $scope.offset = $scope.carousel.maxScrollX
-		#                $scope.isPrev = if $scope.offset + delta >= 0 then off else on
-		#                $scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on
-		#                event.preventDefault()
-		#			return
+					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
+					if $scope.offset + delta <= 0
+						if $scope.offset + delta >= $scope.carousel.maxScrollX
+							$scope.carousel.scrollBy delta, 0
+							$scope.offset += delta
+						else 
+							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 0
+							$scope.offset = $scope.carousel.maxScrollX
+							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
+							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on
+						event.preventDefault()
+					return
 
 				$scope.carousel.on 'scrollEnd', ->
 					$timeout ->

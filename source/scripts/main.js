@@ -43214,27 +43214,23 @@ module.exports = function() {
           $scope.offset = 0;
           $scope.prevTime = new Date().getTime();
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
-            var curTime, timeDiff;
             if (isMobile) {
               return;
             }
             if (!$scope.isScrollable) {
               return;
             }
-            curTime = new Date().getTime();
-            if (typeof $scope.prevTime !== 'undefined') {
-              timeDiff = curTime - $scope.prevTime;
-              if (timeDiff > 200) {
-                if (delta < 0) {
-                  $scope.move(true);
-                }
-                if (delta > 0) {
-                  $scope.move(false);
-                }
+            delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
+            if ($scope.offset + delta <= 0) {
+              if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
+                $scope.carousel.scrollBy(delta, 0);
+                $scope.offset += delta;
+              } else {
+                $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 0);
+                $scope.offset = $scope.carousel.maxScrollX;
+                $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
+                $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
               }
-            }
-            $scope.prevTime = curTime;
-            if (delta < 0 || (delta > 0 && $scope.carousel.x < 0)) {
               event.preventDefault();
             }
           };
