@@ -5,6 +5,8 @@ module.exports = ->
 		scope : on
 		controller : ["$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", ($scope, $window, $attrs, $element, $timeout, $rootScope)->		
 			w = angular.element $window
+			mouseMultiplier: 1
+			firefoxMultiplier: 15
 			container = $element[0].querySelector '.carousel-container'
 			wrapper = container.querySelector '.carousel-wrapper'
 			items = $scope.$eval $attrs.items
@@ -51,7 +53,9 @@ module.exports = ->
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
-					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
+					delta = event.originalEvent.wheelDeltaY or event.originalEvent.deltaY * -1
+					delta *= e.mouseMultiplier
+					#delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
 					if $scope.offset + delta <= 0
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
 							$scope.carousel.scrollBy delta, 0

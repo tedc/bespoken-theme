@@ -43162,6 +43162,10 @@ module.exports = function() {
       "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
         var container, itemW, items, max, mw, mwScene, nextBtn, prevBtn, w, width, wrapper;
         w = angular.element($window);
+        ({
+          mouseMultiplier: 1,
+          firefoxMultiplier: 15
+        });
         container = $element[0].querySelector('.carousel-container');
         wrapper = container.querySelector('.carousel-wrapper');
         items = $scope.$eval($attrs.items);
@@ -43220,7 +43224,8 @@ module.exports = function() {
             if (!$scope.isScrollable) {
               return;
             }
-            delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
+            delta = event.originalEvent.wheelDeltaY || event.originalEvent.deltaY * -1;
+            delta *= e.mouseMultiplier;
             if ($scope.offset + delta <= 0) {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
                 $scope.carousel.scrollBy(delta, 0);
