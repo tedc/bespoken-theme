@@ -43221,7 +43221,7 @@ module.exports = function() {
             }
             curTime = new Date().getTime();
             if (typeof $scope.prevTime !== 'undefined') {
-              timeDiff = curTime - prevTime;
+              timeDiff = curTime - $scope.prevTime;
               if (timeDiff > 200) {
                 console.log(delta);
               }

@@ -51,7 +51,7 @@ module.exports = ->
 					return if not $scope.isScrollable
 					curTime = new Date().getTime()
 					if typeof $scope.prevTime isnt 'undefined'
-						timeDiff = curTime - prevTime
+						timeDiff = curTime - $scope.prevTime
 						if timeDiff > 200
 							console.log delta
 					$scope.prevTime = curTime
