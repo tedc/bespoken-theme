@@ -26,6 +26,8 @@ module.exports = ->
 			$scope.isScrollable = off
 			$scope.isPrev = off
 			$scope.isNext = on
+			prevBtn = angular.element $element[0].querySelector '.btn-prev'
+			nextBtn = angular.element $element[0].querySelector '.btn-next'
 			$timeout ->
 				if not mw
 					opts =
@@ -53,10 +55,8 @@ module.exports = ->
 					if typeof $scope.prevTime isnt 'undefined'
 						timeDiff = curTime - $scope.prevTime
 						if timeDiff > 200
-							console.log $scope.carousel
-							$scope.carousel.next() if delta < 0 
-							$scope.carousel.prev() if delta > 0
-							console.log $scope.carousel.x, delta
+							nextBtn.triggerHandler 'click' if delta < 0 
+							prevBtn.triggerHandler 'click' if delta > 0
 					$scope.prevTime = curTime
 					event.preventDefault() if delta < 0 or (delta > 0 and $scope.carousel.x < 0)
 					return	

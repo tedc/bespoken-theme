@@ -43160,7 +43160,7 @@ module.exports = function() {
     scope: true,
     controller: [
       "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
-        var container, itemW, items, max, mw, mwScene, w, width, wrapper;
+        var container, itemW, items, max, mw, mwScene, nextBtn, prevBtn, w, width, wrapper;
         w = angular.element($window);
         container = $element[0].querySelector('.carousel-container');
         wrapper = container.querySelector('.carousel-wrapper');
@@ -43188,6 +43188,8 @@ module.exports = function() {
         $scope.isScrollable = false;
         $scope.isPrev = false;
         $scope.isNext = true;
+        prevBtn = angular.element($element[0].querySelector('.btn-prev'));
+        nextBtn = angular.element($element[0].querySelector('.btn-next'));
         $timeout(function() {
           var opts;
           if (!mw) {
@@ -43223,14 +43225,12 @@ module.exports = function() {
             if (typeof $scope.prevTime !== 'undefined') {
               timeDiff = curTime - $scope.prevTime;
               if (timeDiff > 200) {
-                console.log($scope.carousel);
                 if (delta < 0) {
-                  $scope.carousel.next();
+                  nextBtn.triggerHandler('click');
                 }
                 if (delta > 0) {
-                  $scope.carousel.prev();
+                  prevBtn.triggerHandler('click');
                 }
-                console.log($scope.carousel.x, delta);
               }
             }
             $scope.prevTime = curTime;
