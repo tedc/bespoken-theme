@@ -43213,14 +43213,6 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           $scope.offset = 0;
           $scope.prevTime = new Date().getTime();
-          $scope.prev = function() {
-            prevBtn.triggerHandler('click');
-          };
-          $scope.next = function() {
-            if (delta > 0) {
-              prevBtn.triggerHandler('click');
-            }
-          };
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
             var curTime, timeDiff;
             if (isMobile) {
@@ -43234,10 +43226,10 @@ module.exports = function() {
               timeDiff = curTime - $scope.prevTime;
               if (timeDiff > 200) {
                 if (delta < 0) {
-                  nextBtn.triggerHandler('click');
+                  $scope.move(true);
                 }
                 if (delta > 0) {
-                  prevBtn.triggerHandler('click');
+                  $scope.move(false);
                 }
               }
             }

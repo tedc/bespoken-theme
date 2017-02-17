@@ -48,12 +48,6 @@ module.exports = ->
 				$scope.carousel = new IScroll container, opts
 				$scope.offset = 0
 				$scope.prevTime = new Date().getTime()
-				$scope.prev = ->
-					prevBtn.triggerHandler 'click'
-					return
-				$scope.next = ->
-					prevBtn.triggerHandler 'click' if delta > 0
-					return
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
@@ -61,8 +55,8 @@ module.exports = ->
 					if typeof $scope.prevTime isnt 'undefined'
 						timeDiff = curTime - $scope.prevTime
 						if timeDiff > 200
-							nextBtn.triggerHandler 'click' if delta < 0 
-							prevBtn.triggerHandler 'click' if delta > 0
+							$scope.move(on) if delta < 0 
+							$scope.move(off) if delta > 0
 					$scope.prevTime = curTime
 					event.preventDefault() if delta < 0 or (delta > 0 and $scope.carousel.x < 0)
 					return	
