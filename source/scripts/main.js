@@ -43162,7 +43162,7 @@ module.exports = function() {
       "$scope", "$window", "$attrs", "$element", "$timeout", "$rootScope", function($scope, $window, $attrs, $element, $timeout, $rootScope) {
         var container, firefoxMultiplier, itemW, items, max, mouseMultiplier, mw, mwScene, nextBtn, prevBtn, w, width, wrapper;
         w = angular.element($window);
-        mouseMultiplier = 1;
+        mouseMultiplier = .6;
         firefoxMultiplier = 15;
         container = $element[0].querySelector('.carousel-container');
         wrapper = container.querySelector('.carousel-wrapper');
@@ -43216,16 +43216,19 @@ module.exports = function() {
           $scope.offset = 0;
           $scope.prevTime = new Date().getTime();
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
+            var i, j, ref;
             if (isMobile) {
               return;
             }
             if (!$scope.isScrollable) {
               return;
             }
-            delta = event.originalEvent.wheelDeltaY || event.originalEvent.deltaY * -1;
-            delta *= mouseMultiplier;
+            delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
             if ($scope.offset + delta <= 0) {
               if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
+                for (i = j = 0, ref = delta; j >= ref; i = j += -1) {
+                  console.log(i);
+                }
                 $scope.carousel.scrollBy(delta, 0);
                 $scope.offset += delta;
               } else {
