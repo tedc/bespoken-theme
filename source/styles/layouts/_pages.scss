@@ -115,6 +115,8 @@
 				border-radius: em(25px);
 				height: em(40px);
 				width: em(25px);
+				box-shadow: 0 0 20px transparentize($w, 1);
+				animation: mouse 4s infinite;
 				&:before, &:after {
 					width: 2px;
 					content: '';
@@ -351,6 +353,21 @@
 	100% {
 		transform: translate3d(0%, -20%, 0);
 		opacity: 0;
+	}
+}
+
+@keyframes mouse {
+	0% {
+		box-shadow: 0 0 20px transparentize($w, 1);
+	}
+	49% {
+		box-shadow: 0 0 20px transparentize($w, .75);
+	}
+	51% {
+		box-shadow: 0 0 20px transparentize($w, .75);
+	}
+	100% {
+		box-shadow: 0 0 20px transparentize($w, 1);
 	}
 }
 
