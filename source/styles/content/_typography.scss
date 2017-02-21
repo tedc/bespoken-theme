@@ -51,6 +51,9 @@ p {
         .bg-dark & {
             color: $light;
         }
+        .bg-gradient & {
+            color: $w;
+        }
     }
 }
 
@@ -164,7 +167,7 @@ h5 {
     span {
         font-weight: 500;
     }
-    .bg-dark & {
+    .bg-dark &, .bg-gradient & {
         color: $w;
     }
     .page-header & {
@@ -259,6 +262,7 @@ h5 {
 
 .bg-gradient {
     @include gradient();
+    color: $w;
 }
 
 .aligncenter {
