@@ -101,9 +101,9 @@
 				font-size: em(40px);
 				position: relative;
 				top: em(2px, 40px)*-1;
-				transform: translate3d(0, -20%, 0);
-				opacity: 0;
-				animation: scrollAnim 1.5s cubic-bezier(.27,.1,.52,.89) infinite;
+				// transform: translate3d(0, -20%, 0);
+				// opacity: 0;
+				// animation: scrollAnim 1.5s cubic-bezier(.27,.1,.52,.89) infinite;
 				display: inline-block;
 			}
 		}
