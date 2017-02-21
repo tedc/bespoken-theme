@@ -25,7 +25,7 @@
 	$query = new WP_Query(
 		$array_query
 	);
-	if(get_post_type() == 'servizi') {
+	if(get_post_type() == 'servizi' && !$last) {
 		?>
 	<div class="grid-12 alternate row-md-btm">
 		<div class="col-12 aligncenter">
