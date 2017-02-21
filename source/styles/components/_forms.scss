@@ -132,10 +132,10 @@ textarea {
 	@extend %inputs;
 	padding-top: em(20px);
 	line-height: 1.2;
-	.modal-container & {
+	.modal-container &, .contact-form & {
 		height: em(125px, $font-size);
 	}
-	.jobs-form &, .contact-form & {
+	.jobs-form & {
 		height: em(200px, $font-size);
 	}
 	margin-top: em(25px);
