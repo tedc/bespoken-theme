@@ -280,3 +280,18 @@
 		}
 	}
 }
+
+.contact-form {
+	h2, h3, h4 {
+        text-transform: uppercase;
+        color: $purple;
+    }
+    .content {
+        @include breakpoint($bp) {
+            padding: {
+                left: em(25px);
+                right: em(25px);
+            }
+        }
+    }
+}

@@ -1,4 +1,4 @@
-<div class="jobs-form" ng-form<?php if(!get_sub_field('is_contact') ): ?> job-form="true"<?php endif; ?>>
+<div class="<?php if(!get_sub_field('is_contact') ): ?>jobs<?php else : ?>contact<?php endif; ?>-form" ng-form<?php if(!get_sub_field('is_contact') ): ?> job-form="true"<?php endif; ?>>
 <?php if(get_sub_field('is_contact')) :
 	get_template_part( 'builder/'. get_row_layout(), 'contact' );
 	else : ?>

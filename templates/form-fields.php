@@ -30,8 +30,8 @@
 		</button>
 	</div>
 	<div class="acceptance">
-		<input type="checkbox" name="privacy" id="privacy" checked="checked">
-		<label for="privacy" class="form-label" ng-click="isPrivacyCheckd = !isPrivacyCheckd">
+		<input type="checkbox" name="privacy" id="privacy<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" checked="checked">
+		<label for="privacy<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" class="form-label" ng-click="isPrivacyCheckd = !isPrivacyCheckd">
 			<span class="check">
 				<span class="check-text">
 					<?php _e('Sì', 'bspkn'); ?>
@@ -45,8 +45,8 @@
 				<?php _e('Autorizzo il trattamento dei dati personali ai sensi del D. lgs. 196/03s', 'bspkn'); ?>
 			</span>
 		</label>
-		<input type="checkbox" name="newsletter" id="newsletter">
-		<label for="newsletter" class="form-label" ng-click="isNewsletter = !isNewsletter">
+		<input type="checkbox" name="newsletter<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" id="newsletter">
+		<label for="newsletter<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" class="form-label" ng-click="isNewsletter = !isNewsletter">
 			<span class="check">
 				<span class="check-text">
 					<?php _e('Sì', 'bspkn'); ?>
