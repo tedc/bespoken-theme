@@ -106,6 +106,25 @@
 				// animation: scrollAnim 1.5s cubic-bezier(.27,.1,.52,.89) infinite;
 				display: inline-block;
 			}
+			.mouse {
+				position: absolute;
+				top: $f/2;
+				left: $f/2;
+				transform: translate3d(-50%,-50%, 0);
+				border: 2px solid $w;
+				border-radius: em(20px);
+				height: em(40px);
+				width: em(20px);
+				&:before {
+					width: 2px;
+					content: '';
+					top: em(4px);
+					bottom: em(26px);
+					left: 50%;
+					margin-left: -1px;
+					border-radius: 1px;
+				}
+			}
 		}
 		.gradient {
 			@include fullGradientAnim();
