@@ -124,6 +124,8 @@
 					left: 50%;
 					margin-left: -1px;
 					border-radius: 1px;
+					position: absolute;
+					animation: mouse 1s infinite;
 				}
 			}
 		}
@@ -341,5 +343,24 @@
 	100% {
 		transform: translate3d(0%, -20%, 0);
 		opacity: 0;
+	}
+}
+
+@keyframes mouse {
+	0% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	25% {
+		top: em(23px);
+		bottom: em(23px);
+	}
+	50% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	100% {
+		top: em(4px);
+		bottom: em(23px);
 	}
 }
