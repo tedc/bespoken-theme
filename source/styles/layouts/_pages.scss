@@ -125,16 +125,15 @@
 					background-color: $w;
 					height: em(10px);
 					top: em(4px);
+					display: block;
 				}
 				&:before {	
-					animation: mouseBefore 2.5s infinite linear;
+					animation: mouseBefore 2s infinite linear;
 				}
 				&:after {	
 					opacity: .5;
-					transform: scaleY(0) {
-						origin: center top
-					};
-					animation: mouseAfter 2.5s infinite linear;
+					transform: scaleY(0);
+					animation: mouseAfter 2s infinite linear;
 				}
 			}
 		}
