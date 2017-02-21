@@ -117,6 +117,7 @@
 				width: em(20px);
 				&:before {
 					width: 2px;
+					background-color: $w;
 					content: '';
 					top: em(4px);
 					bottom: em(26px);
