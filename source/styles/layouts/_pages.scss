@@ -124,6 +124,7 @@
 					position: absolute;
 					background-color: $w;
 					height: em(10px);
+					top: em(4px);
 				}
 				&:before {	
 					animation: mouseBefore 2.5s infinite linear;
