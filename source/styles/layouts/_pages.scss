@@ -122,18 +122,18 @@
 					margin-left: -1px;
 					border-radius: 1px;
 					position: absolute;
+					background-color: $w;
 				}
 				&:before {	
-					background-color: $w;
 					top: em(4px);
 					bottom: em(23px);
-					animation: mouseBefore 2.5s infinite;
+					animation: mouseBefore 2.5s infinite linear;
 				}
 				&:after {	
-					background-color: $purple;
+					opacity: .5;
 					top: em(4px);
 					bottom: em(36px);
-					animation: mouseAfter 2.5s infinite;
+					animation: mouseAfter 2.5s infinite linear;
 				}
 			}
 		}
@@ -359,16 +359,16 @@
 		top: em(4px);
 		bottom: em(23px);
 	}
-	50% {
+	49.5% {
 		top: em(23px);
 		bottom: em(23px);
 	}
-	50.15% {
+	49.75% {
 		top: em(23px);
 		bottom: em(23px);
 		visibility: hidden;
 	}
-	50.2% {
+	50% {
 		top: em(4px);
 		bottom: em(36px);
 		visibility: hidden;
@@ -392,15 +392,15 @@
 		top: em(4px);
 		bottom: em(36px);
 	}
+	49.5% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	49.75% {
+		top: em(4px);
+		bottom: em(23px);
+	}
 	50% {
-		top: em(4px);
-		bottom: em(23px);
-	}
-	50.15% {
-		top: em(4px);
-		bottom: em(23px);
-	}
-	50.2% {
 		top: em(4px);
 		bottom: em(23px);
 	}
