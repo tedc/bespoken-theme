@@ -123,16 +123,16 @@
 					border-radius: 1px;
 					position: absolute;
 					background-color: $w;
+					height: em(10px);
 				}
 				&:before {	
-					top: em(4px);
-					bottom: em(23px);
 					animation: mouseBefore 2.5s infinite linear;
 				}
 				&:after {	
 					opacity: .5;
-					top: em(4px);
-					bottom: em(36px);
+					transform: scaleY(0) {
+						origin: center top
+					};
 					animation: mouseAfter 2.5s infinite linear;
 				}
 			}
@@ -356,65 +356,38 @@
 
 @keyframes mouseBefore {
 	0% {
-		top: em(4px);
-		bottom: em(23px);
+		transform: scaleY(1);
+		transform-oring: center bottom;
 	}
-	49.5% {
-		top: em(23px);
-		bottom: em(23px);
+	49% {
+		transform: scaleY(0);
+		transform-oring: center bottom;
 	}
-	49.75% {
-		top: em(23px);
-		bottom: em(23px);
-		visibility: hidden;
-	}
-	50% {
-		top: em(4px);
-		bottom: em(36px);
-		visibility: hidden;
-	}
-	50.25% {
-		top: em(4px);
-		bottom: em(36px);
-		visibility: visible;
-	}
-	75% {
-		top: em(4px);
-		bottom: em(23px);
+	51% {
+		transform: scaleY(0);
+		transform-oring: center top;
 	}
 	100% {
-		top: em(4px);
-		bottom: em(23px);
+		transform: scaleY(1);
+		transform-oring: center top;
 	}
+	
 }
 @keyframes mouseAfter {
 	0% {
-		top: em(4px);
-		bottom: em(36px);
+		transform: scaleY(0);
+		transform-oring: center top;
 	}
-	49.5% {
-		top: em(4px);
-		bottom: em(23px);
+	49% {
+		transform: scaleY(1);
+		transform-oring: center top;
 	}
-	49.75% {
-		top: em(4px);
-		bottom: em(23px);
-	}
-	50% {
-		top: em(4px);
-		bottom: em(23px);
-	}
-	50.25% {
-		top: em(4px);
-		bottom: em(23px);
-	}
-	75% {
-		top: em(23px);
-		bottom: em(23px);
+	51% {
+		transform: scaleY(1);
+		transform-oring: center bottom;
 	}
 	100% {
-		visibility: hidden;
-		top: em(4px);
-		bottom: em(36px);
+		transform: scaleY(0);
+		transform-oring: center bottom;
 	}
 }
