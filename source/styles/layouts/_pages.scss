@@ -112,15 +112,15 @@
 				left: $f/2;
 				transform: translate3d(-50%,-50%, 0);
 				border: 2px solid $w;
-				border-radius: em(20px);
+				border-radius: em(25px);
 				height: em(40px);
-				width: em(20px);
+				width: em(25px);
 				&:before {
 					width: 2px;
 					background-color: $w;
 					content: '';
 					top: em(4px);
-					bottom: em(26px);
+					bottom: em(23px);
 					left: 50%;
 					margin-left: -1px;
 					border-radius: 1px;
