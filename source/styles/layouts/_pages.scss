@@ -355,14 +355,19 @@
 		top: em(23px);
 		bottom: em(23px);
 	}
-	50.25% {
+	50.15% {
 		top: em(23px);
 		bottom: em(23px);
 		visibility: hidden;
 	}
-	50.3% {
+	50.2% {
 		top: em(4px);
-		bottom: em(4px);
+		bottom: em(36px);
+		visibility: hidden;
+	}
+	50.25% {
+		top: em(4px);
+		bottom: em(36px);
 		visibility: visible;
 	}
 	75% {
