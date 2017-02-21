@@ -125,7 +125,7 @@
 					margin-left: -1px;
 					border-radius: 1px;
 					position: absolute;
-					animation: mouse 1s infinite;
+					animation: mouse 2.5s infinite;
 				}
 			}
 		}
@@ -351,11 +351,21 @@
 		top: em(4px);
 		bottom: em(23px);
 	}
-	25% {
+	50% {
 		top: em(23px);
 		bottom: em(23px);
 	}
-	50% {
+	50.25% {
+		top: em(23px);
+		bottom: em(23px);
+		visibility: hidden;
+	}
+	50.3% {
+		top: em(4px);
+		bottom: em(4px);
+		visibility: visible;
+	}
+	75% {
 		top: em(4px);
 		bottom: em(23px);
 	}
