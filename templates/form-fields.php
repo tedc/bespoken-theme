@@ -31,7 +31,7 @@
 	</div>
 	<div class="acceptance">
 		<input type="checkbox" name="privacy" id="privacy<?php if(get_sub_field('is_contact')) : ?>-contact<?php endif; ?>" checked="checked">
-		<label for="privacy<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" class="form-label" ng-click="isPrivacyCheckd = !isPrivacyCheckd">
+		<label for="privacy<?php if(get_sub_field('is_contact')) : ?>-contact<?php endif; ?>" class="form-label" ng-click="isPrivacyCheckd = !isPrivacyCheckd">
 			<span class="check">
 				<span class="check-text">
 					<?php _e('Sì', 'bspkn'); ?>
@@ -46,7 +46,7 @@
 			</span>
 		</label>
 		<input type="checkbox" name="newsletter<?php if(get_sub_field('is_contact')) : ?>-contact<?php endif; ?>" id="newsletter">
-		<label for="newsletter<?php get_sub_field('is_contact') : ?>-contact<?php endif; ?>" class="form-label" ng-click="isNewsletter = !isNewsletter">
+		<label for="newsletter<?php if(get_sub_field('is_contact')) : ?>-contact<?php endif; ?>" class="form-label" ng-click="isNewsletter = !isNewsletter">
 			<span class="check">
 				<span class="check-text">
 					<?php _e('Sì', 'bspkn'); ?>
