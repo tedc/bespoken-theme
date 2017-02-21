@@ -115,17 +115,25 @@
 				border-radius: em(25px);
 				height: em(40px);
 				width: em(25px);
-				&:before {
+				&:before, &:after {
 					width: 2px;
-					background-color: $w;
 					content: '';
-					top: em(4px);
-					bottom: em(23px);
 					left: 50%;
 					margin-left: -1px;
 					border-radius: 1px;
 					position: absolute;
-					animation: mouse 2.5s infinite;
+				}
+				&:before {	
+					background-color: $w;
+					top: em(4px);
+					bottom: em(23px);
+					animation: mouseBefore 2.5s infinite;
+				}
+				&:after {	
+					background-color: $purple;
+					top: em(4px);
+					bottom: em(36px);
+					animation: mouseAfter 2.5s infinite;
 				}
 			}
 		}
@@ -346,7 +354,7 @@
 	}
 }
 
-@keyframes mouse {
+@keyframes mouseBefore {
 	0% {
 		top: em(4px);
 		bottom: em(23px);
@@ -377,5 +385,36 @@
 	100% {
 		top: em(4px);
 		bottom: em(23px);
+	}
+}
+@keyframes mouseAfter {
+	0% {
+		top: em(4px);
+		bottom: em(36px);
+	}
+	50% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	50.15% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	50.2% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	50.25% {
+		top: em(4px);
+		bottom: em(23px);
+	}
+	75% {
+		top: em(23px);
+		bottom: em(23px);
+	}
+	100% {
+		visibility: hidden;
+		top: em(4px);
+		bottom: em(36px);
 	}
 }
