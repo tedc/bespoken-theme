@@ -11,7 +11,8 @@
         "scripts/modernizr/modernizr.build.js",
         "../bower_components/gsap/src/uncompressed/TweenMax.js",
         "../bower_components/gsap/src/uncompressed/plugins/ScrollToPlugin.js",
-        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js"
+        "../bower_components/scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap.js",
+        "../node_modules/smooth-scrolling/smooth-scrolling.min.js"
       ],
       "bower" : ["fastclick", "scrollmagic", "iscroll", "perfect-scrollbar", "hamsterjs"]
     },
