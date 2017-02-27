@@ -45,29 +45,49 @@ module.exports = ->
 						scrollY: off
 						#mouseWheel : mw
 						bindToWrapper : on
+						#useTransition : off
 						bounce : off
 				$scope.isScrolled = off
 				$scope.carousel = new IScroll container, opts
 				$scope.offset = 0
 				$scope.prevTime = new Date().getTime()
+				$scope.isScrolling = off
 				$scope.scrollMove = (event, delta, deltaX, deltaY)->
 					return if isMobile
 					return if not $scope.isScrollable
-					#delta = event.originalEvent.wheelDeltaY or event.originalEvent.deltaY * -1
-					#delta *= mouseMultiplier
 					delta = if event.originalEvent.wheelDeltaY then event.originalEvent.wheelDeltaY else event.originalEvent.wheelDelta
-					if $scope.offset + delta <= 0
+					event.preventDefault() if deltaY > 0 and $scope.offset < 0
+					event.preventDefault() if deltaY < 0
+					event.preventDefault() if $scope.isScrolling
+					if $scope.offset + delta < 0
 						if $scope.offset + delta >= $scope.carousel.maxScrollX
-							for i in [0..delta] by -1
-								console.log i
-							$scope.carousel.scrollBy delta, 0
 							$scope.offset += delta
-						else 
-							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 0
+						else
 							$scope.offset = $scope.carousel.maxScrollX
-							$scope.isPrev = if $scope.offset + delta >= 0 then off else on
-							$scope.isNext = if $scope.offset + delta <= $scope.carousel.maxScrollX then off else on
-						event.preventDefault()
+					else
+						$scope.offset = 0
+					TweenMax.killChildTweensOf wrapper
+					TweenMax.to wrapper, 1.1,
+						x : $scope.offset
+						ease : Power2.easeOut
+						onStart : ->
+							$timeout ->
+								$scope.isNext = if $scope.offset <= $scope.carousel.maxScrollX then off else on
+								$scope.isScrolling = on if not $scope.isScrolling
+								if delta < 0
+									$scope.isPrev = if $scope.offset >= 0 then off else on
+								return
+							, 0	
+							return
+						onComplete : ->
+							TweenMax.set wrapper,
+								clearProps : 'x'
+							$scope.carousel.scrollTo $scope.offset, 0, 0
+							$timeout ->
+								$scope.isScrolling = off if $scope.isScrolling
+								$scope.isPrev = if $scope.offset >= 0 then off else on
+							, 0
+							return
 					return
 
 				$scope.carousel.on 'scrollEnd', ->
@@ -86,11 +106,39 @@ module.exports = ->
 						mover = if resto < mover / 2 then resto + mover else resto
 						mv = if cond then -mover else mover
 						if $scope.carousel.x + mv > 0
-							$scope.carousel.scrollTo 0, 0, 500 if not cond
+							if not cond
+								TweenMax.to wrapper, 1.1,
+									x : 0
+									ease : Power2.easeOut
+									onComplete : ->
+										TweenMax.set wrapper,
+											clearProps : 'x'
+										$scope.carousel.scrollTo 0, 0, 0
+										return
+								$scope.offset = 0
 						else if $scope.carousel.x + mv < $scope.carousel.maxScrollX
-							$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 500 if cond
+							if cond
+								TweenMax.to wrapper, 1.1,
+									x : $scope.carousel.maxScrollX,
+									ease : Power2.easeOut
+									onComplete : ->
+										TweenMax.set wrapper,
+											clearProps : 'x'
+										$scope.carousel.scrollTo $scope.carousel.maxScrollX, 0, 0
+										return
+								$scope.offset = $scope.carousel.maxScrollX
 						else
-							$scope.carousel.scrollBy mv, 0, 500
+							TweenMax.to wrapper, 1.1,
+								x : "+=#{mv}"
+								ease : Power2.easeOut
+								onComplete : ->
+									TweenMax.set wrapper,
+										clearProps : 'x'
+									$scope.carousel.scrollBy mv, 0, 0
+									return	
+							$scope.offset += mv
+						$scope.isPrev = if $scope.offset >= 0 then off else on
+						$scope.isNext = if $scope.offset <= $scope.carousel.maxScrollX then off else on
 						$scope.offset = $scope.carousel.x
 					return
 				w.on 'resize', ->

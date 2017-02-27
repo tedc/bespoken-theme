@@ -43215,8 +43215,8 @@ module.exports = function() {
           $scope.carousel = new IScroll(container, opts);
           $scope.offset = 0;
           $scope.prevTime = new Date().getTime();
+          $scope.isScrolling = false;
           $scope.scrollMove = function(event, delta, deltaX, deltaY) {
-            var i, j, ref;
             if (isMobile) {
               return;
             }
@@ -43224,21 +43224,52 @@ module.exports = function() {
               return;
             }
             delta = event.originalEvent.wheelDeltaY ? event.originalEvent.wheelDeltaY : event.originalEvent.wheelDelta;
-            if ($scope.offset + delta <= 0) {
-              if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
-                for (i = j = 0, ref = delta; j >= ref; i = j += -1) {
-                  console.log(i);
-                }
-                $scope.carousel.scrollBy(delta, 0);
-                $scope.offset += delta;
-              } else {
-                $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 0);
-                $scope.offset = $scope.carousel.maxScrollX;
-                $scope.isPrev = $scope.offset + delta >= 0 ? false : true;
-                $scope.isNext = $scope.offset + delta <= $scope.carousel.maxScrollX ? false : true;
-              }
+            if (deltaY > 0 && $scope.offset < 0) {
               event.preventDefault();
             }
+            if (deltaY < 0) {
+              event.preventDefault();
+            }
+            if ($scope.isScrolling) {
+              event.preventDefault();
+            }
+            if ($scope.offset + delta < 0) {
+              if ($scope.offset + delta >= $scope.carousel.maxScrollX) {
+                $scope.offset += delta;
+              } else {
+                $scope.offset = $scope.carousel.maxScrollX;
+              }
+            } else {
+              $scope.offset = 0;
+            }
+            TweenMax.killChildTweensOf(wrapper);
+            TweenMax.to(wrapper, 1.1, {
+              x: $scope.offset,
+              ease: Power2.easeOut,
+              onStart: function() {
+                $timeout(function() {
+                  $scope.isNext = $scope.offset <= $scope.carousel.maxScrollX ? false : true;
+                  if (!$scope.isScrolling) {
+                    $scope.isScrolling = true;
+                  }
+                  if (delta < 0) {
+                    $scope.isPrev = $scope.offset >= 0 ? false : true;
+                  }
+                }, 0);
+              },
+              onComplete: function() {
+                TweenMax.set(wrapper, {
+                  clearProps: 'x'
+                });
+                $scope.carousel.scrollTo($scope.offset, 0, 0);
+                $timeout(function() {
+                  if ($scope.isScrolling) {
+                    $scope.isScrolling = false;
+                  }
+                  return $scope.isPrev = $scope.offset >= 0 ? false : true;
+                }, 0);
+              }
+            });
           };
           $scope.carousel.on('scrollEnd', function() {
             $timeout(function() {
@@ -43261,15 +43292,47 @@ module.exports = function() {
               mv = cond ? -mover : mover;
               if ($scope.carousel.x + mv > 0) {
                 if (!cond) {
-                  $scope.carousel.scrollTo(0, 0, 500);
+                  TweenMax.to(wrapper, 1.1, {
+                    x: 0,
+                    ease: Power2.easeOut,
+                    onComplete: function() {
+                      TweenMax.set(wrapper, {
+                        clearProps: 'x'
+                      });
+                      $scope.carousel.scrollTo(0, 0, 0);
+                    }
+                  });
+                  $scope.offset = 0;
                 }
               } else if ($scope.carousel.x + mv < $scope.carousel.maxScrollX) {
                 if (cond) {
-                  $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 500);
+                  TweenMax.to(wrapper, 1.1, {
+                    x: $scope.carousel.maxScrollX,
+                    ease: Power2.easeOut,
+                    onComplete: function() {
+                      TweenMax.set(wrapper, {
+                        clearProps: 'x'
+                      });
+                      $scope.carousel.scrollTo($scope.carousel.maxScrollX, 0, 0);
+                    }
+                  });
+                  $scope.offset = $scope.carousel.maxScrollX;
                 }
               } else {
-                $scope.carousel.scrollBy(mv, 0, 500);
+                TweenMax.to(wrapper, 1.1, {
+                  x: "+=" + mv,
+                  ease: Power2.easeOut,
+                  onComplete: function() {
+                    TweenMax.set(wrapper, {
+                      clearProps: 'x'
+                    });
+                    $scope.carousel.scrollBy(mv, 0, 0);
+                  }
+                });
+                $scope.offset += mv;
               }
+              $scope.isPrev = $scope.offset >= 0 ? false : true;
+              $scope.isNext = $scope.offset <= $scope.carousel.maxScrollX ? false : true;
               $scope.offset = $scope.carousel.x;
             }
           };
@@ -43868,15 +43931,9 @@ module.exports = function($rootScope, $timeout) {
           scene.setPin(pin);
         }
         scene.addTo(controller);
+        window.scrollTo(0, 0);
         controller.update(true);
       }, 0);
-      $timeout(function() {
-        TweenMax.to(window, .5, {
-          scrollTo: {
-            y: 0
-          }
-        });
-      }, 200);
     }
   };
 };
