@@ -20,6 +20,6 @@
 		get_template_part( ( $post[0]->post_type == 'page' ) ? 'page' : 'single' );
     	$file = ob_get_contents();
     	ob_end_clean();
-    	$content = $request['name'];
+    	$content = $post[0];
     	return $content;
 	}
