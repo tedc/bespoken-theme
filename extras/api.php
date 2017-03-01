@@ -18,7 +18,7 @@
 		$q = new WP_Query($args);
 		while($q->have_posts()) : $q->the_post();
 		ob_start();
-		get_template_part( ( $post[0]->post_type == 'page' ) ? 'page' : 'single' );
+		get_template_part( ( $post->post_type == 'page' ) ? 'page' : 'single' );
     	$file = ob_get_contents();
     	ob_end_clean();
     	endwhile;
