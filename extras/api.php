@@ -20,7 +20,7 @@
 		ob_start();
 		if( get_post_type() == 'page' ) :
 			get_template_part('templates/'. (is_page_template('about.php')) ? 'about' : 'page', 'header');
-			get_template_part('templates/page', 'layout');
+			//get_template_part('templates/page', 'layout');
 		else :
 			get_template_part('single');
 		endif;
