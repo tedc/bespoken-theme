@@ -8,18 +8,20 @@
 	}
 
 	function get_bspkn_page(WP_REST_Request $request) {
-		$post = get_posts(
-			array(
+		$args = array(
 				'name' => $request['name'],
 				'posts_per_page' => -1,
 				'post_status' => 'publish',
 				'post_type' => 'any'
-			)
-		);
+			);
+		$file = '';
+		$q = new WP_Query($args);
+		while($q->have_posts()) : $q->the_post();
 		ob_start();
 		get_template_part( ( $post[0]->post_type == 'page' ) ? 'page' : 'single' );
     	$file = ob_get_contents();
     	ob_end_clean();
-    	$content = $post[0];
+    	endwhile;
+    	$content = $file;
     	return $content;
 	}
