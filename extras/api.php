@@ -1,6 +1,6 @@
 <?php
 	add_action( 'rest_api_init', 'bspkn_rest_api');
-	function bspk_rest_api() {
+	function bspkn_rest_api() {
 		register_rest_route( 'bspkn/v1', 'page/(?P<name>.+)', array(
 			'methods' => 'GET',
 			'callback' => 'get_bspkn_page'
