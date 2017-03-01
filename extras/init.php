@@ -4,6 +4,7 @@
         'extras/utils.php',
         'extras/scripts.php',
         'extras/styles.php',
+        'extras/api.php',
     ];
 
 foreach ($extra_includes as $file) {
