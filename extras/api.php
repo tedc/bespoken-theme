@@ -10,7 +10,7 @@
 	function get_bspkn_page(WP_REST_Request $request) {
 		$post = get_posts(
 			array(
-				'post_name' => $request['name'],
+				'name' => $request['name'],
 				'posts_per_page' => -1,
 				'post_status' => 'publish',
 				'post_type' => 'any'
