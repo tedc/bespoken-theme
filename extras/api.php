@@ -16,10 +16,10 @@
 				'post_type' => 'any'
 			)
 		);
-		 ob_start();
-		 get_template_part( ( $post[0]->post_type == 'page' ) ? 'page' : 'single' );
+		ob_start();
+		get_template_part( ( $post[0]->post_type == 'page' ) ? 'page' : 'single' );
     	$file = ob_get_contents();
     	ob_end_clean();
-    	$content = array('content' => $file);
+    	$content = $request['name'];
     	return $content;
 	}
