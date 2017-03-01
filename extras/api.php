@@ -27,6 +27,6 @@
     	$file = ob_get_contents();
     	ob_end_clean();
     	endwhile;
-    	$content = $file;
+    	$content = array('content' : str_replace(array('\n', '\r', '\t'), ' ', $file));
     	return $content;
 	}
