@@ -138,7 +138,7 @@ add_action( 'wp_head', 'favicon' );
 
 function na_remove_slug( $post_link, $post, $leavename ) {
 
-    if ( 'servizi' != $post->post_type || 'publish' != $post->post_status ) {
+    if ( ('servizi' != $post->post_type && 'lavori' != $post->post_type ) || 'publish' != $post->post_status ) {
         return $post_link;
     }
     $uri = '';
@@ -167,7 +167,7 @@ function gp_parse_request_trick( $query ) {
  
     // 'name' will be set if post permalinks are just post_name, otherwise the page rule will match
     if ( ! empty( $query->query['name'] ) ) {
-        $query->set( 'post_type', array( 'post', 'page', 'servizi' ) );
+        $query->set( 'post_type', array( 'post', 'page', 'servizi', 'lavori' ) );
     }
 }
 add_action( 'pre_get_posts', 'gp_parse_request_trick' );
