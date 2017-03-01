@@ -19,7 +19,7 @@
 		while($q->have_posts()) : $q->the_post();
 		ob_start();
 		if( get_post_type() == 'page' ) :
-			get_template_part('templates/' (is_page_template('about.php')) ? 'about' : 'page', 'header');
+			get_template_part('templates/'. (is_page_template('about.php')) ? 'about' : 'page', 'header');
 			get_template_part('templates/content', 'layout');
 		else :
 			get_template_part('single');
