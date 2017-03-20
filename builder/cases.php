@@ -79,7 +79,7 @@ if(get_sub_field('cols')) :
 	                    </div>
 	                </div>
 	            </div> 
-	            <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEnded}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
+	            <!-- <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEnded}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a> -->
 	        </div>
 	        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
 	        <?php } ?>
