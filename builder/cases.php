@@ -42,7 +42,7 @@ if(get_sub_field('case_kind') == 0) : ?>
 <?php else : 
 if(get_sub_field('cols')) : 
 ?>
-<div class="grid-12 alternate cases">
+<div class="grid-12 bg-dark cases">
 	<?php
 	$colClass = get_sub_field('cols');
 	$colClass .= (is_mobile()) ? ' carousel-item' : '';

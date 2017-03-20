@@ -50,6 +50,11 @@
                     font-size: em(36px);
                 }
             }
+            @include breakpoint($bp) {
+                &.col-name {
+                    font-size: vw(36px);
+                }
+            }
         }
         .company {
             font-weight: normal;
@@ -57,6 +62,11 @@
             @include breakpoint(999px) {
                 &:not(.col-name) {
                     font-size: em(24px);
+                }
+            }
+            @include breakpoint($bp) {
+                &.col-company {
+                    font-size: vw(36px);
                 }
             }
         }
