@@ -54,7 +54,8 @@ if(get_sub_field('cols')) :
 	            $pattern = '/embed\/(\w+)\?\w+/';
 	            $oembed = get_sub_field('video_embed');
 	            $iframe = preg_match($pattern, $oembed, $matches);
-			?>	
+			?>
+			<div class="video">
 			<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
 	        <img class="screenshot" src="<?php the_sub_field('video'); ?>">
 	        <div class="clients row">
@@ -81,6 +82,7 @@ if(get_sub_field('cols')) :
 	        </div>
 	        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
 	        <?php } ?>
+	    	</div>
 	    	</div>
 		<?php endif; endwhile; ?>
 	</div>
