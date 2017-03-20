@@ -39,6 +39,53 @@ if(get_sub_field('case_kind') == 0) : ?>
 		</div>
 		<?php endwhile; wp_reset_query(); ?>
 	</div>
+<?php else : 
+if(get_sub_field('cols')) : 
+?>
+<div class="grid-12 alternate cases">
+	<?php 
+	$colClass .= (is_mobile()) ? ' carousel-item' : '';
+	while($query->have_posts()) : $query->the_post();
+	 ?>
+	<div <?php post_class('col-'.$colClass); ?>">
+		<?php while(have_rows('builder')) : the_row(); ?>
+			<?php if(get_row_layout() == 'intervista') : ?>
+			<?php
+	            $pattern = '/embed\/(\w+)\?\w+/';
+	            $oembed = get_sub_field('video_embed');
+	            $iframe = preg_match($pattern, $oembed, $matches);
+			?>	
+			<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
+	        <img class="screenshot" src="<?php the_sub_field('video'); ?>">
+	        <div class="clients row">
+	            <h4 class="name"><?php the_sub_field('titolo') ?></h4>
+	            <h5 class="company"><?php the_sub_field('sottotitolo') ?></h5>
+	        </div>
+	        <?php if (get_sub_field('video_embed') != "") { ?>       
+	        <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)" ng-class="{visible:isStarted}">
+	            <youtube-video id="player_<?php echo $slide; ?>" video-id="video.id" player-vars="video.vars" player="video.player" ng-class="{visible: isPlaying}"></youtube-video>
+	            <?php close('isPlaying=false;isStarted=false;video.player.stopVideo()'); ?> 
+	            <div class="controls">
+	                <div class="buttons">
+	                    <span class="play-pause" ng-click="playPause(video.player)" ng-class="{playing: !isPaused}"></span>
+	                    <span class="fs" title="<?php _e('Full screen', 'bspkn'); ?>" ng-click="fulScreen('player_<?php echo $slide; ?>')"></span>
+	                </div>
+	                <div class="status-bar" ng-click="skipTo($event, video.player)">
+	                    <div class="progress-bar"></div>
+	                    <div class="progress-mask">
+	                        <span class="time" ng-bind-html="time" ng-class="{invert: isHalf}"></span>
+	                    </div>
+	                </div>
+	            </div> 
+	            <a class="btn more" href="<?php the_permalink(); ?>" ng-class="{visible: isEnded}"><span class="btn-text"><?php _e('Scopri', 'bspkn'); ?></span></a>
+	        </div>
+	        <span class="play" ng-click="isStarted=true;video.player.playVideo()" ng-class="{visible:isReady}"></span>        
+	        <?php } ?>
+	    	</div>
+		<?php endif; endwhile; ?>
+	</div>
+	<?php endwhile; wp_reset_query(); ?>
+</div>
 <?php else : ?>
 <div class="video-carousel video bg-dark row-lg" ng-carousel items="1" max="<?php echo $query->found_posts; ?>" mousewheel="false">
 	<div class="carousel-container">
@@ -102,4 +149,4 @@ if(get_sub_field('case_kind') == 0) : ?>
 			</nav>
 			<?php endif; ?>
 </div>
-<?php endif; ?>
+<?php endif; endif; ?>

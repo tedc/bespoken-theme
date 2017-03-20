@@ -29,7 +29,7 @@
 		endif;
     	$file = ob_get_contents();
     	ob_end_clean();
-    	endwhile;
+    	endwhile; wp_reset_query();
     	$content = array('content' => trim(preg_replace('/\s+/', ' ', $file)));
     	return $content;
 	}
