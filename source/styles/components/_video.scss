@@ -53,6 +53,15 @@
             @include breakpoint($bp) {
                 &.col-name {
                     font-size: vw(36px);
+                    .col-6 & {
+                        font-size: vw(36px/2);
+                    }
+                    .col-4 & {
+                        font-size: vw(36px/3);
+                    }
+                    .col-3 & {
+                        font-size: vw(36px/4);
+                    }
                 }
             }
         }
@@ -66,7 +75,16 @@
             }
             @include breakpoint($bp) {
                 &.col-company {
-                    font-size: vw(36px);
+                    font-size: vw(24px); 
+                    .col-6 & {
+                        font-size: vw(24px/2);
+                    }
+                    .col-4 & {
+                        font-size: vw(24px/3);
+                    }
+                    .col-3 & {
+                        font-size: vw(24px/4);
+                    }
                 }
             }
         }
