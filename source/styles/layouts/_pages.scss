@@ -162,7 +162,7 @@
 			.cover {
 				@include absfull;
 			}
-			.btn {
+			.btn:not(.close) {
 				position: absolute;
 				left: 50%;
 				top: 50%;
