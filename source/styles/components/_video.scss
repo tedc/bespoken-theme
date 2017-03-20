@@ -46,14 +46,18 @@
             text-transform: uppercase;
             font-size: vmin(36px);
             @include breakpoint(999px) {
-                font-size: em(36px);
+                &:not(.col-name) {
+                    font-size: em(36px);
+                }
             }
         }
         .company {
             font-weight: normal;
             font-size: vmin(24px);
             @include breakpoint(999px) {
-                font-size: em(24px);
+                &:not(.col-name) {
+                    font-size: em(24px);
+                }
             }
         }
     }

@@ -60,8 +60,8 @@ if(get_sub_field('cols')) :
 			<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
 	        <img class="screenshot" src="<?php the_sub_field('video'); ?>">
 	        <div class="clients row">
-	            <h4 class="name"><?php the_sub_field('titolo') ?></h4>
-	            <h5 class="company"><?php the_sub_field('sottotitolo') ?></h5>
+	            <h4 class="name col-name"><?php the_sub_field('titolo') ?></h4>
+	            <h5 class="company col-company"><?php the_sub_field('sottotitolo') ?></h5>
 	        </div>
 	        <?php if (get_sub_field('video_embed') != "") { ?>       
 	        <div class="video-foreground" style="background-image: url(<?php the_sub_field('video'); ?>)" ng-class="{visible:isStarted}">
