@@ -45,7 +45,7 @@ if(get_sub_field('cols')) :
 <div class="grid-12 alternate cases">
 	<?php 
 	$colClass .= (is_mobile()) ? ' carousel-item' : '';
-	while($query->have_posts()) : $query->the_post();
+	$slide = 0; while($query->have_posts()) : $query->the_post();
 	 ?>
 	<div <?php post_class('col-'.$colClass); ?>">
 		<?php while(have_rows('builder')) : the_row(); ?>
@@ -84,7 +84,7 @@ if(get_sub_field('cols')) :
 	    	</div>
 		<?php endif; endwhile; ?>
 	</div>
-	<?php endwhile; wp_reset_query(); ?>
+	<?php $slide++; endwhile; wp_reset_query(); ?>
 </div>
 <?php else : ?>
 <div class="video-carousel video bg-dark row-lg" ng-carousel items="1" max="<?php echo $query->found_posts; ?>" mousewheel="false">
