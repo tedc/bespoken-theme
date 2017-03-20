@@ -45,7 +45,7 @@ if(get_sub_field('cols')) :
 <div class="grid-12 alternate cases">
 	<?php
 	$colClass = get_sub_field('cols');
-	$colClass .= (is_mobile()) ? ' carousel-item' : get_sub_field('cols');
+	$colClass .= (is_mobile()) ? ' carousel-item' : '';
 	$slide = 0; while($query->have_posts()) : $query->the_post();
 	 ?>
 	<div <?php post_class('col-'.$colClass); ?>">
