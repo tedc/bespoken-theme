@@ -18,7 +18,7 @@
 	        <div class="clients row">
 	        	<?php if(get_sub_field('video_title') != '') : ?>
 	            <h4 class="name col-name"><?php the_sub_field('video_title') ?></h4>
-	        	<?php endif; get_sub_field('video_subtitle') != '') : ?>
+	        	<?php endif; if(get_sub_field('video_subtitle') != '') : ?>
 	            <h5 class="company col-company"><?php the_sub_field('video_subtitle') ?></h5>
 	        	<?php endif; ?>
 	        </div>
