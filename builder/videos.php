@@ -11,7 +11,7 @@
 	            $oembed = get_sub_field('video_embed');
 	            $iframe = preg_match($pattern, $oembed, $matches);
 			?>
-			<div class="video">
+			<div class="video row-md">
 			<div class="container-player" ng-player player="<?php echo $matches[1]; ?>">
 	        <img class="screenshot" src="<?php the_sub_field('screenshot'); ?>">
 	        <?php if(get_sub_field('video_title') != '' || get_sub_field('video_subtitle') != '') : ?>
